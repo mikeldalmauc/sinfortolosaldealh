@@ -1,9 +1,15 @@
 #Dokumentazio prosezua
 
+- [Oinarriak](#oinarriak)
 - [Erabili beharreko trensak](#erabili-beharreko-trensak)
 - [Abantailak eta desabantailak](#abantailak-eta-desabantailak)
   - [Abantailak](#abantailak)
   - [Desabantailak](#desabantailak)
+
+## Oinarriak
+Markdownen bitartez eta taldelanerako tresnak erabiliz edukiak sortzeko sistema.
+
+Ikusi dokumentazio honen egitura adibide gisa.
 
 ## Erabili beharreko trensak
 
