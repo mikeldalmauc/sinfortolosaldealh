@@ -14,7 +14,9 @@ Ikusi dokumentazio honen egitura adibide gisa.
 ## Erabili beharreko trensak
 
 - **Visual studio:** Editorea, markdown kodea kudeatzeko extensio asko ditu, oso erabilgarria hurrengo extensioa [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-- **git:** Aldaketa guztien historikoa, repositorioen abantailak eskeintzen ditu, baita irakasle eta ikasleen arteko trukaketa azkartzen du, Githubek markdown testu ikuslea du.
+  - Azpiko tresnekin integratzen da.
+  
+- **git:** Aldaketa guztien historikoa eta repositorioen abantailak eskeintzen ditu. Irakasle eta ikasleen arteko trukaketa azkartzen du. Githubek markdown testu ikuslea du.
 - **Markdown:** Taldearen komunikazio hobetzen eta erraztu du. Dokumentazioa sortzea asko errazten du.
 - **(Opzionala) ChatGpt:** Gidak eta listak sortzeko erabilgarria, Markdown formatuan erantzuten du, zuzenean gure dokumentazioan kopia daitekeena.(Gogoratu, dokumentazioa, luzea baino, zehatza eta ulergarria izan behar duela.)
 

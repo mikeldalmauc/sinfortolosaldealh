@@ -42,7 +42,7 @@ Git erabiliz repositorioak kudeatzeko oinarrizko komandoak hemen dituzu:
   
 ### Konmitak eta Aldaketa Historia
 
-- `git commit -m "[Mezua]"`: Egin konmit berria "staging area"-n dauden aldaketeekin.
+- `git commit -m "[Mezua]"`: Egin konmit berria "staging area"-ra dauden aldaketekin.
 - `git log`: Erakutsi konmiten historia.
 - `git show [konmit ID]`: Erakutsi konmit baten xehetasunak.
 
