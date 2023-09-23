@@ -30,8 +30,14 @@ TODO
 ### Beste mySQL konfigurazio parametro arruntak
 TODO
 
+[DockerHuben nginx](https://hub.docker.com/_/nginx)
 ## Web serbitzari bat sortu (Nginx)
 TODO
+
+## Web serbitzari bat sortu (Apache)
+
+TODO
+[DockerHuben apache] (https://hub.docker.com/_/httpd)
 
 ## Garapen ingurune bat sortu (Java)
 TODO
