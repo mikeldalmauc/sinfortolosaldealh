@@ -1,5 +1,11 @@
 Ongi, hemen dituzu Linux komando oinarrizkoak, Euskarara itzulita:
 
+## TOP erabilenak
+  - ls : Direktorioaren edukia listatu
+  - cd : Aldatu direktorioz
+  - cat : Erakutsi fitzategiaren barkekoak kontsolan.
+  - nano/vi : textu editorea kontsolan
+
 ### Fitxategi Eragiketak
 
 - `ls`: Zerrendatu uneko direktorioan dauden fitxategiak eta direktorioak.

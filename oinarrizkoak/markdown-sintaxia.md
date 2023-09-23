@@ -1,5 +1,10 @@
 Markdown arin ulertzeko eta idazteko markatze hizkuntza bat da. Dokumentazio, README fitxategiak eta GitHub eta Jekyll bezalako plataformetan edukiak sortzeko erabilera zabala du. Hemen dituzu Markdown komando erabilienak:
 
+## TOP erabilenak
+  [Goiburuak](#goiburuak)
+  [Kodea](#kodea)
+  [Zerrendak](#zerrendak)
+  
 ### Goiburuak
 ```markdown
 # H1

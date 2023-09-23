@@ -25,3 +25,4 @@ TODO
 
 ### Beste mySQL konfigurazio parametro arruntak
 TODO
+

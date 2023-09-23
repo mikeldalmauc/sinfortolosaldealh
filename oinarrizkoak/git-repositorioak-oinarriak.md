@@ -4,20 +4,21 @@ Git erabiliz repositorioak kudeatzeko oinarrizko komandoak hemen dituzu:
 
 1. `git clone [URL]`
 
-Adibidez repositorio hau clonatzeko
+    Adibidez, repositorio hau clonatzeko
 `git clone https://github.com/mikeldalmauc/sinfortolosaldealh`
 
 2. `git add [fitxategi/direktorio]`
 
-Adibidez, kokatuta zauden direktorio osoa gehitzeko
+    Adibidez, kokatuta zauden direktorio osoa gehitzeko
 
-`git add --all` edo `git add .`
+    `git add --all` edo `git add .`
 
-3. `git commit -m "[Mezua]"`
+3. `git commit -m "[Mezua]"` . Aldaketak repositorio localera igotzeko.
 
-Adibidez
+    Adibidez:
 
-`git commit -m "Aldaketa baten deskribapen laburra"`
+    `git commit -m "Aldaketa baten deskribapen laburra"`
+
 
 4. `git push` Aldaketak urruneko repositoriora igotzeko.
 
