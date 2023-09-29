@@ -8,14 +8,13 @@
 3. Zein dira hurrengo komandoaren parametroak? Zer gertatuko da hau erabiliz gero?
 
 ```bash
-docker run -e MYSQL_ROOT_PASSWORD=root_password 
-           -e MYSQL_DATABASE=my_database 
-           -e MYSQL_USER=user 
-           -e MYSQL_PASSWORD=user_password 
-           -v /path/to/init.sql:/docker-entrypoint-initdb.d/init.sql 
+docker run -e MYSQL_ROOT_PASSWORD=1234 
+           -v C:\Users\yo\Documents\SistemaInformatikoak\sinfortolosaldealh\init.sql:/docker-entrypoint-initdb.d/init.sql 
            -p 3306:3306 
            mysql:latest
 ```
+
+docker -d run -e MYSQL_ROOT_PASSWORD=1234 -v C:\Users\yo\Documents\SistemaInformatikoak\sinfortolosaldealh\init.sql:/docker-entrypoint-initdb.d/init.sql  -p 3306:3306 mysql:latest
 4. Sortu .sql script bat 3. ariketako komandoaren berdina, eta itsasi taula batzuk sortzeko eta datu batzuk ezartzeko textua (eskatu ChatGPTri). 
    1. Datu base bat martzan jarri eta egiaztatu scriptaren kodea erabili egin dela. 
    2. Script hau executatuko da contenedorea itzali eta pizterakoan?
