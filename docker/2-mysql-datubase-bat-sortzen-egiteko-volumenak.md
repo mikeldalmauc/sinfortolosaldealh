@@ -1,9 +1,9 @@
 
-## Datu base bat sortu (MySQL)
+## Datu baseak sortzen
 
-1. Sortu volumen bat dockerren komando baten bidez. Gero sortu datu base bat volumen horri erantsiz.
+1. Sortu volumen bat dockerren komando baten erabiliz. Gero sortu datu base bat volumen horri erantsiz.
    
-2. Izan 4 datu base batera contenedore bezela. (ez erantsi volumenik). Aldatu izenak eta portuak!. Orain zure makinaren windows prosezu eta sistemarek grafikoak ikusterarekin, zenbat mysql makina batear sortzeko gai izan daiteke?
+2. Izan 4 datu base batera contenedore bezela. (ez erantsi volumenik). Aldatu izenak eta portuak!. Orain, begiratu zure makinaren prosezuak eta memoriaren erabilera. Aldi berean, zenbat mysql contendore sortzeko gai zara?
 
 3. Zein dira hurrengo komandoaren parametroak? Zer gertatuko da hau erabiliz gero?
 
@@ -20,3 +20,4 @@ docker run -e MYSQL_ROOT_PASSWORD=root_password
    1. Datu base bat martzan jarri eta egiaztatu scriptaren kodea erabili egin dela. 
    2. Script hau executatuko da contenedorea itzali eta pizterakoan?
 
+5. Gure lantaldeak asko garatu dira, orain, gero eta konfigurazio parametro gehiago behar ditugu, gure docker commandoak asko luzatu dira! Nola egin genezake konfigurazio guzti hauek fitxategi baten bitartez ezartzeko? 

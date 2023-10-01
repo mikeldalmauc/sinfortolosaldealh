@@ -1,5 +1,8 @@
 ## Zer da Docker?
 
+
+https://www.hezkuntza.net/appcont/control_acceso/irakaslegunea/init.html
+
 Docker, kontendoreetan jarritako softwarearen despliegea automatizatzen duen proiektu bat da, Linux, Mac OS eta Windows sistema eragileekiko abstrakzio eta automatizazio geruza gehigarri bat da.
 
 ## Zergaitik Docker
