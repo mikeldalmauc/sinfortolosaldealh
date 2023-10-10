@@ -1,3 +1,100 @@
 
 # sinfortolosaldealh
 Sistema Informatikoen repositorioa
+
+- [sinfortolosaldealh](#sinfortolosaldealh)
+    - [Iraila](#iraila)
+      - [5 - Aurkezpena](#5---aurkezpena)
+      - [12 - Numerazio sistemak eta prosezadoreak](#12---numerazio-sistemak-eta-prosezadoreak)
+      - [15 - Virtualizazioa: Docker Ezagutzen](#15---virtualizazioa-docker-ezagutzen)
+      - [19 - Virtualizazioa: Docker Instalatzen](#19---virtualizazioa-docker-instalatzen)
+      - [22 - Virtualizazioa: Docker Instalatzen](#22---virtualizazioa-docker-instalatzen)
+      - [26 - Virtualizazioa: Docker Erabiltzen](#26---virtualizazioa-docker-erabiltzen)
+      - [29 -Erronkaren aurkezpena](#29--erronkaren-aurkezpena)
+    - [Urria](#urria)
+      - [3 - Sistema Eragileak: Prosezuak](#3---sistema-eragileak-prosezuak)
+      - [6 - Sistema Eragileak: Direktorio egitura](#6---sistema-eragileak-direktorio-egitura)
+      - [10 - Sistema eragileak: Erabiltzaileak eta taldeak](#10---sistema-eragileak-erabiltzaileak-eta-taldeak)
+  - [Beste baliabide batzun](#beste-baliabide-batzun)
+
+### Iraila
+
+#### 5 - Aurkezpena
+- Sistema informatikoak
+
+Baliabideak:
+- [Componentes de un sistema informatico](https://youtu.be/L9t-7yXqJcw?si=FfNqeM6gt2oTLkfj)
+
+#### 12 - Numerazio sistemak eta prosezadoreak
+- Azalpena klasean cpu batek funtzioak eta arkitektura (Von Newman)
+- Numerazio sistemak eta zenbaki bitarrak
+
+Baliabideak:
+- [Como se trabaja en binario](https://www.youtube.com/watch?v=a0iGzXmm_VM&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=3)
+- [Von Newman Simulatzailea](https://www.vnmsim.app/)
+
+#### 15 - Virtualizazioa: Docker Ezagutzen
+- Dockerren aurkezpena klasen
+
+Baliabideak:
+- [Qué es la virtualización](https://www.youtube.com/watch?v=1FFMugwwJt0&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=11&pp=iAQB)
+- [Como funciona la virtualización clásica](https://www.youtube.com/watch?v=jzL9wGmXG6g&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=12)
+- [Paravirtualización](https://www.youtube.com/watch?v=Rn_88iJqb4o&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=14) 
+- [Qué es docker y por qué es tan popular](https://www.youtube.com/watch?v=KMbw4ABXMVo&t=4s)
+- [you need to learn Docker RIGHT NOW!! // Docker Containers 101](https://www.youtube.com/watch?v=eGz9DS-aIeY&list=PLIhvC56v63IJlnU4k60d0oFIrsbXEivQo&index=3)
+- [run Linux on Windows Docker containers!!](https://www.youtube.com/watch?v=eZpLjKv9xvA&list=PLIhvC56v63IJlnU4k60d0oFIrsbXEivQo&index=4)
+  
+#### 19 - Virtualizazioa: Docker Instalatzen
+#### 22 - Virtualizazioa: Docker Instalatzen
+- Docker eta virtualizazioari buruzko azalpenak klasean.
+- Portuak, volumenak
+
+#### 26 - Virtualizazioa: Docker Erabiltzen
+- Docker eta virtualizazioari buruzko azalpenak klasean.
+- Portuak, volumenak
+- Mysql kontenedore bat sortu eta Mysql workbenchekin konektatu, pausoak repositorian eskura.
+- Nginx web serbitzari bat sortu, docker irudi bat sortuz, pausoak repositorioan.
+
+Baliabideak:
+- [DockerHUB](https://hub.docker.com/search?q=)
+  
+#### 29 -Erronkaren aurkezpena
+
+### Urria
+
+#### 3 - Sistema Eragileak: Prosezuak
+- Prosezuen kudeaketaren oinarriak klasen
+- Sistema adiministratzailea, photoshopekin frogak memoria eta cpu, eta grafikoen erabilera erakutsi.
+
+Baliabideak:
+- [Gestión de procesos](https://www.youtube.com/watch?v=IAissu9rlqU&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=10)
+- [Gestión de memoria RAM](https://www.youtube.com/watch?v=hQHHEz5Gv20&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=11)
+- [Linux Journey. Learn the ways of Linux-fu, for free.](https://linuxjourney.com/)
+
+#### 6 - Sistema Eragileak: Direktorio egitura
+- Direktorio egituraren erakuspena klasen.
+- Ubuntu makina bat sortzeko komando Dockerrekin.
+- Oinarrizko kontsolaren erabilera
+
+Baliabideak:
+-  [The linux file sistem explained](https://youtu.be/BUnb1PKKMBA?si=zZlP41zvwlTpQV5W)
+- [MAS DE 30 COMANDOS en LINUX para manejar tu SERVER!](https://www.youtube.com/watch?v=0BA4k3jweaE)
+- [Linux surival](https://linuxsurvival.com/)
+
+
+#### 10 - Sistema eragileak: Erabiltzaileak eta taldeak
+- Script ariketaren ebazpena, ikusi repositorioan, 2-sistema eragileak, lehen-pausoak.md
+- Bandit jokoa, linux sistemetan nabigatzea.
+  
+Baliabideak:
+- [Permisos, usuarios y grupos en Linux. (Administración básica)](https://www.youtube.com/watch?v=KhbM0BQ3_ew)
+- [Bandit](https://overthewire.org/wargames/bandit/)
+
+## Beste baliabide batzun
+
+[imesi.net (Youtube)](https://www.youtube.com/@imesinet) : Canal Sistemas Informaticos (Castellano). Azalpen argiak, luzeera egokioak eta zehatzak gaiaren atal teorikoak lantzeko egokia.
+
+Beste ikasle batzuk sortutako apunte repositorioak:
+- [Respositorio DAM JuanRo](https://github.com/juanro49/DAM)
+- [Repositorio Juan Morillos ](https://github.com/juanmorillios/CIDEAD-DAM): Mapa kontzeptual interesgarriak, adibidez [Instalación y explotación de un sistema linux](https://github.com/juanmorillios/CIDEAD-DAM/blob/bb6516a57ed48b58a8c7212185a14bb981ad1354/1_DAM/Sistemas%20Inform%C3%A1ticos/Actividades%20y%20recursos/MapaConceptualSI05.png).
+- [Repositorio Usuario Desconocido](https://github.com/Qv1ko/DAM)

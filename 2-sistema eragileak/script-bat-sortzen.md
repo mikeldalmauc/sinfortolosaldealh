@@ -1,4 +1,15 @@
-### Prestaketa
+
+- [Prestaketa](#prestaketa)
+  - [Ariketa 1: Nabigazio Basikoa](#ariketa-1-nabigazio-basikoa)
+  - [Ariketa 2: Fitxategiak Sortu eta Editatu](#ariketa-2-fitxategiak-sortu-eta-editatu)
+  - [Ariketa 3: Baimenak Kudeatu](#ariketa-3-baimenak-kudeatu)
+  - [Ariketa 4: Fitxategiak Kopiatu eta Mugitu](#ariketa-4-fitxategiak-kopiatu-eta-mugitu)
+  - [Ariketa 5: Erabiltzaile Direktorioa eta Baimenak Konfiguratzeko Scripta Sortu](#ariketa-5-erabiltzaile-direktorioa-eta-baimenak-konfiguratzeko-scripta-sortu)
+- [Eginkizuna](#eginkizuna)
+  - [Ebazpena](#ebazpena)
+
+
+# Prestaketa
 
 1. **Docker instalatu**: Docker ez baduzu oraindik instalatuta, [hemen](https://www.docker.com/products/docker-desktop) deskargatu eta instalatu dezakezu.
 
@@ -8,7 +19,7 @@
     docker run -it ubuntu:latest /bin/bash
     ```
 
-### Ariketa 1: Nabigazio Basikoa
+## Ariketa 1: Nabigazio Basikoa
 
 1. **Helburua**: Direktorioen artean nabigatzen ikasi.
 2. **Komandoak**: `ls`, `cd`, `pwd`
@@ -19,7 +30,7 @@
     pwd  # Uneko direktorioa erakutsi
     ```
 
-### Ariketa 2: Fitxategiak Sortu eta Editatu
+## Ariketa 2: Fitxategiak Sortu eta Editatu
 
 1. **Helburua**: Kontsolan fitxategiak sortu eta editatzen ikasi.
 2. **Komandoak**: `touch`, `nano`
@@ -29,7 +40,7 @@
     nano nire_fitxategia.txt  # Fitxategia nano editorean ireki
     ```
 
-### Ariketa 3: Baimenak Kudeatu
+## Ariketa 3: Baimenak Kudeatu
 
 1. **Helburua**: Fitxategi baten baimenak aldatzen ikasi.
 2. **Komandoak**: `chmod`, `ls -l`
@@ -39,7 +50,7 @@
     ls -l  # Fitxategiaren baimenak erakutsi
     ```
 
-### Ariketa 4: Fitxategiak Kopiatu eta Mugitu
+## Ariketa 4: Fitxategiak Kopiatu eta Mugitu
 
 1. **Helburua**: Fitxategiak kopiatu eta mugitzen ikasi.
 2. **Komandoak**: `cp`, `mv`
@@ -49,7 +60,7 @@
     mv nire_fitxategiaren_kopia.txt /tmp  # Fitxategia /tmp-ra mugitu
     ```
 
-### Ariketa 5: Erabiltzaile Direktorioa eta Baimenak Konfiguratzeko Scripta Sortu
+## Ariketa 5: Erabiltzaile Direktorioa eta Baimenak Konfiguratzeko Scripta Sortu
 
 1. **Helburua**: Erabiltzaile direktorio bat konfiguratzea eta baimen estandarrak ezartzeko script bat sortzea.
 2. **Komandoak**: `mkdir`, `chmod`, `echo`, `>`
@@ -101,3 +112,5 @@ Sortu script bat sortu hurrengo balditzak betez:
   - Soft link bat sortu /homen ikaslearen apunteak direktoriora
 
 2. Bukatzean, bilatu moduren bat ubuntu kontenedore bat sortzerakoan jarraian sortutako scripta exekuta dadin.
+
+## Ebazpena
