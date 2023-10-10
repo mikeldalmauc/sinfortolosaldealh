@@ -89,6 +89,7 @@ Baliabideak:
 Baliabideak:
 - [Permisos, usuarios y grupos en Linux. (Administración básica)](https://www.youtube.com/watch?v=KhbM0BQ3_ew)
 - [Bandit](https://overthewire.org/wargames/bandit/)
+  para conectarese: ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 ## Beste baliabide batzun
 
