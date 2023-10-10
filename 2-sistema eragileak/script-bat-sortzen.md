@@ -96,13 +96,15 @@
 
 Sortu script bat sortu hurrengo balditzak betez:
  1. Hasi komandoak banaka frogatzen eta gero joan scriptera zartzen.
-  - Erabiltzaile bat sortu izen batekin
+  - Erabiltzaile bat sortu izen batekin patxi eta ikaslea
+  - Erabiltzaile bat sortu mikel izenarekin eta irakaslea dena
   - Talde bat sortu ikasleak izenarekin
   - Talde bat sortu irakasleak izenarekin
   - Fitzategi estruktura bat sortu erabiltzaileentzat hurrengo eskema jarraituz
     - /home
     - /ariketak.
-      - Irakasleak izango dira ownerrak
+      - Mikel izango da ownerra
+      - Irakasleak izango dute taldea.
       - Ikasleak editatzeko aukera ez dute izango
     - /azterketak
       - Irakasleak editatzeko baimena ez dute izango
@@ -111,6 +113,38 @@ Sortu script bat sortu hurrengo balditzak betez:
       - ikasleek izango dituzte baimena guztiak
   - Soft link bat sortu /homen ikaslearen apunteak direktoriora
 
-2. Bukatzean, bilatu moduren bat ubuntu kontenedore bat sortzerakoan jarraian sortutako scripta exekuta dadin.
+1. Bukatzean, bilatu moduren bat ubuntu kontenedore bat sortzerakoan jarraian sortutako scripta exekuta dadin.
 
 ## Ebazpena
+```
+#!/bin/bash
+
+ikaslea="$1"
+irakaslea="$2"
+
+useradd -m -s /bin/bash $ikaslea
+useradd -m -s /bin/bash $irakaslea
+
+addgroup irakasleak
+addgroup ikasleak
+
+mkdir /home/$ikaslea/ariketak
+mkdir /home/$ikaslea/azterketak
+mkdir /home/$ikaslea/apunteak
+
+cd /home/$ikaslea
+
+chown $irakaslea ariketak
+chown :irakasleak ariketak
+chmod -R 774 ariketak
+
+chown $irakaslea azterketak
+chown :ikasleak azterketak
+chmod -R 577 azterketak
+
+chown $ikaslea apunteak
+chown :ikasleak apunteak
+chmod -R 777 apunteak
+
+ln -s /home/$ikaslea/apunteak/ "apunteak$ikaslea"
+```
