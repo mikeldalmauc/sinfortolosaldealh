@@ -14,7 +14,8 @@ Sistema Informatikoen repositorioa
     - [Urria](#urria)
       - [3 - Sistema Eragileak: Prosezuak](#3---sistema-eragileak-prosezuak)
       - [6 - Sistema Eragileak: Direktorio egitura](#6---sistema-eragileak-direktorio-egitura)
-      - [10 - Sistema eragileak: Erabiltzaileak eta taldeak](#10---sistema-eragileak-erabiltzaileak-eta-taldeak)
+      - [10 - Sistema Eragileak: Erabiltzaileak eta taldeak](#10---sistema-eragileak-erabiltzaileak-eta-taldeak)
+      - [17 - Sistema Eragileak: Busak](#17---sistema-eragileak-busak)
   - [Beste baliabide batzun](#beste-baliabide-batzun)
 
 ### Iraila
@@ -38,11 +39,12 @@ Baliabideak:
 
 Baliabideak:
 - [Qué es la virtualización](https://www.youtube.com/watch?v=1FFMugwwJt0&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=11&pp=iAQB)
-- [Como funciona la virtualización clásica](https://www.youtube.com/watch?v=jzL9wGmXG6g&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=12)
-- [Paravirtualización](https://www.youtube.com/watch?v=Rn_88iJqb4o&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=14) 
 - [Qué es docker y por qué es tan popular](https://www.youtube.com/watch?v=KMbw4ABXMVo&t=4s)
 - [you need to learn Docker RIGHT NOW!! // Docker Containers 101](https://www.youtube.com/watch?v=eGz9DS-aIeY&list=PLIhvC56v63IJlnU4k60d0oFIrsbXEivQo&index=3)
 - [run Linux on Windows Docker containers!!](https://www.youtube.com/watch?v=eZpLjKv9xvA&list=PLIhvC56v63IJlnU4k60d0oFIrsbXEivQo&index=4)
+- [Como funciona la virtualización clásica](https://www.youtube.com/watch?v=jzL9wGmXG6g&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=12)
+- [Paravirtualización](https://www.youtube.com/watch?v=Rn_88iJqb4o&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=14) 
+
   
 #### 19 - Virtualizazioa: Docker Instalatzen
 #### 22 - Virtualizazioa: Docker Instalatzen
@@ -82,7 +84,7 @@ Baliabideak:
 - [Linux surival](https://linuxsurvival.com/)
 
 
-#### 10 - Sistema eragileak: Erabiltzaileak eta taldeak
+#### 10 - Sistema Eragileak: Erabiltzaileak eta taldeak
 - Script ariketaren ebazpena, ikusi repositorioan, 2-sistema eragileak, lehen-pausoak.md
 - Bandit jokoa, linux sistemetan nabigatzea.
   
@@ -90,6 +92,9 @@ Baliabideak:
 - [Permisos, usuarios y grupos en Linux. (Administración básica)](https://www.youtube.com/watch?v=KhbM0BQ3_ew)
 - [Bandit](https://overthewire.org/wargames/bandit/)
   para conectarese: ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+#### 17 - Sistema Eragileak: Busak 
+
 
 ## Beste baliabide batzun
 
@@ -99,3 +104,5 @@ Beste ikasle batzuk sortutako apunte repositorioak:
 - [Respositorio DAM JuanRo](https://github.com/juanro49/DAM)
 - [Repositorio Juan Morillos ](https://github.com/juanmorillios/CIDEAD-DAM): Mapa kontzeptual interesgarriak, adibidez [Instalación y explotación de un sistema linux](https://github.com/juanmorillios/CIDEAD-DAM/blob/bb6516a57ed48b58a8c7212185a14bb981ad1354/1_DAM/Sistemas%20Inform%C3%A1ticos/Actividades%20y%20recursos/MapaConceptualSI05.png).
 - [Repositorio Usuario Desconocido](https://github.com/Qv1ko/DAM)
+- [Sistemas Operativos Modernos 3 edición, Andrew S. Tanembaun](https://www.google.com/search?q=Sistemas+Operativos+Modernos+3+edici%C3%B3n%2C+Andrew+S.+Tanembaun&rlz=1C1CHBF_esES950ES951&oq=Sistemas+Operativos+Modernos+3+edici%C3%B3n%2C+Andrew+S.+Tanembaun&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQABgNGIAEMgkIAhAAGA0YgAQyCAgDEAAYFhge0gEKMjYwMjNqMGoxNagCALACAA&sourceid=chrome&ie=UTF-8)
+- 

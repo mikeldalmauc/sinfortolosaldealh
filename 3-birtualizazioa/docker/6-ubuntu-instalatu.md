@@ -3,7 +3,7 @@
    
 ```docker pull dorowu/ubuntu-desktop-lxde-vnc:latest```
 
-1. sortu volumen bat 
+1. sortu volumen bat, bi era dakizkigu volumenak 
 
 2. 
 ```
@@ -14,7 +14,7 @@
   dorowu/ubuntu-desktop-lxde-vnc 
 ```
 
-Referentzia, ubuntu kontendorea konfiguratzeko beste mota batzuetarako.
+Referentzia
 
 ```
 https://computingforgeeks.com/run-ubuntu-linux-in-docker-with-desktop-environment-and-vnc/?expand_article=1

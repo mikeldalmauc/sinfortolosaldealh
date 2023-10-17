@@ -3,7 +3,7 @@
 ## TOP erabilenak
 
 `Ctrl + Shift + P`: Komando paleta.
-`Ctrl + Space`: Osoko laguntza aktibatu (IntelliSense).
+`Ctrl + Space`: Kode laguntza aktibatu (IntelliSense).
 
 Visual Studio Code (VS Code) erabiliz gero, hainbat komando erabilgarri daude. Hemen dituzu batzuk:
 
