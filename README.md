@@ -105,8 +105,9 @@ Baliabideak:
 - Erronka aurreko hurrengo egunetan landuko den proiektu txikiaren azalpena eta lehen pausoak. Oinarrizko teknologia erabaki bat hartu, repositorio bat sortu, garapen ingurune bat sortu, java spring boilerplate proiektu bat sortu. [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua/edit/main/README.md) 
 
 Baliabideak:
-- [Kernel Stack and User Space](https://ayoubomari.medium.com/system-call-how-it-works-4d0d7a452d24)
-- [System call — How it works internally](https://www.baeldung.com/linux/kernel-stack-and-user-space-stack#:~:text=User%20and%20Kernel%20Stacks&text=The%20user%20stack%20is%20only,mode%20switches%20to%20kernel%20mode.)
+- [Kernel Stack and User Space](https://www.baeldung.com/linux/kernel-stack-and-user-space-stack#:~:text=User%20and%20Kernel%20Stacks&text=The%20user%20stack%20is%20only,mode%20switches%20to%20kernel%20mode.)
+- [System call — How it works internally](https://ayoubomari.medium.com/system-call-how-it-works-4d0d7a452d24)
+
 
 #### 20 - S
 
