@@ -1,1 +1,1 @@
-[Ikusi honen edukia repositorio honetan.](https://github.com/mikeldalmauc/scrappingProiektua/edit/main/README.md)
+[Ikusi honen edukia repositorio honetan.](https://github.com/mikeldalmauc/scrappingProiektua)
