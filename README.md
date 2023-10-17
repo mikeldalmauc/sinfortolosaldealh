@@ -15,7 +15,12 @@ Sistema Informatikoen repositorioa
       - [3 - Sistema Eragileak: Prosezuak](#3---sistema-eragileak-prosezuak)
       - [6 - Sistema Eragileak: Direktorio egitura](#6---sistema-eragileak-direktorio-egitura)
       - [10 - Sistema Eragileak: Erabiltzaileak eta taldeak](#10---sistema-eragileak-erabiltzaileak-eta-taldeak)
-      - [17 - Sistema Eragileak: Busak](#17---sistema-eragileak-busak)
+      - [17 - Sistema Eragileak: Prosezuak, Segurtasuna eta Sistemaren Deiak](#17---sistema-eragileak-prosezuak-segurtasuna-eta-sistemaren-deiak)
+      - [20](#20)
+      - [24](#24)
+      - [27](#27)
+      - [30 Erronka: Proposamenak eta planifikazioa](#30-erronka-proposamenak-eta-planifikazioa)
+      - [31 Erronka: Proposamenak eta planifikazioa](#31-erronka-proposamenak-eta-planifikazioa)
   - [Beste baliabide batzun](#beste-baliabide-batzun)
 
 ### Iraila
@@ -93,8 +98,27 @@ Baliabideak:
 - [Bandit](https://overthewire.org/wargames/bandit/)
   para conectarese: ssh bandit0@bandit.labs.overthewire.org -p 2220
 
-#### 17 - Sistema Eragileak: Busak 
 
+#### 17 - Sistema Eragileak: Prosezuak, Segurtasuna eta Sistemaren Deiak
+- Prosezuen segurtasuna, stack deien memoria, stack deien erakuspena.
+- Sistemaren deiak, zeintzuk dira nagusiak.
+- 
+
+Baliabideak:
+
+- [Kernel Stack and User Space](https://ayoubomari.medium.com/system-call-how-it-works-4d0d7a452d24)
+- [System call — How it works internally](https://www.baeldung.com/linux/kernel-stack-and-user-space-stack#:~:text=User%20and%20Kernel%20Stacks&text=The%20user%20stack%20is%20only,mode%20switches%20to%20kernel%20mode.)
+
+
+#### 20
+
+#### 24
+
+#### 27
+
+#### 30 Erronka: Proposamenak eta planifikazioa
+
+#### 31 Erronka: Proposamenak eta planifikazioa
 
 ## Beste baliabide batzun
 
@@ -105,4 +129,3 @@ Beste ikasle batzuk sortutako apunte repositorioak:
 - [Repositorio Juan Morillos ](https://github.com/juanmorillios/CIDEAD-DAM): Mapa kontzeptual interesgarriak, adibidez [Instalación y explotación de un sistema linux](https://github.com/juanmorillios/CIDEAD-DAM/blob/bb6516a57ed48b58a8c7212185a14bb981ad1354/1_DAM/Sistemas%20Inform%C3%A1ticos/Actividades%20y%20recursos/MapaConceptualSI05.png).
 - [Repositorio Usuario Desconocido](https://github.com/Qv1ko/DAM)
 - [Sistemas Operativos Modernos 3 edición, Andrew S. Tanembaun](https://www.google.com/search?q=Sistemas+Operativos+Modernos+3+edici%C3%B3n%2C+Andrew+S.+Tanembaun&rlz=1C1CHBF_esES950ES951&oq=Sistemas+Operativos+Modernos+3+edici%C3%B3n%2C+Andrew+S.+Tanembaun&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQABgNGIAEMgkIAhAAGA0YgAQyCAgDEAAYFhge0gEKMjYwMjNqMGoxNagCALACAA&sourceid=chrome&ie=UTF-8)
-- 
