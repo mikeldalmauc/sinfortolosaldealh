@@ -102,7 +102,7 @@ Baliabideak:
 - Sarrera ireteeren azalpen txikia.
 - Prosezuen segurtasuna, stack deien memoria, stack overflow baten erakuspena.
 - Sistemaren deiak aipatu dira, zeintzuk dira nagusiak eta kernelaren seguratasun beharrak justifikatu dira.
-- Erronka aurreko hurrengo egunetan landuko den proiektu txikiaren azalpena eta lehen pausoak. Oinarrizko teknologia erabaki bat hartu, repositorio bat sortu, garapen ingurune bat sortu, java spring boilerplate proiektu bat sortu. [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua/edit/main/README.md) 
+- Erronka aurreko hurrengo egunetan landuko den proiektu txikiaren azalpena eta lehen pausoak. Oinarrizko teknologia erabaki bat hartu, repositorio bat sortu, garapen ingurune bat sortu, java spring boilerplate proiektu bat sortu. [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
 
 Baliabideak:
 - [Kernel Stack and User Space](https://www.baeldung.com/linux/kernel-stack-and-user-space-stack#:~:text=User%20and%20Kernel%20Stacks&text=The%20user%20stack%20is%20only,mode%20switches%20to%20kernel%20mode.)
