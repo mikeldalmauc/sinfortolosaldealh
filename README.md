@@ -16,12 +16,21 @@ Sistema Informatikoen repositorioa
       - [6 - Sistema Eragileak: Direktorio egitura](#6---sistema-eragileak-direktorio-egitura)
       - [10 - Sistema Eragileak: Erabiltzaileak eta taldeak](#10---sistema-eragileak-erabiltzaileak-eta-taldeak)
       - [17 - Sistema Eragileak:  S/E, Prosezuak, Segurtasuna eta Sistemaren Deiak](#17---sistema-eragileak--se-prosezuak-segurtasuna-eta-sistemaren-deiak)
-      - [20 - S](#20---s)
-      - [24 - S](#24---s)
-      - [27 - S](#27---s)
-      - [30 Erronka: Proposamenak eta planifikazioa](#30-erronka-proposamenak-eta-planifikazioa)
-      - [31 Erronka: Proposamenak eta planifikazioa](#31-erronka-proposamenak-eta-planifikazioa)
-  - [Beste baliabide batzun](#beste-baliabide-batzun)
+      - [20 - Scrapping aplikazio sortzen I](#20---scrapping-aplikazio-sortzen-i)
+      - [24 - Scrapping aplikazio sortzen II](#24---scrapping-aplikazio-sortzen-ii)
+      - [27 - Scrapping aplikazio sortzen III](#27---scrapping-aplikazio-sortzen-iii)
+      - [30 - Erronka: Proposamenak eta planifikazioa](#30---erronka-proposamenak-eta-planifikazioa)
+      - [31 - Erronka: Proposamenak eta planifikazioa](#31---erronka-proposamenak-eta-planifikazioa)
+    - [Azaroa](#azaroa)
+      - [3 - Erronka - Proposamena aurkeztu](#3---erronka---proposamena-aurkeztu)
+      - [7 - Erronka - Exekuzio fasea](#7---erronka---exekuzio-fasea)
+      - [10 - Erronka - Exekuzio fasea](#10---erronka---exekuzio-fasea)
+      - [14 - Erronka - Exekuzio fasea](#14---erronka---exekuzio-fasea)
+      - [17 - Erronka - Exekuzio fasea](#17---erronka---exekuzio-fasea)
+      - [21 - Azterketa eguna](#21---azterketa-eguna)
+      - [22 - Erronka Aurkeztu](#22---erronka-aurkeztu)
+      - [24 - Sareak](#24---sareak)
+  - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ### Iraila
 
@@ -109,17 +118,33 @@ Baliabideak:
 - [System call — How it works internally](https://ayoubomari.medium.com/system-call-how-it-works-4d0d7a452d24)
 
 
-#### 20 - S
+#### 20 - Scrapping aplikazio sortzen I
+- [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
 
-#### 24 - S
+#### 24 - Scrapping aplikazio sortzen II
+- [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
 
-#### 27 - S
+#### 27 - Scrapping aplikazio sortzen III
+- [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
 
-#### 30 Erronka: Proposamenak eta planifikazioa
+#### 30 - Erronka: Proposamenak eta planifikazioa
 
-#### 31 Erronka: Proposamenak eta planifikazioa
+#### 31 - Erronka: Proposamenak eta planifikazioa
 
-## Beste baliabide batzun
+### Azaroa
+
+#### 3 - Erronka - Proposamena aurkeztu
+#### 7 - Erronka - Exekuzio fasea
+#### 10 - Erronka - Exekuzio fasea
+#### 14 - Erronka - Exekuzio fasea
+#### 17 - Erronka - Exekuzio fasea
+#### 21 - Azterketa eguna
+#### 22 - Erronka Aurkeztu
+
+#### 24 - Sareak 
+
+
+## Beste baliabide batzuk
 
 Youtube kanalak:
 - [imesi.net (Youtube)](https://www.youtube.com/@imesinet) : Canal Sistemas Informaticos (Castellano). Azalpen argiak, luzeera egokioak eta zehatzak gaiaren atal teorikoak lantzeko egokia.
