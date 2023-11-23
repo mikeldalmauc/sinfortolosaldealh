@@ -141,7 +141,22 @@ Baliabideak:
 #### 21 - Azterketa eguna
 #### 22 - Erronka Aurkeztu
 
-#### 24 - Sareak 
+#### 24 - PHP garapen ingurune bat prestatzen
+Egungo ariketa datorren erronkarako ingurunea prestatzen datza beraz garrantsitzua da egitea.
+Gai hauei buruzko informazio bilatu beharko duzue:
+- Docker sareak, nola sortu, nola gehitu kintenedorea sarera
+- PHP oinarrizko proiektua (helburua ez da php ikastea)
+- PHP nola konetaru mysql-ra
+
+Ariketa honen helburua php garapen ingurune bat sortzea da hurrengo ezaugarriekin:
+ - Erabili VScode/docker garapen inguruneak sortzeko tresna
+ - Sortu mysql datu base kontenedore bat
+ - konekatu php datu basera
+  - Oraingoan ez dugu erabiliko ip:portua konexiorako baizik eta kontenedore-izena:portua, horretarako docker network bat sortu beharko duzue eta bi kontenedoreak sarera gehitu.
+ - Docker compose fitxategi baten jarri dana
+
+
+Sortu php garapen ingurune bat 
 
 
 ## Beste baliabide batzuk
