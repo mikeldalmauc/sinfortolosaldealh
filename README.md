@@ -29,7 +29,7 @@ Sistema Informatikoen repositorioa
       - [17 - Erronka - Exekuzio fasea](#17---erronka---exekuzio-fasea)
       - [21 - Azterketa eguna](#21---azterketa-eguna)
       - [22 - Erronka Aurkeztu](#22---erronka-aurkeztu)
-      - [24 - Sareak](#24---sareak)
+      - [24 - PHP garapen ingurune bat prestatzen](#24---php-garapen-ingurune-bat-prestatzen)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ### Iraila
@@ -142,21 +142,19 @@ Baliabideak:
 #### 22 - Erronka Aurkeztu
 
 #### 24 - PHP garapen ingurune bat prestatzen
-Egungo ariketa datorren erronkarako ingurunea prestatzen datza beraz garrantsitzua da egitea.
+Gaurko ariketa datorren erronkarako ingurunea prestatzen datza beraz erabilgarria izango zaizue egitea.
+
 Gai hauei buruzko informazio bilatu beharko duzue:
-- Docker sareak, nola sortu, nola gehitu kintenedorea sarera
-- PHP oinarrizko proiektua (helburua ez da php ikastea)
-- PHP nola konetaru mysql-ra
+- Docker sareak, nola sortu, nola gehitu kontenedorea sarera
+- PHP oinarrizko proiektu bat nola sortu (Momentuz, helburua ez da php ikastea)
+- PHP nola konetatu mysql datu base batera
 
-Ariketa honen helburua php garapen ingurune bat sortzea da hurrengo ezaugarriekin:
- - Erabili VScode/docker garapen inguruneak sortzeko tresna
- - Sortu mysql datu base kontenedore bat
+Hurrengo pausoak jarraitu:
+ - Erabili VScode/docker garapen ingurunea sortzeko, dev-containers plugina erabiliz .
+ - Sortu mysql datu base kontenedore bat.
  - konekatu php datu basera
-  - Oraingoan ez dugu erabiliko ip:portua konexiorako baizik eta kontenedore-izena:portua, horretarako docker network bat sortu beharko duzue eta bi kontenedoreak sarera gehitu.
- - Docker compose fitxategi baten jarri dana
-
-
-Sortu php garapen ingurune bat 
+    - Oraingoan ez dugu erabiliko *ip:portua* konexiorako baizik eta *kontenedore-izena:portua*, horretarako docker network bat sortu beharko duzue eta bi kontenedoreak sarera gehitu.
+ - Docker compose fitxategi baten jarri dana.
 
 
 ## Beste baliabide batzuk
