@@ -156,7 +156,7 @@ Hurrengo pausoak jarraitu:
  - konekatu php datu basera
     - Oraingoan ez dugu erabiliko *ip:portua* konexiorako baizik eta *kontenedore-izena:portua*, horretarako docker network bat sortu beharko duzue eta bi kontenedoreak sarera gehitu.
  - Docker compose fitxategi baten jarri dana.
-Repositorioa proiektu batekin (https://github.com/jlucki/docker-php-dev-env)
+[Repositorioa proiektu batekin](https://github.com/jlucki/docker-php-dev-env)
 
 ## Beste baliabide batzuk
 
