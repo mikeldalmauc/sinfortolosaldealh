@@ -158,6 +158,13 @@ Hurrengo pausoak jarraitu:
  - Docker compose fitxategi baten jarri dana.
 [Repositorioa proiektu batekin](https://github.com/jlucki/docker-php-dev-env)
 
+### Abendua
+#### 5 
+
+videoa ikusi, nola hasi cibersecuritatean
+https://www.youtube.com/watch?v=syqItp4p8Qw
+
+https://jamboard.google.com/d/1p8kOHy5c8x3cPzdcfqVrgk8nHrq5ld6Wh8EBtAM2NT0/edit?usp=sharing
 ## Beste baliabide batzuk
 
 Youtube kanalak:
