@@ -1,5 +1,8 @@
-#Hacking #Networks 
-
+---
+tags:
+  - Hacking
+  - Networks
+---
 # Dirección MAC
 
 La dirección mac, en redes de computadoras, es una dirección única de 48 bits que corresponde a una tarjeta o dispositivo de red. Se le conoce como dirección física y es única para cada dispositivo.

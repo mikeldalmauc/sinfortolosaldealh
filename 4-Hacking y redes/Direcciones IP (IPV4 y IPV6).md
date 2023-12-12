@@ -1,4 +1,9 @@
-#Hacking #Networks
+---
+tags:
+  - Hacking
+  - Networks
+---
+
 ## Cual es tu IP local
 
 El siguiente comando muestra la ip *inet* 172.17.0.2 y es la ip privada que identifica el equipo en una red que utiliza el protocolo de internet.
