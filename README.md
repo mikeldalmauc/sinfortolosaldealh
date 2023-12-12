@@ -30,6 +30,10 @@ Sistema Informatikoen repositorioa
       - [21 - Azterketa eguna](#21---azterketa-eguna)
       - [22 - Erronka Aurkeztu](#22---erronka-aurkeztu)
       - [24 - PHP garapen ingurune bat prestatzen](#24---php-garapen-ingurune-bat-prestatzen)
+    - [Abendua](#abendua)
+      - [5 - Segurtasuna: lehen pausoak](#5---segurtasuna-lehen-pausoak)
+      - [12 - Segurtasuna: Sareko oinarrizko kontzeptuak](#12---segurtasuna-sareko-oinarrizko-kontzeptuak)
+      - [15 - Segurtasuna: Sareko oinarrizko kontzeptuak](#15---segurtasuna-sareko-oinarrizko-kontzeptuak)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ### Iraila
@@ -49,7 +53,7 @@ Baliabideak:
 - [Von Newman Simulatzailea](https://www.vnmsim.app/)
 
 #### 15 - Virtualizazioa: Docker Ezagutzen
-- Dockerren aurkezpena klasen
+- Dockerren aurkezpena klasen [[1-lehen-pausoak]]
 
 Baliabideak:
 - [Qué es la virtualización](https://www.youtube.com/watch?v=1FFMugwwJt0&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=11&pp=iAQB)
@@ -68,8 +72,8 @@ Baliabideak:
 #### 26 - Virtualizazioa: Docker Erabiltzen
 - Docker eta virtualizazioari buruzko azalpenak klasean.
 - Portuak, volumenak
-- Mysql kontenedore bat sortu eta Mysql workbenchekin konektatu, pausoak repositorian eskura.
-- Nginx web serbitzari bat sortu, docker irudi bat sortuz, pausoak repositorioan.
+- Mysql kontenedore bat sortu eta Mysql workbenchekin konektatu, pausoak repositorian eskura [[2-mysql-datubase-bat-sortzen]] [[2-mysql-datubase-bat-sortzen-egiteko-volumenak]].
+- Nginx web serbitzari bat sortu, docker irudi bat sortuz, pausoak repositorioan. [[3-nginx-apache-web-serbitzari-bat-sortzen]]
 
 Baliabideak:
 - [DockerHUB](https://hub.docker.com/search?q=)
@@ -80,7 +84,7 @@ Baliabideak:
 
 #### 3 - Sistema Eragileak: Prosezuak
 - Prosezuen kudeaketaren oinarriak klasen
-- Sistema adiministratzailea, photoshopekin frogak memoria eta cpu, eta grafikoen erabilera erakutsi.
+- Sistema adiministratzailea, photoshopekin frogak memoria eta cpu, eta grafikoen erabilera erakutsi. 
 
 Baliabideak:
 - [Gestión de procesos](https://www.youtube.com/watch?v=IAissu9rlqU&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=10)
@@ -91,6 +95,7 @@ Baliabideak:
 - Direktorio egituraren erakuspena klasen.
 - Ubuntu makina bat sortzeko komando Dockerrekin.
 - Oinarrizko kontsolaren erabilera
+- [[script-bat-sortzen]]
 
 Baliabideak:
 -  [The linux file sistem explained](https://youtu.be/BUnb1PKKMBA?si=zZlP41zvwlTpQV5W)
@@ -99,7 +104,7 @@ Baliabideak:
 
 
 #### 10 - Sistema Eragileak: Erabiltzaileak eta taldeak
-- Script ariketaren ebazpena, ikusi repositorioan, 2-sistema eragileak, lehen-pausoak.md
+- Script ariketaren ebazpena [[script-bat-sortzen]], ikusi repositorioan, 2-sistema eragileak, lehen-pausoak.md
 - Bandit jokoa, linux sistemetan nabigatzea.
   
 Baliabideak:
@@ -117,16 +122,15 @@ Baliabideak:
 - [Kernel Stack and User Space](https://www.baeldung.com/linux/kernel-stack-and-user-space-stack#:~:text=User%20and%20Kernel%20Stacks&text=The%20user%20stack%20is%20only,mode%20switches%20to%20kernel%20mode.)
 - [System call — How it works internally](https://ayoubomari.medium.com/system-call-how-it-works-4d0d7a452d24)
 
-
 #### 20 - Scrapping aplikazio sortzen I
 - [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
-
+- [[scrapping-aplikazioa]]
 #### 24 - Scrapping aplikazio sortzen II
 - [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
-
+- [[scrapping-aplikazioa]]
 #### 27 - Scrapping aplikazio sortzen III
 - [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
-
+- [[scrapping-aplikazioa]]
 #### 30 - Erronka: Proposamenak eta planifikazioa
 
 #### 31 - Erronka: Proposamenak eta planifikazioa
