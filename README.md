@@ -2,6 +2,8 @@
 # sinfortolosaldealh
 Sistema Informatikoen repositorioa
 
+--- 
+
 - [sinfortolosaldealh](#sinfortolosaldealh)
     - [Iraila](#iraila)
       - [5 - Aurkezpena](#5---aurkezpena)
@@ -36,6 +38,7 @@ Sistema Informatikoen repositorioa
       - [15 - Segurtasuna: Sareko oinarrizko kontzeptuak](#15---segurtasuna-sareko-oinarrizko-kontzeptuak)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
+---
 ### Iraila
 
 #### 5 - Aurkezpena
@@ -63,7 +66,7 @@ Baliabideak:
 - [Como funciona la virtualización clásica](https://www.youtube.com/watch?v=jzL9wGmXG6g&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=12)
 - [Paravirtualización](https://www.youtube.com/watch?v=Rn_88iJqb4o&list=PLrFIr4pKV7bhxR1Hd8x4OPiHI4oZvcS3T&index=14) 
 
-  
+---  
 #### 19 - Virtualizazioa: Docker Instalatzen
 #### 22 - Virtualizazioa: Docker Instalatzen
 - Docker eta virtualizazioari buruzko azalpenak klasean.
@@ -79,6 +82,8 @@ Baliabideak:
 - [DockerHUB](https://hub.docker.com/search?q=)
   
 #### 29 -Erronkaren aurkezpena
+
+---
 
 ### Urria
 
@@ -102,7 +107,7 @@ Baliabideak:
 - [MAS DE 30 COMANDOS en LINUX para manejar tu SERVER!](https://www.youtube.com/watch?v=0BA4k3jweaE)
 - [Linux surival](https://linuxsurvival.com/)
 
-
+---
 #### 10 - Sistema Eragileak: Erabiltzaileak eta taldeak
 - Script ariketaren ebazpena [[script-bat-sortzen]], ikusi repositorioan, 2-sistema eragileak, lehen-pausoak.md
 - Bandit jokoa, linux sistemetan nabigatzea.
@@ -122,6 +127,7 @@ Baliabideak:
 - [Kernel Stack and User Space](https://www.baeldung.com/linux/kernel-stack-and-user-space-stack#:~:text=User%20and%20Kernel%20Stacks&text=The%20user%20stack%20is%20only,mode%20switches%20to%20kernel%20mode.)
 - [System call — How it works internally](https://ayoubomari.medium.com/system-call-how-it-works-4d0d7a452d24)
 
+---
 #### 20 - Scrapping aplikazio sortzen I
 - [Ikusi repositoria azalpenekin hemen.](https://github.com/mikeldalmauc/scrappingProiektua) 
 - [[scrapping-aplikazioa]]
@@ -135,6 +141,7 @@ Baliabideak:
 
 #### 31 - Erronka: Proposamenak eta planifikazioa
 
+---
 ### Azaroa
 
 #### 3 - Erronka - Proposamena aurkeztu
@@ -144,6 +151,8 @@ Baliabideak:
 #### 17 - Erronka - Exekuzio fasea
 #### 21 - Azterketa eguna
 #### 22 - Erronka Aurkeztu
+
+--- 
 
 #### 24 - PHP garapen ingurune bat prestatzen
 
@@ -161,7 +170,7 @@ Hurrengo pausoak jarraitu:
     - Oraingoan ez dugu erabiliko *ip:portua* konexiorako baizik eta *kontenedore-izena:portua*, horretarako docker network bat sortu beharko duzue eta bi kontenedoreak sarera gehitu.
  - Docker compose fitxategi baten jarri dana.
 [Repositorioa proiektu batekin](https://github.com/jlucki/docker-php-dev-env)
-
+---
 ### Abendua
 #### 5 - Segurtasuna: lehen pausoak
 
@@ -180,6 +189,7 @@ Hurrengo pausoak jarraitu:
 #### 15 - Segurtasuna: Sareko oinarrizko kontzeptuak
 [[Subnetting]]
 
+--- 
 ## Beste baliabide batzuk
 
 Youtube kanalak:

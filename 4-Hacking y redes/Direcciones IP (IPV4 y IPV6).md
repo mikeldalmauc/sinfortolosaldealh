@@ -7,6 +7,7 @@ El siguiente comando muestra la ip *inet* 172.17.0.2 y es la ip privada que iden
 
 ![[Pasted image 20231211222029.png]]
 
+---
 ## Convertir una ip a binario
 
 
@@ -24,6 +25,8 @@ Esta sería la representación en binario de la ip:
 
 ![[Pasted image 20231211224735.png]]
 
+---
+
 Aproximadamente 4300 millones de ips representables por el protocolo ipv4, esto es muy poco teniendo en cuenta la población y el numero de dispositivos que se conectan a internet actualmente.
 
 ![[Pasted image 20231211224919.png]]
@@ -32,13 +35,15 @@ IPv6 tiene 128 bits permitiendo representar tantos dispositivos
 
 ![[Pasted image 20231211225140.png]]
 
+---
+
 La siguiente ipv6 *inet6* está reprensentada en hexadecimales, se requieren 4 bits para representar cada número, esto es 16 bits por bloque  684d:17ff:fe17:da04 en el caso de abajo.
 
 ![[Pasted image 20231211232831.png]]
 
 Otros parámetros importantes como netmask y broadcast ya que nos van a ayudar a entender cuantas IPs puede haber repartidas en una red local. 
 
-
+---
 #### Convertir todos en bucle
 
 ```
@@ -49,6 +54,7 @@ Devolvería para la Ip anterior la siguiente respuesta
 
 ![[Pasted image 20231211223829.png]]
 
+---
 ### Ejercicio : Convertir la ipv6 a binario
 
 [[Dirección MAC]]
