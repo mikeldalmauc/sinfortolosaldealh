@@ -1,5 +1,6 @@
-## Zer da Docker?
+#Docker 
 
+## Zer da Docker?
 
 https://www.hezkuntza.net/appcont/control_acceso/irakaslegunea/init.html
 
@@ -32,11 +33,12 @@ Docker software sistema bat da, bere erabilera-espezializatua duena baina geroz 
 Laburbilduz, software garapen eta erabilpen modernoan tresna kritikoa bihurtu da. Bere eragina, batez ere, enpresa-inguruneetan, hodei-informatikan eta garatzaileen artean sumatzen da.
 
 ## Instalatu Docker Windowsen
-TODO
+
+#TODO
 
 
 
 ### WSL 
-TODO
+#TODO
 
 ### 

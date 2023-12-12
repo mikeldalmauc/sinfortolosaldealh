@@ -159,12 +159,23 @@ Hurrengo pausoak jarraitu:
 [Repositorioa proiektu batekin](https://github.com/jlucki/docker-php-dev-env)
 
 ### Abendua
-#### 5 
+#### 5 - Segurtasuna: lehen pausoak
 
-videoa ikusi, nola hasi cibersecuritatean
-https://www.youtube.com/watch?v=syqItp4p8Qw
+- videoa ikusi, nola hasi Zibersegurtasunean
+- https://www.youtube.com/watch?v=syqItp4p8Qw
+- https://jamboard.google.com/d/1p8kOHy5c8x3cPzdcfqVrgk8nHrq5ld6Wh8EBtAM2NT0/edit?usp=sharing
 
-https://jamboard.google.com/d/1p8kOHy5c8x3cPzdcfqVrgk8nHrq5ld6Wh8EBtAM2NT0/edit?usp=sharing
+#### 12 - Segurtasuna: Sareko oinarrizko kontzeptuak
+- Wireshark deskargatu
+- Kali linux ingurunea deskargatu
+- [[Direcciones IP (IPV4 y IPV6)]]
+- [[Dirección MAC]]
+- [[Protocolos UDP, TCP y el Three way Handshake]]
+- [[Modelo de capas OSI]]
+
+#### 15 - Segurtasuna: Sareko oinarrizko kontzeptuak
+[[Subnetting]]
+
 ## Beste baliabide batzuk
 
 Youtube kanalak:
