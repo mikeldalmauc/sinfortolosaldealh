@@ -1,3 +1,8 @@
+---
+tags:
+  - Docker
+---
+
 ## Web serbitzari bat sortu (Nginx)
 
 Sortu indexa 
@@ -5,7 +10,7 @@ Sortu indexa
 	
 Sortu Dockerfilea
 
-```
+```bash
 FROM nginx
 
 # Copiatu Index.html 

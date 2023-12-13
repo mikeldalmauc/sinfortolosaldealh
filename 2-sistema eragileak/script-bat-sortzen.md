@@ -116,7 +116,7 @@ Sortu script bat sortu hurrengo balditzak betez:
 1. Bukatzean, bilatu moduren bat ubuntu kontenedore bat sortzerakoan jarraian sortutako scripta exekuta dadin.
 
 ## Ebazpena
-```
+```bash
 #!/bin/bash
 
 ikaslea="$1"

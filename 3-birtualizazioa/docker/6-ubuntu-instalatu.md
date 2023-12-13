@@ -1,5 +1,8 @@
-#SistemasOperativos 
-
+---
+tags:
+  - Docker
+  - SistemasOperativos
+---
 1. Irudia deskargatu
    
 ```docker pull dorowu/ubuntu-desktop-lxde-vnc:latest```

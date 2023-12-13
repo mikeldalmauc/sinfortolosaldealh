@@ -1,4 +1,9 @@
-#Hacking #Networks
+---
+tags:
+  - Hacking
+  - Networks
+---
+
 ### Ventajas y desventajas
 
 **TCP (Protocolo de Control de Transmisión):**
