@@ -6,6 +6,7 @@ tags:
 
 # Counter App
 
+[Ikusi inplementazioa hemen](https://github.com/mikeldalmauc/mvu-java)
 ![[Pasted image 20231213164321.png]]
 
 ![[Pasted image 20231213174344.png]]
@@ -239,3 +240,4 @@ Con la anterior implementación, podemos generar distintas configuraciones de vi
 O introducir unos programas dentro, de otros, creando una jerarquía de programas modelo-vista-actualización.
 
 ![[Pasted image 20231213174947.png]]
+
