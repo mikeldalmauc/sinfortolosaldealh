@@ -10,9 +10,6 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 [Arch Linux Official website](https://archlinux.org/download/)
 
 ![[Pasted image 20231214083636.png]]
-<img src="../images/Pasted image 20231214083636.png"  
-alt="s"  
-style="float: left; margin-right: 10px;" />
 
 ---
 ## VBoxen makina sortu
