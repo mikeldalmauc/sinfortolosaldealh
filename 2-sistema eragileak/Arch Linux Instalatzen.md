@@ -327,7 +327,7 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 
 ![Alt text](images/Pasted%20image%2020231214140230.png)
 
-
+* Oharra: Une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake. 
 ---
 
 
