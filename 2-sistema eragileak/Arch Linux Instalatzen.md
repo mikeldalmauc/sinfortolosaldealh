@@ -102,3 +102,22 @@ mount /dev/sda2 /mnt
 ```
 
 --- 
+Packstrap erabiliz funtzezko pakete batzuk instalatuko ditugu.
+
+```bash
+pacstrap /mnt linux linux-firmware networkmanager grub wpa_supplicant base base-devel
+```
+
+### Fstab fitxategia sortu
+
+Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizioak. Horrela, sistema pizterakoan automatikoki montatuko dira eta aurreko pausoak  ez ditugu egin behar.
+
+```bash
+genfstab -U /mnt > /mnt/ect/fstab
+```
+
+## Sisteman sartu
+
+```bash
+arch-chroot /mnt
+```
