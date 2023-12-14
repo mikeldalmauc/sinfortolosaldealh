@@ -10,7 +10,8 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 [Arch Linux Official website](https://archlinux.org/download/)
 
 ![[Pasted image 20231214083636.png]]
-![Alt text](image.png)
+
+![Alt text](images/Pasted%20image%2020231214083636.png)
 
 ---
 ## VBoxen makina sortu
@@ -234,6 +235,9 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 Nano erabiliz zabaldu */etc/locale.gen* fitxategia. Fitxategi hau, etc dauden fitxategi asko bezala konfiguraziorako da, hizkuntza asko izango ditu ezarrita barnean baina adi gehienak komentatua daudela. 
 
 ![[Pasted image 20231214133128.png]]
+
+![Alt text](images/Pasted%20image%2020231214133128.png)
+
 Gure lana gaztelerazkoari eta ingelesekoari iruzkina kentzea da.
 1. Bilatu `Cntr + W` erabiliz  *en_US* eta iruzkina kendu
 2. Bilatu `Cntr + W` erabiliz *es_ES* eta iruzkina kendu
