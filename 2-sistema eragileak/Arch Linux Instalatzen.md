@@ -10,9 +10,7 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 [Arch Linux Official website](https://archlinux.org/download/)
 
 ![[Pasted image 20231214083636.png]]
-<img src="../images/Pasted image 20231214083636.png"  
-alt="s"  
-style="float: left; margin-right: 10px;" />
+![Alt text](image.png)
 
 ---
 ## VBoxen makina sortu
@@ -20,8 +18,16 @@ style="float: left; margin-right: 10px;" />
 Sortu makina berri bat beheko ezaugarriekin, 2Gb Ram eta 20 Gb disko gogor, prosezadore batekin.
 
 ![[Pasted image 20231214083910.png]]
+
+![Alt text](images/Pasted%20image%2020231214083910.png)
+
 ![[Pasted image 20231214083957.png]]
+
+![Alt text](images/Pasted%20image%2020231214083957.png)
+
 ![[Pasted image 20231214084010.png]]
+
+![Alt text](images/Pasted%20image%2020231214084010.png)
 
 ---
 # Partizioak, formatoa eta muntaia
@@ -41,11 +47,15 @@ lsblk
 ```
 ![[Pasted image 20231214084607.png]]
 
+![Alt text](images/Pasted%20image%2020231214084607.png)
+
 ---
 
 Jarraitu baino lehen egizatatu interneta daukagula ping eginez.
 
 ![[Pasted image 20231214084912.png]]
+
+![Alt text](images/Pasted%20image%2020231214084912.png)
 
 ---
 
@@ -59,14 +69,22 @@ Lehengo pausoa izango da labela aukeratzea, msdos aukeratuko dugu.
 
 ![[Pasted image 20231214085236.png]]
 
+![Alt text](images/Pasted%20image%2020231214085236.png)
+
 ---
 Bigarren pausoan, hiru partizio egingo ditugu, bata booterako, bestea sistema eragilerako eta azkena swaperako. Huerrengo memoria ezarpenarekin. Adi swap partizioari mota aldatu behar zaiola.
 
 ![[Pasted image 20231214085929.png]]
 
+![Alt text](images/Pasted%20image%2020231214085929.png)
+
+
 lsblk berriro erabiliz, gure diskaren partizioak ikusi beharko genituzke.
 
 ![[Pasted image 20231214090148.png]]
+
+![Alt text](images/Pasted%20image%2020231214090148.png)
+
 
 ---
 
@@ -201,6 +219,9 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 
 ![[Pasted image 20231214130741.png]]
 
+![Alt text](images/Pasted%20image%2020231214130741.png)
+
+
 ---
 
 
@@ -290,6 +311,7 @@ pacman -S neofetch
 
 ![[Pasted image 20231214135552.png]]
 
+![Alt text](images/Pasted%20image%2020231214135552.png)
 
 ## Sistema berrebiarazi
 
@@ -298,6 +320,9 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 - Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu `F12` pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.
   
 ![[Pasted image 20231214140230.png]]
+
+![Alt text](images/Pasted%20image%2020231214140230.png)
+
 
 ---
 
