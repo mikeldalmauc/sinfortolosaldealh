@@ -11,7 +11,7 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 
 ![[Pasted image 20231214083636.png]]
 <img src="../images/Pasted image 20231214083636.png"  
-alt=""  
+alt="s"  
 style="float: left; margin-right: 10px;" />
 
 ---
