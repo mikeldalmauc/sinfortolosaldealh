@@ -3,6 +3,7 @@ tags:
   - SistemasOperativos
   - Arch
 ---
+
 # Ingurune virtuala ezarri
 ## Deskargatu ISOa
 
@@ -11,14 +12,23 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 
 ![[Pasted image 20231214083636.png]]
 
+
 ---
 ## VBoxen makina sortu
 
-Sortu makina berri bat beheko ezaugarriekin, 2Gb Ram eta 20 Gb disko gogor, prosezadore batekin.
+Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram eta 20 Gb disko gogo</mark>r, prosezadore batekin.
 
 ![[Pasted image 20231214083910.png]]
+
+![Alt text](images/Pasted%20image%2020231214083910.png)
+
 ![[Pasted image 20231214083957.png]]
+
+![Alt text](images/Pasted%20image%2020231214083957.png)
+
 ![[Pasted image 20231214084010.png]]
+
+![Alt text](images/Pasted%20image%2020231214084010.png)
 
 ---
 # Partizioak, formatoa eta muntaia
@@ -38,11 +48,15 @@ lsblk
 ```
 ![[Pasted image 20231214084607.png]]
 
+![Alt text](images/Pasted%20image%2020231214084607.png)
+
 ---
 
 Jarraitu baino lehen egizatatu interneta daukagula ping eginez.
 
 ![[Pasted image 20231214084912.png]]
+
+![Alt text](images/Pasted%20image%2020231214084912.png)
 
 ---
 
@@ -56,14 +70,22 @@ Lehengo pausoa izango da labela aukeratzea, msdos aukeratuko dugu.
 
 ![[Pasted image 20231214085236.png]]
 
+![Alt text](images/Pasted%20image%2020231214085236.png)
+
 ---
-Bigarren pausoan, hiru partizio egingo ditugu, bata booterako, bestea sistema eragilerako eta azkena swaperako. Huerrengo memoria ezarpenarekin. Adi swap partizioari mota aldatu behar zaiola.
+Bigarren pausoan,<mark style="background: #FFB8EBA6;"> hiru partizio egingo ditugu, bata booterako, bestea sistema eragilerako eta azkena swaperako</mark>. Huerrengo memoria ezarpenarekin. Adi swap partizioari mota aldatu behar zaiola.
 
 ![[Pasted image 20231214085929.png]]
+
+![Alt text](images/Pasted%20image%2020231214085929.png)
+
 
 lsblk berriro erabiliz, gure diskaren partizioak ikusi beharko genituzke.
 
 ![[Pasted image 20231214090148.png]]
+
+![Alt text](images/Pasted%20image%2020231214090148.png)
+
 
 ---
 
@@ -94,7 +116,7 @@ swapon
 ---
 ## Partizioak montatu
 
-Lehenik root partizioa montatuko dugu. Beharrezkoa da hau lehen montatzea zere boot rooten azpian egongo da.
+Lehenik root partizioa montatuko dugu.<mark style="background: #FFB8EBA6;"> Beharrezkoa da hau lehen montatzea zere boot rooten azpian egongo da.</mark>
 
 ```bash
 mount /dev/sda2 /mnt
@@ -113,7 +135,7 @@ Packstrap erabiliz funtzezko pakete batzuk instalatuko ditugu, hauek gure linuxe
 pacstrap /mnt linux linux-firmware networkmanager grub wpa_supplicant base base-devel
 ```
 
-* Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake. 
+* Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean <mark style="background: #ABF7F7A6;">virtual boxen snapshot bat egitea</mark>, horrela zerbat txarto badoa puntu honetara vuelta genezake. 
 ---
 ### Fstab fitxategia sortu
 
@@ -194,9 +216,12 @@ nano /etc/sudoers
 
 Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 
-- NOPASSWD lineari komentarioa kentzekotan ez luke pasahitza eskatuko wheel taldekidei sude egitean baina hau ez da oso egokia seguratasunaren aldetik.
+-<mark style="background: #FF5582A6;"> NOPASSWD lineari komentarioa kentzekotan ez luke pasahitza eskatuko wheel taldekidei sude egitean baina hau ez da oso egokia seguratasunaren aldetik.</mark>
 
 ![[Pasted image 20231214130741.png]]
+
+![Alt text](images/Pasted%20image%2020231214130741.png)
+
 
 ---
 
@@ -287,6 +312,7 @@ pacman -S neofetch
 
 ![[Pasted image 20231214135552.png]]
 
+![Alt text](images/Pasted%20image%2020231214135552.png)
 
 ## Sistema berrebiarazi
 
@@ -295,6 +321,9 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 - Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu `F12` pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.
   
 ![[Pasted image 20231214140230.png]]
+
+![Alt text](images/Pasted%20image%2020231214140230.png)
+
 
 ---
 
