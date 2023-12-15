@@ -23,8 +23,8 @@ tags:
 - [[#Neofetch instalatu|Neofetch instalatu]]
 - [[#Sistema berrebiarazi|Sistema berrebiarazi]]
 
-# Ingurune virtuala ezarri
-## Deskargatu ISOa
+# Ingurune virtuala ezarri  📦
+## Deskargatu ISOa 📀
 
 Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 
@@ -32,7 +32,7 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 
 ![Alt text](images/Pasted%20image%2020231214083636.png)
 
-## VBoxen makina sortu
+## VBoxen makina sortu 🖥️
 
 Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram eta 20 Gb disko gogo</mark>r, prosezadore batekin.
 
@@ -51,7 +51,7 @@ Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;
 ---
 # Partizioak, formatoa eta muntaia
 
-## Partizioak sortu
+## Partizioak sortu 🍕
 
 Lehenik eta behin, teklatua gaztelerazko konfigurazioan ezarriko dugu erosoago lan egin ahal izateko.
 
@@ -107,7 +107,7 @@ lsblk berriro erabiliz, gure diskaren partizioak ikusi beharko genituzke.
 
 ---
 
-## Partizioak formateatu
+## Partizioak formateatu ℹ️
 
 Orain partizio bakoitzari dagokion formatua ezarriko diogu hurrengo komandoak erabiliz.
 
@@ -132,7 +132,7 @@ swapon
 ```
 
 ---
-## Partizioak montatu
+## Partizioak montatu 🏇
 
 Lehenik root partizioa montatuko dugu.<mark style="background: #FFB8EBA6;"> Beharrezkoa da hau lehen montatzea zere boot rooten azpian egongo da.</mark>
 
@@ -164,7 +164,7 @@ genfstab -U /mnt > /mnt/ect/fstab
 ```
 
 ---
-## Sisteman sartu
+## Sisteman sartu 🏠
 
 Hurrengo aginduarekin */mnt* sartzen gara, gogoratu mnt- root montatuta dagoela, hau da, gure sistema eragilearen erroa /.
 
@@ -175,11 +175,11 @@ arch-chroot /mnt
 
 ---
 
-# Sistema konfiguratzen
+# Sistema konfiguratzen ⚙️
 
-## Erabiltzaileak
+## Erabiltzaileak 👥
 
-### Root pasahitza
+### Root pasahitza 🗝️
 
 Lehenik eta behin, root bezala gauzenez, passwd komandoa erabili pasahitz berria ezartzeko root-eri.
 
@@ -188,7 +188,7 @@ passwd
 ```
 
 ---
-### Erabiltzaile arrunta sortu
+### Erabiltzaile arrunta sortu 🙍
 
 Dakizuenez, ez da egokia lan orokorrak root bezala egitea arriskua haundiak baitauzka, beraz erabiltzaile berri bat sortuko dugu eta root baimenak emango dizkiogu behar izatekotan root bezala komandoak erabiltzeko.
 
@@ -240,13 +240,8 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 
 ![Alt text](images/Pasted%20image%2020231214130741.png)
 
-
 ---
-
-
-
-
-## Hizkuntzak
+## Hizkuntzak 💬
 
 ### Programen hizkuntzak
 
@@ -268,7 +263,7 @@ locale-gen
 ```
 
 
-### Teklatuaren hizkuntza kontsolan
+### Teklatuaren hizkuntza kontsolan ⌨️
 
 Terminala zabaldu genuenean, lehenik egin dugun gauza gazteleraz jartzea izan zen. Hau egin behar ez izateko eta defektuz gazteleraz agertzeko sortu hurrengo fitxategia.
 
@@ -279,7 +274,7 @@ nano /etc/vconsole.conf
 Idatzi  `KEYMAP=es` barnean eta gorde.
 
 ---
-## Grub instalatzen
+## Grub instalatzen ☣️
 
 Grub, linuxeko boot loadera da, menu bat eskeintzen du sistema pizterakoan zenbait pizteko modu autatzeko. 
 
@@ -296,7 +291,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ---
-## Ordenagailuaren izena (hostname)
+## Ordenagailuaren izena (hostname) ❔
 
 Beti bezela, /etc-n sortuko dugu fitxategi bat hostname izenarekin eta gure ordenagailuaren izenarekin.
 
@@ -323,7 +318,7 @@ Hurrengo lerroak gehitu, adi mikel-pc jartzen duen tokia zuen hostname jarri beh
 
 
 
-## Neofetch instalatu
+## Neofetch instalatu 😎
 
 Instalatu neofetch programatxoa, hau sistemaren informazioa erakutziko digu. Frogatu `neofetch` erabiltzen.
 
@@ -335,7 +330,7 @@ pacman -S neofetch
 
 ![Alt text](images/Pasted%20image%2020231214135552.png)
 
-## Sistema berrebiarazi
+## Sistema berrebiarazi ♻️
 
 Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kontextuan gaudenean era orain grub zabaltzen den eta sistema era egokian pizten den guk ezarritako konfigurazio guztiekin.
 
