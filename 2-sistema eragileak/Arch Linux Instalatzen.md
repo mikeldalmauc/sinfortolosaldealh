@@ -3,17 +3,35 @@ tags:
   - SistemasOperativos
   - Arch
 ---
+- [[#Deskargatu ISOa|Deskargatu ISOa]]
+- [[#VBoxen makina sortu|VBoxen makina sortu]]
+- [[#Partizioak sortu|Partizioak sortu]]
+- [[#Partizioak formateatu|Partizioak formateatu]]
+- [[#Partizioak montatu|Partizioak montatu]]
+	- [[#Partizioak montatu#Fstab fitxategia sortu|Fstab fitxategia sortu]]
+- [[#Sisteman sartu|Sisteman sartu]]
+- [[#Erabiltzaileak|Erabiltzaileak]]
+	- [[#Erabiltzaileak#Root pasahitza|Root pasahitza]]
+	- [[#Erabiltzaileak#Erabiltzaile arrunta sortu|Erabiltzaile arrunta sortu]]
+	- [[#Erabiltzaileak#**sudoers** fitxategia editatu|**sudoers** fitxategia editatu]]
+- [[#Hizkuntzak|Hizkuntzak]]
+	- [[#Hizkuntzak#Programen hizkuntzak|Programen hizkuntzak]]
+	- [[#Hizkuntzak#Teklatuaren hizkuntza kontsolan|Teklatuaren hizkuntza kontsolan]]
+- [[#Grub instalatzen|Grub instalatzen]]
+- [[#Ordenagailuaren izena (hostname)|Ordenagailuaren izena (hostname)]]
+- [[#Hosts fitxategia|Hosts fitxategia]]
+- [[#Neofetch instalatu|Neofetch instalatu]]
+- [[#Sistema berrebiarazi|Sistema berrebiarazi]]
 
 # Ingurune virtuala ezarri
 ## Deskargatu ISOa
 
 Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
+
 [Arch Linux Official website](https://archlinux.org/download/)
 
-![[Pasted image 20231214083636.png]]
+![Alt text](images/Pasted%20image%2020231214083636.png)
 
-
----
 ## VBoxen makina sortu
 
 Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram eta 20 Gb disko gogo</mark>r, prosezadore batekin.
@@ -235,6 +253,9 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 Nano erabiliz zabaldu */etc/locale.gen* fitxategia. Fitxategi hau, etc dauden fitxategi asko bezala konfiguraziorako da, hizkuntza asko izango ditu ezarrita barnean baina adi gehienak komentatua daudela. 
 
 ![[Pasted image 20231214133128.png]]
+
+![Alt text](images/Pasted%20image%2020231214133128.png)
+
 Gure lana gaztelerazkoari eta ingelesekoari iruzkina kentzea da.
 1. Bilatu `Cntr + W` erabiliz  *en_US* eta iruzkina kendu
 2. Bilatu `Cntr + W` erabiliz *es_ES* eta iruzkina kendu
@@ -324,7 +345,7 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 
 ![Alt text](images/Pasted%20image%2020231214140230.png)
 
-
+* Oharra: <mark style="background: #ABF7F7A6;">Une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake.</mark> 
 ---
 
 
