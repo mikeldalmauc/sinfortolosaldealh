@@ -460,7 +460,11 @@ Prozesua bukatzen duenean, `pacman -Sy` agindua erabiltzen badugu, ikuskiko da n
 
 ## Erabiltzaile interfaze grafikoa 👱‍♂️
 
-Intefaze grafiorako paketeak deskargatuko ditugu lehenik eta behi. ⚠️ Adi deskarga nahiko pisutzuak izango direla.
+Intefaze grafiorako paketeak deskargatuko ditugu lehenik eta behi.
+
+ ⚠️ Adi deskarga nahiko pisutzuak izango direla. 
+ ⚠️ Hasi baino lehen Snapshot bat egin makin birtualarena
+
 
 ```bash
 pacman -S xorg xorg-server
