@@ -187,7 +187,7 @@ Hurrengo pausoak jarraitu:
 - [[Modelo de capas OSI]]
 
 #### 15 - Segurtasuna: Sareko oinarrizko kontzeptuak
-[[Subnetting]]
+[[Subnetting (sub-sareak)]]
 
 --- 
 ## Beste baliabide batzuk

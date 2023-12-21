@@ -26,7 +26,12 @@ tags:
 	- [Hosts fitxategia](#hosts-fitxategia)
 	- [Neofetch instalatu 😎](#neofetch-instalatu-)
 	- [Sistema berrebiarazi ♻️](#sistema-berrebiarazi-️)
-- [](#)
+- [Sistema Konfiguratzen - 2 ⚙️](#sistema-konfiguratzen---2-️)
+	- [Interneterako serbitzuak konfiguratu 📶](#interneterako-serbitzuak-konfiguratu-)
+		- [Wifirako portatil baten bagauz](#wifirako-portatil-baten-bagauz)
+	- [Aur repositorioak gehitzen 🐊](#aur-repositorioak-gehitzen-)
+	- [Black-Arch linuxeko repositorioak gehitu 🖤](#black-arch-linuxeko-repositorioak-gehitu-)
+	- [Erabiltzaile interfaze grafikoa 👱‍♂️](#erabiltzaile-interfaze-grafikoa-️)
 
 
 # Ingurune virtuala ezarri  📦
@@ -349,5 +354,136 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 * Oharra: <mark style="background: #ABF7F7A6;">Une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake.</mark> 
 ---
 
+# Sistema Konfiguratzen - 2 ⚙️
 
-# 
+## Interneterako serbitzuak konfiguratu 📶
+
+Lehenik eta behin, `ping www.googl.es` egiten saiatzen bagara ikusiko dugu internetik ez daukagula. 
+
+Hau gertatzen da sare kudeaketarako serbitzua piztuta ez dagoelako. Beraz bi gauza egingo ditugu:
+
+1. NetworkManager serbitzua piztu 
+2. Hurrengaroako, serbitzua automatikoki pizteko ezarri
+
+
+```bash
+systemctl start NetworkManager.service 
+```
+
+```bash
+systemctl enable NetworkManage
+```
+
+Horain, ping funtzionatu beharko luke, frogatu `ping www.googl.es`.
+
+### Wifirako portatil baten bagauz
+Pauso berdinak *wpa_supplicant* serbitzuarekin. 
+
+```bash
+systemctl start wpa_supplicant.service 
+```
+
+```bash
+systemctl enable wpa_supplicant
+```
+
+---
+## Aur repositorioak gehitzen 🐊
+
+Aur, komunitateak sortutako programa asko dituen repositorio bat da. Honi esker askoz programa gehiago deskargatzeko gai izango gara baina erabili ahal izateko konfiguratu beharko dugu.
+
+0. Zure erabiltzaile bezala jarri EZ ROOT! aldatzeko -> `su mikel`  
+1. Lehenik, git istalatu. Git, repositorioak kudeatzeko tresna bat da. Google drive-en antzelako zerbait baina koderako erabiltzen dena.
+
+```bash
+sudo pacman -S git
+```
+
+2. Sortu *repos* karpeta zure erabiltzaile pertsonalaren profilean */home/{zure-erabiltzaile-izen}/repos*
+
+```bash
+mkdir -p Desktop/mikel/repos
+```
+
+3. Navigatu repos direktoriora `cd !$` 
+
+* Oharra:  `!$` truko txiki bat da, aurreko aginduaren azken parametroari egiten dio erreferentzia. Kasu honetan `mkdir -p Desktop/mikel/repos` erabili ostean `!$` `Desktop/mikel/repos` balioko du beraz gauza berdina dira bi agindu hauek 😀
+	* `cd Desktop/mikel/repos = cd !$` 
+
+4. Klonatu hurrengo repositorioa, hau da deskargatzea bezala.
+   
+```bash
+git clone https://aur.archlinux.org/paru-bin.git
+```
+
+Hau egin ostean, paru-bin izeneko karpeta bat sortuko da repos direktorioan. Sartu direktorioan eta idatzi:
+
+```bash
+makepkg -si
+```
+
+
+Eginda ! Aur paketeak eskuragarri izango ditugu horain 👏
+
+---
+## Black-Arch linuxeko repositorioak gehitu 🖤
+
+*repos* karpetan blackarch direktorioa sortu eta sartu barrura
+
+```bash
+mkdir balckarch
+cd blackarch
+```
+
+Curl agindua erabiliz hurrengo helbideko fitxategia deskaragatu: 
+- curl interneteko gauzak deskargatzeko balio du, helbide bat emonez. Chrome deskargatzen dugun modual esteka bati klikatuz, berdina. Webguneak era deskargatzen dira, ikusi froga bezala `curl wwww.google.es`  zer gertatzen den, google webgunea itzultzen duela erantzun moduan.
+
+
+```bash
+curl -O https://blackarch.org/strap.sh
+```
+
+
+`strap.sh` bash script bat da, exekuta dezakeguna, baina lehenengo exekuzio baimenak heman beharko dizikogu.
+
+```bash
+chmod +x strap.sh
+```
+
+Exekutatu
+
+```bash
+./strap.sh
+```
+
+Prozesua bukatzen duenean, `pacman -Sy` agindua erabiltzen badugu, ikuskiko da nola blackarch repositorioak pacman-ren repositorio zerrendan agertuko direla.
+
+## Erabiltzaile interfaze grafikoa 👱‍♂️
+
+Intefaze grafiorako paketeak deskargatuko ditugu lehenik eta behi. ⚠️ Adi deskarga nahiko pisutzuak izango direla.
+
+```bash
+pacman -S xorg xorg-server
+```
+
+```bash
+pacman -S gnome
+```
+
+
+Lehen egin genuen bezala, interfaze grafikoko serbitzuak piztu eta ahalbidetuko ditugu `systemctl start` eta `systemctl enable`
+
+```bash
+systemctl start gdm.service
+```
+
+Hau egin eta gero interfazea zalbadu beharko litzateke.
+1. Logeatu
+2. zabaldu terminal bat, zabaltzen ez bada egin `Ctrl + Alt + F2` terminal birtual bat zabaltzeko.
+
+```bash
+systemctl enable gdm.service
+```
+
+
+

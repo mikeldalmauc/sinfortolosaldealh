@@ -7,4 +7,4 @@ tags:
 
 ![[Pasted image 20231212010148.png]]
 
-[[Subnetting]] 
+[[Subnetting (sub-sareak)]] 
