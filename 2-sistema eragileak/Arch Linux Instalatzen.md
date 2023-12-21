@@ -3,25 +3,31 @@ tags:
   - SistemasOperativos
   - Arch
 ---
-- [[#Deskargatu ISOa|Deskargatu ISOa]]
-- [[#VBoxen makina sortu|VBoxen makina sortu]]
-- [[#Partizioak sortu|Partizioak sortu]]
-- [[#Partizioak formateatu|Partizioak formateatu]]
-- [[#Partizioak montatu|Partizioak montatu]]
-	- [[#Partizioak montatu#Fstab fitxategia sortu|Fstab fitxategia sortu]]
-- [[#Sisteman sartu|Sisteman sartu]]
-- [[#Erabiltzaileak|Erabiltzaileak]]
-	- [[#Erabiltzaileak#Root pasahitza|Root pasahitza]]
-	- [[#Erabiltzaileak#Erabiltzaile arrunta sortu|Erabiltzaile arrunta sortu]]
-	- [[#Erabiltzaileak#**sudoers** fitxategia editatu|**sudoers** fitxategia editatu]]
-- [[#Hizkuntzak|Hizkuntzak]]
-	- [[#Hizkuntzak#Programen hizkuntzak|Programen hizkuntzak]]
-	- [[#Hizkuntzak#Teklatuaren hizkuntza kontsolan|Teklatuaren hizkuntza kontsolan]]
-- [[#Grub instalatzen|Grub instalatzen]]
-- [[#Ordenagailuaren izena (hostname)|Ordenagailuaren izena (hostname)]]
-- [[#Hosts fitxategia|Hosts fitxategia]]
-- [[#Neofetch instalatu|Neofetch instalatu]]
-- [[#Sistema berrebiarazi|Sistema berrebiarazi]]
+
+- [Ingurune virtuala ezarri  📦](#ingurune-virtuala-ezarri--)
+	- [Deskargatu ISOa 📀](#deskargatu-isoa-)
+	- [VBoxen makina sortu 🖥️](#vboxen-makina-sortu-️)
+- [Partizioak, formatoa eta muntaia](#partizioak-formatoa-eta-muntaia)
+	- [Partizioak sortu 🍕](#partizioak-sortu-)
+	- [Partizioak formateatu ℹ️](#partizioak-formateatu-ℹ️)
+	- [Partizioak montatu 🏇](#partizioak-montatu-)
+		- [Fstab fitxategia sortu](#fstab-fitxategia-sortu)
+	- [Sisteman sartu 🏠](#sisteman-sartu-)
+- [Sistema konfiguratzen ⚙️](#sistema-konfiguratzen-️)
+	- [Erabiltzaileak 👥](#erabiltzaileak-)
+		- [Root pasahitza 🗝️](#root-pasahitza-️)
+		- [Erabiltzaile arrunta sortu 🙍](#erabiltzaile-arrunta-sortu-)
+		- [**sudoers** fitxategia editatu](#sudoers-fitxategia-editatu)
+	- [Hizkuntzak 💬](#hizkuntzak-)
+		- [Programen hizkuntzak](#programen-hizkuntzak)
+		- [Teklatuaren hizkuntza kontsolan ⌨️](#teklatuaren-hizkuntza-kontsolan-️)
+	- [Grub instalatzen ☣️](#grub-instalatzen-️)
+	- [Ordenagailuaren izena (hostname) ❔](#ordenagailuaren-izena-hostname-)
+	- [Hosts fitxategia](#hosts-fitxategia)
+	- [Neofetch instalatu 😎](#neofetch-instalatu-)
+	- [Sistema berrebiarazi ♻️](#sistema-berrebiarazi-️)
+- [](#)
+
 
 # Ingurune virtuala ezarri  📦
 ## Deskargatu ISOa 📀
