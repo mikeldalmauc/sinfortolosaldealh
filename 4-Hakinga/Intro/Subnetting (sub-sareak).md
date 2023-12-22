@@ -40,10 +40,10 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 
 ![[Pasted image 20231221130840.png]]
 
-1. CIDR: Izendapen standar bat da, gura maskarern 1 zenbakien kopuruaren araberakoa, kalkulatzeko
+1. CIDR: Izendapen estandar bat da, gura maskarern 1 zenbakien kopuruaren araberakoa, kalkulatzeko
 ![[Pasted image 20231221131002.png]]
 
-2. Host kopurua, maskara bate aplikatu eta gero, libre daduden helbide guztiak izango dira. Hauda da, zero kopurua kontatu eta 2^(zero kopurua)
+2. Host kopurua, maskara bat aplikatuta, libre daduden helbide guztiak izango dira. Hauda da, zero kopurua kontatu eta 2^(zero kopurua)
 
 ![[Pasted image 20231221131135.png]]
 ![[Pasted image 20231221131152.png]]
@@ -51,3 +51,29 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 ---
 ## Maskara klaseak
 
+Sortu tab berri bat eta hurrengo taula kopiatu:
+
+![[Pasted image 20231221133115.png]]
+![[Pasted image 20231222093449.png]]
+
+![[Pasted image 20231222093428.png]]
+
+---
+
+## Ariketatzoak 
+
+Oharra: Eskuragarri dauden IP helbideen artean, lehen eta azkenengoa ez ditugu kontuan izango. 
+- Lehen IP helbidea, network Id izena du
+- Azken IP helbidea broadcast address izena du
+
+kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.
+
+- 192.168.0.1/26
+- 10.10.0.0/24
+- 10.10.1.15/23
+- 192.168.112.165/25
+---
+
+[ip address-guide cidr calc](https://www.ipaddressguide.com/cidr)
+
+![[Pasted image 20231222094358.png]]
