@@ -489,5 +489,9 @@ Hau egin eta gero interfazea zalbadu beharko litzateke.
 systemctl enable gdm.service
 ```
 
-
+Izan daiteke interfaze grafikoa ondo ez ikustea oraindik. Saiatu huerrengo aginduaren bidez sistemaren paketeak eguneratzen eta berrebiarazi.
+```bash
+pacman -Syu
+reboot
+```
 
