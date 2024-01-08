@@ -440,7 +440,7 @@ Curl agindua erabiliz hurrengo helbideko fitxategia deskaragatu:
 
 
 ```bash
-curl -O https://blackarch.org/strap.sh
+curl -O https://blackarch.org/strap.sh > strap.sh
 ```
 
 
