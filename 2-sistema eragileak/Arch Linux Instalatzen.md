@@ -440,7 +440,7 @@ Curl agindua erabiliz hurrengo helbideko fitxategia deskaragatu:
 
 
 ```bash
-curl -O https://blackarch.org/strap.sh
+curl -O https://blackarch.org/strap.sh > strap.sh
 ```
 
 
@@ -489,5 +489,9 @@ Hau egin eta gero interfazea zalbadu beharko litzateke.
 systemctl enable gdm.service
 ```
 
-
+Izan daiteke interfaze grafikoa ondo ez ikustea oraindik. Saiatu huerrengo aginduaren bidez sistemaren paketeak eguneratzen eta berrebiarazi.
+```bash
+pacman -Syu
+reboot
+```
 
