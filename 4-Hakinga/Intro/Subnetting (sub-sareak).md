@@ -51,7 +51,7 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 ---
 ## Maskara klaseak
 
-Sortu tab berri bat eta hurrengo taula kopiatu:
+Sortu tab berri bat eta hurrengo taula eraiki:
 
 ![[Pasted image 20231221133115.png]]
 ![[Pasted image 20231222093449.png]]
@@ -59,7 +59,6 @@ Sortu tab berri bat eta hurrengo taula kopiatu:
 ![[Pasted image 20231222093428.png]]
 
 ---
-
 ## Ariketatzoak 
 
 Oharra: Eskuragarri dauden IP helbideen artean, lehen eta azkenengoa ez ditugu kontuan izango. 
@@ -72,8 +71,53 @@ kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.
 - 10.10.0.0/24
 - 10.10.1.15/23
 - 192.168.112.165/25
+- 192.168.1.0/23
+- 192.168.2.0/23
+- 192.168.3.0/23
+- 10.10.13.124/19
+- 10.10.38.12/19
+- 13.13.13.13/13
 ---
 
 [ip address-guide cidr calc](https://www.ipaddressguide.com/cidr)
 
 ![[Pasted image 20231222094358.png]]
+
+---
+
+## Kalkulo aritmetikoa 
+
+- 172.14.15.16/17
+
+```bash
+> echo "obase=2;172" | bc
+10101100
+> echo "obase=2;14" | bc
+1110
+> echo "obase=2;15" | bc
+1111
+> echo "obase=2;16" | bc
+10000
+```
+
++ 10101100.00001110.00001111.00010000 (172.14.15.16)
+
+```bash
+> echo "ibase=2;10000000" | bc
+128
+```
+
++ 11111111.11111111.10000000.00000000 (255.255.128.0)
+
+### AND Ip eta maskararen artean
+
+- 10101100.00001110.00001111.00010000
+- 11111111.11111111.10000000.00000000
+---
+- 10101100.00001110.00000000.00000000 [AND] (172.14.0.0 - Network ID)
+- 10101100.00001110.01111111.11111111 (172.14.127.255 - Broadcast Address)
+
+
+webgune hau kalkuloen azalpenak ematen ditu:
+[Ip calc, blog jodies](https://jodies.de/ipcalc)
+
