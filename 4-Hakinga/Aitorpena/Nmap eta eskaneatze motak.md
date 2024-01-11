@@ -1,7 +1,8 @@
 
 Atakante bezala, funtzeskoa da ezagutzea zen portu dauden zabalik.
 
-100 portu arruntenak eskaneatzeko
+### Oinarrizko parametroak
+Portu guztiak eskaneatzeko
 
 ```bash
 nmap -p- 192.168.0.1 
@@ -28,7 +29,7 @@ Bakarrik zabalik dauden portuak eskaneatzeko:
 nmap --top-ports 500 --open 192.168.0.1 
 ```
 
-
+---
 Verbose, eskaneoa astiro badoa eta aldi berean zein portu dauden zabalik jakin nahi badugu:
 
 ```bash
@@ -40,24 +41,59 @@ DNS ez aplikatzeko erabili, eskaneoa azkarragoa izango da:
 nmap --top-ports 500 --open 192.168.0.1 -v -n
 ```
 
-Plantilla de temporizado 
+---
+### Plantilla de temporizado:
+
+-Tn  (n : 0 - 5) 
+0. Oso geldoa baina ixila (modo paranoico)
+5. Oso azkarra baina saratatzua (modo loco)
 
 ```bash
-
+nmap -p- -T5 192.168.0.1 
 ```
 
-Ariketak
+---
+### TCP connect scan
 
-Ma
+Eskaneatze modu honetan, nmap-ek tcp protokoloaren 3-way-handshake-a egiten saiatuko da. Gogoratu nola harrapau genituen pakete hauek Wiresharken:
+- Portua zabalik badago (SYN ACK -> SYN -> ACK )
+- Portua itxita badao (SYN ACK -> RST )
+  
+```bash
+nmap -p- -T5 -sT --open 192.168.0.1 -v -n
+```
+
+---
+### Eskaneatu edozein host (activos y no activos)
+
+- -Pn parametroa erabili beharko dugu
+
+![[Pasted image 20240111125658.png]]
 
 ```bash
-docker run -d \ 
-	--name juiceshop \ 
-	--network vulnerable \ 
-	--ip="10.0.0.6" \ 
-	bkimminich/juice-shop
+nmap -p- -T5 --open 192.168.0.1 -v -n -Pn
 ```
 
-Refs
+---
+### UDP protokoloa erabiliz eskaneatu
 
-https://ianmuchina.com/docker-lab/
+- -Su  parametroa erabiliko dugu honetarako
+
+```bash
+nmap --top-ports 100 --open -Su 192.168.0.1 -v -n
+```
+
+---
+### Piztutako Hostak aurkitzeko subsare baten (Ping sweep)
+
+```bash
+nmap -sn 192.168.0.1/24
+ ```
+
+### Sistema eragilearen ezaugarriak aurkitzeko
+
+⚠️ Ez dago oso gomendatuta, astuna baita.
+
+```bash
+nmap -O 192.168.0.1
+```
