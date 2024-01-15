@@ -56,8 +56,8 @@ Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;
 
 Montatu hurrengo partizioak dagokien helbideetan eta swap partizio aktibatu: 
 
-sda2  -> /mnt
-sda1  -> /mnt/boot
+- sda2  -> /mnt
+- sda1  -> /mnt/boot
 
 --- 
 Packstrap erabiliz pakete batzuk instalatu, hauek gure linuxeko sistemaren fitzategi ezagun asko gehituko dituzte zeren momentuz /mnt hutsik dago:
