@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  kali-rolling:
+    build:
+      context: .
+    tty: true
+    stdin_open: true
+    networks:
+      - pentesting-lab-network
+
+  vaas-cve-2014-0160:
+    image: hmlio/vaas-cve-2014-0160
+    ports:
+      - "8443:443"
+    networks:
+      - pentesting-lab-network
+
+  audi_sqli:
+    image: tuxotron/audi_sqli
+    ports:
+      - "80:80"
+    networks:
+      - pentesting-lab-network
+
+networks:
+  pentesting-lab-network:
+    driver: bridge
