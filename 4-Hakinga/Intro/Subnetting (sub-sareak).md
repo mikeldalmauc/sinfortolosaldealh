@@ -85,7 +85,7 @@ kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.
 
 ---
 
-## Kalkulo aritmetikoa 
+## Kalkulo aritmetikoa Network ID eta Broadcast Addressa Kalkulatzeko
 
 - 172.14.15.16/17
 

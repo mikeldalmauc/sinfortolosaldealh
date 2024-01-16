@@ -181,15 +181,42 @@ Hurrengo pausoak jarraitu:
 #### 12 - Segurtasuna: Sareko oinarrizko kontzeptuak
 - Wireshark deskargatu
 - Kali linux ingurunea deskargatu
-- [[Direcciones IP (IPV4 y IPV6)]]
-- [[Dirección MAC]]
-- [[Protocolos UDP, TCP y el Three way Handshake]]
-- [[Modelo de capas OSI]]
+- Direcciones IP (IPV4 y IPV6)
+- Dirección MAC
+
 
 #### 15 - Segurtasuna: Sareko oinarrizko kontzeptuak
-[[Subnetting (sub-sareak)]]
+- Protocolos UDP, TCP y el Three way Handshake
+- Modelo de capas OSI
 
---- 
+#### 19 - Bonus klase - JS oinarrizko kontzeptuak
+- Js oinarrizkoak
+- MVU arkitektura
+- [Landutako ariketak](https://github.com/mikeldalmauc/js-components)
+
+#### 22 - Azken klasea 
+- Klase hau hordu batekoa izan zen
+- Proiketu libreetan lan egin genuen
+
+### Urtarilla
+#### 9 - Segurtasuna: Subnetting eta Nmap
+- Sub-sareak excella sortu eta ariketatxoak
+- Nmap-en erabilerako video ikusi
+
+#### 12 - Segurtasuna: Testa - pentesting ingurunea sortu
+- Segurtasun testa
+- Pentesting ingurunea sortzen hasi
+
+#### 16 - Segurtasuna: Nmap - Firewallak ekiditeko teknikak 
+- Pentesting ingurunea sortzen bukatu
+- Nmapekin frogak
+- Firewallak ekiditeko tekniken videoa
+
+#### 23 - Segurtasuna
+
+#### 26 - Segurtasuna
+
+
 ## Beste baliabide batzuk
 
 Youtube kanalak:
