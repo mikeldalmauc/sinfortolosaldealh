@@ -23,6 +23,13 @@ services:
     networks:
       - pentesting-lab-network
 
+  juice_shop:
+    image: bkimminich/juice-shop
+    ports:
+      - "3000:3000"
+    networks:
+      - pentesting-lab-network
+
 networks:
   pentesting-lab-network:
     driver: bridge
