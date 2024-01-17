@@ -6,6 +6,8 @@ services:
       context: .
     tty: true
     stdin_open: true
+    volumes:
+      - ./scan-output:/root/scan-output
     networks:
       - pentesting-lab-network
 
