@@ -32,10 +32,20 @@ Sistema Informatikoen repositorioa
       - [21 - Azterketa eguna](#21---azterketa-eguna)
       - [22 - Erronka Aurkeztu](#22---erronka-aurkeztu)
       - [24 - PHP garapen ingurune bat prestatzen](#24---php-garapen-ingurune-bat-prestatzen)
+  - [Repositorioa proiektu batekin](#repositorioa-proiektu-batekin)
     - [Abendua](#abendua)
       - [5 - Segurtasuna: lehen pausoak](#5---segurtasuna-lehen-pausoak)
       - [12 - Segurtasuna: Sareko oinarrizko kontzeptuak](#12---segurtasuna-sareko-oinarrizko-kontzeptuak)
       - [15 - Segurtasuna: Sareko oinarrizko kontzeptuak](#15---segurtasuna-sareko-oinarrizko-kontzeptuak)
+      - [19 - Bonus klase - JS oinarrizko kontzeptuak](#19---bonus-klase---js-oinarrizko-kontzeptuak)
+      - [22 - Azken klasea](#22---azken-klasea)
+    - [Urtarilla](#urtarilla)
+      - [9 - Segurtasuna: Subnetting eta Nmap](#9---segurtasuna-subnetting-eta-nmap)
+      - [12 - Segurtasuna: Testa - pentesting ingurunea sortu](#12---segurtasuna-testa---pentesting-ingurunea-sortu)
+      - [16 - Segurtasuna: Nmap - Firewallak ekiditeko teknikak](#16---segurtasuna-nmap---firewallak-ekiditeko-teknikak)
+      - [19 - Segurtasuna](#19---segurtasuna)
+      - [23 - Segurtasuna](#23---segurtasuna)
+      - [26 - Segurtasuna](#26---segurtasuna)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -212,10 +222,15 @@ Hurrengo pausoak jarraitu:
 - Nmapekin frogak
 - Firewallak ekiditeko tekniken videoa
 
+#### 19 - Segurtasuna
+- Ekipoak aurkitu sare lokalean (ARP eta ICMP) 
+-
+
 #### 23 - Segurtasuna
+- Fuzzing eta fitxategi azterketa web serbitzarietan
 
 #### 26 - Segurtasuna
-
+- 
 
 ## Beste baliabide batzuk
 

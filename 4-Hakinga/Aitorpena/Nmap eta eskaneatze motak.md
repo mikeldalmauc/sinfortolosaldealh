@@ -97,3 +97,50 @@ nmap -sn 192.168.0.1/24
 ```bash
 nmap -O 192.168.0.1
 ```
+
+### Portuen serbitzuak detektatu
+
+```bash
+nmap -p80 192.168.0.1 -sV
+```
+
+## NMAP scriptak erabiltzen
+
+### Scriptal eta kategoriak aurkitzen
+```bash
+# Scriptak
+locate .nse
+
+# Script kopurua
+locate .nse | wc -l
+
+# Categoriak modu paraleloan aurkitu
+locate .nse | xargs grep 'categories'
+
+# Filtratu mserbitzuak
+locate .nse | xargs grep 'categories' | greo -oP '".*?"' |sort -u 
+
+```
+
+### Exekutatu script sorta bat
+Exekutatu script sorta bat, sC parametroarekin script guztietatik, erabilenen artean daduden sorta bat exekutatuko dira portu horretan.
+
+```bash
+nmap -p22 192.168.0.1 -sC -SV
+```
+
+
+### Exekutatu script sorta bat kategoriakoak
+
+```bash
+nmap -p80 192.168.0.1 --script="vuln or/and safe" -sV 
+```
+ 
+
+```bash
+# Zerbitzuak portuan ikusi
+lsof -i:80
+
+# Prozesu bat nondik exekutzen den aurkitzeko
+pwdx idprocesso 
+```
