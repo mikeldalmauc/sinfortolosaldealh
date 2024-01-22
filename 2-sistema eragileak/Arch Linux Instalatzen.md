@@ -33,6 +33,7 @@ tags:
 	- [Black-Arch linuxeko repositorioak gehitu 🖤](#black-arch-linuxeko-repositorioak-gehitu-)
 	- [Erabiltzaile interfaze grafikoa 👱‍♂️](#erabiltzaile-interfaze-grafikoa-️)
 
+Video Erreferentzia: https://www.youtube.com/watch?v=fshLf6u8B-w&t=2737s
 
 # Ingurune virtuala ezarri  📦
 ## Deskargatu ISOa 📀
