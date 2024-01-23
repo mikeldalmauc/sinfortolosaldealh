@@ -83,7 +83,30 @@ source ~/.profile
 
 6. Ziurtatu bertsio `go version` idatziz
 
-# Deskargatu seclist /usr/share karpetan
+## Gobuster erabili 
+
+```bash
+.\gobuster dir -u  [weguneare helbidea] -w [seclist ruta] -t 200
+```
+- https://tolosaldea.hezkuntza.net/
+- /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
+
+```bash
+.\gobuster dir -u https://tolosaldea.hezkuntza.net/ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 200
+
+```
+
+Irteera gorde.
+
+```bash
+ ./gobuster dir -u https://ikasgela.tolosaldealh.eus/ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 200 -b 403,404 --no-error > /root/scan-output/analisisIkasgela.txt
+```
+
+```bash
+-b 403,404
+```
+
+### Deskargatu seclist /usr/share karpetan
 
 ````bash
 git clone https://github.com/danielmiessler/SecLists
