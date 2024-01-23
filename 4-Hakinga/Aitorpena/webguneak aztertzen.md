@@ -42,6 +42,13 @@ Jarraian, tresna hauetarako esteka emango dizugu:
 
 1. Klonatu repositorioa /opt karpetan [Gobuster](https://github.com/OJ/gobuster).
 
+2. Konpilatu proiektua, gobuster karpeta barruan
+```bash
+go build .
+```
+
+Go instalatu 
+---
 2. Instalatu go lenguaia konpilatzailea
     1. Deskargatu tarball https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
 
@@ -75,3 +82,9 @@ source ~/.profile
 ```
 
 6. Ziurtatu bertsio `go version` idatziz
+
+# Deskargatu seclist /usr/share karpetan
+
+````bash
+git clone https://github.com/danielmiessler/SecLists
+```

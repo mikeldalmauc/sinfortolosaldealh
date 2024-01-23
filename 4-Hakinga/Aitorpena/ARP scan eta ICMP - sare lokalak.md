@@ -13,7 +13,6 @@ arp-scan -I eth0 --localnet --ignoredups
 # Erabilera
 masscan
 
-# Adibidea
-masscan -21,22,139,445,8080,80,443 -Pn 192.168.0.0/16 --rate=10000
+# Adibideas://z
 
 ```
