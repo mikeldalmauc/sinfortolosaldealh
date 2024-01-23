@@ -20,6 +20,8 @@ Ikusitako tresnak:
 
 
 
+---
+
 Klase honetan, Wfuzz eta Gobuster tresnak erabiltzen ditugu Fuzzing aplikatzeko. Teknika hau web zerbitzari batean ezkutatuta dauden ibilbideak eta baliabideak aurkitzeko erabiltzen da, indar gordineko erasoen bidez. Asmo txarreko erasotzaileek zerbitzarira baimenik gabe sartzeko erabil ditzaketen ezkutuko baliabideak aurkitzea da helburua.
 
 Wfuzz edukia deskubritzeko tresna bat eta datuak injektatzeko tresna bat da. Funtsean, web aplikazioetako kalteberatasunak probatzeko prozesuak automatizatzeko erabiltzen da.
@@ -34,3 +36,42 @@ Jarraian, tresna hauetarako esteka emango dizugu:
 
 - [Wfuzz](https://github.com/xmendez/wfuzz)
 - [Gobuster](https://github.com/OJ/gobuster)
+
+
+## Gobuster instalatu 
+
+1. Klonatu repositorioa /opt karpetan [Gobuster](https://github.com/OJ/gobuster).
+
+2. Instalatu go lenguaia konpilatzailea
+    1. Deskargatu tarball https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+
+
+```bash
+curl -OL https://golang.org/dl/go1.21.6.linux-amd64.tar.gz
+```
+
+3. Deskonprimitu paketea
+
+```bash
+tar -C /usr/local -xvf go1.21.6.linux-amd64.tar.gz
+```
+
+4. Go routa ezarri
+
+```bash
+nano ~/.profile
+```
+
+Gehitu linea hau fitxategira
+
+```bash
+export PATH=$PATH:/usr/local/go/bin
+```
+
+5. Refresh profila
+
+```bash
+source ~/.profile
+```
+
+6. Ziurtatu bertsio `go version` idatziz
