@@ -2,19 +2,21 @@
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
-[+] Url:                     https://ikasgela.tolosaldealh.eus/
+[+] Url:                     http://mikeldalmau.com/
 [+] Method:                  GET
 [+] Threads:                 200
 [+] Wordlist:                /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
 [+] Negative Status codes:   403,404
 [+] User Agent:              gobuster/3.6
+[+] Extensions:              html
 [+] Timeout:                 10s
 ===============================================================
 Starting gobuster in directory enumeration mode
 ===============================================================
-[2K/javascript           (Status: 301) [Size: 345] [--> https://ikasgela.tolosaldealh.eus/javascript/]
-[2K/phpmyadmin           (Status: 301) [Size: 345] [--> https://ikasgela.tolosaldealh.eus/phpmyadmin/]
-[2K/moodle               (Status: 301) [Size: 341] [--> https://ikasgela.tolosaldealh.eus/moodle/]
+[2K/index.html           (Status: 200) [Size: 7307]
+[2K/soap                 (Status: 200) [Size: 0]
+
+[!] Keyboard interrupt detected, terminating.
 
 ===============================================================
 Finished

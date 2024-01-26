@@ -19,7 +19,7 @@ Ikusitako tresnak:
 - [Builtwith](https://builtwith.com/)
 
 
-
+# Fuzzying eta webguneen fitxategi bilaketa
 ---
 
 Klase honetan, Wfuzz eta Gobuster tresnak erabiltzen ditugu Fuzzing aplikatzeko. Teknika hau web zerbitzari batean ezkutatuta dauden ibilbideak eta baliabideak aurkitzeko erabiltzen da, indar gordineko erasoen bidez. Asmo txarreko erasotzaileek zerbitzarira baimenik gabe sartzeko erabil ditzaketen ezkutuko baliabideak aurkitzea da helburua.
@@ -108,6 +108,14 @@ Irteera gorde.
 
 ### Deskargatu seclist /usr/share karpetan
 
-````bash
+```bash
 git clone https://github.com/danielmiessler/SecLists
+```
+
+## WFUZZ trensa erabiltzen
+
+```bash
+wfuzz -c --hc=404,403 -t 200 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
+https://miwifi.com/FUZZ/
+
 ```

@@ -224,13 +224,14 @@ Hurrengo pausoak jarraitu:
 
 #### 19 - Segurtasuna
 - Ekipoak aurkitu sare lokalean (ARP eta ICMP) 
--
+- Serbitzzarien tresna ikerketa (whatweb...)
 
 #### 23 - Segurtasuna
 - Fuzzing eta fitxategi azterketa web serbitzarietan
+- gobuster
 
 #### 26 - Segurtasuna
-- 
+- Fuzzing eta fitxategi azterketa web serbitzarietan
 
 ## Beste baliabide batzuk
 
