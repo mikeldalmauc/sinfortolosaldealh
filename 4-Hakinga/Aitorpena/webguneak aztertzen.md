@@ -114,8 +114,30 @@ git clone https://github.com/danielmiessler/SecLists
 
 ## WFUZZ trensa erabiltzen
 
-```bash
-wfuzz -c --hc=404,403 -t 200 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
-https://miwifi.com/FUZZ/
+Instalatu tresna
 
+```bash
+apt install wfuzz
+```
+Adibide agindu bat
+```bash
+wfuzz -c --hc=404,403 -t 200 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt https://miwifi.com/FUZZ/
+```
+
+Parametro batzuk:
+```bash
+# Show line
+--sl=216
+
+# Hide line
+--hl=216
+
+# Bi paiload eribiliz bata, hitzekin rutarako eta beztea zerrenda bat fitxategi extensioekin
+
+wfuzz -c --hc=404,403 -t 200 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,html-txt-php https://miwifi.com/FUZZ.FUZ2Z
+
+
+# Rangoak erabiltzen adibidez produktu ideak identfikatzeko
+
+wfuzz -c -t 200 -z range,1-20000 'https://www.mi.com/shop/buy/detail?product_id=FUZZ'
 ```
