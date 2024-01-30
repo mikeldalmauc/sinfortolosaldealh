@@ -43,9 +43,13 @@ Sistema Informatikoen repositorioa
       - [9 - Segurtasuna: Subnetting eta Nmap](#9---segurtasuna-subnetting-eta-nmap)
       - [12 - Segurtasuna: Testa - pentesting ingurunea sortu](#12---segurtasuna-testa---pentesting-ingurunea-sortu)
       - [16 - Segurtasuna: Nmap - Firewallak ekiditeko teknikak](#16---segurtasuna-nmap---firewallak-ekiditeko-teknikak)
-      - [19 - Segurtasuna](#19---segurtasuna)
-      - [23 - Segurtasuna](#23---segurtasuna)
-      - [26 - Segurtasuna](#26---segurtasuna)
+      - [19 - Segurtasuna - Sare lokalak eta Webguneeen teknologiak aztertzen](#19---segurtasuna---sare-lokalak-eta-webguneeen-teknologiak-aztertzen)
+      - [23 - Segurtasuna - Fuzzing eta webguneen ennumerazioa](#23---segurtasuna---fuzzing-eta-webguneen-ennumerazioa)
+      - [26 - Segurtasuna - Fuzzing eta webguneen ennumerazioa](#26---segurtasuna---fuzzing-eta-webguneen-ennumerazioa)
+      - [30 - Segurtasuna - FTP, SSH, HTTP, HTTPS, SMB zerbitzuen enumerzaioa.](#30---segurtasuna---ftp-ssh-http-https-smb-zerbitzuen-enumerzaioa)
+    - [Otsaila](#otsaila)
+      - [2 - Segurtasuna - Introdukzioa bulnerabilitatean ustiatzeko teknikak. Reverse shells, bind shells eta forward shells.](#2---segurtasuna---introdukzioa-bulnerabilitatean-ustiatzeko-teknikak-reverse-shells-bind-shells-eta-forward-shells)
+  - [](#)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -222,16 +226,32 @@ Hurrengo pausoak jarraitu:
 - Nmapekin frogak
 - Firewallak ekiditeko tekniken videoa
 
-#### 19 - Segurtasuna
+#### 19 - Segurtasuna - Sare lokalak eta Webguneeen teknologiak aztertzen
 - Ekipoak aurkitu sare lokalean (ARP eta ICMP) 
 - Serbitzzarien tresna ikerketa (whatweb...)
 
-#### 23 - Segurtasuna
+#### 23 - Segurtasuna - Fuzzing eta webguneen ennumerazioa
 - Fuzzing eta fitxategi azterketa web serbitzarietan
-- gobuster
+- gobuster tresna istalatu eta forgatu
+- Seclist dikzionarioak deskargatu
 
-#### 26 - Segurtasuna
+#### 26 - Segurtasuna - Fuzzing eta webguneen ennumerazioa
 - Fuzzing eta fitxategi azterketa web serbitzarietan
+- WFUZZ tresna deskargatu eta frogatu
+
+#### 30 - Segurtasuna - FTP, SSH, HTTP, HTTPS, SMB zerbitzuen enumerzaioa. 
+- Segurtasun testa 
+- 
+
+### Otsaila
+
+#### 2 - Segurtasuna - Introdukzioa bulnerabilitatean ustiatzeko teknikak. Reverse shells, bind shells eta forward shells.
+- 
+- 
+ 
+
+##
+
 
 ## Beste baliabide batzuk
 

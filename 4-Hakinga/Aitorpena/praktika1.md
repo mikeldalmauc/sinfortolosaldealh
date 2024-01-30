@@ -24,3 +24,5 @@ Honaino eginda klasen
 
 Makinga gehiago:
 https://shamsher-khan-404.medium.com/docker-images-for-penetration-testing-security-7362519985b8
+
+https://github.com/vulhub/vulhub/tree/master/imagemagick/imagetragick

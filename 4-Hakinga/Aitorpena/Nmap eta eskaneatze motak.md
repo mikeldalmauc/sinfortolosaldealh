@@ -1,7 +1,23 @@
 
+- [Oinarrizko parametroak](#oinarrizko-parametroak)
+  - [Plantilla de temporizado:](#plantilla-de-temporizado)
+  - [TCP connect scan](#tcp-connect-scan)
+  - [Eskaneatu edozein host (activos y no activos)](#eskaneatu-edozein-host-activos-y-no-activos)
+  - [UDP protokoloa erabiliz eskaneatu](#udp-protokoloa-erabiliz-eskaneatu)
+  - [Piztutako Hostak aurkitzeko subsare baten (Ping sweep)](#piztutako-hostak-aurkitzeko-subsare-baten-ping-sweep)
+  - [Sistema eragilearen ezaugarriak aurkitzeko](#sistema-eragilearen-ezaugarriak-aurkitzeko)
+    - [Paketeen TTL-a erabiliz](#paketeen-ttl-a-erabiliz)
+  - [Portuen serbitzuak detektatu](#portuen-serbitzuak-detektatu)
+- [NMAP scriptak erabiltzen](#nmap-scriptak-erabiltzen)
+  - [Scriptal eta kategoriak aurkitzen](#scriptal-eta-kategoriak-aurkitzen)
+  - [Exekutatu script sorta bat](#exekutatu-script-sorta-bat)
+  - [Exekutatu script sorta bat kategoriakoak](#exekutatu-script-sorta-bat-kategoriakoak)
+
+
 Atakante bezala, funtzeskoa da ezagutzea zen portu dauden zabalik.
 
-### Oinarrizko parametroak
+## Oinarrizko parametroak
+
 Portu guztiak eskaneatzeko
 
 ```bash
@@ -42,6 +58,7 @@ nmap --top-ports 500 --open 192.168.0.1 -v -n
 ```
 
 ---
+
 ### Plantilla de temporizado:
 
 -Tn  (n : 0 - 5) 
@@ -97,6 +114,34 @@ nmap -sn 192.168.0.1/24
 ```bash
 nmap -O 192.168.0.1
 ```
+
+#### Paketeen TTL-a erabiliz 
+
+Bizi-denbora (TTL), bideratzaile batek baztertu aurretik, sare baten barruan pakete bat egon behar dela ezarri den denbora-kopuruari edo "jauziei" dagokie. TTLa beste testuinguru batzuetan ere erabiltzen da, hala nola CDN cachean biltegiratzean eta DNS cachean biltegiratzean.
+
+Informazio-pakete bat sortzen denean eta Internet bidez bidaltzen denean, bideratzaile izatetik bideratzaile izatera igarotzeko arriskua dago, mugarik gabe. Aukera hori arintzeko, paketeak bizi-denbora edo jauzien muga izeneko iraungipenarekin diseinatzen dira. Paketeen TTLa ere baliagarria izan daiteke pakete jakin bat zenbat denboraz zirkulazioan egon den zehazteko, eta bidaltzaileak Internet bidez pakete baten ibilbideari buruzko informazioa jaso ahal izatea ahalbidetzen du.
+
+Pakete bakoitzak zenbakizko balio bat gordetzen duen leku bat du, eta balio horrek zehazten du zenbat denbora jarraitu behar duen sarean mugitzen. Bideratzaile batek pakete bat jasotzen duen bakoitzean, bat kentzen zaio TTLren zenbaketari, eta sareko hurrengo tokira pasatzen du. Uneren batean TTLren zenbaketa zerora iristen bada kenketaren ondoren, bideratzaileak paketea baztertu eta ICMP mezu bat bidaliko du jatorrizko hostora.
+
+Zer zerikusi du horrek sistema eragilearen identifikazioarekin? Beno, hainbat sistema eragilek TTLren balio lehenetsiak dituzte. Adibidez, Windows sistema eragileetan, TTLren balio lehenetsia 128 da, eta Linux sistema eragileetan, berriz, 64.
+
+Beraz, makina batera pakete bat bidaltzen badugu eta 128ko TTL balioa duen erantzun bat jasotzen badugu, litekeena da makina Windows exekutatzen aritzea. 64ko TTL balioa duen erantzun bat jasotzen badugu, litekeena da makina Linux exekutatzen aritzea.
+
+Metodo hau ez da hutsezina eta sare-administratzaileek engaina dezakete, baina zenbait egoeratan baliagarria izan daiteke makina baten sistema eragilea identifikatzeko.
+
+Jarraian, gela honetan erakusten dugun orria partekatzen dizuegu, dauden TTL balioei dagokien sistema eragilea identifikatzeko.
+
+Linux/Unix: 64
+Windows: 128
+MacOS: 64
+Solaris/AIX: 254
+FreeBSD: 64
+
+Subin 's Blog: https://subinsb.com/default-device-ttl-values 
+
+Era berean, lortutako TTLaren arabera sistema eragilea identifikatzeko ardura duen Python-en scripta partekatzen dizuegu:
+
+WhichSystem: https://pastebin.com/HmBcu7j2
 
 ### Portuen serbitzuak detektatu
 

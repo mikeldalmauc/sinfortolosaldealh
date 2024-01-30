@@ -1,5 +1,14 @@
 # Webguneen segurtasuna aztertzen
 
+- [Webguneen segurtasuna aztertzen](#webguneen-segurtasuna-aztertzen)
+  - [Webgune baten teknologiak identifikatzen](#webgune-baten-teknologiak-identifikatzen)
+- [Fuzzying eta webguneen fitxategi bilaketa](#fuzzying-eta-webguneen-fitxategi-bilaketa)
+  - [Gobuster instalatu](#gobuster-instalatu)
+  - [Go instalatu](#go-instalatu)
+  - [Gobuster erabili](#gobuster-erabili)
+    - [Deskargatu seclist /usr/share karpetan](#deskargatu-seclist-usrshare-karpetan)
+  - [WFUZZ trensa erabiltzen](#wfuzz-trensa-erabiltzen)
+
 ## Webgune baten teknologiak identifikatzen
 
 Segurtasunaren ikuspegitik, funtsezkoa da web orri batean erabiltzen diren teknologiak eta tresnak ezagutzea. Teknologia horiek identifikatzeak aukera ematen die segurtasuneko adituei webgune baten arrisku potentzialak ebaluatzeko, urrakortasunak identifikatzeko eta informazio sentikorra eta datu kritikoak babesteko estrategia eraginkorrak diseinatzeko.
