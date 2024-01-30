@@ -241,7 +241,13 @@ Hurrengo pausoak jarraitu:
 
 #### 30 - Segurtasuna - FTP, SSH, HTTP, HTTPS, SMB zerbitzuen enumerzaioa. 
 - Segurtasun testa 
-- [Mister Tartaria y Mr. Empirico](https://www.youtube.com/watch?v=i2l09lAJmBU&t=1s)
+- FTP instalatu
+- Rockyou pasahitz dikzionarioa istalatu
+- FTP zerbitzaria docker lab-era gehitu
+- Hydra instalatu eta hydrarekin indar basatiko erasoa bat egin
+- FTP pasahitz gabe zerbitzua aztertu
+
+- Bonu: [Mister Tartaria y Mr. Empirico](https://www.youtube.com/watch?v=i2l09lAJmBU&t=1s)
 
 ### Otsaila
 
@@ -250,7 +256,7 @@ Hurrengo pausoak jarraitu:
 - 
  
 
-##
+## 
 
 
 ## Beste baliabide batzuk

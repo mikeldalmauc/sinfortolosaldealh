@@ -2,8 +2,7 @@ version: '3'
 
 services:
   kali-rolling:
-    build:
-      context: .
+    image: mikeldalmauc/kali-si
     tty: true
     stdin_open: true
     volumes:
