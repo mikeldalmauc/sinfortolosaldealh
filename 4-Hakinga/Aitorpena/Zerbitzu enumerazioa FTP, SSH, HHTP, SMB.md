@@ -13,3 +13,20 @@ Deskargatzen dugun lehen proiekturako erabiltzen dugun tresnetako bat "Hydra" da
 FTPrako erabiltzaile gonbidatuak autentifikatzea ahalbidetzen duen edukiontzia hedatzeko erabiltzen ditugun proiektuen artean hurrengoa "metabrainz" en "docker-anon-ftp" proiektua da. Jarraian, proiekturako esteka duzue:
 
 Docker-ANON-FTP: https://github.com/metabrainz/docker-anon-ftp
+
+```bash 
+docker run -d -p 20-21:20-21 -p 65500-65515:65500-65515 -v /tmp:/var/ftp:ro metabrainz/docker-anon-ftp
+```
+
+## Rock you pasahitz dikzionarioa deskargatu 
+
+
+https://github.com/zacheller/rockyou
+
+```bash
+cd
+git clone https://github.com/zacheller/rockyou
+cd rockyou
+mkdir /usr/share/wordlists
+tar xC /usr/share/wordlists -f rockyou.txt.tar.gz
+```
