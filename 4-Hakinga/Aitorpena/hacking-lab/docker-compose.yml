@@ -43,7 +43,8 @@ services:
       - '40000-40009:40000-40009/tcp'
     volumes:
       - './data:/home/user'
-
+    networks:
+      - pentesting-lab-network
 
 networks:
   pentesting-lab-network:
