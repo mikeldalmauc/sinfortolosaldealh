@@ -35,7 +35,7 @@ tags:
 
 En resumen, TCP es más adecuado para aplicaciones que requieren confiabilidad y garantía de entrega, mientras que UDP es preferible en situaciones donde la latencia es crítica y se puede tolerar cierta pérdida de datos. La elección entre TCP y UDP depende de los requisitos específicos de la aplicación.
 
-
+![Alt text](<../Images/Pasted image 20231211234056.png>)
 ![[Pasted image 20231211234056.png]]
 
 ---
@@ -43,6 +43,7 @@ En resumen, TCP es más adecuado para aplicaciones que requieren confiabilidad y
 
 nota: Ack viene de Acknowledge
 
+![Alt text](<../Images/Pasted image 20231211233951.png>)
 ![[Pasted image 20231211233951.png]]
 
 ---
@@ -53,20 +54,23 @@ Escuchamos utilizando la herramienta NetCat, que es una herramienta útil para t
 Ponerse en escucha
 
 ![[Pasted image 20231212004348.png]]
+![Alt text](<../Images/Pasted image 20231212004348.png>)
 
 Tratar de conectarse a traves de este puerto en el que estamos en escucha
 
 ![[Pasted image 20231212000355.png]]
+![Alt text](<../Images/Pasted image 20231212000355.png>)
 
 ---
 
 En wireshark capturar la interfaz loopback y filtrar por tcp
 
 ![[Pasted image 20231212004339.png]]
+![Alt text](<../Images/Pasted image 20231212004339.png>)
 
 --- 
 
-### TODO  Hacer que esta práctica funcione con los contendores de docker - ver redes macvlan [[Dirección MAC]]
+### TODO  Hacer que esta práctica funcione con los contendores de docker 
 
 #TODO
 

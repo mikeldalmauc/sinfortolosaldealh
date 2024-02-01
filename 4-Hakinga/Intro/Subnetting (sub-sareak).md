@@ -23,29 +23,37 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 
 1. Lehenik, 8 posizioko zenbaki bitar ba irudikatuko dugu balioak jarriz, eta goian posizioaren pisua.
    
+![Alt text](<../Images/Pasted image 20231221124205.png>)
 ![[Pasted image 20231221124205.png]]
 
-2. Hurrengo kalkulua sistema bitarretik hamartarrera pasatzeko balio digu, hau da posizioaren balioa 0/1 biderkatuz posizioaren pisuaz.
+1. Hurrengo kalkulua sistema bitarretik hamartarrera pasatzeko balio digu, hau da posizioaren balioa 0/1 biderkatuz posizioaren pisuaz.
 
+![Alt text](<../Images/Pasted image 20231221124348.png>)
 ![[Pasted image 20231221124348.png]]
+![Alt text](<../Images/Pasted image 20231221124403.png>)
 ![[Pasted image 20231221124403.png]]
 
-3. Taulari formatoa ezarriz, eta taula hau lau aldiz errepikatuz, gure maskara irudika dezakegu:
+1. Taulari formatoa ezarriz, eta taula hau lau aldiz errepikatuz, gure maskara irudika dezakegu:
 
+![Alt text](<../Images/Pasted image 20231221125101.png>)
 ![[Pasted image 20231221125101.png]]
 
 ---
 # CDIR eta Host kopuruaren kalkulua
 
 
+![Alt text](<../Images/Pasted image 20231221130840.png>)
 ![[Pasted image 20231221130840.png]]
 
 1. CIDR: Izendapen estandar bat da, gura maskarern 1 zenbakien kopuruaren araberakoa, kalkulatzeko
+![Alt text](<../Images/Pasted image 20231221131002.png>)
 ![[Pasted image 20231221131002.png]]
 
-2. Host kopurua, maskara bat aplikatuta, libre daduden helbide guztiak izango dira. Hauda da, zero kopurua kontatu eta 2^(zero kopurua)
+1. Host kopurua, maskara bat aplikatuta, libre daduden helbide guztiak izango dira. Hauda da, zero kopurua kontatu eta 2^(zero kopurua)
 
+![Alt text](<../Images/Pasted image 20231221131135.png>)
 ![[Pasted image 20231221131135.png]]
+![Alt text](<../Images/Pasted image 20231221131152.png>)
 ![[Pasted image 20231221131152.png]]
 
 ---
@@ -53,9 +61,12 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 
 Sortu tab berri bat eta hurrengo taula eraiki:
 
+![Alt text](<../Images/Pasted image 20231221133115.png>)
 ![[Pasted image 20231221133115.png]]
+![Alt text](<../Images/Pasted image 20231222093449.png>)
 ![[Pasted image 20231222093449.png]]
 
+![Alt text](<../Images/Pasted image 20231222093428.png>)
 ![[Pasted image 20231222093428.png]]
 
 ---
@@ -81,6 +92,7 @@ kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.
 
 [ip address-guide cidr calc](https://www.ipaddressguide.com/cidr)
 
+![Alt text](<../Images/Pasted image 20231222094358.png>)
 ![[Pasted image 20231222094358.png]]
 
 ---

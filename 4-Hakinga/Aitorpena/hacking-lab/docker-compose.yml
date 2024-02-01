@@ -10,13 +10,6 @@ services:
     networks:
       - pentesting-lab-network
 
-  vaas-cve-2014-0160:
-    image: hmlio/vaas-cve-2014-0160
-    ports:
-      - "8443:443"
-    networks:
-      - pentesting-lab-network
-
   audi_sqli:
     image: tuxotron/audi_sqli
     ports:
@@ -35,15 +28,50 @@ services:
     container_name: my-ftp-server
     environment:
       - FTP_PASS=louise
-      - FTP_USER=user
+      - FTP_USER=sinfor
     image: garethflowers/ftp-server
     ports:
       - '20-21:20-21/tcp'
       - '40000-40009:40000-40009/tcp'
     volumes:
-      - './data:/home/user'
+      - './data:/home/sinfor'
     networks:
       - pentesting-lab-network
+
+  openssh-server:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: openssh-server
+    hostname: openssh-server #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      # - PUBLIC_KEY=yourpublickey #optional
+      # - PUBLIC_KEY_FILE=/path/to/file #optional
+      # - PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys #optional
+      # - PUBLIC_KEY_URL=https://github.com/username.keys #optional
+      # - SUDO_ACCESS=false #optional
+      - PASSWORD_ACCESS=true #optional
+      - USER_PASSWORD=louise #optional
+      # - USER_PASSWORD_FILE=/path/to/file #optional
+      - USER_NAME=sinfor #optional
+      # - LOG_STDOUT= #optional
+    volumes:
+      - /path/to/appdata/config:/config
+    ports:
+      - 2222:2222
+    restart: unless-stopped
+    networks:
+      - pentesting-lab-network
+
+  nginx-hearbleed:
+   image: vulhub/openssl:1.0.1c-with-nginx
+   volumes:
+    - ./www:/var/www/html
+   ports:
+    - "8081:80"
+    - "8443:443"
+
 
 networks:
   pentesting-lab-network:

@@ -4,7 +4,6 @@ tags:
   - Networks
 ---
 
-
-![[Pasted image 20231212010148.png]]
+![Alt text](<../Images/Pasted image 20231212010148.png>)
 
 [[Subnetting (sub-sareak)]] 

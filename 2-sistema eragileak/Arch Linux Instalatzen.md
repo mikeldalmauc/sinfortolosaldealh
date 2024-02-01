@@ -372,7 +372,7 @@ systemctl start NetworkManager.service
 ```
 
 ```bash
-systemctl enable NetworkManage
+systemctl enable NetworkManager
 ```
 
 Horain, ping funtzionatu beharko luke, frogatu `ping www.googl.es`.
