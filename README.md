@@ -49,7 +49,10 @@ Sistema Informatikoen repositorioa
       - [30 - Segurtasuna - FTP, SSH, HTTP, HTTPS, SMB zerbitzuen enumerzaioa.](#30---segurtasuna---ftp-ssh-http-https-smb-zerbitzuen-enumerzaioa)
     - [Otsaila](#otsaila)
       - [2 - Segurtasuna - Introdukzioa bulnerabilitatean ustiatzeko teknikak. Reverse shells, bind shells eta forward shells.](#2---segurtasuna---introdukzioa-bulnerabilitatean-ustiatzeko-teknikak-reverse-shells-bind-shells-eta-forward-shells)
-  - [](#)
+      - [6 - Segurtasuna - Aitorpen Froga](#6---segurtasuna---aitorpen-froga)
+      - [16 - Erronka - Exekuzio fasea](#16---erronka---exekuzio-fasea)
+      - [20 - Erronka - Exekuzio fasea](#20---erronka---exekuzio-fasea)
+      - [23 - Erronka - Exekuzio fasea](#23---erronka---exekuzio-fasea)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -252,11 +255,17 @@ Hurrengo pausoak jarraitu:
 ### Otsaila
 
 #### 2 - Segurtasuna - Introdukzioa bulnerabilitatean ustiatzeko teknikak. Reverse shells, bind shells eta forward shells.
-- 
-- 
+- Reverse shell nola konektatu (netcat erabiliz)
+- Bind shell bat nola konektatu (netcat erabiliz)
  
 
-## 
+#### 6 - Segurtasuna - Aitorpen Froga
+- 
+
+#### 16 - Erronka - Exekuzio fasea
+#### 20 - Erronka - Exekuzio fasea
+#### 23 - Erronka - Exekuzio fasea
+
 
 
 ## Beste baliabide batzuk
