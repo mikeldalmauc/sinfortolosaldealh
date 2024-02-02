@@ -32,7 +32,6 @@ Sistema Informatikoen repositorioa
       - [21 - Azterketa eguna](#21---azterketa-eguna)
       - [22 - Erronka Aurkeztu](#22---erronka-aurkeztu)
       - [24 - PHP garapen ingurune bat prestatzen](#24---php-garapen-ingurune-bat-prestatzen)
-  - [Repositorioa proiektu batekin](#repositorioa-proiektu-batekin)
     - [Abendua](#abendua)
       - [5 - Segurtasuna: lehen pausoak](#5---segurtasuna-lehen-pausoak)
       - [12 - Segurtasuna: Sareko oinarrizko kontzeptuak](#12---segurtasuna-sareko-oinarrizko-kontzeptuak)
@@ -186,9 +185,11 @@ Hurrengo pausoak jarraitu:
  - konekatu php datu basera
     - Oraingoan ez dugu erabiliko *ip:portua* konexiorako baizik eta *kontenedore-izena:portua*, horretarako docker network bat sortu beharko duzue eta bi kontenedoreak sarera gehitu.
  - Docker compose fitxategi baten jarri dana.
-[Repositorioa proiektu batekin](https://github.com/jlucki/docker-php-dev-env)
----
+  [Repositorioa proiektu batekin](https://github.com/jlucki/docker-php-dev-env)
+
+
 ### Abendua
+
 #### 5 - Segurtasuna: lehen pausoak
 
 - videoa ikusi, nola hasi Zibersegurtasunean
@@ -219,28 +220,37 @@ Hurrengo pausoak jarraitu:
 #### 9 - Segurtasuna: Subnetting eta Nmap
 - Sub-sareak excella sortu eta ariketatxoak
 - Nmap-en erabilerako video ikusi
-
+- [Apunteak: Nmap eta eskaneatze motal](<4-Hakinga/Aitorpena/Nmap eta eskaneatze motak.md>)
+  
 #### 12 - Segurtasuna: Testa - pentesting ingurunea sortu
 - Segurtasun testa
 - Pentesting ingurunea sortzen hasi
-
+- [Praktika: Pentesting Ingurunea sortu](4-Hakinga/Aitorpena/praktika1.md)
+- [Praktika: Pentesting ingurunea Docker Compose](4-Hakinga/Aitorpena/hacking-lab/docker-compose.yml)
+  
 #### 16 - Segurtasuna: Nmap - Firewallak ekiditeko teknikak 
 - Pentesting ingurunea sortzen bukatu
 - Nmapekin frogak
 - Firewallak ekiditeko tekniken videoa
-
+- [Apunteak: Nmap eta eskaneatze motal](<4-Hakinga/Aitorpena/Nmap eta eskaneatze motak.md>)
+- [Apunteak: Firewallak ekiditeko teknikak](<4-Hakinga/Aitorpena/Firewallak ekiditeko teknikak.md>)
+  
 #### 19 - Segurtasuna - Sare lokalak eta Webguneeen teknologiak aztertzen
 - Ekipoak aurkitu sare lokalean (ARP eta ICMP) 
 - Serbitzzarien tresna ikerketa (whatweb...)
-
+- [Apunteak: Webguneak aztertzen](<4-Hakinga/Aitorpena/webguneak aztertzen.md>)
+- [Apunteak: ARP scan eta ICMP](<4-Hakinga/Aitorpena/ARP scan eta ICMP - sare lokalak.md>)
+  
 #### 23 - Segurtasuna - Fuzzing eta webguneen ennumerazioa
 - Fuzzing eta fitxategi azterketa web serbitzarietan
 - gobuster tresna istalatu eta forgatu
 - Seclist dikzionarioak deskargatu
-
+- [Apunteak: Webguneak aztertzen](<4-Hakinga/Aitorpena/webguneak aztertzen.md>)
+  
 #### 26 - Segurtasuna - Fuzzing eta webguneen ennumerazioa
 - Fuzzing eta fitxategi azterketa web serbitzarietan
 - WFUZZ tresna deskargatu eta frogatu
+- [Apunteak: Webguneak aztertzen](<4-Hakinga/Aitorpena/webguneak aztertzen.md>)
 
 #### 30 - Segurtasuna - FTP, SSH, HTTP, HTTPS, SMB zerbitzuen enumerzaioa. 
 - Segurtasun testa 
@@ -249,6 +259,7 @@ Hurrengo pausoak jarraitu:
 - FTP zerbitzaria docker lab-era gehitu
 - Hydra instalatu eta hydrarekin indar basatiko erasoa bat egin
 - FTP pasahitz gabe zerbitzua aztertu
+- [Apunteak: Zerbitzu Enumerazioa](<4-Hakinga/Aitorpena/Zerbitzu enumerazioa FTP, SSH, HHTP, SMB.md>)
 
 - Bonu: [Mister Tartaria y Mr. Empirico](https://www.youtube.com/watch?v=i2l09lAJmBU&t=1s)
 
@@ -257,7 +268,7 @@ Hurrengo pausoak jarraitu:
 #### 2 - Segurtasuna - Introdukzioa bulnerabilitatean ustiatzeko teknikak. Reverse shells, bind shells eta forward shells.
 - Reverse shell nola konektatu (netcat erabiliz)
 - Bind shell bat nola konektatu (netcat erabiliz)
- 
+-  [Apunteak: UrrunekoShellak](4-Hakinga/ustiapena/UrrunekoShellak.md)
 
 #### 6 - Segurtasuna - Aitorpen Froga
 - 
