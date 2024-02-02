@@ -12,6 +12,8 @@
   - [Erasoa Hydra erabiliz](#erasoa-hydra-erabiliz-1)
   - [Sistema eragilearen bertsioa ezagutu ssh protokoloaren bertsiotik](#sistema-eragilearen-bertsioa-ezagutu-ssh-protokoloaren-bertsiotik)
 - [HTTP eta HTTPS enumerazioa](#http-eta-https-enumerazioa)
+  - [Tinder aztertu](#tinder-aztertu)
+  - [Hearbleed ssl kalteberatasuna aztertzen](#hearbleed-ssl-kalteberatasuna-aztertzen)
 
 
 # FTP ennumerazioa
@@ -248,14 +250,36 @@ Komando honen bidez, web zerbitzari baten SSL ziurtagiria ikuska dezakegu. Koman
 
 Era berean, klase honetan ikusten ditugun beste tresna batzuk "sslyze" eta "sslscan" dira. Sslyze SSL segurtasuna aztertzeko tresna bat da, zerbitzari baten SSL konfigurazioa ebaluatzeko erabiltzen dena. Erabilitako zifratzeari, onartutako protokoloei eta SSL ziurtagiriei buruzko informazio zehatza ematen du. SSLScan SSL segurtasuna aztertzeko beste tresna bat da, zerbitzari baten SSL konfigurazioa ebaluatzeko erabiltzen dena. Onartutako SSL/TLS protokoloei, erabilitako zifratzeari eta SSL ziurtagiriei buruzko informazio zehatza ematen du.
 
+
+## Tinder aztertu
+
+Webgunean SSL zihurtagiria ikusi:
+
+![Alt text](../Images/image-1.png)
+![Alt text](../Images/image.png)
+
+Terminalean zihurtagiria ikusi:
+
+```bash
+openssl s_client -connect tinder.com:443
+```
+
 Sslyze eta sslscan arteko desberdintasun nagusia da sslyze web-zerbitzari baten SSL/TLS segurtasunaren ebaluazioan zentratzen dela, SSL/TLS protokoloen eta konfigurazioen miaketa sakon baten bidez; sslscan, berriz, zerbitzariak onartutako SSL/TLS protokoloen eta erabilitako zifratuen identifikazioan zentratzen da.
 
 SSL/TLS analisi-tresnek emandako informazioak identifikatzea oso garrantzitsua da, zerbitzari baten konfigurazioan kalteberatasunak detektatzeko eta gure informazio konfidentziala babesteko neurriak hartzeko aukera ematen baitigu.
+
+```bash
+sslyze tinder.com
+```
+
+```bash
+sslscan tinder.com
+```
+
+## Hearbleed ssl kalteberatasuna aztertzen
 
 Adibidez, Heartbleed segurtasun-kalteberatasun bat da, OpenSSL liburutegiari eragiten diona eta erasotzaileei zerbitzari zaurgarri baten memorian sartzeko aukera ematen diena. Web zerbitzari bat Heartbleeden kalterako bada eta tresna horien bidez detektatzen badugu, horrek esan nahi du erasotzaile batek informazio konfidentziala eskura dezakeela, hala nola gako pribatuak, erabiltzaile-izenak eta pasahitzak.
 
 Jarraian, Githuben proiekturako esteka ematen da. Bertan, Heartbleed-era kaltebera den laborategia hedatzen dugu: (jada hacking laboratoriora gehituta)
 
 CVE-2014-0160: https://github.com/vulhub/vulhub/tree/master/openssl/CVE-2014-0160
-
-![Alt text](image.png)
