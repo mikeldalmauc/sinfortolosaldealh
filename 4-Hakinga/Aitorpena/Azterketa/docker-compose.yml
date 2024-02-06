@@ -1,14 +1,42 @@
 version: '3'
 
 services:
+
+  # Web serbitzariak m2- m5 (azternetan 1 bakarrik)
+  m2:
+    image: mikeldalmauc/m2:1.2
+    networks:
+      - lab-network
+  m3:
+    image: mikeldalmauc/m3:1.0
+    networks:
+      - lab-network
+  m3-1:
+    image: mikeldalmauc/m3:1.1
+    networks:
+      - lab-network
+  m4:
+    image: mikeldalmauc/m4:1.1
+    networks:
+      - lab-network
   m5:
     image: mikeldalmauc/m5:1.1
     networks:
       - lab-network
+
+  # FTP zerbitzariak
+
+  # Anonym (Azterketan 1)
   m7:
     image: mikeldalmauc/m7:1.0
     networks:
       - lab-network
+  m13:
+    image: mikeldalmauc/m13:1.0
+    networks:
+      - lab-network
+
+  # Secured (Azterketan guztiak)
   m8:
     image: mikeldalmauc/m8:1.0
     networks:
@@ -29,6 +57,8 @@ services:
     image: mikeldalmauc/m12:1.0
     networks:
       - lab-network
+
+  # SSH zerbitzariak
   m14:
     image: mikeldalmauc/m14:1.0
     networks:
