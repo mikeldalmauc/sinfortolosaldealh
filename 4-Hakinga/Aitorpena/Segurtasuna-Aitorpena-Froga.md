@@ -31,6 +31,6 @@ Kode hau, web zerbitzari baten aurkituko duzue.
 
 Zerbitzariaren erroan fuzzing aplikatu hurrenko dikzionarioa erabiliz:
 
-https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common-and-spanish.txt
+https://github.com/danielmiessler/SecLists/Discovery/Web-Content/common-and-spanish.txt
 
 Horrez gain, fuzzing aplikatu dikzionario berdinareking .jar fitxateg bat bilatzeko.
