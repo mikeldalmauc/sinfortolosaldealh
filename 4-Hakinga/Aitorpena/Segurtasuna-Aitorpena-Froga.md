@@ -13,7 +13,7 @@ Froga honen helburua sare batean dauden makina batzuk aztertzea eta bi kode aurk
 
 ## Zer entregatu behar da
 
-Partekaturiko drive karpetan markdown fitxategi bat gehitu azterketaren ebazpenarekin. Hau da, erabilitako agindu garrantzitsuenak eta pausoak era laburrean baina argian 
+Partekaturiko drive karpetan markdown fitxategi bat gehitu azterketaren ebazpenarekin. Hau da, erabilitako agindu garrantzitsuenak eta pausoak era laburrean baina argian.
 
 ## Ingurunea prestatu
 
