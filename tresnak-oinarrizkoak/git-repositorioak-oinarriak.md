@@ -138,6 +138,7 @@ Gehitu -device linea horri
 
 ![alt text](image-5.png)
 
+Zure repositorioan kokatu eta saiatu aldaketak igotzen zerbitzarira:
 ![alt text](image-6.png)
 
 Jarraitu esteka eta idatzi kodea autorizatzeko.
