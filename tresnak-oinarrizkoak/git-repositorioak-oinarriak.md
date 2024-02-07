@@ -1,5 +1,22 @@
 Git erabiliz repositorioak kudeatzeko oinarrizko komandoak hemen dituzu:
 
+- [TOP erabilenak](#top-erabilenak)
+- [Git-en Konfigurazioa](#git-en-konfigurazioa)
+- [Repositorioa Sortu edo Klonatu](#repositorioa-sortu-edo-klonatu)
+- [Egoera eta Aldaketak](#egoera-eta-aldaketak)
+- [Konmitak eta Aldaketa Historia](#konmitak-eta-aldaketa-historia)
+- [Adarrak (Branches)](#adarrak-branches)
+- [Urruneko Repositorioarekin Interakzioa](#urruneko-repositorioarekin-interakzioa)
+- [Aldaketa Konfliktuak](#aldaketa-konfliktuak)
+- [Besteak](#besteak)
+- [OAUTH kredentzial kudeatzailea](#oauth-kredentzial-kudeatzailea)
+  - [Nola instalatu linuxen.](#nola-instalatu-linuxen)
+    - [Brew instalatu](#brew-instalatu)
+    - [Oauth instalatu](#oauth-instalatu)
+    - [Browser gabe](#browser-gabe)
+    - [Browserra izanda](#browserra-izanda)
+
+
 ### TOP erabilenak
 
 1. `git clone [URL]`
@@ -71,3 +88,68 @@ Git erabiliz repositorioak kudeatzeko oinarrizko komandoak hemen dituzu:
 - `git stash apply`: Berreskuratu gorde diren aldaketak.
 
 Hau da oinarrizko ikuspegi bat, eta komando eta aukera askoz gehiago daude. Zure galderak edo azalpen gehiago behar badituzu, esan mesedez.
+
+### OAUTH kredentzial kudeatzailea
+
+Pasahitzaren alternatiba segurtasun gehiagokoa.
+
+#### Nola instalatu linuxen.
+
+##### Brew instalatu
+
+Idatzi agindu zehatz hauek brew instalatzeko.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+PATH-era gehitu.
+
+```bash
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /root/.bashrc
+```
+```bash
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+Eguneratu brew eta instalatu git-credential-oauth.
+
+##### Oauth instalatu
+
+```bash
+brew update
+```
+
+```bash
+brew install git-credential-oauth
+```
+
+```bash
+git credential-oauth configure
+```
+
+##### Browser gabe
+
+Ediatatu `~/.gitconfig` fitxategia horrela (fitxategi hau zuere /home direktorioaren erroan aurkituko duzu `ls -a` eginez)
+
+Gehitu -device linea horri
+```bash
+    helper = oauth -device
+```
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+Jarraitu esteka eta idatzi kodea autorizatzeko.
+
+##### Browserra izanda
+
+![alt text](image-2.png)
+
+Jarraitu 2FA zihurtapen prozesua:
+
+![alt text](image-3.png)
+![alt text](image-4.png)
+
+
+[Gehiago ikus](https://github.com/hickford/git-credential-oauth)
