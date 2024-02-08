@@ -58,9 +58,9 @@ Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;
 
 ### Diska gogorrak 
 
-3 diska gogor erabiliko ditugu, 1Gb batekoa eta 2 10GB-ekoak.
+2 diska gogor erabiliko ditugu, 12GB-ekoak.
 
-![alt text](image-11.png)
+![alt text](image-14.png)
 
 # Oinarrizkoak  👣
 
@@ -78,22 +78,34 @@ Egizatatu interneta daukagula ping eginez.
 
 # RAID 0 bat prestatu 💽💽
 
-Hurrengo agindua erabiliz ikusi dezakegu zein unitate dauzkagun eta beren partizioak. Beherko irudian ikusten da momentuz unitate dauzkagula, eta gure diska gogorrak **sda**, **sdb** biaj eta **sdc** izango dira.
+Hurrengo agindua erabiliz ikusi dezakegu zein unitate dauzkagun eta beren partizioak. Beherko irudian ikusten da momentuz unitate dauzkagula, eta gure diska gogorrak **sda** eta **sdb** izango dira.
 
 ```bash
 lsblk
 ```
 
-Diska bakoitzean partizio bat egingo dugu horrela:
+Jarraitu baino lehen egizatatu interneta daukagula ping eginez.
+
+![[Pasted image 20231214084912.png]]
+
+![Alt text](images/Pasted%20image%2020231214084912.png)
+
+---
+
+`sgdisk` programa erabiliko dugu partizioak egiteko parametro bezala gure disko gogorraren helbidea emango diogu.
 
 ```bash
-sgdisk -n 1:0:0 /dev/sdb
-sgdisk -n 1:0:0 /dev/sdc
+sgdisk -n 1:0:+500M -t 1:ef00 -c 1:"EFI System" /dev/sda
+sgdisk -n 2:0:+8G -t 2:fd00 -c 2:"Linux RAID" /dev/sda
+sgdisk -n 3:0:0 -t 3:fd00 -c 3:"Linux RAID" /dev/sda
 ```
 
-Aurreko aginduen ostean, lslblk-ren irteera hurrengo izan beharko litzateke:
+Kopiatu partizio taula `sda` diskotik `sdb` diskora:
 
-![alt text](image-5.png)
+```bash
+sgdis /dev/sda -R /dev/sdb -G
+```
+
 
 ## MDADM programa instalatu
 mdadm, raidak sortzeko eta kudeatzeko programa bat da. 
@@ -107,39 +119,29 @@ pacman -Sy
 pacman -S mdadm
 ```
 
-Partizio birtuala bat sortuno dugu `/dev/md0` izenarekin. Aurreko partizioak `/dev/sdb1` eta `/dev/sdc1` bat bilakatuko dira `/dev/md0` partizioan.
+Partizio birtuala bat sortuno dugu `/dev/md0` izenarekin. Aurreko partizioak `/dev/sda2` eta `/dev/sdb2` bat bilakatuko dira `/dev/md0` partizioan.
 
-Hurrengo bi aginduak baliokideak dira, bat erabili:
+Berdina egingo dugu `/dev/md1` sortzeko, `/dev/sda3` eta  `/dev/sdb3` partizioetatik.
 
-Luzaegoa baina ulergarriagoa:
+Hurrengo bi aginduak erabili:
+
 ```bash
-mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sd[b-c]1
+mdadm -Cv /dev/md0 -l0 -n2 /dev/sd[a-b]2
+mdadm -Cv /dev/md1 -l0 -n2 /dev/sd[a-b]3
 ```
 
-Laburragoa:
+Hurrengo agindua goiko aginduaren baliokidea da, luzeagoa baina ulergarriagoa:
+
 ```bash
-mdadm -Cv /dev/md0 -l0 -n2 /dev/sd[b-c]1
+mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sd[a-b]2
 ```
+
 Frogatu  `lsblk` agindua.
 
-![alt text](image-12.png)
+![alt text](image-13.png)
 
-Informazio gehiago ikusi nahi eskero:
 
-```bash
-mdadm --detail /dev/md0
-```
 
-Azkenengo pauso honekin, partizioekin egiten den bezala gure uneko konfigurazioa gordeko dugu sistema pizterakoan raida automatikoki sor dadin.
-
-```bash
-mdadm --detail --scan --verbose | tee -a /etc/mdadm.conf
-```
-
-`/etc/mdadm.conf` Fitxategia aztertuz, lerro bat gure raidaren ezaugarriekin.
-
-![alt text](image-10.png)
-c
 # Partizioak, formatoa eta muntaia
 
 ## Partizioak sortu 🍕
