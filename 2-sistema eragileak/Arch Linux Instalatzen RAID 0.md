@@ -46,15 +46,14 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 
 Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram, prosezadore birekin.
 
-![[Pasted image 20231214083910.png]]
+
 
 ![Alt text](images/Pasted%20image%2020231214083910.png)
 
-![[Pasted image 20231214083957.png]]
+
 
 ![Alt text](images/Pasted%20image%2020231214083957.png)
 
-![[Pasted image 20231214084010.png]]
 
 ### Diska gogorrak 
 
@@ -71,8 +70,6 @@ loadkeys es
 ```
 Egizatatu interneta daukagula ping eginez.
 
-![[Pasted image 20231214084912.png]]
-
 ![Alt text](images/Pasted%20image%2020231214084912.png)
 
 
@@ -86,7 +83,6 @@ lsblk
 
 Jarraitu baino lehen egizatatu interneta daukagula ping eginez.
 
-![[Pasted image 20231214084912.png]]
 
 ![Alt text](images/Pasted%20image%2020231214084912.png)
 
@@ -132,9 +128,9 @@ mdadm -Cv /dev/md1 -l0 -n2 /dev/sd[a-b]3
 
 Hurrengo agindua goiko aginduaren baliokidea da, luzeagoa baina ulergarriagoa:
 
-```bash
-mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sd[a-b]2
-```
+
+*mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sd[a-b]2*
+
 
 Frogatu  `lsblk` agindua.
 
@@ -306,7 +302,6 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 
 -<mark style="background: #FF5582A6;"> NOPASSWD lineari komentarioa kentzekotan ez luke pasahitza eskatuko wheel taldekidei sude egitean baina hau ez da oso egokia seguratasunaren aldetik.</mark>
 
-![[Pasted image 20231214130741.png]]
 
 ![Alt text](images/Pasted%20image%2020231214130741.png)
 
@@ -317,7 +312,6 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 
 Nano erabiliz zabaldu */etc/locale.gen* fitxategia. Fitxategi hau, etc dauden fitxategi asko bezala konfiguraziorako da, hizkuntza asko izango ditu ezarrita barnean baina adi gehienak komentatua daudela. 
 
-![[Pasted image 20231214133128.png]]
 
 ![Alt text](images/Pasted%20image%2020231214133128.png)
 
@@ -366,8 +360,6 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 
 - Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu `F12` pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.
   
-![[Pasted image 20231214140230.png]]
-
 ![Alt text](images/Pasted%20image%2020231214140230.png)
 
 * Oharra: <mark style="background: #ABF7F7A6;">Une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake.</mark> 
