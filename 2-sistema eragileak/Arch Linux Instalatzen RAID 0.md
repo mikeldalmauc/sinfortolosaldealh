@@ -354,7 +354,7 @@ Grub, linuxeko boot loadera da, menu bat eskeintzen du sistema pizterakoan zenba
 Dual boot ubuntu/windows instalatu genuenean honek zein sistema eragile nahi genuen hautatzeko aukera emoten zigun.
 
 ```bash
-grub-install /dev/sda1
+grub-install --boot-directory=/boot --bootloader-id=ArchLinux --target=x86_64-efi --efi-directory=/boot --recheck
 ```
 
 Sortu gruberako konfigurazio fitxategia
@@ -363,10 +363,20 @@ Sortu gruberako konfigurazio fitxategia
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+Bikoiztu boot partizioa bigarren diskoan:
+```bash
+umount /dev/sda1
+dd if=/dev/sda1 of=/dev/sdb1
+```
+
+Gehitu bigarren diska UEFI boot zerrendara
+```bash
+efibootmgr -c -g -d /dev/sdb1 -p 1 -L "ArchLinux #2" -l "\EFI\ArchLinux\grubx64.efi"
+```
 ---
 ## Sistema berrebiarazi ♻️
 
-Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kontextuan gaudenean era orain grub zabaltzen den eta sistema era egokian pizten den guk ezarritako konfigurazio guztiekin.
+Puntu honetan, irten rootetik `exit` eginez eta `shutdown -r` erabili live cd-ko kontextuan gaudenean era orain grub zabaltzen den eta sistema era egokian pizten den guk ezarritako konfigurazio guztiekin.
 
 - Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu `F12` pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.
   
