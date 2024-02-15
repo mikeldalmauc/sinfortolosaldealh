@@ -26,6 +26,7 @@ tags:
 	- [Hizkuntzak 💬](#hizkuntzak-)
 		- [Programen hizkuntzak](#programen-hizkuntzak)
 		- [Teklatuaren hizkuntza kontsolan ⌨️](#teklatuaren-hizkuntza-kontsolan-️)
+	- [Host izena](#host-izena)
 	- [Grub instalatzen ☣️](#grub-instalatzen-️)
 	- [Sistema berrebiarazi ♻️](#sistema-berrebiarazi-️)
 - [Sistema Konfiguratzen - 2 ⚙️](#sistema-konfiguratzen---2-️)
@@ -224,6 +225,11 @@ timedatectl ste-ntp true
 pacstrap /mnt linux linux-firmware nano networkmanager grub efibootmgr mdadm amd-ucode base base-devel
 ```
 
+Izan daiteke erroreren bat izatea instalazioan zehar. Deskarga kodeak sarritan matxuratzen dira, saiatu hurrengo aginduarekin:
+```bash
+pacman -Sy archlinux-keyring
+```
+
 * Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean <mark style="background: #ABF7F7A6;">virtual boxen snapshot bat egitea</mark>, horrela zerbat txarto badoa puntu honetara vuelta genezake. 
 ---
 
@@ -239,7 +245,7 @@ Antzera, konfigurazio RAIDArena gorde egingo dugu, horrela gure uneko raid konfi
 ```bash
 mdadm --detail --scan --verbose >> /mnt/etc/mdadm-conf
 ```
----
+
 ## Sisteman sartu 🏠
 
 Hurrengo aginduarekin */mnt* sartzen gara, gogoratu mnt- root montatuta dagoela, hau da, gure sistema eragilearen erroa /.
@@ -346,7 +352,12 @@ nano /etc/vconsole.conf
 
 Idatzi  `KEYMAP=es` barnean eta gorde.
 
----
+## Host izena
+echo mikel-pc > /etc/hostname
+echo "127.0.0.1  localhost" > /etc/hosts
+echo "::1  localhost" > /etc/hosts
+echo "127.0.0.1  mikel-pc" > /etc/hosts
+
 ## Grub instalatzen ☣️
 
 Grub, linuxeko boot loadera da, menu bat eskeintzen du sistema pizterakoan zenbait pizteko modu autatzeko. 
