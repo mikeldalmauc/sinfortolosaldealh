@@ -220,7 +220,7 @@ mkdir /mnt/boot/EFI
 Packstrap erabiliz funtzezko pakete batzuk instalatuko ditugu, hauek gure linuxeko sistemaren fitzategi ezagun asko gehituko dituzte zeren momentuz /mnt hutsik dago.
 
 ```bash
-timedatectl ste-ntp true
+timedatectl set-ntp true
 
 pacstrap /mnt linux linux-firmware nano networkmanager grub efibootmgr mdadm amd-ucode base base-devel
 ```
