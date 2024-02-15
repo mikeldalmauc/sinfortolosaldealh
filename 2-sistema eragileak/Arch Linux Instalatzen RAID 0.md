@@ -16,7 +16,7 @@ tags:
 	- [Partizioak sortu 🍕](#partizioak-sortu-)
 	- [Partizioak formateatu ℹ️](#partizioak-formateatu-ℹ️)
 	- [Partizioak montatu 🏇](#partizioak-montatu-)
-		- [Fstab fitxategia sortu](#fstab-fitxategia-sortu)
+		- [Fstab eta MDADM cofigurazio fitxategiak sortu](#fstab-eta-mdadm-cofigurazio-fitxategiak-sortu)
 	- [Sisteman sartu 🏠](#sisteman-sartu-)
 - [Sistema konfiguratzen ⚙️](#sistema-konfiguratzen-️)
 	- [Erabiltzaileak 👥](#erabiltzaileak-)
@@ -227,7 +227,7 @@ pacstrap /mnt linux linux-firmware nano networkmanager grub efibootmgr mdadm amd
 * Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean <mark style="background: #ABF7F7A6;">virtual boxen snapshot bat egitea</mark>, horrela zerbat txarto badoa puntu honetara vuelta genezake. 
 ---
 
-### Fstab fitxategia sortu
+### Fstab eta MDADM cofigurazio fitxategiak sortu
 
 Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizioak. Horrela, sistema pizterakoan automatikoki montatuko dira eta aurreko pausoak  ez ditugu egin behar.
 
@@ -235,6 +235,7 @@ Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizio
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
+Antzera, konfigurazio RAIDArena gorde egingo dugu, horrela gure uneko raid konfigurazioa ezarriko da sistema pizterakoan.
 ```bash
 mdadm --detail --scan --verbose >> /mnt/etc/mdadm-conf
 ```
