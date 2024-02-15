@@ -432,7 +432,7 @@ Eginda ! Aur paketeak eskuragarri izango ditugu horain 👏
 *repos* karpetan blackarch direktorioa sortu eta sartu barrura
 
 ```bash
-mkdir balckarch
+mkdir blackarch
 cd blackarch
 ```
 
@@ -496,3 +496,4 @@ pacman -Syu
 reboot
 ```
 
+## 

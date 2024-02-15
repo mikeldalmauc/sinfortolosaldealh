@@ -7,6 +7,7 @@ tags:
 - [Ingurune virtuala ezarri  📦](#ingurune-virtuala-ezarri--)
 	- [Deskargatu ISOa 📀](#deskargatu-isoa-)
 	- [VBoxen makina sortu 🖥️](#vboxen-makina-sortu-️)
+		- [EFI ezarri](#efi-ezarri)
 		- [Diska gogorrak](#diska-gogorrak)
 - [Oinarrizkoak  👣](#oinarrizkoak--)
 - [RAID 0 bat prestatu 💽💽](#raid-0-bat-prestatu-)
@@ -27,6 +28,7 @@ tags:
 		- [Programen hizkuntzak](#programen-hizkuntzak)
 		- [Teklatuaren hizkuntza kontsolan ⌨️](#teklatuaren-hizkuntza-kontsolan-️)
 	- [Host izena](#host-izena)
+	- [Konfigurazio batzuk aldatu](#konfigurazio-batzuk-aldatu)
 	- [Grub instalatzen ☣️](#grub-instalatzen-️)
 	- [Sistema berrebiarazi ♻️](#sistema-berrebiarazi-️)
 - [Sistema Konfiguratzen - 2 ⚙️](#sistema-konfiguratzen---2-️)
@@ -55,7 +57,9 @@ Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;
 
 ![Alt text](images/Pasted%20image%2020231214083957.png)
 
+### EFI ezarri
 
+![alt text](image-19.png)
 ### Diska gogorrak 
 
 2 diska gogor erabiliko ditugu, 12GB-ekoak.
@@ -357,6 +361,26 @@ echo mikel-pc > /etc/hostname
 echo "127.0.0.1  localhost" > /etc/hosts
 echo "::1  localhost" > /etc/hosts
 echo "127.0.0.1  mikel-pc" > /etc/hosts
+
+## Konfigurazio batzuk aldatu
+
+Mdadm raiderako programak, zenbait konfigurazio gehigo sartu behar dira. 
+
+```bash
+nano /etc/mkinitcpio.conf
+```
+![alt text](image-17.png)
+![alt text](image-16.png)
+
+```bash
+mkinitcpio -P
+```
+
+Kendu emailaren iruzkina 
+```bash
+ nano /etc/mdadm.conf
+```
+![alt text](image-18.png)
 
 ## Grub instalatzen ☣️
 
