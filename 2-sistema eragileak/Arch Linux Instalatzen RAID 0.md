@@ -12,8 +12,8 @@ tags:
 - [RAID 0 bat prestatu 💽💽](#raid-0-bat-prestatu-)
 	- [MDADM programa instalatu](#mdadm-programa-instalatu)
 - [Partizioak, formatoa eta muntaia](#partizioak-formatoa-eta-muntaia)
+	- [Partizio taulak garbitu](#partizio-taulak-garbitu)
 	- [Partizioak sortu 🍕](#partizioak-sortu-)
-	- [Boot partizioa](#boot-partizioa)
 	- [Partizioak formateatu ℹ️](#partizioak-formateatu-ℹ️)
 	- [Partizioak montatu 🏇](#partizioak-montatu-)
 		- [Fstab fitxategia sortu](#fstab-fitxategia-sortu)
@@ -68,6 +68,13 @@ Lehenik eta behin, teklatua gaztelerazko konfigurazioan ezarriko dugu erosoago l
 ```bash
 loadkeys es
 ```
+
+Haunditu letra tamaiña behar izatekotan.
+
+```bash
+setfont ter-132b
+```
+
 Egizatatu interneta daukagula ping eginez.
 
 ![Alt text](images/Pasted%20image%2020231214084912.png)
@@ -96,12 +103,13 @@ sgdisk -n 2:0:+8G -t 2:fd00 -c 2:"Linux RAID" /dev/sda
 sgdisk -n 3:0:0 -t 3:fd00 -c 3:"Linux RAID" /dev/sda
 ```
 
+*Okertzen bazarete partizioak ezabatzeko erabili `sgdisk -Z /dev/sda`*
+
 Kopiatu partizio taula `sda` diskotik `sdb` diskora:
 
 ```bash
-sgdis /dev/sda -R /dev/sdb -G
+sgdisk /dev/sda -R /dev/sdb -G
 ```
-
 
 ## MDADM programa instalatu
 mdadm, raidak sortzeko eta kudeatzeko programa bat da. 
@@ -140,70 +148,64 @@ Frogatu  `lsblk` agindua.
 
 # Partizioak, formatoa eta muntaia
 
+## Partizio taulak garbitu
+
+```bash
+sgdisk -Z /dev/md0
+sgdisk -Z /dev/md1
+```
+
 ## Partizioak sortu 🍕
 
-Gure diska gogorrak **md0** izango da.
-
-
-Cfdisk programa erabiliko dugu partizioak egiteko parametro bezala gure disko gogorraren helbidea emango diogu.
+Gure swap diskoa **md0** izango da.
 
 ```bash
-cfdisk /dev/md0
+sgdisk -N 1 -t 1:8300 -c 1:"Linux filesystem" /dev/md0
 ```
-
-Lehengo pausoa izango da labela aukeratzea, msdos aukeratuko dugu.
-
-![Alt text](images/Pasted%20image%2020231214085236.png)
-
----
-Bigarren pausoan,<mark style="background: #FFB8EBA6;"> bi partizio egingo ditugu, bata sistema eragilerako eta bestea swaperako</mark>. Huerrengo memoria ezarpenarekin; 6Gb swaperako eta beste guztia sistema eragilearko. Adi swap partizioari mota aldatu behar zaiola.
-
-
-lsblk berriro erabiliz, gure diskaren partizioak ikusi beharko genituzke.
-
----
-
-## Boot partizioa 
-
-/dev/sda partizio bat bakarrik izango du, boot partizioa. cfdisk-ekin, ezarri bootable bezala.
+Gure root diskoa **md1** izango da.
 
 ```bash
-cfdisk /dev/sda
+sgdisk -N 1 -t 1:8200 -c 1:"Linux swap" /dev/md1
 ```
+
+
 
 ## Partizioak formateatu ℹ️
 
 Orain partizio bakoitzari dagokion formatua ezarriko diogu hurrengo komandoak erabiliz.
 
-- Boot partizioa
+Swap partizioa
+
 ```bash
-mkfs.ext4 /dev/sda1
+mkswap /dev/md1p1
 ```
-
-- Sistema eragilerako
-```bash
-mkfs.ext4 /dev/md0p2
-```
-
-- Swap partiziorako
-```
-mkswap /dev/md0p3
-```
-
 eta swap aktibatzeko
 ```bash
-swapon
+swapon /dev/md1p1
+```
+
+Root partizioa
+
+```bash
+mkfs.ext4 /dev/md0p1
+```
+
+Boot partizioa
+
+```bash
+mkfs.fat -F 32  /dev/sda1
 ```
 
 Zihurtatu formato guztiak zuzenak direla `lsblk -f` agindua idatziz.
 
+![alt text](image-15.png)
 
 ## Partizioak montatu 🏇
 
 Lehenik root partizioa montatuko dugu.<mark style="background: #FFB8EBA6;"> Beharrezkoa da hau lehen montatzea zere boot rooten azpian egongo da.</mark>
 
 ```bash
-mount /dev/md0p2 /mnt
+mount /dev/md0p1 /mnt
 ```
 
 Boot partizioa /mnt/boot karpetan montatuko dugu, beti root montatu eta gero!
@@ -211,16 +213,20 @@ Boot partizioa /mnt/boot karpetan montatuko dugu, beti root montatu eta gero!
 ```bash
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
+mkdir /mnt/boot/EFI
 ```
 --- 
 Packstrap erabiliz funtzezko pakete batzuk instalatuko ditugu, hauek gure linuxeko sistemaren fitzategi ezagun asko gehituko dituzte zeren momentuz /mnt hutsik dago.
 
 ```bash
-pacstrap /mnt linux linux-firmware networkmanager grub base base-devel
+timedatectl ste-ntp true
+
+pacstrap /mnt linux linux-firmware nano networkmanager grub efibootmgr mdadm amd-ucode base base-devel
 ```
 
 * Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean <mark style="background: #ABF7F7A6;">virtual boxen snapshot bat egitea</mark>, horrela zerbat txarto badoa puntu honetara vuelta genezake. 
 ---
+
 ### Fstab fitxategia sortu
 
 Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizioak. Horrela, sistema pizterakoan automatikoki montatuko dira eta aurreko pausoak  ez ditugu egin behar.
@@ -229,6 +235,9 @@ Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizio
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
+```bash
+mdadm --detail --scan --verbose >> /mnt/etc/mdadm-conf
+```
 ---
 ## Sisteman sartu 🏠
 
