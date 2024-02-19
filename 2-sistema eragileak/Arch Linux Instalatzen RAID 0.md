@@ -33,6 +33,7 @@ tags:
 	- [Sistema berrebiarazi ♻️](#sistema-berrebiarazi-️)
 - [Sistema Konfiguratzen - 2 ⚙️](#sistema-konfiguratzen---2-️)
 	- [Interneterako serbitzuak konfiguratu 📶](#interneterako-serbitzuak-konfiguratu-)
+	- [Guest Additions Instalatu](#guest-additions-instalatu)
 
 Video Erreferentzia: https://www.youtube.com/watch?v=fshLf6u8B-w&t=2737s
 
@@ -442,3 +443,47 @@ systemctl enable NetworkManager
 
 Horain, ping funtzionatu beharko luke, frogatu `ping www.googl.es`.
 
+## Guest Additions Instalatu
+
+1. Deskargatu guesta additions ISO-a eta gehitu cd bezala. Clikatu behar bada add guest aditions goiko menuan makina piztuta dagoela.
+![alt text](image-20.png)
+
+![alt text](image-21.png)
+
+2. Instalatu virtualbox guest utils paketea Arch linuxen
+   
+```bash
+pacman -S virtualbox-guest-utils
+```
+
+3. jarri zerbitzua martxan
+
+```bash
+systemctl start vboxservice.service
+systemctl enable vboxservice
+```
+
+```bash
+modprobe -a vboxguest vboxsf vboxvideo
+```
+
+4. Pantall resoluzioa 
+
+```bash
+pacman -S hwinfo
+hwinfo --framebuffer
+```
+
+WINDOWSEN VBoxManage.exe programa dagoen tokian (`C:\Program Files\Oracle\VirtualBox` rutan zihurenik.) exekutatu hurrengo agindua. 
+
+```bash
+$ .\VBoxManage setextradata "Arch Linux Raid 0" "CustomVideoMode1" "1360x768x24"
+```
+
+- "Arch Linux Raid 0" zuen virtual boxen makina izena izan behar du
+![alt text](image-22.png)
+
+
+5. Berrebiarazi makina
+
+[Referentzia](https://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_guest)
