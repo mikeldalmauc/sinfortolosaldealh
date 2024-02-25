@@ -4,6 +4,9 @@ tags:
   - Arch
 ---
 
+# ArchLinux instalatu RAID0 baten
+
+- [ArchLinux instalatu RAID0 baten](#archlinux-instalatu-raid0-baten)
 - [Ingurune virtuala ezarri  📦](#ingurune-virtuala-ezarri--)
 	- [Deskargatu ISOa 📀](#deskargatu-isoa-)
 	- [VBoxen makina sortu 🖥️](#vboxen-makina-sortu-️)
