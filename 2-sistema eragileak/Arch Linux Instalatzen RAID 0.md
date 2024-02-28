@@ -62,12 +62,12 @@ Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;
 
 ### EFI ezarri
 
-![alt text](image-19.png)
+![alt text](images/image-19.png)
 ### Diska gogorrak 
 
 2 diska gogor erabiliko ditugu, 12GB-ekoak.
 
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 
 # Oinarrizkoak  👣
 
@@ -150,7 +150,7 @@ Hurrengo agindua goiko aginduaren baliokidea da, luzeagoa baina ulergarriagoa:
 
 Frogatu  `lsblk` agindua.
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 
 
@@ -206,7 +206,7 @@ mkfs.fat -F 32  /dev/sda1
 
 Zihurtatu formato guztiak zuzenak direla `lsblk -f` agindua idatziz.
 
-![alt text](image-15.png)
+![alt text](images/image-15.png)
 
 ## Partizioak montatu 🏇
 
@@ -372,8 +372,8 @@ Mdadm raiderako programak, zenbait konfigurazio gehigo sartu behar dira.
 ```bash
 nano /etc/mkinitcpio.conf
 ```
-![alt text](image-17.png)
-![alt text](image-16.png)
+![alt text](images/image-17.png)
+![alt text](images/image-16.png)
 
 ```bash
 mkinitcpio -P
@@ -383,7 +383,7 @@ Kendu emailaren iruzkina
 ```bash
  nano /etc/mdadm.conf
 ```
-![alt text](image-18.png)
+![alt text](images/image-18.png)
 
 ## Grub instalatzen ☣️
 

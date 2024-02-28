@@ -77,7 +77,7 @@ Eginda ! Aur paketeak eskuragarri izango ditugu horain 👏
 
 Instalatuko dugun ingurune grafikoari buruzko informazio guztia hurrengo GitHub repositorioan aurki dezakezue [YORU](https://github.com/rxyhn/yoru)
 
-![alt text](image-24.png)
+![alt text](./images/image-24.png)
 
 ### Instalatu beharrezko dependentziak
 
