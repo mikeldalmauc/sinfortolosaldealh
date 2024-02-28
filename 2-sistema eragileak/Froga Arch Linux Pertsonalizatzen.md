@@ -14,7 +14,7 @@ tags:
     - [Instalatu beharrezko dependentziak](#instalatu-beharrezko-dependentziak)
     - [🈹 Yoru instalatu](#-yoru-instalatu)
       - [Proiektua deskargatu](#proiektua-deskargatu)
-      - [📝 Install textu iturriak](#-install-textu-iturriak)
+      - [📝 Instalatu textu iturriak](#-instalatu-textu-iturriak)
 
 
 # 🟡 Oinarrizkoa 
@@ -122,7 +122,7 @@ cp -r misc/. ~/
 
 💡: Agindu honek, rekurtsiboki kopiatzen ditu config direktorioko eduki guztia eta zuen home direkotorioan itsatzi egiten du. *`cp -r config/* ~/.config/` eta `cp -r config/* /home/mikel/.config/` baliokideak dira.*
 
-#### 📝 Install textu iturriak
+#### 📝 Instalatu textu iturriak
 
 
 Zenbait textu iturri instalatu beharko ditugu sisteman, iconoak eta beste karaktere mota batzuk interfazea estetika hobea izan dadin.
