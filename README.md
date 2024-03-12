@@ -52,6 +52,11 @@ Sistema Informatikoen repositorioa
       - [16 - Erronka - Exekuzio fasea](#16---erronka---exekuzio-fasea)
       - [20 - Erronka - Exekuzio fasea](#20---erronka---exekuzio-fasea)
       - [23 - Erronka - Exekuzio fasea](#23---erronka---exekuzio-fasea)
+    - [Martzoa](#martzoa)
+      - [5 - Erronka - Exekuzio fasea](#5---erronka---exekuzio-fasea)
+      - [8 - Erronka - Exekuzio fasea](#8---erronka---exekuzio-fasea)
+      - [12 - Erronka - Aurkezpenak](#12---erronka---aurkezpenak)
+      - [15 - Erronka -](#15---erronka--)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -277,7 +282,12 @@ Hurrengo pausoak jarraitu:
 #### 20 - Erronka - Exekuzio fasea
 #### 23 - Erronka - Exekuzio fasea
 
+### Martzoa
 
+#### 5 - Erronka - Exekuzio fasea
+#### 8 - Erronka - Exekuzio fasea
+#### 12 - Erronka - Aurkezpenak
+#### 15 - Erronka - 
 
 ## Beste baliabide batzuk
 
