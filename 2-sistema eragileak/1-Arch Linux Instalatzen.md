@@ -140,7 +140,7 @@ mkswap /dev/sda3
 
 eta swap aktibatzeko
 ```bash
-swapon
+swapon  /dev/sda3
 ```
 
 ---
