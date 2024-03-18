@@ -18,7 +18,7 @@ pacman -S openssh-server
 
 Pasahitza eskatzeko, hurrengo lerroari iruzkina kenduko diogu:
 ```bash
-nano /etc/ssh/ssh_config
+nano /etc/ssh/sshd_config
 ```
 
 ![alt text](image-6.png)
@@ -34,6 +34,8 @@ nano /etc/hosts.allow
 ```bash
 sshd:ALL
 ```
+
+[Referentzia](https://wiki.archlinux.org/title/OpenSSH)
 ### SSH bitartez konektatu
 
 
