@@ -45,6 +45,8 @@ ssh mike@10.0.2.15
 
 ## FTP erabili
 
+[ftp zerbitzaria](https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon)
+
 1- Instalatu ftp zerbitzaria arch linuxen
 2- Konfiguratu aldaketak
 3- Konektatu
