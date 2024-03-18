@@ -41,7 +41,7 @@ systemctl enable sshd.service
 Windows powershellen konektatu.
 
 ```bash
-ssh -p 29901 mike@10.0.2.15
+ssh -p 39901 mike@10.0.2.15
 ```
 - -p : portua 
 - erabiltzailea@ip-helbidea
