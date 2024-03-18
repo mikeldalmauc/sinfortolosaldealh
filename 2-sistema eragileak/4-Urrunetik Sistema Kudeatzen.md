@@ -4,7 +4,7 @@
 
 ### SSH instalatu
 
-1. Virtual Box erabiltzen badugu, aldatu sare interfazea *Adaptador Puente *sarera.
+1. Virtual Box erabiltzen badugu, aldatu sare interfazea *Adaptador Puente* sarera.
 
 ![alt text](image-5.png)
 
