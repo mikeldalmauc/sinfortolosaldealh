@@ -11,7 +11,7 @@
 2. Istalatzeko openssh-server paketea instalatuko dugu lehenik eta behin.
 
 ```bash
-pacman -S openssh-server
+pacman -S openssh
 ```
 
 2. SSH zerbitzariaren Konfiguraketa aldatuko dugu
@@ -20,6 +20,8 @@ Pasahitza eskatzeko, hurrengo lerroari iruzkina kenduko diogu:
 ```bash
 nano /etc/ssh/sshd_config
 ```
+
+Aldatu defektuzko portua izateko hurrengo `39901`
 
 ![alt text](image-6.png)
 
@@ -38,11 +40,15 @@ sshd:ALL
 [Referentzia](https://wiki.archlinux.org/title/OpenSSH)
 ### SSH bitartez konektatu
 
+Windows powershellen konektatu.
 
 ```bash
-ssh mike@10.0.2.15
+ssh -p 29901 mike@10.0.2.15
 ```
+- -p : portua 
+- erabiltzailea@ip-helbidea
 
+*Oharra: `ip a` edo `ifconfig` aginduekin zuen ip-a aurki dezakezue.
 ## FTP erabili
 
 [ftp zerbitzaria](https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon)
