@@ -67,19 +67,19 @@ Sistema Informatikoen repositorioa
       - [23 - 3h Sprint 2](#23---3h-sprint-2)
       - [26 - 2h Sprint 2](#26---2h-sprint-2)
       - [30 - 3h Sprint 2 -](#30---3h-sprint-2--)
-    - [Mayo](#mayo)
+    - [Maiatza](#maiatza)
       - [3 - 2h Sprint 2 - Demo](#3---2h-sprint-2---demo)
       - [7 - 3h Sprint 3 - Planifikazioa](#7---3h-sprint-3---planifikazioa)
       - [10 - 2h Sprint 3](#10---2h-sprint-3)
       - [14 - 3h Sprint 3](#14---3h-sprint-3)
       - [17 - 2h Sprint 3](#17---2h-sprint-3)
       - [21 - 3h Sprint 3 - Demo](#21---3h-sprint-3---demo)
-      - [24 - 2h](#24---2h)
-      - [28 - 3h](#28---3h)
-      - [31 - 2h](#31---2h)
-    - [Junio](#junio)
-      - [4 - 3h](#4---3h)
-      - [6 - 2h](#6---2h)
+      - [24 - 2h Erronka - Exekuzio fasea](#24---2h-erronka---exekuzio-fasea)
+      - [28 - 3h Erronka - Exekuzio fasea](#28---3h-erronka---exekuzio-fasea)
+      - [31 - 2h Erronka - Exekuzio fasea](#31---2h-erronka---exekuzio-fasea)
+    - [Ekaina](#ekaina)
+      - [4 - 3h Erronka - Exekuzio fasea](#4---3h-erronka---exekuzio-fasea)
+      - [6 - 2h Erronka -](#6---2h-erronka--)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -328,7 +328,7 @@ Hurrengo pausoak jarraitu:
 
 #### 30 - 3h Sprint 2 - 
 
-### Mayo 
+### Maiatza 
 
 #### 3 - 2h Sprint 2 - Demo
 
@@ -339,14 +339,14 @@ Hurrengo pausoak jarraitu:
 #### 17 - 2h Sprint 3
 
 #### 21 - 3h Sprint 3 - Demo
-#### 24 - 2h
-#### 28 - 3h
-#### 31 - 2h
+#### 24 - 2h Erronka - Exekuzio fasea
+#### 28 - 3h Erronka - Exekuzio fasea
+#### 31 - 2h Erronka - Exekuzio fasea
 
-### Junio
+### Ekaina
 
-#### 4 - 3h
-#### 6 - 2h
+#### 4 - 3h Erronka - Exekuzio fasea
+#### 6 - 2h Erronka - 
 
 ## Beste baliabide batzuk
 
