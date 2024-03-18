@@ -25,18 +25,6 @@ Aldatu defektuzko portua izateko hurrengo `39901`
 
 ![alt text](image-6.png)
 
-3. Gehitu hurrengo lerroa `/etc/hosts.allow` fitxategira onartzeko konekzio guztiak
-   
-Fitxategia sortu existitzen ez bada:
-
-```bash
-nano /etc/hosts.allow
-```
-
-```bash
-sshd:ALL
-```
-
 [Referentzia](https://wiki.archlinux.org/title/OpenSSH)
 ### SSH bitartez konektatu
 
