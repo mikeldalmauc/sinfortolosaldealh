@@ -47,7 +47,32 @@ ssh -p 29901 mike@10.0.2.15
 - erabiltzailea@ip-helbidea
 
 *Oharra: `ip a` edo `ifconfig` aginduekin zuen ip-a aurki dezakezue.
+
 ## FTP erabili
+
+Deskargatu paketea
+
+```bash
+pacman -S  vsftpd
+```
+Martxan jarri FTP zerbitzaria
+
+```bash
+systemctl start vsftpd.service
+```
+### Konfiguratu FTP zerbitzaria
+
+Editatu konfigurazioa `/etc/vsftpd.conf`
+
+Ahalbidetu fitxategiak igotzea eta sistemako erabilitzaileak konektazea beren pasahitzekin:
+
+write_enable=YES
+local_enable=YES
+
+Honekin, edonor konekta daiteke anonymous/anonymous. Hau segurtasunaren arlotik, kontuz izan behar gara ez uzteko edonori aldaketak egiten beraz 
+#anon_upload_enable=YES lineari ez kendu iruzkina beharrezkoa ez bada.
+
+anonymous_enable=YES
 
 [ftp zerbitzaria](https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon)
 
