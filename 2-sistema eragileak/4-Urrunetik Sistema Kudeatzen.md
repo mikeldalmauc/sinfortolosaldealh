@@ -21,9 +21,19 @@ Pasahitza eskatzeko, hurrengo lerroari iruzkina kenduko diogu:
 nano /etc/ssh/sshd_config
 ```
 
-Aldatu defektuzko portua izateko hurrengo `39901`
+Aldatu defektuzko portua izateko hurrengo `39901` , kendu iruzkina.
 
-![alt text](image-6.png)
+3. Azkenik zerbitzua martxan jarri
+
+```bash
+systemctl start sshd.service
+```
+
+Nahi izanda zerbitzua automatikoki piztea 
+
+```bash
+systemctl enable sshd.service
+```
 
 [Referentzia](https://wiki.archlinux.org/title/OpenSSH)
 ### SSH bitartez konektatu
