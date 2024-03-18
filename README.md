@@ -56,7 +56,30 @@ Sistema Informatikoen repositorioa
       - [5 - Erronka - Exekuzio fasea](#5---erronka---exekuzio-fasea)
       - [8 - Erronka - Exekuzio fasea](#8---erronka---exekuzio-fasea)
       - [12 - Erronka - Aurkezpenak](#12---erronka---aurkezpenak)
-      - [15 - Erronka -](#15---erronka--)
+      - [15 - Sistema informatiko proiektua aurkezpena](#15---sistema-informatiko-proiektua-aurkezpena)
+      - [19 - 3h Sprint 1 - Planifikazioa](#19---3h-sprint-1---planifikazioa)
+      - [22 - 2h Sprint 1](#22---2h-sprint-1)
+    - [Apirila](#apirila)
+      - [9 - 3h Sprint 1](#9---3h-sprint-1)
+      - [12 - 2h Sprint 1 - Demo](#12---2h-sprint-1---demo)
+      - [16 - 3h Sprint 2 - Planifikazioa](#16---3h-sprint-2---planifikazioa)
+      - [19 - 2h Sprint 2 -](#19---2h-sprint-2--)
+      - [23 - 3h Sprint 2](#23---3h-sprint-2)
+      - [26 - 2h Sprint 2](#26---2h-sprint-2)
+      - [30 - 3h Sprint 2 -](#30---3h-sprint-2--)
+    - [Mayo](#mayo)
+      - [3 - 2h Sprint 2 - Demo](#3---2h-sprint-2---demo)
+      - [7 - 3h Sprint 3 - Planifikazioa](#7---3h-sprint-3---planifikazioa)
+      - [10 - 2h Sprint 3](#10---2h-sprint-3)
+      - [14 - 3h Sprint 3](#14---3h-sprint-3)
+      - [17 - 2h Sprint 3](#17---2h-sprint-3)
+      - [21 - 3h Sprint 3 - Demo](#21---3h-sprint-3---demo)
+      - [24 - 2h](#24---2h)
+      - [28 - 3h](#28---3h)
+      - [31 - 2h](#31---2h)
+    - [Junio](#junio)
+      - [4 - 3h](#4---3h)
+      - [6 - 2h](#6---2h)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -287,7 +310,43 @@ Hurrengo pausoak jarraitu:
 #### 5 - Erronka - Exekuzio fasea
 #### 8 - Erronka - Exekuzio fasea
 #### 12 - Erronka - Aurkezpenak
-#### 15 - Erronka - 
+#### 15 - Sistema informatiko proiektua aurkezpena
+
+#### 19 - 3h Sprint 1 - Planifikazioa
+#### 22 - 2h Sprint 1
+
+### Apirila 
+
+#### 9 - 3h Sprint 1
+#### 12 - 2h Sprint 1 - Demo
+
+#### 16 - 3h Sprint 2 - Planifikazioa
+#### 19 - 2h Sprint 2 - 
+
+#### 23 - 3h Sprint 2
+#### 26 - 2h Sprint 2
+
+#### 30 - 3h Sprint 2 - 
+
+### Mayo 
+
+#### 3 - 2h Sprint 2 - Demo
+
+#### 7 - 3h Sprint 3 - Planifikazioa
+#### 10 - 2h Sprint 3
+
+#### 14 - 3h Sprint 3
+#### 17 - 2h Sprint 3
+
+#### 21 - 3h Sprint 3 - Demo
+#### 24 - 2h
+#### 28 - 3h
+#### 31 - 2h
+
+### Junio
+
+#### 4 - 3h
+#### 6 - 2h
 
 ## Beste baliabide batzuk
 
