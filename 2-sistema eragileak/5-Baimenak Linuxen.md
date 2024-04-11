@@ -6,6 +6,11 @@
     - [Baimenak esleitzen modu sinbolikoan](#baimenak-esleitzen-modu-sinbolikoan)
     - [Baimenak modu oktalean](#baimenak-modu-oktalean)
   - [Sticky bit baimena](#sticky-bit-baimena)
+  - [SUID eta GUID baimenak](#suid-eta-guid-baimenak)
+    - [SUID](#suid)
+  - [Ezaugarri bereziak - lsattr eta chattr](#ezaugarri-bereziak---lsattr-eta-chattr)
+- [Ariketak](#ariketak)
+  - [Ariketa 1](#ariketa-1)
 
 ## Fitxategi eta direktorioen baimenak
 
@@ -92,3 +97,99 @@ chmod +t froga.txt
 
 ![alt text](image-9.png)
 
+## SUID eta GUID baimenak
+
+### SUID
+
+SUID aktibatuta dagoenean fitxategi hau exekutatzen duen erabiltzaileak sortazailearen baimenak izango ditu.
+
+```bash
+chmod u+s froga.txt
+```
+
+Sortu exekutable bat root bezala, hurrengo edukiarekin eta izenarekin.
+
+suidfroga.sh
+```bash
+#!/bin/bash
+echo erabiltzailea
+id
+echo exekuzio baimen erabiltzailea 
+echo $EUID
+```
+Baimenak esleituko dizkiogu fitxategiari
+```bash
+chmod 755 suidfroga.sh
+```
+
+Ezarri SUID suidfroga.sh fitxategiari
+![](image-10.png)
+```bash
+chmod u+s suidfroga.sh
+```
+```bash
+chmod 4755 suidfroga.sh
+```
+![alt text](image-11.png)
+
+## Ezaugarri bereziak - lsattr eta chattr
+
+Ezaugarri bereziak ikusteko `lsattr` agindua erabiliko dugu.
+
+Ezaugarri bereziak aldatzeko `chattr` agindua erabiliko dugu.
+
+- **i** atributoaren fitxategi bat inmutablea bilakatzen dugu. Hau esan nahi inork ezin duela aldatu ez ezabatu, ezta root-ek. Ezabatu nahi izatekotan, i atributoa kendu beharko genioke lenehago.
+
+```bash
+chattr +i froga.txt
+lsattr froga.txt
+```
+![alt text](image-12.png)
+
+- **u** ezaugarriarekin fitxategi bat ezabatzen dugunean, datuak gordeta gelditzen dira eta bere berreskurapena ahalbidetzen du.
+
+```bash
+chattr +u froga.txt
+```
+
+- **e** ezaugarriarekin fitxategi bat ezabatzen denean, okupatzen zuen memoria zeroekin berridazten da.
+
+```bash
+chattr +e froga.txt
+```
+
+- **c** ezaugarriarekin fitxategi bat konprimituta gordeko da.
+```bash
+chattr +c froga.txt
+```
+
+- **a** ezaugarriarekin fitxategi bati bakarrik gehitu ahal zaizkio gauzak, hau da, ezin da aldatu aurretik zegoen ezer
+```bash
+chattr +a froga.txt
+```
+
+# Ariketak
+
+## Ariketa 1
+
+lotu dagokion baimenarekin:
+
+- 462
+- 123
+- 711
+- 333
+- 161
+- 765
+- 567
+- 101
+- 162
+
+- rwx--x--x
+- --x-w--wx
+- --x-----x
+- -wx-wx-wx
+- r-xrw-rwx
+- rwxrw-r-x
+- --xrw--w-
+- r--rw--w-
+- --xrw---x
