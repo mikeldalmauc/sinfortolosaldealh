@@ -48,15 +48,9 @@ Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik
 
 Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram eta 20 Gb disko gogo</mark>r, prosezadore batekin.
 
-![[Pasted image 20231214083910.png]]
-
 ![Alt text](images/Pasted%20image%2020231214083910.png)
 
-![[Pasted image 20231214083957.png]]
-
 ![Alt text](images/Pasted%20image%2020231214083957.png)
-
-![[Pasted image 20231214084010.png]]
 
 ![Alt text](images/Pasted%20image%2020231214084010.png)
 
@@ -102,7 +96,6 @@ Lehengo pausoa izango da labela aukeratzea, msdos aukeratuko dugu.
 ---
 Bigarren pausoan,<mark style="background: #FFB8EBA6;"> hiru partizio egingo ditugu, bata booterako, bestea sistema eragilerako eta azkena swaperako</mark>. Huerrengo memoria ezarpenarekin. Adi swap partizioari mota aldatu behar zaiola.
 
-![[Pasted image 20231214085929.png]]
 
 ![Alt text](images/Pasted%20image%2020231214085929.png)
 
@@ -320,8 +313,6 @@ Hurrengo lerroak gehitu, adi mikel-pc jartzen duen tokia zuen hostname jarri beh
 127.0.0.1    mikel-pc.localhost mikel-pc
 ```
 
-
-
 ## Neofetch instalatu 😎
 
 Instalatu neofetch programatxoa, hau sistemaren informazioa erakutziko digu. Frogatu `neofetch` erabiltzen.
@@ -329,7 +320,6 @@ Instalatu neofetch programatxoa, hau sistemaren informazioa erakutziko digu. Fro
 ```bash
 pacman -S neofetch
 ```
-
 
 ![Alt text](images/Pasted%20image%2020231214135552.png)
 
