@@ -76,7 +76,6 @@ Hurrengo agindua erabiliz ikusi dezakegu zein disko dauzkagun eta beren partizio
 ```bash
 lsblk
 ```
-![[Pasted image 20231214084607.png]]
 
 ![Alt text](images/Pasted%20image%2020231214084607.png)
 
@@ -84,7 +83,6 @@ lsblk
 
 Jarraitu baino lehen egizatatu interneta daukagula ping eginez.
 
-![[Pasted image 20231214084912.png]]
 
 ![Alt text](images/Pasted%20image%2020231214084912.png)
 
@@ -98,7 +96,6 @@ cfdisk /dev/sda
 
 Lehengo pausoa izango da labela aukeratzea, msdos aukeratuko dugu.
 
-![[Pasted image 20231214085236.png]]
 
 ![Alt text](images/Pasted%20image%2020231214085236.png)
 
@@ -111,8 +108,6 @@ Bigarren pausoan,<mark style="background: #FFB8EBA6;"> hiru partizio egingo ditu
 
 
 lsblk berriro erabiliz, gure diskaren partizioak ikusi beharko genituzke.
-
-![[Pasted image 20231214090148.png]]
 
 ![Alt text](images/Pasted%20image%2020231214090148.png)
 
@@ -248,7 +243,6 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 
 -<mark style="background: #FF5582A6;"> NOPASSWD lineari komentarioa kentzekotan ez luke pasahitza eskatuko wheel taldekidei sude egitean baina hau ez da oso egokia seguratasunaren aldetik.</mark>
 
-![[Pasted image 20231214130741.png]]
 
 ![Alt text](images/Pasted%20image%2020231214130741.png)
 
@@ -258,8 +252,6 @@ Kendu iruzkina `%wheel ALL=(ALL:ALL) ALL` lineari.
 ### Programen hizkuntzak
 
 Nano erabiliz zabaldu */etc/locale.gen* fitxategia. Fitxategi hau, etc dauden fitxategi asko bezala konfiguraziorako da, hizkuntza asko izango ditu ezarrita barnean baina adi gehienak komentatua daudela. 
-
-![[Pasted image 20231214133128.png]]
 
 ![Alt text](images/Pasted%20image%2020231214133128.png)
 
@@ -338,7 +330,6 @@ Instalatu neofetch programatxoa, hau sistemaren informazioa erakutziko digu. Fro
 pacman -S neofetch
 ```
 
-![[Pasted image 20231214135552.png]]
 
 ![Alt text](images/Pasted%20image%2020231214135552.png)
 
@@ -348,7 +339,6 @@ Puntu honetan, irten rootetik `exit` eginez eta `reboot` erabili live cd-ko kont
 
 - Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu `F12` pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.
   
-![[Pasted image 20231214140230.png]]
 
 ![Alt text](images/Pasted%20image%2020231214140230.png)
 
