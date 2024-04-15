@@ -210,13 +210,13 @@ Zein da fitxategi honen baimenen baimena modu oktalean?
 
 Jarri hurrengo baimenak modu oktalean
 
-r--r-xrw-
---xr-xr--
-r--------
---------x
-rwsr-xr-x
-rwxr-sr-x
-r--rw---t
+- r--r-xrw-
+- --xr-xr--
+- r--------
+- --------x
+- rwsr-xr-x
+- rwxr-sr-x
+- r--rw---t
 
 # Ariketa 4
 
