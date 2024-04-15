@@ -60,20 +60,20 @@ Sistema Informatikoen repositorioa
       - [19 - 3h Sprint 1 - Planifikazioa](#19---3h-sprint-1---planifikazioa)
       - [22 - 2h Sprint 1](#22---2h-sprint-1)
     - [Apirila](#apirila)
-      - [9 - 3h Sprint 1](#9---3h-sprint-1)
-      - [12 - 2h Sprint 1 - Demo](#12---2h-sprint-1---demo)
-      - [16 -  3h - Sareak - Introdukzioa Sareetara eta IP](#16----3h---sareak---introdukzioa-sareetara-eta-ip)
-      - [19 -2h- Sareak - IPv4](#19--2h--sareak---ipv4)
-      - [23 -3h- Sareak - TCP](#23--3h--sareak---tcp)
-      - [26 -2h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#26--2h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
-      - [30 -3h- Sareak - Wifi Sareak](#30--3h--sareak---wifi-sareak)
+      - [9 -3h- Sprint 1](#9--3h--sprint-1)
+      - [12 -2h- Sprint 1 - Demo](#12--2h--sprint-1---demo)
+      - [16 -3h- Sareak - Introdukzioa Sareetara eta IP](#16--3h--sareak---introdukzioa-sareetara-eta-ip)
+      - [19 -2h- Sareak - Introdukzioa Sareetara eta IP](#19--2h--sareak---introdukzioa-sareetara-eta-ip)
+      - [23 -3h- Sareak - IPv4](#23--3h--sareak---ipv4)
+      - [26 -3h- Sareak - IPv4](#26--3h--sareak---ipv4)
+      - [30 -2h- Sareak - TCP](#30--2h--sareak---tcp)
     - [Maiatza](#maiatza)
-      - [3 - 2h](#3---2h)
-      - [7 - 3h](#7---3h)
+      - [3 -2h- Sareak - TCP](#3--2h--sareak---tcp)
+      - [7 - 3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#7---3h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
       - [10 - 2h](#10---2h)
       - [14 - 3h](#14---3h)
       - [17 - 2h](#17---2h)
-      - [21 - 3h](#21---3h)
+      - [21 - 3h Azterketa ? Errekuperaketa](#21---3h-azterketa--errekuperaketa)
       - [24 - 2h Erronka - Exekuzio fasea](#24---2h-erronka---exekuzio-fasea)
       - [28 - 3h Erronka - Exekuzio fasea](#28---3h-erronka---exekuzio-fasea)
       - [31 - 2h Erronka - Exekuzio fasea](#31---2h-erronka---exekuzio-fasea)
@@ -317,48 +317,64 @@ Hurrengo pausoak jarraitu:
 
 ### Apirila
 
-#### 9 - 3h Sprint 1
-#### 12 - 2h Sprint 1 - Demo
+#### 9 -3h- Sprint 1
+#### 12 -2h- Sprint 1 - Demo
 
-#### 16 -  3h - Sareak - Introdukzioa Sareetara eta IP
+#### 16 -3h- Sareak - Introdukzioa Sareetara eta IP
 - Introdukzioa sareetara azalpenak klasean
 - Ip protokoalren azalpenak
 - [si apunteak](https://logongas.es/doku.php?id=clase:daw:si:start)
 - [Sareetara introdukzioa](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema14)
 - Ariketa batzuk egin
 
-#### 19 -2h- Sareak - IPv4
+#### 19 -2h- Sareak - Introdukzioa Sareetara eta IP
+- Introdukzioa sareetara azalpenak klasean
+- Ip protokoalren azalpenak
+- [si apunteak](https://logongas.es/doku.php?id=clase:daw:si:start)
+- [Sareetara introdukzioa](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema14)
+- Ariketa batzuk egin
+
+#### 23 -3h- Sareak - IPv4
+- Ipv4 protokoa azaldu klasean
+- [IPv4 protokoloaren apunteak](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema16)
+- Ariketak
+
+#### 26 -3h- Sareak - IPv4
 - Ipv4 protokoa azaldu klasean
 - [IPv4 protokoloaren apunteak](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema16)
 - Ariketak
   
-#### 23 -3h- Sareak - TCP
+#### 30 -2h- Sareak - TCP
 - TCP protokola azaldu klasen
 - TCP protokoloa linuxen
 - Ariketak 
 
-#### 26 -2h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
+### Maiatza 
+
+#### 3 -2h- Sareak - TCP
+- TCP protokola azaldu klasen
+- TCP protokoloa linuxen
+- Ariketak 
+
+#### 7 - 3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
 - Protokoloen azalpenak
 - Ariketak
 
-#### 30 -3h- Sareak - Wifi Sareak
+#### 10 - 2h
+- Protokoloen azalpenak
+- Ariketak
+  
+#### 14 - 3h
 - Wifi sareen azalpenak
 - Hacking wifi erakuspena
 - Ariketak
-
-### Maiatza 
-
-#### 3 - 2h
-
-#### 7 - 3h
-
-#### 10 - 2h
-
-#### 14 - 3h
-
+  
 #### 17 - 2h
-
-#### 21 - 3h
+- Wifi sareen azalpenak
+- Hacking wifi erakuspena
+- Ariketak
+  
+#### 21 - 3h Azterketa ? Errekuperaketa
 
 #### 24 - 2h Erronka - Exekuzio fasea
 #### 28 - 3h Erronka - Exekuzio fasea
