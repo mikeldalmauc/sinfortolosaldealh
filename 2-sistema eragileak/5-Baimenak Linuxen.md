@@ -11,6 +11,12 @@
   - [Ezaugarri bereziak - lsattr eta chattr](#ezaugarri-bereziak---lsattr-eta-chattr)
 - [Ariketak](#ariketak)
   - [Ariketa 1](#ariketa-1)
+- [Ariketa 2](#ariketa-2)
+- [Ariketa 3](#ariketa-3)
+- [Ariketa 4](#ariketa-4)
+- [Ariketa 5](#ariketa-5)
+- [Ariketa 6](#ariketa-6)
+- [Ariketa 7](#ariketa-7)
 
 ## Fitxategi eta direktorioen baimenak
 
@@ -193,3 +199,52 @@ lotu dagokion baimenarekin:
 - --xrw--w-
 - r--rw--w-
 - --xrw---x
+
+# Ariketa 2
+
+Zein da fitxategi honen baimenen baimena modu oktalean?
+
+![alt text](image-13.png)
+
+# Ariketa 3
+
+Jarri hurrengo baimenak modu oktalean
+
+r--r-xrw-
+--xr-xr--
+r--------
+--------x
+rwsr-xr-x
+rwxr-sr-x
+r--rw---t
+
+# Ariketa 4
+
+Zer gertatuko da hurrengo agindua exekutatzerakoan?
+
+![alt text](image-14.png)
+
+1. 'Whoami' komandoaren output-a file fitxategian gordeko da, fitxategiaren jabea izateagatik baimenek ez baitidate eragiten
+
+2. 'Whoami' komandoaren output-a ezin izango da file fitxategian gorde, jabea izan arren, fitxategian esleitutako baimena gailentzen delako
+
+# Ariketa 5
+
+Nola lortuko zenuke "file" artxiboaren baimenak ikusten den moduan aldatzeko?
+
+![alt text](image-15.png)
+
+# Ariketa 6
+
+Zortzitarrean zer baimen esleitu beharko dut artxiboak adierazitako baimenak izan ditzan lortzeko?
+
+![alt text](image-16.png)
+
+# Ariketa 7
+
+Honako baimen hauek konfiguratuta dituen fitxategi hau ezabatu ahal izango dut?
+
+![alt text](image-17.png)
+
+1. Bai
+2. Ez
