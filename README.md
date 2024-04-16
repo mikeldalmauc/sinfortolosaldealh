@@ -332,7 +332,7 @@ Hurrengo pausoak jarraitu:
 #### 23 -3h- Sareak - IPv4
 - Ipv4 protokoa azaldu klasean
 - Ariketak
-
+- Segurtasun azterketa aitorpena errekuperazioa
 #### 26 -3h- Sareak - TCP
 - TCP protokola azaldu klasen
 - TCP protokoloa linuxen
