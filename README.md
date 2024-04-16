@@ -62,24 +62,24 @@ Sistema Informatikoen repositorioa
     - [Apirila](#apirila)
       - [9 -3h- Sprint 1](#9--3h--sprint-1)
       - [12 -2h- Sprint 1 - Demo](#12--2h--sprint-1---demo)
-      - [16 -3h- Sareak - Introdukzioa Sareetara eta IP](#16--3h--sareak---introdukzioa-sareetara-eta-ip)
-      - [19 -2h- Sareak - Introdukzioa Sareetara eta IP](#19--2h--sareak---introdukzioa-sareetara-eta-ip)
+      - [16 -3h- Sareak - Introdukzioa Sareetara](#16--3h--sareak---introdukzioa-sareetara)
+      - [19 -2h- Sareak - IP protokoloa](#19--2h--sareak---ip-protokoloa)
       - [23 -3h- Sareak - IPv4](#23--3h--sareak---ipv4)
-      - [26 -3h- Sareak - IPv4](#26--3h--sareak---ipv4)
-      - [30 -2h- Sareak - TCP](#30--2h--sareak---tcp)
+      - [26 -3h- Sareak - TCP](#26--3h--sareak---tcp)
+      - [30 -2h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#30--2h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
     - [Maiatza](#maiatza)
-      - [3 -2h- Sareak - TCP](#3--2h--sareak---tcp)
-      - [7 - 3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#7---3h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
-      - [10 - 2h](#10---2h)
-      - [14 - 3h](#14---3h)
-      - [17 - 2h](#17---2h)
-      - [21 - 3h Azterketa ? Errekuperaketa](#21---3h-azterketa--errekuperaketa)
+      - [3 -2h-](#3--2h-)
+      - [7 - 3h- Sareak -](#7---3h--sareak--)
+      - [10 - 2h Erronka - Exekuzio fasea](#10---2h-erronka---exekuzio-fasea)
+      - [14 - 3h Erronka - Exekuzio fasea](#14---3h-erronka---exekuzio-fasea)
+      - [17 - 2h Erronka - Exekuzio fasea](#17---2h-erronka---exekuzio-fasea)
+      - [21 - 3h Erronka - Exekuzio fasea](#21---3h-erronka---exekuzio-fasea)
       - [24 - 2h Erronka - Exekuzio fasea](#24---2h-erronka---exekuzio-fasea)
       - [28 - 3h Erronka - Exekuzio fasea](#28---3h-erronka---exekuzio-fasea)
       - [31 - 2h Erronka - Exekuzio fasea](#31---2h-erronka---exekuzio-fasea)
     - [Ekaina](#ekaina)
-      - [4 - 3h Erronka - Exekuzio fasea](#4---3h-erronka---exekuzio-fasea)
-      - [6 - 2h Erronka -](#6---2h-erronka--)
+      - [4 - 3h Ebaluazio astea Errekuperazioak](#4---3h-ebaluazio-astea-errekuperazioak)
+      - [6 - 2h Ebaluazio astea Errekuperazioak](#6---2h-ebaluazio-astea-errekuperazioak)
   - [Beste baliabide batzuk](#beste-baliabide-batzuk)
 
 ---
@@ -320,65 +320,49 @@ Hurrengo pausoak jarraitu:
 #### 9 -3h- Sprint 1
 #### 12 -2h- Sprint 1 - Demo
 
-#### 16 -3h- Sareak - Introdukzioa Sareetara eta IP
+#### 16 -3h- Sareak - Introdukzioa Sareetara
 - Introdukzioa sareetara azalpenak klasean
-- Ip protokoalren azalpenak
 - [Apunteak](6-Sareak/Intro.md)
-- Ariketa batzuk egin
+- Ariketak
 
-#### 19 -2h- Sareak - Introdukzioa Sareetara eta IP
-- Introdukzioa sareetara azalpenak klasean
+#### 19 -2h- Sareak - IP protokoloa
 - Ip protokoalren azalpenak
-- Ariketa batzuk egin
+- Ariketa
 
 #### 23 -3h- Sareak - IPv4
 - Ipv4 protokoa azaldu klasean
 - Ariketak
 
-#### 26 -3h- Sareak - IPv4
-- Ipv4 protokoa azaldu klasean
-- Ariketak
-  
-#### 30 -2h- Sareak - TCP
+#### 26 -3h- Sareak - TCP
 - TCP protokola azaldu klasen
 - TCP protokoloa linuxen
 - Ariketak 
+  
+#### 30 -2h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
+- Protokoloen azalpenak
+- Ariketak
 
 ### Maiatza 
 
-#### 3 -2h- Sareak - TCP
-- TCP protokola azaldu klasen
-- TCP protokoloa linuxen
-- Ariketak 
-
-#### 7 - 3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
-- Protokoloen azalpenak
-- Ariketak
-
-#### 10 - 2h
-- Protokoloen azalpenak
-- Ariketak
-  
-#### 14 - 3h
+#### 3 -2h- 
 - Wifi sareen azalpenak
 - Hacking wifi erakuspena
 - Ariketak
-  
-#### 17 - 2h
-- Wifi sareen azalpenak
-- Hacking wifi erakuspena
-- Ariketak
-  
-#### 21 - 3h Azterketa ? Errekuperaketa
 
+#### 7 - 3h- Sareak - 
+
+#### 10 - 2h Erronka - Exekuzio fasea
+#### 14 - 3h Erronka - Exekuzio fasea
+#### 17 - 2h Erronka - Exekuzio fasea
+#### 21 - 3h Erronka - Exekuzio fasea
 #### 24 - 2h Erronka - Exekuzio fasea
 #### 28 - 3h Erronka - Exekuzio fasea
 #### 31 - 2h Erronka - Exekuzio fasea
 
 ### Ekaina
 
-#### 4 - 3h Erronka - Exekuzio fasea
-#### 6 - 2h Erronka - 
+#### 4 - 3h Ebaluazio astea Errekuperazioak
+#### 6 - 2h Ebaluazio astea Errekuperazioak
 
 ## Beste baliabide batzuk
 

@@ -85,7 +85,6 @@ nmap -p- -T5 -sT --open 192.168.0.1 -v -n
 
 - -Pn parametroa erabili beharko dugu
 
-![[Pasted image 20240111125658.png]]
 
 ```bash
 nmap -p- -T5 --open 192.168.0.1 -v -n -Pn

