@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TCP&comma; UDP eta Three Way Handsakea</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="tcp-udp-eta-three-way-handsakea">TCP, UDP eta Three Way Handsakea</h1>
+  <ul>
+    <li><a href="#tcp-udp-eta-three-way-handsakea">TCP, UDP eta Three Way Handsakea</a>
+      <ul>
+        <li><a href="#abatailak-eta-desabantailak-protokoloen-artean">Abatailak eta Desabantailak protokoloen artean</a>
+        </li>
+        <li><a href="#portuak-eta-beren-prokoloak">Portuak eta beren prokoloak</a></li>
+        <li><a href="#tcp">TCP</a></li>
+        <li><a href="#udp">UDP</a></li>
+        <li><a href="#three-way-handshake">Three way handshake</a>
+          <ul>
+            <li><a href="#behatu-three-way-handshake-netcat-eta-wireshar-erabiliz">Behatu three way handshake Netcat eta
+                Wireshar erabiliz</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="abatailak-eta-desabantailak-protokoloen-artean">Abatailak eta Desabantailak protokoloen artean</h2>
+  <p><strong>TCP (Transmisioa Kontrolatzeko Protokoloa):</strong></p>
+  <p><strong>Abantailak:</strong>
+    1.<strong>Fidagarritasuna:</strong> TCPk datuen entrega ordenatua eta fidagarria bermatzen du. Transmisioan paketeak
+    galtzen badira, TCP arduratzen da paketeak transmititzeaz.
+    2.<strong>Fluxu-kontrola:</strong> TCPk fluxu-kontroleko mekanismoak inplementatzen ditu sarean pilaketa saihesteko
+    eta hartzaileak datuak erritmo egokian prozesatu ahal izatea ziurtatzeko.
+    3.<strong>Aitortzea eta ematea:</strong> Aitortza-mekanismoak ematen ditu, igorleak jakin dezan zer datu jaso diren
+    behar bezala eta galdutakoak eman ahal izan ditzan.</p>
+  <p><strong>Desabantailak:</strong>
+    1.<strong>Gainkarga handiagoa:</strong> TCPk protokolo-gainkarga handiagoa du UDPrekin alderatuta, konexioak,
+    fluxu-kontrola eta emankizunak ezarri eta mantentzeko beharragatik.
+    2.<strong>Latentzia handiagoa:</strong> Fluxua entregatu eta kontrolatzeko berme-mekanismoak direla eta, TCPk
+    nolabaiteko latentzia sar dezake datuen transmisioan.</p>
+  <p><strong>UDP (User Datagram Protocol):</strong></p>
+  <p><strong>Abantailak:</strong>
+    1.<strong>Gainkarga txikiagoa:</strong> UDPk protokolo-gainkarga txikiagoa du, ez baitu konexiorik ezarri edo
+    mantendu behar, eta ez du fluxu-kontrolik edo emanaldirik inplementatzen.
+    2.<strong>Latentzia txikiagoa:</strong> TCP mekanismo gehigarriak ez dituenez, UDPk latentzia txikiagoa eskain
+    dezake datuen transmisioan.
+    3.<strong>Datuak denbora errealean transmititzea:</strong> Egokia da datuak denbora errealean azkar transmititzea
+    eskatzen duten aplikazioetarako, hala nola audio- eta bideo-transmisioetarako.</p>
+  <p><strong>Desabantailak:</strong>
+    1.<strong>Ez du entrega bermatzen:</strong> UDPk ez du bermatzen datuak entregatuko direnik, ezta zein ordenatan
+    jasoko diren ere. Transmisioan paketeak gal daitezke.
+    2.<strong>Fluxu-kontrolik gabe:</strong> Ez dago fluxua kontrolatzeko mekanismorik UDPn, eta horrek esan nahi du
+    datuak ahalik eta abiadura handienean bidaltzen direla, eta horrek auto-pilaketa eragin dezake sarean.
+    3.<strong>Ez dago ez aintzatespenik ez emanaldirik:</strong> Paketeak galtzen badira, ez dago mekanismo
+    automatikorik horiek transmititzeko, eta erabiltzaileak berreskuratze-mekanismo propioak inplementatu behar ditu,
+    beharrezkoa bada.</p>
+  <p>Laburbilduz, TCP egokiagoa da fidagarritasuna eta entrega-bermea eskatzen duten aplikazioetarako, eta UDP, berriz,
+    hobea da latentzia kritikoa den eta nolabaiteko datu-galera onar daitekeen egoeretan. TCP eta UDPren arteko
+    aukeraketa aplikazioaren baldintza espezifikoen araberakoa da.</p>
+  <p><img src="..\Images\Pasted%20image%2020231211234056.png" alt="Alt text"></p>
+  <h2 id="portuak-eta-beren-prokoloak">Portuak eta beren prokoloak</h2>
+  <p>Garrantzitsua da <em>nmap</em> tresnarekin atakak eskaneatzeko makina bat zer ataka erabiltzen ari den eta zer
+    protokolorekin erabiltzen ari den jakitea</p>
+  <h2 id="tcp">TCP</h2>
+  <ul>
+    <li>21 -&gt; FTP</li>
+    <li>22 -&gt; SSH</li>
+    <li>23 -&gt; (Telnet)</li>
+    <li>25 -&gt; (SMTP)</li>
+    <li>53 -&gt; (DNS)</li>
+    <li>80 -&gt; HTTP</li>
+    <li>443 -&gt; HTTPS</li>
+    <li>110 -&gt; (POP3)</li>
+    <li>139, 445 -&gt; (SMB)</li>
+    <li>4143 -&gt; (IMAP)</li>
+  </ul>
+  <h2 id="udp">UDP</h2>
+  <ul>
+    <li>53 -&gt; (DNS)</li>
+    <li>69 -&gt; (TFTP)</li>
+    <li>161 -&gt; (SNMP)</li>
+  </ul>
+  <h2 id="three-way-handshake">Three way handshake</h2>
+  <p>Oharra: Ack dator Acknowledge-etik</p>
+  <p><img src="..\Images\Pasted%20image%2020231211233951.png" alt="Alt text"></p>
+  <h3 id="behatu-three-way-handshake-netcat-eta-wireshar-erabiliz">Behatu three way handshake Netcat eta Wireshar
+    erabiliz</h3>
+  <p>NetCat tresna erabiliz entzuten dugu. Tresna hori oso erabilgarria da datuak tre por tcp edo udp bidez
+    transmititzeko. Versatila da, eta entzuteko probak egiteko erabil daiteke, orain egingo dugun bezala, baina baita
+    tunelak sortzeko ere, urruneko shell bat irekitzeko, atakak birbidaltzeko eta ssl konexioak egiteko, besteak beste.
+  </p>
+  <p>Entzun</p>
+  <p><img src="..\Images\Pasted%20image%2020231212004348.png" alt="Alt text"></p>
+  <p>Entzuten ari garen portu honen bidez konektatzen saiatu</p>
+  <p><img src="..\Images\Pasted%20image%2020231212000355.png" alt="Alt text"></p>
+  <p>Wireshark -en loopback interfazea atzitu eta tcp bidez iragazi</p>
+  <p><img src="..\Images\Pasted%20image%2020231212004339.png" alt="Alt text"></p>
+
+</body>
+</html>

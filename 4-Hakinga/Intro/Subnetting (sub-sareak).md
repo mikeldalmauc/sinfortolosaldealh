@@ -1,14 +1,17 @@
----
-tags:
-  - Hacking
-  - Networks
-  - TODO
----
+# Subnetting
+
+- [Subnetting](#subnetting)
+  - [Maskara](#maskara)
+- [CDIR eta Host kopuruaren kalkulua](#cdir-eta-host-kopuruaren-kalkulua)
+  - [Maskara klaseak](#maskara-klaseak)
+  - [Ariketak](#ariketak)
+  - [Kalkulo aritmetikoa Network ID eta Broadcast Addressa Kalkulatzeko](#kalkulo-aritmetikoa-network-id-eta-broadcast-addressa-kalkulatzeko)
+    - [AND eragiketa Ip eta maskararen artean](#and-eragiketa-ip-eta-maskararen-artean)
+
 ## Maskara
 
 `ifconfig` Agindua erabiltzen badugu, gure sarearen maskara ikus dezakegu `netmask 255.255.0.0` nere kasuan.
 
-![[Pasted image 20231211221636.png]]
 
 Atakante bezela, maskara honek, sarearen egitura ezagutzen lagunduko digu. Informazio hau erabilgarria izango zaigu analisi fasean, sarea nola eskaneatzeko adibidez.
 
@@ -24,37 +27,37 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 1. Lehenik, 8 posizioko zenbaki bitar ba irudikatuko dugu balioak jarriz, eta goian posizioaren pisua.
    
 ![Alt text](<../Images/Pasted image 20231221124205.png>)
-![[Pasted image 20231221124205.png]]
+
 
 1. Hurrengo kalkulua sistema bitarretik hamartarrera pasatzeko balio digu, hau da posizioaren balioa 0/1 biderkatuz posizioaren pisuaz.
 
 ![Alt text](<../Images/Pasted image 20231221124348.png>)
-![[Pasted image 20231221124348.png]]
+
 ![Alt text](<../Images/Pasted image 20231221124403.png>)
-![[Pasted image 20231221124403.png]]
+
 
 1. Taulari formatoa ezarriz, eta taula hau lau aldiz errepikatuz, gure maskara irudika dezakegu:
 
 ![Alt text](<../Images/Pasted image 20231221125101.png>)
-![[Pasted image 20231221125101.png]]
+
 
 ---
 # CDIR eta Host kopuruaren kalkulua
 
 
 ![Alt text](<../Images/Pasted image 20231221130840.png>)
-![[Pasted image 20231221130840.png]]
+
 
 1. CIDR: Izendapen estandar bat da, gura maskarern 1 zenbakien kopuruaren araberakoa, kalkulatzeko
 ![Alt text](<../Images/Pasted image 20231221131002.png>)
-![[Pasted image 20231221131002.png]]
+
 
 1. Host kopurua, maskara bat aplikatuta, libre daduden helbide guztiak izango dira. Hauda da, zero kopurua kontatu eta 2^(zero kopurua)
 
 ![Alt text](<../Images/Pasted image 20231221131135.png>)
-![[Pasted image 20231221131135.png]]
+
 ![Alt text](<../Images/Pasted image 20231221131152.png>)
-![[Pasted image 20231221131152.png]]
+
 
 ---
 ## Maskara klaseak
@@ -62,15 +65,15 @@ Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertze
 Sortu tab berri bat eta hurrengo taula eraiki:
 
 ![Alt text](<../Images/Pasted image 20231221133115.png>)
-![[Pasted image 20231221133115.png]]
+
 ![Alt text](<../Images/Pasted image 20231222093449.png>)
-![[Pasted image 20231222093449.png]]
+
 
 ![Alt text](<../Images/Pasted image 20231222093428.png>)
-![[Pasted image 20231222093428.png]]
+
 
 ---
-## Ariketatzoak 
+## Ariketak
 
 Oharra: Eskuragarri dauden IP helbideen artean, lehen eta azkenengoa ez ditugu kontuan izango. 
 - Lehen IP helbidea, network Id izena du
@@ -93,7 +96,7 @@ kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.
 [ip address-guide cidr calc](https://www.ipaddressguide.com/cidr)
 
 ![Alt text](<../Images/Pasted image 20231222094358.png>)
-![[Pasted image 20231222094358.png]]
+
 
 ---
 
@@ -121,7 +124,7 @@ kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.
 
 + 11111111.11111111.10000000.00000000 (255.255.128.0)
 
-### AND Ip eta maskararen artean
+### AND eragiketa Ip eta maskararen artean
 
 - 10101100.00001110.00001111.00010000
 - 11111111.11111111.10000000.00000000

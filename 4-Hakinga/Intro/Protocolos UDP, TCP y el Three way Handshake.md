@@ -1,83 +1,51 @@
----
-tags:
-  - Hacking
-  - Networks
----
+# TCP, UDP eta Three Way Handsakea
 
-### Ventajas y desventajas
+- [TCP, UDP eta Three Way Handsakea](#tcp-udp-eta-three-way-handsakea)
+  - [Abatailak eta Desabantailak protokoloen artean](#abatailak-eta-desabantailak-protokoloen-artean)
+  - [Portuak eta beren prokoloak](#portuak-eta-beren-prokoloak)
+  - [TCP](#tcp)
+  - [UDP](#udp)
+  - [Three way handshake](#three-way-handshake)
+    - [Behatu three way handshake Netcat eta Wireshar erabiliz](#behatu-three-way-handshake-netcat-eta-wireshar-erabiliz)
 
-**TCP (Protocolo de Control de Transmisión):**
+## Abatailak eta Desabantailak protokoloen artean
 
-**Ventajas:**
-1. **Confiabilidad:** TCP garantiza la entrega ordenada y confiable de datos. Si se pierden paquetes en la transmisión, TCP se encarga de retransmitirlos.
-2. **Control de Flujo:** TCP implementa mecanismos de control de flujo para evitar la congestión en la red y asegurar que el receptor pueda procesar los datos a un ritmo adecuado.
-3. **Reconocimiento y Retransmisión:** Proporciona mecanismos de reconocimiento para asegurar que el emisor sepa qué datos se han recibido correctamente y pueda retransmitir los que se hayan perdido.
+**TCP (Transmisioa Kontrolatzeko Protokoloa):**
 
-**Desventajas:**
-1. **Mayor Sobrecarga:** TCP tiene una mayor sobrecarga de protocolo en comparación con UDP debido a la necesidad de establecer y mantener conexiones, control de flujo y retransmisiones.
-2. **Mayor Latencia:** Debido a los mecanismos de garantía de entrega y control de flujo, TCP puede introducir cierta latencia en la transmisión de datos.
+**Abantailak:**
+1.**Fidagarritasuna:** TCPk datuen entrega ordenatua eta fidagarria bermatzen du. Transmisioan paketeak galtzen badira, TCP arduratzen da paketeak transmititzeaz.
+2.**Fluxu-kontrola:** TCPk fluxu-kontroleko mekanismoak inplementatzen ditu sarean pilaketa saihesteko eta hartzaileak datuak erritmo egokian prozesatu ahal izatea ziurtatzeko.
+3.**Aitortzea eta ematea:** Aitortza-mekanismoak ematen ditu, igorleak jakin dezan zer datu jaso diren behar bezala eta galdutakoak eman ahal izan ditzan.
 
----
+**Desabantailak:**
+1.**Gainkarga handiagoa:** TCPk protokolo-gainkarga handiagoa du UDPrekin alderatuta, konexioak, fluxu-kontrola eta emankizunak ezarri eta mantentzeko beharragatik.
+2.**Latentzia handiagoa:** Fluxua entregatu eta kontrolatzeko berme-mekanismoak direla eta, TCPk nolabaiteko latentzia sar dezake datuen transmisioan.
 
-**UDP (Protocolo de Datagramas de Usuario):**
 
-**Ventajas:**
-1. **Menor Sobrecarga:** UDP tiene una menor sobrecarga de protocolo, ya que no requiere establecer ni mantener conexiones, y no implementa control de flujo ni retransmisión.
-2. **Menor Latencia:** Al no tener los mecanismos adicionales de TCP, UDP puede ofrecer menor latencia en la transmisión de datos.
-3. **Transmisión de Datos en Tiempo Real:** Es adecuado para aplicaciones que requieren una transmisión rápida de datos en tiempo real, como transmisiones de audio y video.
+**UDP (User Datagram Protocol):**
 
-**Desventajas:**
-1. **No Garantiza la Entrega:** UDP no garantiza la entrega de datos ni el orden en que se reciben. Puede haber pérdida de paquetes durante la transmisión.
-2. **Sin Control de Flujo:** No hay mecanismos de control de flujo en UDP, lo que significa que los datos se envían a la velocidad máxima posible, lo que puede provocar congestión en la red.
-3. **No hay Reconocimiento ni Retransmisión:** Si se pierden paquetes, no hay mecanismos automáticos para retransmitirlos, y el usuario debe implementar sus propios mecanismos de recuperación si es necesario.
 
---- 
+**Abantailak:**
+1.**Gainkarga txikiagoa:** UDPk protokolo-gainkarga txikiagoa du, ez baitu konexiorik ezarri edo mantendu behar, eta ez du fluxu-kontrolik edo emanaldirik inplementatzen.
+2.**Latentzia txikiagoa:** TCP mekanismo gehigarriak ez dituenez, UDPk latentzia txikiagoa eskain dezake datuen transmisioan.
+3.**Datuak denbora errealean transmititzea:** Egokia da datuak denbora errealean azkar transmititzea eskatzen duten aplikazioetarako, hala nola audio- eta bideo-transmisioetarako.
 
-En resumen, TCP es más adecuado para aplicaciones que requieren confiabilidad y garantía de entrega, mientras que UDP es preferible en situaciones donde la latencia es crítica y se puede tolerar cierta pérdida de datos. La elección entre TCP y UDP depende de los requisitos específicos de la aplicación.
+**Desabantailak:**
+1.**Ez du entrega bermatzen:** UDPk ez du bermatzen datuak entregatuko direnik, ezta zein ordenatan jasoko diren ere. Transmisioan paketeak gal daitezke.
+2.**Fluxu-kontrolik gabe:** Ez dago fluxua kontrolatzeko mekanismorik UDPn, eta horrek esan nahi du datuak ahalik eta abiadura handienean bidaltzen direla, eta horrek auto-pilaketa eragin dezake sarean.
+3.**Ez dago ez aintzatespenik ez emanaldirik:** Paketeak galtzen badira, ez dago mekanismo automatikorik horiek transmititzeko, eta erabiltzaileak berreskuratze-mekanismo propioak inplementatu behar ditu, beharrezkoa bada.
+
+
+Laburbilduz, TCP egokiagoa da fidagarritasuna eta entrega-bermea eskatzen duten aplikazioetarako, eta UDP, berriz, hobea da latentzia kritikoa den eta nolabaiteko datu-galera onar daitekeen egoeretan. TCP eta UDPren arteko aukeraketa aplikazioaren baldintza espezifikoen araberakoa da.
+
 
 ![Alt text](<../Images/Pasted image 20231211234056.png>)
-![[Pasted image 20231211234056.png]]
 
----
-### Three way handshake
+## Portuak eta beren prokoloak
 
-nota: Ack viene de Acknowledge
 
-![Alt text](<../Images/Pasted image 20231211233951.png>)
-![[Pasted image 20231211233951.png]]
+Garrantzitsua da *nmap* tresnarekin atakak eskaneatzeko makina bat zer ataka erabiltzen ari den eta zer protokolorekin erabiltzen ari den jakitea
 
----
-### Observar el three way handshake con Netcat y Wireshark
-
-Escuchamos utilizando la herramienta NetCat, que es una herramienta útil para transmision de datos en tre por tcp o udp, es versatil y puede utilizarse para tareas como pruebas de escucha tal y como haremos ahora pero también crear tuneles para abrir un shell remoto, reenvio de puertos y conexiones ssl entre otros.
-
-Ponerse en escucha
-
-![[Pasted image 20231212004348.png]]
-![Alt text](<../Images/Pasted image 20231212004348.png>)
-
-Tratar de conectarse a traves de este puerto en el que estamos en escucha
-
-![[Pasted image 20231212000355.png]]
-![Alt text](<../Images/Pasted image 20231212000355.png>)
-
----
-
-En wireshark capturar la interfaz loopback y filtrar por tcp
-
-![[Pasted image 20231212004339.png]]
-![Alt text](<../Images/Pasted image 20231212004339.png>)
-
---- 
-
-### TODO  Hacer que esta práctica funcione con los contendores de docker 
-
-#TODO
-
----
-## Procolos y puertos
-
-Es importante de cara a un escaneo de los puertos con la herramienta *nmap* saber que puertos está utilizando una máquina y que con que protocolo
 TCP
 ----------------------
 - 21  -> FTP
@@ -97,5 +65,28 @@ UDP
 - 69  -> (TFTP)
 - 161 -> (SNMP)
 
-[[Modelo de capas OSI]]
 
+
+## Three way handshake
+
+Oharra: Ack dator Acknowledge-etik
+
+![Alt text](<../Images/Pasted image 20231211233951.png>)
+
+
+### Behatu three way handshake Netcat eta Wireshar erabiliz
+
+NetCat tresna erabiliz entzuten dugu. Tresna hori oso erabilgarria da datuak tre por tcp edo udp bidez transmititzeko. Versatila da, eta entzuteko probak egiteko erabil daiteke, orain egingo dugun bezala, baina baita tunelak sortzeko ere, urruneko shell bat irekitzeko, atakak birbidaltzeko eta ssl konexioak egiteko, besteak beste.
+
+Entzun
+
+![Alt text](<../Images/Pasted image 20231212004348.png>)
+
+Entzuten ari garen portu honen bidez konektatzen saiatu
+
+![Alt text](<../Images/Pasted image 20231212000355.png>)
+
+
+Wireshark -en loopback interfazea atzitu eta tcp bidez iragazi
+
+![Alt text](<../Images/Pasted image 20231212004339.png>)
