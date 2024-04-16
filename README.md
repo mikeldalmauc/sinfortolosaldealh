@@ -323,25 +323,20 @@ Hurrengo pausoak jarraitu:
 #### 16 -3h- Sareak - Introdukzioa Sareetara eta IP
 - Introdukzioa sareetara azalpenak klasean
 - Ip protokoalren azalpenak
-- [si apunteak](https://logongas.es/doku.php?id=clase:daw:si:start)
-- [Sareetara introdukzioa](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema14)
+- [Apunteak](6-Sareak/Intro.md)
 - Ariketa batzuk egin
 
 #### 19 -2h- Sareak - Introdukzioa Sareetara eta IP
 - Introdukzioa sareetara azalpenak klasean
 - Ip protokoalren azalpenak
-- [si apunteak](https://logongas.es/doku.php?id=clase:daw:si:start)
-- [Sareetara introdukzioa](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema14)
 - Ariketa batzuk egin
 
 #### 23 -3h- Sareak - IPv4
 - Ipv4 protokoa azaldu klasean
-- [IPv4 protokoloaren apunteak](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema16)
 - Ariketak
 
 #### 26 -3h- Sareak - IPv4
 - Ipv4 protokoa azaldu klasean
-- [IPv4 protokoloaren apunteak](https://logongas.es/doku.php?id=clase:daw:si:3eval:tema16)
 - Ariketak
   
 #### 30 -2h- Sareak - TCP
