@@ -137,7 +137,7 @@ Ordenatu balio handienetik txikienera unitate hauek:
 - 1 bps
 - 1 mib/s
 - 1 tbps
-- 1 TB
+- 1 TBs
 
 ### 3. Ariketa
 Bilatu Espainiako 6 hornitzaileren preziorik onenak teknologia hauetan:
@@ -163,10 +163,10 @@ Adierazi eremu lokaleko sare hauetarako gehieneko abiadurak:
 ### 5. Ariketa
 Adierazi Interneteko sare hauetarako gehieneko abiadurak:
 
-Modem analogikoa
+- Modem analogikoa
 - ISDN
 - xDSL
-- DOKSIA
+- DOCSIS
 - FTTH
 - 
 ### 6. Ariketa
