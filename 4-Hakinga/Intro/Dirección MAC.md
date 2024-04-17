@@ -1,40 +1,38 @@
----
-tags:
-  - Hacking
-  - Networks
----
-# Dirección MAC
+# MAC helbidea
 
-La dirección mac, en redes de computadoras, es una dirección única de 48 bits que corresponde a una tarjeta o dispositivo de red. Se le conoce como dirección física y es única para cada dispositivo.
+- [MAC helbidea](#mac-helbidea)
+  - [Machanger tool](#machanger-tool)
 
-![[Pasted image 20231211230840.png]]
+
+Mac helbidea, ordenagailu-sareetan, txartel edo sareko gailu bati dagokion 48 biteko helbide bakarra da. Helbide fisikoa esaten zaio, eta bakarra da gailu bakoitzerako.
+
+
 ![Alt text](<../Images/Pasted image 20231211230840.png>)
----
 
-En cuanto a estructura respecta se puede dividir en el OUI (Organizationally Unique Identifier) y la segunda mitad el NIC (Network Inteface Controller)
 
-![[Pasted image 20231211231410.png]]
+Egiturari dagokionez, OUI (Organizationally Unique Identifier) eta bigarren erdian NIC (Network Inteface Controller) bana daitezke.
+
+
 ![Alt text](<../Images/Pasted image 20231211231410.png>)
----
 
-Podemos hacer un escanéo a nivel de red local para encontar dispositivos conectados a la red y obtener algo de información de ellos.
 
-![[Pasted image 20231211231728.png]]
+Sare lokalaren mailan eskaner bat egin dezakegu sarera konektatutako gailuak biltzeko eta haietatik informazio pixka bat lortzeko.
+
+
 ![Alt text](<../Images/Pasted image 20231211231728.png>)
----
 
-### Machanger tool
 
-Nos permite conocer el parte inicial del mac, el owi, esta herramienta sirve para falsificar direcciones mac y es especialmente útil para el hacking wifi.
 
-![[Pasted image 20231211233341.png]]
+## Machanger tool
+
+Mac-aren hasierako partea ezagutzeko aukera ematen digu, OUI-a. Tresna honek mac helbideak faltsutzeko balio du, eta bereziki erabilgarria da hacking wifirako.
+
+
 ![Alt text](<../Images/Pasted image 20231211233341.png>)
-![[Pasted image 20231211233334.png]]
-![Alt text](<../Images/Pasted image 20231211233334.png>)
----
 
-![[Pasted image 20231211233717.png]]
+![Alt text](<../Images/Pasted image 20231211233334.png>)
+
+
 ![Alt text](<../Images/Pasted image 20231211233717.png>)
 
-[[Protocolos UDP, TCP y el Three way Handshake]]
 

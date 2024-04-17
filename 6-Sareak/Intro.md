@@ -41,7 +41,7 @@
 
 ## OSI geruzak
 
-![alt text](image.png)
+![alt text](irudiak/image.png)
 
 **Geruza fisikoa (1. geruza):** Geruza hau datuen transmisio fisikoaz arduratzen da komunikabidearen bidez, dela kablea, dela zuntz optikoa, dela haririk gabekoa. Sareko gailuen ezaugarri elektrikoak, mekanikoak eta funtzionalak definitzen ditu, baita bitak transmititzeko modua ere.
 
@@ -59,7 +59,7 @@
 
 ## Kableatu egituratua 
 
-![alt text](image-1.png)
+![alt text](irudiak/image-1.png)
 
 Kableatu egituratuaren azpisistemak:
 
@@ -73,7 +73,7 @@ Kableatu egituratuaren azpisistemak:
 
 ### Lan-eremuko kableak
 
-![alt text](image-7.png)
+![alt text](irudiak/image-7.png)
 
 Kat. egituratutako kable-latigiloa. 6
 
@@ -83,37 +83,37 @@ Kable horizontalak honako hauek ditu:
 
 Telekomunikazioen irteerak (kutxak/plakak/konektoreak) lan-eremuan (ingelesez: work area outlets, WAO).
 
-![alt text](image-4.png)
+![alt text](irudiak/image-4.png)
 
 Lan-eremuko irteeren eta telekomunikazio-gelaren artean instalatutako trantsizio-kableak eta konektoreak.
 
-![alt text](image-5.png)
+![alt text](irudiak/image-5.png)
 
 Telekomunikazio-gelan kable horizontalen konexioak konfiguratzeko erabiltzen diren panelak (patch panels) eta lotura-kableak.
 
-![alt text](image-6.png)
+![alt text](irudiak/image-6.png)
 
 ### Administrazio-kableak (kable-armairua, rack)
 Kable-sistemak osatzen dituzten elementuak fisikoki kokatzeko, rack armairuak erabili behar dira, horretarako bakarrik diseinatuta daudenak. Rack armairu horien barruan kokatu beharreko elementu kopuruaren arabera, hainbat irtenbide eskaintzen dira, bezero bakoitzaren beharrak kontuan hartuta.
 
-![alt text](image-2.png)
+![alt text](irudiak/image-2.png)
 
 **Horma-armairuak:** Hormari lotuta eta altueran jarrita, barruan telekomunikazio-ekipoak daude. Rack armairu horien altuera 6U eta 15U artekoa da.
 
-![alt text](image-3.png)
+![alt text](irudiak/image-3.png)
 
 ### Kableatu bertikala
-![alt text](image-8.png)
+![alt text](irudiak/image-8.png)
 
 ### Ekipamendu-kableak 
 
-![alt text](image-10.png)
+![alt text](irudiak/image-10.png)
 
 ### Kampuseko kableatua 
 
-![alt text](image-11.png)
-![alt text](image-13.png)
-![alt text](image-12.png)
+![alt text](irudiak/image-11.png)
+![alt text](irudiak/image-13.png)
+![alt text](irudiak/image-12.png)
 
 ## Ariketak
 
@@ -137,13 +137,13 @@ Ordenatu balio handienetik txikienera unitate hauek:
 - 1 bps
 - 1 mib/s
 - 1 tbps
-- 1 TB
+- 1 TBs
 
 ### 3. Ariketa
 Bilatu Espainiako 6 hornitzaileren preziorik onenak teknologia hauetan:
 
-- ISDN
-- DOKSIA
+- RDSI
+- DOCSIS
 - ADSL
 - FTTH
 
@@ -163,10 +163,10 @@ Adierazi eremu lokaleko sare hauetarako gehieneko abiadurak:
 ### 5. Ariketa
 Adierazi Interneteko sare hauetarako gehieneko abiadurak:
 
-Modem analogikoa
+- Modem analogikoa
 - ISDN
 - xDSL
-- DOKSIA
+- DOCSIS
 - FTTH
 - 
 ### 6. Ariketa
