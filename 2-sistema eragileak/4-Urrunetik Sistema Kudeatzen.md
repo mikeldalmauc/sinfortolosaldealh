@@ -1,5 +1,12 @@
 # Urrunetik sistema kudeatzen
 
+- [Urrunetik sistema kudeatzen](#urrunetik-sistema-kudeatzen)
+  - [SSH protokoloa erabiliz](#ssh-protokoloa-erabiliz)
+    - [SSH instalatu](#ssh-instalatu)
+    - [SSH bitartez konektatu](#ssh-bitartez-konektatu)
+  - [FTP erabili](#ftp-erabili)
+    - [Konfiguratu FTP zerbitzaria](#konfiguratu-ftp-zerbitzaria)
+
 ## SSH protokoloa erabiliz
 
 ### SSH instalatu

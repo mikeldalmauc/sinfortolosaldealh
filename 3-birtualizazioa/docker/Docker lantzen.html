@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Docker</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 1em;
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="docker">Docker</h1>
+<ul>
+<li><a href="#docker">Docker</a>
+<ul>
+<li><a href="#zer-da-docker">Zer da Docker?</a></li>
+<li><a href="#zergaitik-docker">Zergaitik Docker</a>
+<ul>
+<li><a href="#nola-konparatu-docker">Nola Konparatu Docker</a>
+<ul>
+<li><a href="#erabiltzaile-basea">Erabiltzaile-basea</a></li>
+<li><a href="#helburua">Helburua</a></li>
+<li><a href="#ekosistema-eragina">Ekosistema Eragina</a></li>
+<li><a href="#aniztasuna">Aniztasuna</a></li>
+<li><a href="#merkatu-dominantzia">Merkatu Dominantzia</a></li>
+<li><a href="#integrazioa">Integrazioa</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#docker-praktikak">Docker praktikak</a>
+<ul>
+<li><a href="#datu-base-bat-sortu-mysql">Datu base bat sortu (MySQL)</a>
+<ul>
+<li><a href="#datu-baseak-sortzen-ariketak">Datu baseak sortzen Ariketak</a></li>
+</ul>
+</li>
+<li><a href="#ubuntu-instalatu">Ubuntu instalatu</a></li>
+<li><a href="#web-serbitzari-bat-sortu-nginx">Web serbitzari bat sortu (Nginx)</a>
+<ul>
+<li><a href="#ariketa-web-serbitzari-bat-sortu-apache">Ariketa: Web serbitzari bat sortu (Apache)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="image.png" alt="alt text"></p>
+<h2 id="zer-da-docker">Zer da Docker?</h2>
+<p>Docker, kontendoreetan jarritako softwarearen despliegea automatizatzen duen proiektu bat da, Linux, Mac OS eta Windows sistema eragileekiko abstrakzio eta automatizazio geruza gehigarri bat da.</p>
+<h2 id="zergaitik-docker">Zergaitik Docker</h2>
+<p>Docker software sistema bat da, bere erabilera-espezializatua duena baina geroz eta garrantzitsuagoa bilakatzen ari dena, batez ere software garapen, banaketa eta erabilpen (DevOps) inguruan.</p>
+<h3 id="nola-konparatu-docker">Nola Konparatu Docker</h3>
+<h4 id="erabiltzaile-basea">Erabiltzaile-basea</h4>
+<ul>
+<li>Docker nagusiki garatzaileek, sistema administratzaileek eta DevOps profesionalak erabiltzen dute, Microsoft Office edo Windows eta Android erabilera-sistemak bezalako erabilera zabalagoa duten softwarearekin alderatuz gero.</li>
+</ul>
+<h4 id="helburua">Helburua</h4>
+<ul>
+<li>Docker kontainerizaziorako diseinatua da, aplikazioak eta beren dependentziak paketeatzeko eta banatzeko.</li>
+</ul>
+<h4 id="ekosistema-eragina">Ekosistema Eragina</h4>
+<ul>
+<li>Docker eragina izan du hodei-informatikan, mikrozerbitzuen arkitekturan eta CI/CD pipeline-etan. Erabilera modernoan eta softwarearen banaketan izan duen eragina nabarmena da.</li>
+</ul>
+<h4 id="aniztasuna">Aniztasuna</h4>
+<ul>
+<li>Docker hainbat erabilera-sistema eta hodei-inguruneetan korritu daiteke, beraz aniztasuna du, baina oraindik ez da hain ohikoa web nabigatzaileak edo mugikorreko erabilera-sistemak bezalakoak diren bezala.</li>
+</ul>
+<h4 id="merkatu-dominantzia">Merkatu Dominantzia</h4>
+<ul>
+<li>Bere kontainerizazio eta birtualizazio kategorian, Docker jokalari dominantzia da, hainbat erabilera-sistema eta hodei-zerbitzuak bezalakoak diren bezala.</li>
+</ul>
+<h4 id="integrazioa">Integrazioa</h4>
+<ul>
+<li>Docker sarritan integra daiteke beste software erabilera zabalekin eta plataformekin, hainbat hodei-zerbitzu (AWS, Azure, Google Cloud), CI/CD tresnak (Jenkins, GitLab) eta orkestrazio plataformak (Kubernetes) bezalakoak diren bezala.</li>
+</ul>
+<p>Laburbilduz, software garapen eta erabilpen modernoan tresna kritikoa bihurtu da. Bere eragina, batez ere, enpresa-inguruneetan, hodei-informatikan eta garatzaileen artean sumatzen da.</p>
+<h2 id="docker-praktikak">Docker praktikak</h2>
+<h3 id="datu-base-bat-sortu-mysql">Datu base bat sortu (MySQL)</h3>
+<pre><code class="language-bash">docker run -d --name some-mysql -e MYSQL_ROOT_PASSWORD=1234 -p 3306:3306 mysql:latest
+</code></pre>
+<p>volumen batekin</p>
+<pre><code class="language-bash">docker run -d --name some-mysql -e MYSQL_ROOT_PASSWORD=1234 -p -v my_mysql_volume:/var/lib/mysql 3306:3306 mysql:latest
+</code></pre>
+<p>Parametroak</p>
+<ul>
+<li><strong>-name some-mysql</strong> : Kontenedorearen Izena</li>
+<li><strong>-e MYSQL_ROOT_PASSWORD=1234</strong>: Konfigurazio parametroa</li>
+<li><strong>-d</strong> : Detached, atzekaldeko prosezu bezela executatuko da contenedorea</li>
+<li><strong>-p 3306:3306</strong> : Portuak mapeatu gureOrdenagailua:kontenedorea.
+*Bi kontenedore desberdin ezin dira gure ordenagailuko portu berdinera mapeatu!</li>
+<li>volumenak sortzeko bi aukera:
+<code>-v /my/own/datadir:/var/lib/mysql</code> (bind mount)
+<code>-v my_mysql_volume:/var/lib/mysql</code>  (docker volume)</li>
+<li><strong>mysql:tag</strong> Irudiaren izena eta etiketa</li>
+</ul>
+<p><a href="https://hub.docker.com/_/mysql">Mysql DockerHuben</a></p>
+<h4 id="datu-baseak-sortzen-ariketak">Datu baseak sortzen Ariketak</h4>
+<ol>
+<li>
+<p>Sortu volumen bat dockerren komando baten erabiliz. Gero sortu datu base bat volumen horri erantsiz.</p>
+</li>
+<li>
+<p>Izan 4 datu base batera contenedore bezela. (ez erantsi volumenik). Aldatu izenak eta portuak!. Orain, begiratu zure makinaren prosezuak eta memoriaren erabilera. Aldi berean, zenbat mysql contendore sortzeko gai zara?</p>
+</li>
+<li>
+<p>Zein dira hurrengo komandoaren parametroak? Zer gertatuko da hau erabiliz gero?</p>
+</li>
+</ol>
+<pre><code class="language-bash">docker run -e MYSQL_ROOT_PASSWORD=1234 
+           -v C:\Users\yo\Documents\SistemaInformatikoak\sinfortolosaldealh\init.sql:/docker-entrypoint-initdb.d/init.sql 
+           -p 3306:3306 
+           mysql:latest
+</code></pre>
+<p>docker -d run -e MYSQL_ROOT_PASSWORD=1234 -v C:\Users\yo\Documents\SistemaInformatikoak\sinfortolosaldealh\init.sql:/docker-entrypoint-initdb.d/init.sql  -p 3306:3306 mysql:latest</p>
+<ol start="4">
+<li>
+<p>Sortu .sql script bat 3. ariketako komandoaren berdina, eta itsasi taula batzuk sortzeko eta datu batzuk ezartzeko textua (eskatu ChatGPTri).</p>
+<ol>
+<li>Datu base bat martzan jarri eta egiaztatu scriptaren kodea erabili egin dela.</li>
+<li>Script hau executatuko da contenedorea itzali eta pizterakoan?</li>
+</ol>
+</li>
+<li>
+<p>Gure lantaldeak asko garatu dira, orain, gero eta konfigurazio parametro gehiago behar ditugu, gure docker commandoak asko luzatu dira! Nola egin genezake konfigurazio guzti hauek fitxategi baten bitartez ezartzeko?</p>
+</li>
+</ol>
+<h3 id="ubuntu-instalatu">Ubuntu instalatu</h3>
+<ol>
+<li>Irudia deskargatu</li>
+</ol>
+<p><code>docker pull dorowu/ubuntu-desktop-lxde-vnc:latest</code></p>
+<ol>
+<li>
+<p>sortu volumen bat, bi era dakizkigu volumenak</p>
+</li>
+<li></li>
+</ol>
+<pre><code>  docker run -d `
+  --name ubuntu_desktop `
+  -v ubuntu-si:/dev/shm `
+  -p 6080:80 `
+  dorowu/ubuntu-desktop-lxde-vnc 
+</code></pre>
+<p>Referentzia</p>
+<pre><code>https://computingforgeeks.com/run-ubuntu-linux-in-docker-with-desktop-environment-and-vnc/?expand_article=1
+</code></pre>
+<h3 id="web-serbitzari-bat-sortu-nginx">Web serbitzari bat sortu (Nginx)</h3>
+<p>Sortu indexa
+index.html</p>
+<p>Sortu Dockerfilea</p>
+<pre><code class="language-bash">FROM nginx
+
+<span class="hljs-comment"># Copiatu Index.html </span>
+COPY . /usr/share/nginx/html
+</code></pre>
+<p>Irudia sortu</p>
+<p><code>docker build -t webPolita .</code></p>
+<p>-t webPolita : Tag etiketa
+. contsolaren egungo kokapena (hemen Dockerfile bat egon behar da presente)</p>
+<p><code>docker run --name webPolita -d -p 8080:80 web-polita </code></p>
+<p><a href="https://hub.docker.com/_/nginx">Nginx DockerHuben</a></p>
+<h4 id="ariketa-web-serbitzari-bat-sortu-apache">Ariketa: Web serbitzari bat sortu (Apache)</h4>
+<p><a href="https://hub.docker.com/_/httpd">Apache DockerHuben</a></p>
+
+            
+            
+        </body>
+        </html>

@@ -1,8 +1,3 @@
----
-tags:
-  - SistemasOperativos
-  - Arch
----
 
 # ArchLinux instalatu RAID0 baten
 

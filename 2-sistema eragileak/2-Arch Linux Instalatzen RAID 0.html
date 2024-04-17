@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>ArchLinux instalatu RAID0 baten</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 1em;
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="archlinux-instalatu-raid0-baten">ArchLinux instalatu RAID0 baten</h1>
+<ul>
+<li><a href="#archlinux-instalatu-raid0-baten">ArchLinux instalatu RAID0 baten</a></li>
+<li><a href="#ingurune-virtuala-ezarri--">Ingurune virtuala ezarri  📦</a>
+<ul>
+<li><a href="#deskargatu-isoa-">Deskargatu ISOa 📀</a></li>
+<li><a href="#vboxen-makina-sortu-%EF%B8%8F">VBoxen makina sortu 🖥️</a>
+<ul>
+<li><a href="#efi-ezarri">EFI ezarri</a></li>
+<li><a href="#diska-gogorrak">Diska gogorrak</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#oinarrizkoak--">Oinarrizkoak  👣</a></li>
+<li><a href="#raid-0-bat-prestatu-">RAID 0 bat prestatu 💽💽</a>
+<ul>
+<li><a href="#mdadm-programa-instalatu">MDADM programa instalatu</a></li>
+</ul>
+</li>
+<li><a href="#partizioak-formatoa-eta-muntaia">Partizioak, formatoa eta muntaia</a>
+<ul>
+<li><a href="#partizio-taulak-garbitu">Partizio taulak garbitu</a></li>
+<li><a href="#partizioak-sortu-">Partizioak sortu 🍕</a></li>
+<li><a href="#partizioak-formateatu-%E2%84%B9%EF%B8%8F">Partizioak formateatu ℹ️</a></li>
+<li><a href="#partizioak-montatu-">Partizioak montatu 🏇</a>
+<ul>
+<li><a href="#fstab-eta-mdadm-cofigurazio-fitxategiak-sortu">Fstab eta MDADM cofigurazio fitxategiak sortu</a></li>
+</ul>
+</li>
+<li><a href="#sisteman-sartu-">Sisteman sartu 🏠</a></li>
+</ul>
+</li>
+<li><a href="#sistema-konfiguratzen-%EF%B8%8F">Sistema konfiguratzen ⚙️</a>
+<ul>
+<li><a href="#erabiltzaileak-">Erabiltzaileak 👥</a>
+<ul>
+<li><a href="#root-pasahitza-%EF%B8%8F">Root pasahitza 🗝️</a></li>
+<li><a href="#erabiltzaile-arrunta-sortu-">Erabiltzaile arrunta sortu 🙍</a></li>
+<li><a href="#sudoers-fitxategia-editatu"><strong>sudoers</strong> fitxategia editatu</a></li>
+</ul>
+</li>
+<li><a href="#hizkuntzak-">Hizkuntzak 💬</a>
+<ul>
+<li><a href="#programen-hizkuntzak">Programen hizkuntzak</a></li>
+<li><a href="#teklatuaren-hizkuntza-kontsolan-%EF%B8%8F">Teklatuaren hizkuntza kontsolan ⌨️</a></li>
+</ul>
+</li>
+<li><a href="#host-izena">Host izena</a></li>
+<li><a href="#konfigurazio-batzuk-aldatu">Konfigurazio batzuk aldatu</a></li>
+<li><a href="#grub-instalatzen-%EF%B8%8F">Grub instalatzen ☣️</a></li>
+<li><a href="#sistema-berrebiarazi-%EF%B8%8F">Sistema berrebiarazi ♻️</a></li>
+</ul>
+</li>
+<li><a href="#sistema-konfiguratzen---2-%EF%B8%8F">Sistema Konfiguratzen - 2 ⚙️</a>
+<ul>
+<li><a href="#interneterako-serbitzuak-konfiguratu-">Interneterako serbitzuak konfiguratu 📶</a></li>
+</ul>
+</li>
+</ul>
+<p>Video Erreferentzia: <a href="https://www.youtube.com/watch?v=fshLf6u8B-w&amp;t=2737s">https://www.youtube.com/watch?v=fshLf6u8B-w&amp;t=2737s</a></p>
+<h1 id="ingurune-virtuala-ezarri--">Ingurune virtuala ezarri  📦</h1>
+<h2 id="deskargatu-isoa-">Deskargatu ISOa 📀</h2>
+<p>Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik</p>
+<p><a href="https://archlinux.org/download/">Arch Linux Official website</a></p>
+<p><img src="images\Pasted%20image%2020231214083636.png" alt="Alt text"></p>
+<h2 id="vboxen-makina-sortu-️">VBoxen makina sortu 🖥️</h2>
+<p>Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram, prosezadore birekin.</p>
+<p><img src="images\Pasted%20image%2020231214083910.png" alt="Alt text"></p>
+<p><img src="images\Pasted%20image%2020231214083957.png" alt="Alt text"></p>
+<h3 id="efi-ezarri">EFI ezarri</h3>
+<p><img src="images\image-19.png" alt="alt text"></p>
+<h3 id="diska-gogorrak">Diska gogorrak</h3>
+<p>2 diska gogor erabiliko ditugu, 12GB-ekoak.</p>
+<p><img src="images\image-14.png" alt="alt text"></p>
+<h1 id="oinarrizkoak--">Oinarrizkoak  👣</h1>
+<p>Lehenik eta behin, teklatua gaztelerazko konfigurazioan ezarriko dugu erosoago lan egin ahal izateko.</p>
+<pre><code class="language-bash">loadkeys es
+</code></pre>
+<p>Haunditu letra tamaiña behar izatekotan.</p>
+<pre><code class="language-bash">setfont ter-132b
+</code></pre>
+<p>Egizatatu interneta daukagula ping eginez.</p>
+<p><img src="images\Pasted%20image%2020231214084912.png" alt="Alt text"></p>
+<h1 id="raid-0-bat-prestatu-">RAID 0 bat prestatu 💽💽</h1>
+<p>Hurrengo agindua erabiliz ikusi dezakegu zein unitate dauzkagun eta beren partizioak. Beherko irudian ikusten da momentuz unitate dauzkagula, eta gure diska gogorrak <strong>sda</strong> eta <strong>sdb</strong> izango dira.</p>
+<pre><code class="language-bash">lsblk
+</code></pre>
+<p>Jarraitu baino lehen egizatatu interneta daukagula ping eginez.</p>
+<p><img src="images\Pasted%20image%2020231214084912.png" alt="Alt text"></p>
+<hr>
+<p><code>sgdisk</code> programa erabiliko dugu partizioak egiteko parametro bezala gure disko gogorraren helbidea emango diogu.</p>
+<pre><code class="language-bash">sgdisk -n 1:0:+500M -t 1:ef00 -c 1:<span class="hljs-string">&quot;EFI System&quot;</span> /dev/sda
+sgdisk -n 2:0:+8G -t 2:fd00 -c 2:<span class="hljs-string">&quot;Linux RAID&quot;</span> /dev/sda
+sgdisk -n 3:0:0 -t 3:fd00 -c 3:<span class="hljs-string">&quot;Linux RAID&quot;</span> /dev/sda
+</code></pre>
+<p><em>Okertzen bazarete partizioak ezabatzeko erabili <code>sgdisk -Z /dev/sda</code></em></p>
+<p>Kopiatu partizio taula <code>sda</code> diskotik <code>sdb</code> diskora:</p>
+<pre><code class="language-bash">sgdisk /dev/sda -R /dev/sdb -G
+</code></pre>
+<h2 id="mdadm-programa-instalatu">MDADM programa instalatu</h2>
+<p>mdadm, raidak sortzeko eta kudeatzeko programa bat da.</p>
+<p>Eguneratu pacman eta instalatu programa.</p>
+<pre><code class="language-bash">pacman -Sy
+</code></pre>
+<pre><code class="language-bash">pacman -S mdadm
+</code></pre>
+<p>Partizio birtuala bat sortuno dugu <code>/dev/md0</code> izenarekin. Aurreko partizioak <code>/dev/sda2</code> eta <code>/dev/sdb2</code> bat bilakatuko dira <code>/dev/md0</code> partizioan.</p>
+<p>Berdina egingo dugu <code>/dev/md1</code> sortzeko, <code>/dev/sda3</code> eta  <code>/dev/sdb3</code> partizioetatik.</p>
+<p>Hurrengo bi aginduak erabili:</p>
+<pre><code class="language-bash">mdadm -Cv /dev/md0 -l0 -n2 /dev/sd[a-b]2
+mdadm -Cv /dev/md1 -l0 -n2 /dev/sd[a-b]3
+</code></pre>
+<p>Hurrengo agindua goiko aginduaren baliokidea da, luzeagoa baina ulergarriagoa:</p>
+<p><em>mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sd[a-b]2</em></p>
+<p>Frogatu  <code>lsblk</code> agindua.</p>
+<p><img src="images\image-13.png" alt="alt text"></p>
+<h1 id="partizioak-formatoa-eta-muntaia">Partizioak, formatoa eta muntaia</h1>
+<h2 id="partizio-taulak-garbitu">Partizio taulak garbitu</h2>
+<pre><code class="language-bash">sgdisk -Z /dev/md0
+sgdisk -Z /dev/md1
+</code></pre>
+<h2 id="partizioak-sortu-">Partizioak sortu 🍕</h2>
+<p>Gure swap diskoa <strong>md0</strong> izango da.</p>
+<pre><code class="language-bash">sgdisk -N 1 -t 1:8300 -c 1:<span class="hljs-string">&quot;Linux filesystem&quot;</span> /dev/md0
+</code></pre>
+<p>Gure root diskoa <strong>md1</strong> izango da.</p>
+<pre><code class="language-bash">sgdisk -N 1 -t 1:8200 -c 1:<span class="hljs-string">&quot;Linux swap&quot;</span> /dev/md1
+</code></pre>
+<h2 id="partizioak-formateatu-ℹ️">Partizioak formateatu ℹ️</h2>
+<p>Orain partizio bakoitzari dagokion formatua ezarriko diogu hurrengo komandoak erabiliz.</p>
+<p>Swap partizioa</p>
+<pre><code class="language-bash">mkswap /dev/md1p1
+</code></pre>
+<p>eta swap aktibatzeko</p>
+<pre><code class="language-bash">swapon /dev/md1p1
+</code></pre>
+<p>Root partizioa</p>
+<pre><code class="language-bash">mkfs.ext4 /dev/md0p1
+</code></pre>
+<p>Boot partizioa</p>
+<pre><code class="language-bash">mkfs.fat -F 32  /dev/sda1
+</code></pre>
+<p>Zihurtatu formato guztiak zuzenak direla <code>lsblk -f</code> agindua idatziz.</p>
+<p><img src="images\image-15.png" alt="alt text"></p>
+<h2 id="partizioak-montatu-">Partizioak montatu 🏇</h2>
+<p>Lehenik root partizioa montatuko dugu.<mark style="background: #FFB8EBA6;"> Beharrezkoa da hau lehen montatzea zere boot rooten azpian egongo da.</mark></p>
+<pre><code class="language-bash">mount /dev/md0p1 /mnt
+</code></pre>
+<p>Boot partizioa /mnt/boot karpetan montatuko dugu, beti root montatu eta gero!</p>
+<pre><code class="language-bash"><span class="hljs-built_in">mkdir</span> /mnt/boot
+mount /dev/sda1 /mnt/boot
+<span class="hljs-built_in">mkdir</span> /mnt/boot/EFI
+</code></pre>
+<hr>
+<p>Packstrap erabiliz funtzezko pakete batzuk instalatuko ditugu, hauek gure linuxeko sistemaren fitzategi ezagun asko gehituko dituzte zeren momentuz /mnt hutsik dago.</p>
+<pre><code class="language-bash">timedatectl set-ntp <span class="hljs-literal">true</span>
+
+pacstrap /mnt linux linux-firmware nano networkmanager grub efibootmgr mdadm amd-ucode base base-devel
+</code></pre>
+<p>Izan daiteke erroreren bat izatea instalazioan zehar. Deskarga kodeak sarritan matxuratzen dira, saiatu hurrengo aginduarekin:</p>
+<pre><code class="language-bash">pacman -Sy archlinux-keyring
+</code></pre>
+<ul>
+<li>Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean <mark style="background: #ABF7F7A6;">virtual boxen snapshot bat egitea</mark>, horrela zerbat txarto badoa puntu honetara vuelta genezake.</li>
+</ul>
+<hr>
+<h3 id="fstab-eta-mdadm-cofigurazio-fitxategiak-sortu">Fstab eta MDADM cofigurazio fitxategiak sortu</h3>
+<p>Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizioak. Horrela, sistema pizterakoan automatikoki montatuko dira eta aurreko pausoak  ez ditugu egin behar.</p>
+<pre><code class="language-bash">genfstab -U /mnt &gt; /mnt/etc/fstab
+</code></pre>
+<p>Antzera, konfigurazio RAIDArena gorde egingo dugu, horrela gure uneko raid konfigurazioa ezarriko da sistema pizterakoan.</p>
+<pre><code class="language-bash">mdadm --detail --scan --verbose &gt;&gt; /mnt/etc/mdadm-conf
+</code></pre>
+<h2 id="sisteman-sartu-">Sisteman sartu 🏠</h2>
+<p>Hurrengo aginduarekin <em>/mnt</em> sartzen gara, gogoratu mnt- root montatuta dagoela, hau da, gure sistema eragilearen erroa /.</p>
+<pre><code class="language-bash">arch-chroot /mnt
+</code></pre>
+<hr>
+<h1 id="sistema-konfiguratzen-️">Sistema konfiguratzen ⚙️</h1>
+<h2 id="erabiltzaileak-">Erabiltzaileak 👥</h2>
+<h3 id="root-pasahitza-️">Root pasahitza 🗝️</h3>
+<p>Lehenik eta behin, root bezala gauzenez, passwd komandoa erabili pasahitz berria ezartzeko root-eri.</p>
+<pre><code class="language-bash">passwd
+</code></pre>
+<hr>
+<h3 id="erabiltzaile-arrunta-sortu-">Erabiltzaile arrunta sortu 🙍</h3>
+<p>Dakizuenez, ez da egokia lan orokorrak root bezala egitea arriskua haundiak baitauzka, beraz erabiltzaile berri bat sortuko dugu eta root baimenak emango dizkiogu behar izatekotan root bezala komandoak erabiltzeko.</p>
+<pre><code class="language-bash">useradd -m mikel
+passwd mikel
+</code></pre>
+<hr>
+<p>Orain, erabiltzailea <em>wheel</em> taldeari gehituko diogu, <em>sudo su</em> edo <em>sudo</em> egin ahal izateko lehen aipa bezala</p>
+<pre><code class="language-bash">usermod -aG wheel mikel
+</code></pre>
+<ul>
+<li>Ikusi erabiltzaile baten taldeak <code>groups mikel</code> erabiliz, bi talde agertu beharko lirateke, wheel eta mikel (defektuzko taldea)</li>
+</ul>
+<hr>
+<h3 id="sudoers-fitxategia-editatu"><strong>sudoers</strong> fitxategia editatu</h3>
+<p>Sudoers fitxategia, konfigurazio fitxategi bat da eta <em>/etc/sudoers</em> rutan dago kokatuta.</p>
+<p>Segurtasunaren kudeaketarako erabiltzen da adibidez, sudo erabiltzean pasahitza eskatu ala ez ezarri al da beste gauza batzuen artean.</p>
+<hr>
+<p>Orain, sudo paketea instalatuko dugu pacman erabiliz</p>
+<pre><code class="language-bash">pacman -S sudo
+</code></pre>
+<p>Baita fitxategia editatzeko editore batzuk instalatu beharko ditugu, nano instalatuko dugu.</p>
+<pre><code class="language-bash">pacman -S nano
+</code></pre>
+<hr>
+<p>Zabaldu editatzeko sudoers fitxategia</p>
+<pre><code class="language-bash">nano /etc/sudoers
+</code></pre>
+<p>Kendu iruzkina <code>%wheel ALL=(ALL:ALL) ALL</code> lineari.</p>
+<p>-<mark style="background: #FF5582A6;"> NOPASSWD lineari komentarioa kentzekotan ez luke pasahitza eskatuko wheel taldekidei sude egitean baina hau ez da oso egokia seguratasunaren aldetik.</mark></p>
+<p><img src="images\Pasted%20image%2020231214130741.png" alt="Alt text"></p>
+<hr>
+<h2 id="hizkuntzak-">Hizkuntzak 💬</h2>
+<h3 id="programen-hizkuntzak">Programen hizkuntzak</h3>
+<p>Nano erabiliz zabaldu <em>/etc/locale.gen</em> fitxategia. Fitxategi hau, etc dauden fitxategi asko bezala konfiguraziorako da, hizkuntza asko izango ditu ezarrita barnean baina adi gehienak komentatua daudela.</p>
+<p><img src="images\Pasted%20image%2020231214133128.png" alt="Alt text"></p>
+<p>Gure lana gaztelerazkoari eta ingelesekoari iruzkina kentzea da.</p>
+<ol>
+<li>Bilatu <code>Cntr + W</code> erabiliz  <em>en_US</em> eta iruzkina kendu</li>
+<li>Bilatu <code>Cntr + W</code> erabiliz <em>es_ES</em> eta iruzkina kendu</li>
+<li>Gorde eta atera</li>
+</ol>
+<p>Azkenik, locale-gen programa erabiliko dugu ezarritako hizkuntzen hitzak sortzeko.</p>
+<pre><code class="language-bash">locale-gen
+</code></pre>
+<h3 id="teklatuaren-hizkuntza-kontsolan-️">Teklatuaren hizkuntza kontsolan ⌨️</h3>
+<p>Terminala zabaldu genuenean, lehenik egin dugun gauza gazteleraz jartzea izan zen. Hau egin behar ez izateko eta defektuz gazteleraz agertzeko sortu hurrengo fitxategia.</p>
+<pre><code class="language-bash">nano /etc/vconsole.conf
+</code></pre>
+<p>Idatzi  <code>KEYMAP=es</code> barnean eta gorde.</p>
+<h2 id="host-izena">Host izena</h2>
+<p>echo mikel-pc &gt; /etc/hostname
+echo &quot;127.0.0.1  localhost&quot; &gt; /etc/hosts
+echo &quot;::1  localhost&quot; &gt; /etc/hosts
+echo &quot;127.0.0.1  mikel-pc&quot; &gt; /etc/hosts</p>
+<h2 id="konfigurazio-batzuk-aldatu">Konfigurazio batzuk aldatu</h2>
+<p>Mdadm raiderako programak, zenbait konfigurazio gehigo sartu behar dira.</p>
+<pre><code class="language-bash">nano /etc/mkinitcpio.conf
+</code></pre>
+<p><img src="images\image-17.png" alt="alt text">
+<img src="images\image-16.png" alt="alt text"></p>
+<pre><code class="language-bash">mkinitcpio -P
+</code></pre>
+<p>Kendu emailaren iruzkina</p>
+<pre><code class="language-bash"> nano /etc/mdadm.conf
+</code></pre>
+<p><img src="images\image-18.png" alt="alt text"></p>
+<h2 id="grub-instalatzen-️">Grub instalatzen ☣️</h2>
+<p>Grub, linuxeko boot loadera da, menu bat eskeintzen du sistema pizterakoan zenbait pizteko modu autatzeko.</p>
+<p>Dual boot ubuntu/windows instalatu genuenean honek zein sistema eragile nahi genuen hautatzeko aukera emoten zigun.</p>
+<pre><code class="language-bash">grub-install --boot-directory=/boot --bootloader-id=ArchLinux --target=x86_64-efi --efi-directory=/boot --recheck
+</code></pre>
+<p>Sortu gruberako konfigurazio fitxategia</p>
+<pre><code class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<p>Bikoiztu boot partizioa bigarren diskoan:</p>
+<pre><code class="language-bash">umount /dev/sda1
+<span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=/dev/sda1 of=/dev/sdb1
+</code></pre>
+<p>Gehitu bigarren diska UEFI boot zerrendara</p>
+<pre><code class="language-bash">efibootmgr -c -g -d /dev/sdb1 -p 1 -L <span class="hljs-string">&quot;ArchLinux #2&quot;</span> -l <span class="hljs-string">&quot;\EFI\ArchLinux\grubx64.efi&quot;</span>
+</code></pre>
+<hr>
+<h2 id="sistema-berrebiarazi-️">Sistema berrebiarazi ♻️</h2>
+<p>Puntu honetan, irten rootetik <code>exit</code> eginez eta <code>shutdown -r</code> erabili live cd-ko kontextuan gaudenean era orain grub zabaltzen den eta sistema era egokian pizten den guk ezarritako konfigurazio guztiekin.</p>
+<ul>
+<li>Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu <code>F12</code> pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.</li>
+</ul>
+<p><img src="images\Pasted%20image%2020231214140230.png" alt="Alt text"></p>
+<ul>
+<li>Oharra: <mark style="background: #ABF7F7A6;">Une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake.</mark></li>
+</ul>
+<hr>
+<h1 id="sistema-konfiguratzen---2-️">Sistema Konfiguratzen - 2 ⚙️</h1>
+<h2 id="interneterako-serbitzuak-konfiguratu-">Interneterako serbitzuak konfiguratu 📶</h2>
+<p>Lehenik eta behin, <code>ping www.googl.es</code> egiten saiatzen bagara ikusiko dugu internetik ez daukagula.</p>
+<p>Hau gertatzen da sare kudeaketarako serbitzua piztuta ez dagoelako. Beraz bi gauza egingo ditugu:</p>
+<ol>
+<li>NetworkManager serbitzua piztu</li>
+<li>Hurrengaroako, serbitzua automatikoki pizteko ezarri</li>
+</ol>
+<pre><code class="language-bash">systemctl start NetworkManager.service 
+</code></pre>
+<pre><code class="language-bash">systemctl <span class="hljs-built_in">enable</span> NetworkManager
+</code></pre>
+<p>Horain, ping funtzionatu beharko luke, frogatu <code>ping www.googl.es</code>.</p>
+
+            
+            
+        </body>
+        </html>

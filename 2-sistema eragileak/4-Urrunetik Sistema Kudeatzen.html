@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Urrunetik sistema kudeatzen</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 1em;
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="urrunetik-sistema-kudeatzen">Urrunetik sistema kudeatzen</h1>
+<ul>
+<li><a href="#urrunetik-sistema-kudeatzen">Urrunetik sistema kudeatzen</a>
+<ul>
+<li><a href="#ssh-protokoloa-erabiliz">SSH protokoloa erabiliz</a>
+<ul>
+<li><a href="#ssh-instalatu">SSH instalatu</a></li>
+<li><a href="#ssh-bitartez-konektatu">SSH bitartez konektatu</a></li>
+</ul>
+</li>
+<li><a href="#ftp-erabili">FTP erabili</a>
+<ul>
+<li><a href="#konfiguratu-ftp-zerbitzaria">Konfiguratu FTP zerbitzaria</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ssh-protokoloa-erabiliz">SSH protokoloa erabiliz</h2>
+<h3 id="ssh-instalatu">SSH instalatu</h3>
+<ol>
+<li>Virtual Box erabiltzen badugu, aldatu sare interfazea <em>Adaptador Puente</em> sarera.</li>
+</ol>
+<p><img src="image-5.png" alt="alt text"></p>
+<ol start="2">
+<li>Istalatzeko openssh-server paketea instalatuko dugu lehenik eta behin.</li>
+</ol>
+<pre><code class="language-bash">pacman -S openssh
+</code></pre>
+<ol start="2">
+<li>SSH zerbitzariaren Konfiguraketa aldatuko dugu</li>
+</ol>
+<p>Pasahitza eskatzeko, hurrengo lerroari iruzkina kenduko diogu:</p>
+<pre><code class="language-bash">nano /etc/ssh/sshd_config
+</code></pre>
+<p>Aldatu defektuzko portua izateko hurrengo <code>39901</code> , kendu iruzkina.</p>
+<ol start="3">
+<li>Azkenik zerbitzua martxan jarri</li>
+</ol>
+<pre><code class="language-bash">systemctl start sshd.service
+</code></pre>
+<p>Nahi izanda zerbitzua automatikoki piztea</p>
+<pre><code class="language-bash">systemctl <span class="hljs-built_in">enable</span> sshd.service
+</code></pre>
+<p><a href="https://wiki.archlinux.org/title/OpenSSH">Referentzia</a></p>
+<h3 id="ssh-bitartez-konektatu">SSH bitartez konektatu</h3>
+<p>Windows powershellen konektatu.</p>
+<pre><code class="language-bash">ssh -p 39901 mike@Iphelbidea
+</code></pre>
+<ul>
+<li>-p : portua</li>
+<li>erabiltzailea@ip-helbidea</li>
+</ul>
+<p>*Oharra: <code>ip a</code> edo <code>ifconfig</code> aginduekin zuen ip-a aurki dezakezue.</p>
+<h2 id="ftp-erabili">FTP erabili</h2>
+<p>Deskargatu paketea</p>
+<pre><code class="language-bash">pacman -S  vsftpd
+</code></pre>
+<p>Martxan jarri FTP zerbitzaria</p>
+<pre><code class="language-bash">systemctl start vsftpd.service
+</code></pre>
+<h3 id="konfiguratu-ftp-zerbitzaria">Konfiguratu FTP zerbitzaria</h3>
+<p>Editatu konfigurazioa <code>/etc/vsftpd.conf</code></p>
+<p>Ahalbidetu fitxategiak igotzea eta sistemako erabilitzaileak konektazea beren pasahitzekin:</p>
+<p>write_enable=YES
+local_enable=YES</p>
+<p>Honekin, edonor konekta daiteke anonymous/anonymous. Hau segurtasunaren arlotik, kontuz izan behar gara ez uzteko edonori aldaketak egiten beraz
+#anon_upload_enable=YES lineari ez kendu iruzkina beharrezkoa ez bada.</p>
+<p>anonymous_enable=YES</p>
+<p><a href="https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon">ftp zerbitzaria</a></p>
+<p>1- Instalatu ftp zerbitzaria arch linuxen
+2- Konfiguratu aldaketak
+3- Konektatu</p>
+
+            
+            
+        </body>
+        </html>

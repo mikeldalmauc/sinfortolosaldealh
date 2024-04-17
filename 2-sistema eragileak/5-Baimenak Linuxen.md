@@ -1,6 +1,6 @@
-# Baimenak Linux
+# Baimenak Linuxen
 
-- [Baimenak Linux](#baimenak-linux)
+- [Baimenak Linuxen](#baimenak-linuxen)
   - [Fitxategi eta direktorioen baimenak](#fitxategi-eta-direktorioen-baimenak)
     - [Baimen taldeak](#baimen-taldeak)
     - [Baimenak esleitzen modu sinbolikoan](#baimenak-esleitzen-modu-sinbolikoan)

@@ -1,9 +1,6 @@
----
-tags:
-  - SistemasOperativos
-  - Arch
----
+# Arch Linux Istalatzen
 
+- [Arch Linux Istalatzen](#arch-linux-istalatzen)
 - [Ingurune virtuala ezarri  📦](#ingurune-virtuala-ezarri--)
 	- [Deskargatu ISOa 📀](#deskargatu-isoa-)
 	- [VBoxen makina sortu 🖥️](#vboxen-makina-sortu-️)
@@ -32,6 +29,7 @@ tags:
 	- [Aur repositorioak gehitzen 🐊](#aur-repositorioak-gehitzen-)
 	- [Black-Arch linuxeko repositorioak gehitu 🖤](#black-arch-linuxeko-repositorioak-gehitu-)
 	- [Erabiltzaile interfaze grafikoa 👱‍♂️](#erabiltzaile-interfaze-grafikoa-️)
+	- [](#)
 
 Video Erreferentzia: https://www.youtube.com/watch?v=fshLf6u8B-w&t=2737s
 

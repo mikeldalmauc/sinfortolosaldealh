@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Prozesu kudeaketa Linuxen</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+.language-bash{
+  background-color: lightgray;
+  padding: 1em;
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#prozesu-kudeaketa-linuxen">Prozesu kudeaketa Linuxen</a>
+<ul>
+<li><a href="#zer-dira-prosezuak-sistema-eragile-baten">Zer dira prosezuak Sistema Eragile baten</a></li>
+<li><a href="#prosezuak-bistaratu">Prosezuak bistaratu</a></li>
+<li><a href="#prosezuak-kudeatu">Prosezuak kudeatu</a></li>
+</ul>
+</li>
+<li><a href="#prosezu-kudeaketa-windowsen-erakuspena-klasen">Prosezu kudeaketa windowsen (erakuspena klasen)</a></li>
+</ul>
+<h1 id="prozesu-kudeaketa-linuxen">Prozesu kudeaketa Linuxen</h1>
+<h2 id="zer-dira-prosezuak-sistema-eragile-baten">Zer dira prosezuak Sistema Eragile baten</h2>
+<p>Prosezuak ordenagailuan martxan daduden programak dira, memoria eta prosezagailu denbora erabiltzen dute.</p>
+<h2 id="prosezuak-bistaratu">Prosezuak bistaratu</h2>
+<p>Process Status</p>
+<pre><code class="language-bash">ps
+</code></pre>
+<p><img src="image.png" alt="alt text"></p>
+<pre><code class="language-bash">ps -e
+</code></pre>
+<p><img src="image-1.png" alt="alt text"></p>
+<pre><code class="language-bash">ps -aux
+</code></pre>
+<p><img src="image-3.png" alt="alt text"></p>
+<p>TOP <em>Table of processes</em> agindua, prosezuak bistaratzeko balio duen agindua da.</p>
+<pre><code class="language-bash">top
+</code></pre>
+<p><img src="image-2.png" alt="alt text"></p>
+<pre><code class="language-bash">htop
+</code></pre>
+<p><img src="image-4.png" alt="alt text"></p>
+<h2 id="prosezuak-kudeatu">Prosezuak kudeatu</h2>
+<pre><code class="language-bash">killid <span class="hljs-built_in">id</span>
+</code></pre>
+<h1 id="prosezu-kudeaketa-windowsen-erakuspena-klasen">Prosezu kudeaketa windowsen (erakuspena klasen)</h1>
+<ol>
+<li>Erakutsi Ataza Kudeatzailea eta nola hemen ikusten dire prosezuak, erabiltzen duten memoria eta prosezamendu portzentaila</li>
+<li>Zabaldu photoshop (irudi haundi bat 4milloi pixelekoa edo)</li>
+<li>Ikusi memoriaren erabileraren aldaketa</li>
+<li>Erabili photshopeko trensaren bat, adibidez atzamarra erakusteko nola prosezamendu kopurua igotzen dens</li>
+</ol>
+
+            
+            
+        </body>
+        </html>
