@@ -117,7 +117,7 @@ else
 fi
 ```
 
-## Bukleak Bash-en
+## Bukleak Bash-en 
 
 Begiztak komando batzuk hainbat aldiz errepikatzeko erabiltzen dira. Bash-en, `for` y `while` erabil ditzakezu.
 
@@ -222,6 +222,9 @@ Garatzeko, erosoena Visual Studio erabiltzea da, windowsen bertan, baina scripta
 ![alt text](image-22.png)
 4. Orain nabigatu dezakezue karpeta horretara eta scriptak exekutatu
   
+5. Gomendatzen diren extensiok Visual Studio-rako
+![alt text](image-23.png)
+![alt text](image-24.png)
 
 ## Nola entregatu ariketak
 
