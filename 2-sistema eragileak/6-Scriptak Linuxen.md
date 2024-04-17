@@ -2,19 +2,22 @@
 
 - [Scriptak Linuxen](#scriptak-linuxen)
   - [Oinarrizko script baten adibidea:](#oinarrizko-script-baten-adibidea)
+  - [Script bat exekutatu](#script-bat-exekutatu)
   - [Andagaiak Bash-en](#andagaiak-bash-en)
     - [Aldagaien erabileraren adibidea:](#aldagaien-erabileraren-adibidea)
   - [Baldintzak Bash-en](#baldintzak-bash-en)
     - [Baldintza adibidea:](#baldintza-adibidea)
-  - [Bucles en Bash](#bucles-en-bash)
-    - [Ejemplo de Bucle `for`:](#ejemplo-de-bucle-for)
-    - [Ejemplo de Bucle `while`:](#ejemplo-de-bucle-while)
-  - [Lectura de una Variable Introducida por el Usuario](#lectura-de-una-variable-introducida-por-el-usuario)
-    - [Ejemplo de Lectura de Variable Introducida por el Usuario:](#ejemplo-de-lectura-de-variable-introducida-por-el-usuario)
-  - [Añadir Parámetros al Script](#añadir-parámetros-al-script)
-    - [Ejemplo de Añadir Parámetros al Script:](#ejemplo-de-añadir-parámetros-al-script)
-  - [Usos Comunes de Scripts en Linux](#usos-comunes-de-scripts-en-linux)
+  - [Bukleak Bash-en](#bukleak-bash-en)
+    - [Bukle adibidea, `for`:](#bukle-adibidea-for)
+    - [Bukle adibidea, `while`:](#bukle-adibidea-while)
+  - [Erabiltzaileak sartutako aldagai baten irakurketa](#erabiltzaileak-sartutako-aldagai-baten-irakurketa)
+    - [Erabiltzaileak sartutako aldagaiaren irakurketaren adibidea](#erabiltzaileak-sartutako-aldagaiaren-irakurketaren-adibidea)
+  - [Scripta deitzerakoan parametroak erabili](#scripta-deitzerakoan-parametroak-erabili)
+    - [Script-ari parametroak gehitzeko adibidea](#script-ari-parametroak-gehitzeko-adibidea)
+  - [Scripten erabilera arruntak Linux-en](#scripten-erabilera-arruntak-linux-en)
 - [Ariketak](#ariketak)
+  - [Nola garatu Scriptak](#nola-garatu-scriptak)
+  - [Nola entregatu ariketak](#nola-entregatu-ariketak)
   - [Ariketa 1 - Whoami](#ariketa-1---whoami)
   - [Ariketa 2 - Datak](#ariketa-2---datak)
   - [Ariketa 3 - Berdinak](#ariketa-3---berdinak)
@@ -38,6 +41,23 @@ Adibide honetan:
 
 - `#!/bin/bash`: Lerro honek, sistemari adierazten dio bash interpretea erabili behar duela scripta exekutatzeko.
 - `echo "Kaixo, Mundua!"`: Hurrengo agindua kaixo mundua inprimatuko du.
+
+## Script bat exekutatu
+  
+
+
+Demagun, **hello.sh** izeneko fitxategia. Script-a exekutatzeko, terminaletik hurrengo komandoa idatzi behar da:
+
+```bash
+bash hello.sh
+```
+
+Edo, exekutagarri bihurtu eta ./ erabiliz horrela:
+
+```bash
+chmod +x hello.sh
+./hello.sh
+```
 
 ## Andagaiak Bash-en
 
@@ -74,126 +94,160 @@ fi
 ```
 
 - `[ $ADINA -ge 18 ]`: Baldintza `-ge` **greater or equal** esan nahi du
-- Beste komparaketa moduak:
-  - `eq` equal -> berdina
-  - `ne` not equal -> ezberdina
-  - `lt` less than -> txikiagoa
-  - `gt` greater than  -> handiagoa 
-  - `le` less than or equal -> txikiagoa edo berdina
-  - `ge` greater or equal -> handiagoa edo berdina
-  - ` 
+  
+- Beste komparaketa operadoreak:
+  - `eq` = equal = berdina
+  - `ne` = not equal = ezberdina
+  - `lt` = less than = txikiagoa
+  - `gt` = greater than  = handiagoa 
+  - `le` = less than or equal = txikiagoa edo berdina
+  - `ge` = greater or equal = handiagoa edo berdina
 
 ```bash
 #!/bin/bash
 
-EDAD=18
+ADINA=18
 
-if [ $EDAD -ge 80 ]; then
-    echo "Eres anciano."
-elif [$EDAD -ge 18]; then
-    echo "Eres mayor de edad."
+if [ $ADINA -ge 80 ]; then
+    echo "Aitite bat zera."
+elif [$ADINA -ge 18]; then
+    echo "Adin nagusia zara."
 else
-    echo "Eres menor de edad."
+    echo "Adin txikia zara."
 fi
 ```
 
-## Bucles en Bash
+## Bukleak Bash-en
 
-Los bucles se utilizan para repetir una serie de comandos varias veces. En Bash, puedes usar los bucles `for` y `while`.
+Begiztak komando batzuk hainbat aldiz errepikatzeko erabiltzen dira. Bash-en, `for` y `while` erabil ditzakezu.
 
-### Ejemplo de Bucle `for`:
+### Bukle adibidea, `for`:
 
 ```bash
 #!/bin/bash
 
-# Imprimir los números del 1 al 5
-for NUMERO in 1 2 3 4 5; do
-    echo "Número: $NUMERO"
+# Inprimatu 1-tik 5-era dauden zanbakiak
+for ZENBAKI in 1 2 3 4 5; do
+    echo "Zenbakia: $ZENBAKI"
 done
 ```
 
-### Ejemplo de Bucle `while`:
+### Bukle adibidea, `while`:
 
 ```bash
 #!/bin/bash
 
 # Aldagai bat 
-CONTADOR=0
+KONTADOREA=0
 
-# Bucle while que se ejecuta mientras el contador sea menor que 5
-while [ $CONTADOR -lt 5 ]; do
-    echo "Contador: $CONTADOR"
-    # Incrementar el contador
-    ((CONTADOR++))
+# While buklea baldintza betetzen den bitartean exekutatuko da, hau da kontadorea 7 baino txikiagoa den bitartean.
+while [ $KONTADOREA -lt 7 ]; do
+    echo "Contador: $KONTADOREA"
+    # Kontadoreari bat gehitu
+    ((KONTADOREA++))
 done
 ```
 
-## Lectura de una Variable Introducida por el Usuario
+## Erabiltzaileak sartutako aldagai baten irakurketa
 
-Para leer una variable introducida por el usuario, puedes utilizar el comando `read` en Bash. Este comando permite al usuario introducir datos desde el teclado y asignarlos a variables en el script.
+Erabiltzaileak sartutako aldagai bat irakurtzeko, Bash-en `read`  komandoa erabil dezakezu. Komando horrek aukera ematen dio erabiltzaileari datuak teklatutik sartu eta script-ean aldagaiei esleitzeko.
 
-### Ejemplo de Lectura de Variable Introducida por el Usuario:
+### Erabiltzaileak sartutako aldagaiaren irakurketaren adibidea
 
-```bash
-#!/bin/bash
-
-# Pedir al usuario que introduzca su nombre
-echo "Por favor, introduce tu nombre:"
-read NOMBRE
-
-# Saludar al usuario utilizando la variable introducida
-echo "Hola, $NOMBRE!"
-```
-
-## Añadir Parámetros al Script
-
-Puedes añadir parámetros al script cuando lo ejecutas desde la línea de comandos. Estos parámetros se pueden acceder dentro del script utilizando las variables especiales `$1`, `$2`, `$3`, etc., donde `$1` representa el primer parámetro, `$2` el segundo, y así sucesivamente.
-
-### Ejemplo de Añadir Parámetros al Script:
 
 ```bash
 #!/bin/bash
 
-# Utilizar el primer parámetro proporcionado al script
-echo "El primer parámetro es: $1"
+# Galdetu erabiltzaileari izena idazteko
+echo "Mesedez, idatzi zure izena:"
+read IZENA
 
-# Utilizar el segundo parámetro proporcionado al script
-echo "El segundo parámetro es: $2"
-
-# Utilizar el tercer parámetro proporcionado al script
-echo "El tercer parámetro es: $3"
+# Agurtu erabiltzailea bere izena erabiliz
+echo "Kaixo $IZENA!"
 ```
 
-Para ejecutar este script con parámetros, puedes hacerlo de la siguiente manera desde la línea de comandos:
+## Scripta deitzerakoan parametroak erabili
+
+Komando-lerrotik exekutatzen duzunean, parametroak gehi diezazkiokezu script-ari. Parametro horiek script-aren barruan sar daitezke, honako aldagai berezi hauek erabiliz: `$1`, `$2`, `$3` eta abar. Aldagai horietan, `$1` lehen parametroa adierazten du, `$2` bigarrena, eta horrela hurrenez hurren.
+
+
+### Script-ari parametroak gehitzeko adibidea
+
+```bash
+#!/bin/bash
+
+#Script-ari emandako lehen parametroa erabiltzea
+echo "Lehen parametroa da: $1"
+
+#Script-ari emandako bigarren parametroa erabiltzea
+echo "Bigarren parametroa da: $2"
+
+#Script-ari emandako hirugarren parametroa erabiltzea
+echo "Hirugarren parametroa da: $3"
+```
+
+Script hori parametroekin exekutatzeko, honela egin dezakezu komando-lerrotik:
 
 ```bash
 bash script.sh parametro1 parametro2 parametro3
 ```
 
-En este ejemplo, `parametro1`, `parametro2` y `parametro3` son los parámetros que se pasan al script y que pueden ser utilizados dentro del script utilizando las variables especiales `$1`, `$2` y `$3` respectivamente.
+Adibide honetan, `parametroa1`, `parametro2` eta `parametro3` parametroak script-era pasatzen dira, eta script-aren barruan erabil daitezke, hurrenez hurren,  `$1`, `$2` eta `$3` aldagai bereziak erabiliz.
 
-Con esto, puedes leer fácilmente variables introducidas por el usuario y añadir parámetros al script para hacerlo más versátil y adaptable a diferentes situaciones.
+Horrela, erabiltzaileak sartutako aldagaiak erraz irakur ditzakezu, baita script-ari parametroak gehitu ere, moldakorragoa eta egoera desberdinetara egokigarriagoa izan dadin.
 
-## Usos Comunes de Scripts en Linux
+## Scripten erabilera arruntak Linux-en
 
-1. **Automatización de Tareas**: Los scripts se utilizan para automatizar tareas repetitivas, como la copia de archivos, la creación de copias de seguridad y la instalación de paquetes.
-2. **Administración del Sistema**: Los administradores de sistemas utilizan scripts para configurar y mantener servidores Linux, realizar copias de seguridad del sistema y monitorear el rendimiento del servidor.
-3. **Procesamiento de Datos**: Los scripts se utilizan para procesar y analizar grandes conjuntos de datos, como registros de servidores y archivos de registro.
-4. **Despliegue de Aplicaciones**: Los scripts se utilizan para automatizar el proceso de despliegue de aplicaciones, desde la compilación y empaquetado hasta la implementación en servidores de producción.
+1. **Atazen automatizazioa**: Script-ak ataza errepikakorrak automatizatzeko erabiltzen dira, hala nola fitxategiak kopiatzeko, segurtasun-kopiak sortzeko eta paketeak instalatzeko.
+2. **Sistemaren administrazioa**: Sistema-administratzaileek script-ak erabiltzen dituzte Linux zerbitzariak konfiguratu eta mantentzeko, sistemaren segurtasun-kopiak egiteko eta zerbitzariaren errendimendua monitorizatzeko.
+3. **Datuak prozesatzea**: Script-ak datu-multzo handiak prozesatzeko eta aztertzeko erabiltzen dira, hala nola zerbitzarien erregistroak eta erregistro-fitxategiak.
+4. **Aplikazioak hedatzea**: Scriptak aplikazioak hedatzeko prozesua automatizatzeko erabiltzen dira, konpilaziotik eta paketatzetik hasi eta produkzio-zerbitzarietan inplementatzeraino.
 
-Los scripts en Linux son una herramienta poderosa que puede ayudarte a automatizar tareas, simplificar procesos y mejorar la eficiencia en tu trabajo diario con el sistema operativo. Con un poco de práctica y comprensión de las estructuras básicas de programación en Bash, puedes crear scripts útiles y eficientes para una variedad de propósitos.
+Linuxeko script-ak tresna ahaltsua dira, zereginak automatizatzen, prozesuak sinplifikatzen eta sistema eragilearekin egiten duzun eguneroko lanaren eraginkortasuna hobetzen lagun diezazukeena. Praktika pixka batekin eta Basheko oinarrizko programazio-egiturak ulertuta, hainbat helburutarako script erabilgarri eta eraginkorrak sor ditzakezu.
 
 # Ariketak 
 
-- **Nola entregatu ariketak:**
-  1. Klonatu zuen github repositorioa Arch Linux edo Ubuntu makinan. 
-  2. Ariketa bakoitzkeko scriptak `ariketa1.sh`, `ariketa2.sh`, ... izenekin gorde zuen repositorioko karpetan
-  3. Igo script guztiak zuen repositoriora
-     1. Interfaze grafikoa istalatuta izan beharko duzue, githubeko pasahitza eskatuko baitizue
-     2. Gogoratu igotzeko aginduak
+
+## Nola garatu Scriptak
+
+Garatzeko, erosoena Visual Studio erabiltzea da, windowsen bertan, baina scriptak makina birtualean exekutatuko ditugu. Horretarako hurrengo egingo dugu.
+1. Zabaldu Visual Studio zuen repositorioan orain harte egin dugun bezala
+2. Sortu karpeta berri bat **scriptak** izenekoa
+3. VirtualBox-en jarraitu pauso hauek
+- Zuen makinaren aukeretan.
+![alt text](image-19.png)
+- Karpeta partekatuak
+![alt text](image-20.png)
+- Hautatu **scriptak** karpeta, eta **scriptak** izena jarri bestea utzi horrela. (kasu honetan shared jartzen du)
+![alt text](image-22.png)
+4. Orain nabigatu dezakezue karpeta horretara eta scriptak exekutatu
+  
+
+## Nola entregatu ariketak
+
+  1. Ariketa bakoitzkeko scriptak `ariketa1.sh`, `ariketa2.sh`, ... izenekin gorde zuen repositorioko karpetan
+  2. Igo script guztiak zuen repositoriora
+     1. Gogoratu igotzeko aginduak
         1. `git add --all`
         2. `git commit -m "ariketak script"`
         3. `git push`
+
+  3. Irakasleak ariketak zuzenduko ditu 
+ 
+ --- 
+
+  4. Ariketa guztiak zuzeduta daudenean dokumentazioa sortuko dugu.
+  5. Sortu `Linux-Script-Ariteketak.md` izeneko fitxategi bat eta ebazpen guztiak jarri fitxategi batean markdown formatua erabiliz.
+  6. Fitxategiren testuaren gainean eskumako klika erabili sakatu html-ra bihurtzeko aukera. edo `Ctrl + Shift + P` eta `markdown ... to html` agindua erabiliz
+  7. Html bat sortuko da izen berdinarekin
+  8. Eskumako klika erabiliz **open with live server** aukeratu, zuen dokumentazioa nabigatzailean ikusiko duzue
+  9. Zihurtatu irudiak ondo ikusten direla, hala ez bada, 
+     1.  Bilatu irudiren bat eta aldatu irudiaren bide absolutua bide erlatiboagaitik. `Ctrl + F` erabiliz irudi guztiak aldi berean zuzendu ditzakezu.
+     2.  Zihurtatu irudi guztiak ondo ikusten direla
+  10. Nabigatzailean, eskumako klika erabiliz imprimatu webgunea pdf dokumentu batera.
+
+*Oharra: 4 garren eta 10 garren arteko prosezua irakasleak egingo du klasen zuek ikus dezazuen baina ez da zaila.*
+
 
 ## Ariketa 1 - Whoami
 Sortu script bat hurrengo aginduak egingo dituena. 
