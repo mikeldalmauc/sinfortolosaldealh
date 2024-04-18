@@ -213,16 +213,17 @@ Linuxeko script-ak tresna ahaltsua dira, zereginak automatizatzen, prozesuak sin
 Garatzeko, erosoena Visual Studio erabiltzea da, windowsen bertan, baina scriptak makina birtualean exekutatuko ditugu. Horretarako hurrengo egingo dugu.
 1. Zabaldu Visual Studio zuen repositorioan orain harte egin dugun bezala
 2. Sortu karpeta berri bat **scriptak** izenekoa
-3. VirtualBox-en jarraitu pauso hauek
+3. Virtual boxen Guest Additions instalatua izan behar duzue, [jarraitu gida hau ubunturako](https://www.linuxtechi.com/install-virtualbox-guest-additions-on-ubuntu/)
+4. VirtualBox-en jarraitu pauso hauek
 - Zuen makinaren aukeretan.
 ![alt text](image-19.png)
 - Karpeta partekatuak
 ![alt text](image-20.png)
 - Hautatu **scriptak** karpeta, eta **scriptak** izena jarri bestea utzi horrela. (kasu honetan shared jartzen du)
 ![alt text](image-22.png)
-4. Orain nabigatu dezakezue karpeta horretara eta scriptak exekutatu
+1. Orain nabigatu dezakezue karpeta horretara eta scriptak exekutatu
   
-5. Gomendatzen diren extensiok Visual Studio-rako
+2. Gomendatzen diren extensiok Visual Studio-rako
 ![alt text](image-23.png)
 ![alt text](image-24.png)
 
