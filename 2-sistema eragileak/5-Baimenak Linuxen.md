@@ -8,6 +8,7 @@
   - [Sticky bit baimena](#sticky-bit-baimena)
   - [SUID eta GUID baimenak](#suid-eta-guid-baimenak)
     - [SUID](#suid)
+    - [Nola idatzi SUID, GUID eta Sticky Bit baimenak modu oktalean.](#nola-idatzi-suid-guid-eta-sticky-bit-baimenak-modu-oktalean)
   - [Ezaugarri bereziak - lsattr eta chattr](#ezaugarri-bereziak---lsattr-eta-chattr)
 - [Ariketak](#ariketak)
   - [Ariketa 1](#ariketa-1)
@@ -137,6 +138,27 @@ chmod u+s suidfroga.sh
 chmod 4755 suidfroga.sh
 ```
 ![alt text](image-11.png)
+
+### Nola idatzi SUID, GUID eta Sticky Bit baimenak modu oktalean.
+
+Alde batetin baimeank S x ed exekuzio bezala idatzi.
+
+- Erabiltazileen baimentan S badago 4755
+- Taldeen baimentan s badago 2755
+- Sticky bita badago 't' 1755
+
+r-srwx--- 
+570 -> 4570
+
+r--rws--- 
+470 -> 2470
+
+r--rwx--t
+470 -> 1470
+
+r--rws---t
+470 -> 2470 -> 3470
+
 
 ## Ezaugarri bereziak - lsattr eta chattr
 
