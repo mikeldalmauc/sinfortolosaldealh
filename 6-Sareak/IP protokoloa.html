@@ -133,15 +133,7 @@
 .markdown-alert.markdown-alert-caution .markdown-alert-title {
   color: var(--color-caution);
 }
-code {
-  background-color: lightgrey;
-  border-radius: 0.3em;
-  padding: 0.2em;
-}
 
-table {
-  background-color: #eeeeee;
-}
 </style>
         
         </head>
@@ -177,8 +169,8 @@ table {
 <p>Hurrengo komandoak ip <em>inet</em> 172.17.0.2 erakusten du, eta Interneteko protokoloa erabiltzen duen sare batean ekipoa identifikatzen duen ip pribatua da.</p>
 <p><img src="irudiak\Pasted%20image%2020231211222029.png" alt="Alt text"></p>
 <h2 id="sare-motak">Sare motak</h2>
-<p>Lau ordenagailu, switch bat eta router bat dituen sare bat ikusiko dugu. Lau ordenagailuek antzeko IPak dituzte, guztiek dute amankomunean <code>192.168.3</code> ekin hasten direla. Beraz, sarea <code>192.168.3.0/24</code> da.</p>
-<p>Hau da, sareko helbide bat ordenagailuek eta gainerako bitek (hosten zati bat) zeroan komunean duten zati osoa da, baina maskara CIDR formatuan adierazita. Broadcasten helbidea da gainerako bitak (hosten zati bat) batera dituela.</p>
+<p>Hurrengo irudian, lau ordenagailu , switch bat eta router bat dituen sare bat ikusiko dugu. Lau ordenagailuek antzeko IPak dituzte, guztiek dute amankomunean <code>192.168.3</code>. Beraz, sarea <code>192.168.3.0/24</code> da.</p>
+<p>Sareko IDa <code>192.168.3.0</code> izango litzateke eta broacast helbidea <code>192.168.3.255</code>. Hau da, sareko maskaran zerora dauden bit guztia (ip-an alda daitezken bitan, kasu honetan azken zortziak, maskara 255.255.255.0 baita) zerora dauzkanean ID-a izango da eta batera daudenean, broadcast helbide. Beste guztiak, dakizuenez, host erabilgarriak izango dira.</p>
 <p><img src="image.png" alt="alt text"></p>
 <table>
 <thead>
@@ -251,7 +243,7 @@ table {
 </table>
 <p>Linuxen <code>ifconfig</code> komandoa erabiliz, ditugun sare-interfaze guztiak ikusi ahal izango ditugu. Hala ere, orain <code>enp2s0</code> deitzen zaie, <code>eth0</code> deitu beharrean. Izena zergatik aldatu den jakiteko, <a href="https://juncotic.com/eth0-enp0s3-nombres-interfaces-red-linux/">ikus hurrengo esteka</a>. Baita <a href="https://hardlimit.com/por-que-han-cambiado-el-nombre-de-las-interfaces-de-red/">Linuxeko sare-interfazeen izenak eta zergatik aldatu dute sareko interfazeen izena Linuxen</a></p>
 <p><img src="irudiak\Pasted%20image%2020231211221636.png" alt="Alt text"></p>
-<p>Gogora dezagun une batez Ethernet zertan ari zen. Ethernet Kable batekin zuzenean konektatuta dauden bi ordenagailu (edo Hosts ere deituak) komunikatzeko aukera ematen zuen. Gogoratu Switch batek ordenagailuak zuzenean konektatzen dituela (enchulu elektrikoen erregeleta bat bezala da)</p>
+<p>Gogora dezagun une batez Ethernet zertan ari zen. Ethernet Kable batekin zuzenean konektatuta dauden bi ordenagailu (edo Hosts ere deituak) komunikatzeko aukera ematen zuen. Gogoratu Switch batek ordenagailuak zuzenean konektatzen dituela (enchufe elektrikoen erregeleta bat bezala da)</p>
 <p>Orduan, ethernet bidez ezin da zuzenean komunikatu <code>192.168.3.123</code> host-a <code>192.168.4.123</code> host-arekin, fisikoki sare desberdinetan baitaude. Nola bidaltzen da informazioa orduan? Routerren bidez. Esan dezakegu router batek bi sare desberdin konektatzen dituela.</p>
 <p>Nola dakigu bi ordenagailu sare desberdinetan daudela? Zure sareko helbidea desberdina delako. Kalkulua egiteko, sare-helbidea eta sare-maskara erabili behar dira.</p>
 <h2 id="ip-protokoloa-1">IP protokoloa</h2>
@@ -288,12 +280,12 @@ table {
 <thead>
 <tr>
 <th><strong>IP Ordenador</strong></th>
-<th>**IP Puerta de enlace **</th>
+<th><strong>IP Puerta de enlace</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>182.168.3.215</td>
+<td>192.168.3.215</td>
 <td>192.168.3.24</td>
 </tr>
 <tr>
@@ -418,7 +410,7 @@ table {
 </tr>
 </tbody>
 </table>
-<p>Zure linuxean proba dezakezu route `-n komandoarekin eta zure bideratze-taula ikusiko duzu. Ikusiko duzunez, routerrena baino askoz errazagoa da.</p>
+<p>Zure linuxean proba dezakezu route `-n komandoarekin eta zure bideratze-taula ikusiko duzu. Ikusiko duzunez, routerrena baino sinpleagoa dela.</p>
 <p><img src="image-3.png" alt="alt text"></p>
 <p>Etxean ditugunetako router baten bideratze-taula ere ikus dezakegu:</p>
 <p><img src="image-4.png" alt="alt text"></p>
