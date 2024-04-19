@@ -27,9 +27,9 @@ Hurrengo komandoak ip *inet* 172.17.0.2 erakusten du, eta Interneteko protokoloa
 
 ## Sare motak
 
-Lau ordenagailu, switch bat eta router bat dituen sare bat ikusiko dugu. Lau ordenagailuek antzeko IPak dituzte, guztiek dute amankomunean `192.168.3` ekin hasten direla. Beraz, sarea `192.168.3.0/24` da.
+Hurrengo irudian, lau ordenagailu , switch bat eta router bat dituen sare bat ikusiko dugu. Lau ordenagailuek antzeko IPak dituzte, guztiek dute amankomunean `192.168.3`. Beraz, sarea `192.168.3.0/24` da.
 
-Hau da, sareko helbide bat ordenagailuek eta gainerako bitek (hosten zati bat) zeroan komunean duten zati osoa da, baina maskara CIDR formatuan adierazita. Broadcasten helbidea da gainerako bitak (hosten zati bat) batera dituela.
+Sareko IDa `192.168.3.0` izango litzateke eta broacast helbidea `192.168.3.255`. Hau da, sareko maskaran zerora dauden bit guztia (ip-an alda daitezken bitan, kasu honetan azken zortziak, maskara 255.255.255.0 baita) zerora dauzkanean ID-a izango da eta batera daudenean, broadcast helbide. Beste guztiak, dakizuenez, host erabilgarriak izango dira.
 
 ![alt text](image.png)
 
@@ -65,7 +65,7 @@ Linuxen `ifconfig` komandoa erabiliz, ditugun sare-interfaze guztiak ikusi ahal 
 
 ![Alt text](<irudiak/Pasted image 20231211221636.png>)
 
-Gogora dezagun une batez Ethernet zertan ari zen. Ethernet Kable batekin zuzenean konektatuta dauden bi ordenagailu (edo Hosts ere deituak) komunikatzeko aukera ematen zuen. Gogoratu Switch batek ordenagailuak zuzenean konektatzen dituela (enchulu elektrikoen erregeleta bat bezala da)
+Gogora dezagun une batez Ethernet zertan ari zen. Ethernet Kable batekin zuzenean konektatuta dauden bi ordenagailu (edo Hosts ere deituak) komunikatzeko aukera ematen zuen. Gogoratu Switch batek ordenagailuak zuzenean konektatzen dituela (enchufe elektrikoen erregeleta bat bezala da)
 
 Orduan, ethernet bidez ezin da zuzenean komunikatu `192.168.3.123` host-a `192.168.4.123` host-arekin, fisikoki sare desberdinetan baitaude. Nola bidaltzen da informazioa orduan? Routerren bidez. Esan dezakegu router batek bi sare desberdin konektatzen dituela.
 
@@ -103,9 +103,9 @@ Pasabidea (Puerta de enlace edo Gateway ere esaten zaio) datagramak bidaltzeko d
 
 Ikus dezagun orain ordenagailu batzuen lotura-atea
 
-| **IP Ordenador**	 | **IP Puerta de enlace ** |
+| **IP Ordenador**	 | **IP Puerta de enlace** |
 |--------------|-----------------------|
-| 182.168.3.215	| 192.168.3.24
+| 192.168.3.215	| 192.168.3.24
 | 7.8.9.1	| 7.8.9.2  |
 | 192.168.4.123	| 192.168.4.56  |
 
@@ -136,7 +136,7 @@ Bideratze taula batek solik ezartzen du zein Routerrera bidali behar den ip bako
 | 67.45.67.0    | 255.255.255.0   | 0.0.0.0 | eth0     | Bera sare berdineko helbideetara 67.45.67.0/24       |
 | 0.0.0.0  | 0.0.0.0         | 67.45.67.4 | eth0     | Nora bidali ez dakienena, eth0 interfazetik D routerrera bidaltzen defektuzkoa baita |
 
-Zure linuxean proba dezakezu route `-n komandoarekin eta zure bideratze-taula ikusiko duzu. Ikusiko duzunez, routerrena baino askoz errazagoa da.
+Zure linuxean proba dezakezu route `-n komandoarekin eta zure bideratze-taula ikusiko duzu. Ikusiko duzunez, routerrena baino sinpleagoa dela.
 
 ![alt text](image-3.png)
 
