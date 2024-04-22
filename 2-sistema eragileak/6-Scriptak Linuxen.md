@@ -220,7 +220,7 @@ Garatzeko, erosoena Visual Studio erabiltzea da, windowsen bertan, baina scripta
 - Karpeta partekatuak
 ![alt text](image-20.png)
 - Hautatu **scriptak** karpeta, eta **scriptak** izena jarri bestea utzi horrela. (kasu honetan shared jartzen du)
-![alt text](image-22.png)
+![alt text](image-25.png)
 1. Orain nabigatu dezakezue karpeta horretara eta scriptak exekutatu
   
 2. Gomendatzen diren extensiok Visual Studio-rako
