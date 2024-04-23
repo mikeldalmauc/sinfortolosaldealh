@@ -1,23 +1,0 @@
-===============================================================
-Gobuster v3.6
-by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
-[+] Url:                     http://mikeldalmau.com/
-[+] Method:                  GET
-[+] Threads:                 200
-[+] Wordlist:                /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
-[+] Negative Status codes:   403,404
-[+] User Agent:              gobuster/3.6
-[+] Extensions:              html
-[+] Timeout:                 10s
-===============================================================
-Starting gobuster in directory enumeration mode
-===============================================================
-[2K/index.html           (Status: 200) [Size: 7307]
-[2K/soap                 (Status: 200) [Size: 0]
-
-[!] Keyboard interrupt detected, terminating.
-
-===============================================================
-Finished
-===============================================================
