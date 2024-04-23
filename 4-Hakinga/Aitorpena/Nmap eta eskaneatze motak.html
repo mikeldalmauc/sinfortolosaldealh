@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Oinarrizko parametroak</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#oinarrizko-parametroak">Oinarrizko parametroak</a>
+<ul>
+<li><a href="#plantilla-de-temporizado">Plantilla de temporizado:</a></li>
+<li><a href="#tcp-connect-scan">TCP connect scan</a></li>
+<li><a href="#eskaneatu-edozein-host-activos-y-no-activos">Eskaneatu edozein host (activos y no activos)</a></li>
+<li><a href="#udp-protokoloa-erabiliz-eskaneatu">UDP protokoloa erabiliz eskaneatu</a></li>
+<li><a href="#piztutako-hostak-aurkitzeko-subsare-baten-ping-sweep">Piztutako Hostak aurkitzeko subsare baten (Ping sweep)</a></li>
+<li><a href="#sistema-eragilearen-ezaugarriak-aurkitzeko">Sistema eragilearen ezaugarriak aurkitzeko</a>
+<ul>
+<li><a href="#paketeen-ttl-a-erabiliz">Paketeen TTL-a erabiliz</a></li>
+</ul>
+</li>
+<li><a href="#portuen-serbitzuak-detektatu">Portuen serbitzuak detektatu</a></li>
+</ul>
+</li>
+<li><a href="#nmap-scriptak-erabiltzen">NMAP scriptak erabiltzen</a>
+<ul>
+<li><a href="#scriptal-eta-kategoriak-aurkitzen">Scriptal eta kategoriak aurkitzen</a></li>
+<li><a href="#exekutatu-script-sorta-bat">Exekutatu script sorta bat</a></li>
+<li><a href="#exekutatu-script-sorta-bat-kategoriakoak">Exekutatu script sorta bat kategoriakoak</a></li>
+</ul>
+</li>
+</ul>
+<p>Atakante bezala, funtzeskoa da ezagutzea zen portu dauden zabalik.</p>
+<h2 id="oinarrizko-parametroak">Oinarrizko parametroak</h2>
+<p>Portu guztiak eskaneatzeko</p>
+<pre><code class="language-bash">nmap -p- 192.168.0.1 
+</code></pre>
+<p>65535 portu daude, guztiak eskaneatzeko</p>
+<pre><code class="language-bash">nmap -p1-65535 192.168.0.1 
+</code></pre>
+<hr>
+<ul>
+<li>Portua egon daiteke Zabalik, Itxita edo Filtratua</li>
+</ul>
+<p>500 portu erabilienak eskaneatzeko:</p>
+<pre><code class="language-bash">nmap --top-ports 500 192.168.0.1 
+</code></pre>
+<p>Bakarrik zabalik dauden portuak eskaneatzeko:</p>
+<pre><code class="language-bash">nmap --top-ports 500 --open 192.168.0.1 
+</code></pre>
+<hr>
+<p>Verbose, eskaneoa astiro badoa eta aldi berean zein portu dauden zabalik jakin nahi badugu:</p>
+<pre><code class="language-bash">nmap --top-ports 500 --open 192.168.0.1 -v
+</code></pre>
+<p>DNS ez aplikatzeko erabili, eskaneoa azkarragoa izango da:</p>
+<pre><code class="language-bash">nmap --top-ports 500 --open 192.168.0.1 -v -n
+</code></pre>
+<hr>
+<h3 id="plantilla-de-temporizado">Plantilla de temporizado:</h3>
+<p>-Tn  (n : 0 - 5)
+0. Oso geldoa baina ixila (modo paranoico)
+5. Oso azkarra baina saratatzua (modo loco)</p>
+<pre><code class="language-bash">nmap -p- -T5 192.168.0.1 
+</code></pre>
+<hr>
+<h3 id="tcp-connect-scan">TCP connect scan</h3>
+<p>Eskaneatze modu honetan, nmap-ek tcp protokoloaren 3-way-handshake-a egiten saiatuko da. Gogoratu nola harrapau genituen pakete hauek Wiresharken:</p>
+<ul>
+<li>Portua zabalik badago (SYN ACK -&gt; SYN -&gt; ACK )</li>
+<li>Portua itxita badao (SYN ACK -&gt; RST )</li>
+</ul>
+<pre><code class="language-bash">nmap -p- -T5 -sT --open 192.168.0.1 -v -n
+</code></pre>
+<hr>
+<h3 id="eskaneatu-edozein-host-activos-y-no-activos">Eskaneatu edozein host (activos y no activos)</h3>
+<ul>
+<li>-Pn parametroa erabili beharko dugu</li>
+</ul>
+<pre><code class="language-bash">nmap -p- -T5 --open 192.168.0.1 -v -n -Pn
+</code></pre>
+<hr>
+<h3 id="udp-protokoloa-erabiliz-eskaneatu">UDP protokoloa erabiliz eskaneatu</h3>
+<ul>
+<li>-Su  parametroa erabiliko dugu honetarako</li>
+</ul>
+<pre><code class="language-bash">nmap --top-ports 100 --open -Su 192.168.0.1 -v -n
+</code></pre>
+<hr>
+<h3 id="piztutako-hostak-aurkitzeko-subsare-baten-ping-sweep">Piztutako Hostak aurkitzeko subsare baten (Ping sweep)</h3>
+<pre><code class="language-bash">nmap -sn 192.168.0.1/24
+</code></pre>
+<h3 id="sistema-eragilearen-ezaugarriak-aurkitzeko">Sistema eragilearen ezaugarriak aurkitzeko</h3>
+<p>⚠️ Ez dago oso gomendatuta, astuna baita.</p>
+<pre><code class="language-bash">nmap -O 192.168.0.1
+</code></pre>
+<h4 id="paketeen-ttl-a-erabiliz">Paketeen TTL-a erabiliz</h4>
+<p>Bizi-denbora (TTL), bideratzaile batek baztertu aurretik, sare baten barruan pakete bat egon behar dela ezarri den denbora-kopuruari edo &quot;jauziei&quot; dagokie. TTLa beste testuinguru batzuetan ere erabiltzen da, hala nola CDN cachean biltegiratzean eta DNS cachean biltegiratzean.</p>
+<p>Informazio-pakete bat sortzen denean eta Internet bidez bidaltzen denean, bideratzaile izatetik bideratzaile izatera igarotzeko arriskua dago, mugarik gabe. Aukera hori arintzeko, paketeak bizi-denbora edo jauzien muga izeneko iraungipenarekin diseinatzen dira. Paketeen TTLa ere baliagarria izan daiteke pakete jakin bat zenbat denboraz zirkulazioan egon den zehazteko, eta bidaltzaileak Internet bidez pakete baten ibilbideari buruzko informazioa jaso ahal izatea ahalbidetzen du.</p>
+<p>Pakete bakoitzak zenbakizko balio bat gordetzen duen leku bat du, eta balio horrek zehazten du zenbat denbora jarraitu behar duen sarean mugitzen. Bideratzaile batek pakete bat jasotzen duen bakoitzean, bat kentzen zaio TTLren zenbaketari, eta sareko hurrengo tokira pasatzen du. Uneren batean TTLren zenbaketa zerora iristen bada kenketaren ondoren, bideratzaileak paketea baztertu eta ICMP mezu bat bidaliko du jatorrizko hostora.</p>
+<p>Zer zerikusi du horrek sistema eragilearen identifikazioarekin? Beno, hainbat sistema eragilek TTLren balio lehenetsiak dituzte. Adibidez, Windows sistema eragileetan, TTLren balio lehenetsia 128 da, eta Linux sistema eragileetan, berriz, 64.</p>
+<p>Beraz, makina batera pakete bat bidaltzen badugu eta 128ko TTL balioa duen erantzun bat jasotzen badugu, litekeena da makina Windows exekutatzen aritzea. 64ko TTL balioa duen erantzun bat jasotzen badugu, litekeena da makina Linux exekutatzen aritzea.</p>
+<p>Metodo hau ez da hutsezina eta sare-administratzaileek engaina dezakete, baina zenbait egoeratan baliagarria izan daiteke makina baten sistema eragilea identifikatzeko.</p>
+<p>Jarraian, gela honetan erakusten dugun orria partekatzen dizuegu, dauden TTL balioei dagokien sistema eragilea identifikatzeko.</p>
+<p>Linux/Unix: 64
+Windows: 128
+MacOS: 64
+Solaris/AIX: 254
+FreeBSD: 64</p>
+<p>Subin 's Blog: <a href="https://subinsb.com/default-device-ttl-values">https://subinsb.com/default-device-ttl-values</a></p>
+<p>Era berean, lortutako TTLaren arabera sistema eragilea identifikatzeko ardura duen Python-en scripta partekatzen dizuegu:</p>
+<p>WhichSystem: <a href="https://pastebin.com/HmBcu7j2">https://pastebin.com/HmBcu7j2</a></p>
+<h3 id="portuen-serbitzuak-detektatu">Portuen serbitzuak detektatu</h3>
+<pre><code class="language-bash">nmap -p80 192.168.0.1 -sV
+</code></pre>
+<h2 id="nmap-scriptak-erabiltzen">NMAP scriptak erabiltzen</h2>
+<h3 id="scriptal-eta-kategoriak-aurkitzen">Scriptal eta kategoriak aurkitzen</h3>
+<pre><code class="language-bash"><span class="hljs-comment"># Scriptak</span>
+locate .nse
+
+<span class="hljs-comment"># Script kopurua</span>
+locate .nse | <span class="hljs-built_in">wc</span> -l
+
+<span class="hljs-comment"># Categoriak modu paraleloan aurkitu</span>
+locate .nse | xargs grep <span class="hljs-string">&#x27;categories&#x27;</span>
+
+<span class="hljs-comment"># Filtratu mserbitzuak</span>
+locate .nse | xargs grep <span class="hljs-string">&#x27;categories&#x27;</span> | greo -oP <span class="hljs-string">&#x27;&quot;.*?&quot;&#x27;</span> |<span class="hljs-built_in">sort</span> -u 
+
+</code></pre>
+<h3 id="exekutatu-script-sorta-bat">Exekutatu script sorta bat</h3>
+<p>Exekutatu script sorta bat, sC parametroarekin script guztietatik, erabilenen artean daduden sorta bat exekutatuko dira portu horretan.</p>
+<pre><code class="language-bash">nmap -p22 192.168.0.1 -sC -SV
+</code></pre>
+<h3 id="exekutatu-script-sorta-bat-kategoriakoak">Exekutatu script sorta bat kategoriakoak</h3>
+<pre><code class="language-bash">nmap -p80 192.168.0.1 --script=<span class="hljs-string">&quot;vuln or/and safe&quot;</span> -sV 
+</code></pre>
+<pre><code class="language-bash"><span class="hljs-comment"># Zerbitzuak portuan ikusi</span>
+lsof -i:80
+
+<span class="hljs-comment"># Prozesu bat nondik exekutzen den aurkitzeko</span>
+pwdx idprocesso 
+</code></pre>
+
+            
+            
+        </body>
+        </html>

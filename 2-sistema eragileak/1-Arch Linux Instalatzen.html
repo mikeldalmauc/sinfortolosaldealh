@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Ingurune virtuala ezarri  &#x1f4e6;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 1em;
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#ingurune-virtuala-ezarri--">Ingurune virtuala ezarri  📦</a>
+<ul>
+<li><a href="#deskargatu-isoa-">Deskargatu ISOa 📀</a></li>
+<li><a href="#vboxen-makina-sortu-%EF%B8%8F">VBoxen makina sortu 🖥️</a></li>
+</ul>
+</li>
+<li><a href="#partizioak-formatoa-eta-muntaia">Partizioak, formatoa eta muntaia</a>
+<ul>
+<li><a href="#partizioak-sortu-">Partizioak sortu 🍕</a></li>
+<li><a href="#partizioak-formateatu-%E2%84%B9%EF%B8%8F">Partizioak formateatu ℹ️</a></li>
+<li><a href="#partizioak-montatu-">Partizioak montatu 🏇</a>
+<ul>
+<li><a href="#fstab-fitxategia-sortu">Fstab fitxategia sortu</a></li>
+</ul>
+</li>
+<li><a href="#sisteman-sartu-">Sisteman sartu 🏠</a></li>
+</ul>
+</li>
+<li><a href="#sistema-konfiguratzen-%EF%B8%8F">Sistema konfiguratzen ⚙️</a>
+<ul>
+<li><a href="#erabiltzaileak-">Erabiltzaileak 👥</a>
+<ul>
+<li><a href="#root-pasahitza-%EF%B8%8F">Root pasahitza 🗝️</a></li>
+<li><a href="#erabiltzaile-arrunta-sortu-">Erabiltzaile arrunta sortu 🙍</a></li>
+<li><a href="#sudoers-fitxategia-editatu"><strong>sudoers</strong> fitxategia editatu</a></li>
+</ul>
+</li>
+<li><a href="#hizkuntzak-">Hizkuntzak 💬</a>
+<ul>
+<li><a href="#programen-hizkuntzak">Programen hizkuntzak</a></li>
+<li><a href="#teklatuaren-hizkuntza-kontsolan-%EF%B8%8F">Teklatuaren hizkuntza kontsolan ⌨️</a></li>
+</ul>
+</li>
+<li><a href="#grub-instalatzen-%EF%B8%8F">Grub instalatzen ☣️</a></li>
+<li><a href="#ordenagailuaren-izena-hostname-">Ordenagailuaren izena (hostname) ❔</a></li>
+<li><a href="#hosts-fitxategia">Hosts fitxategia</a></li>
+<li><a href="#neofetch-instalatu-">Neofetch instalatu 😎</a></li>
+<li><a href="#sistema-berrebiarazi-%EF%B8%8F">Sistema berrebiarazi ♻️</a></li>
+</ul>
+</li>
+<li><a href="#sistema-konfiguratzen---2-%EF%B8%8F">Sistema Konfiguratzen - 2 ⚙️</a>
+<ul>
+<li><a href="#interneterako-serbitzuak-konfiguratu-">Interneterako serbitzuak konfiguratu 📶</a>
+<ul>
+<li><a href="#wifirako-portatil-baten-bagauz">Wifirako portatil baten bagauz</a></li>
+</ul>
+</li>
+<li><a href="#aur-repositorioak-gehitzen-">Aur repositorioak gehitzen 🐊</a></li>
+<li><a href="#black-arch-linuxeko-repositorioak-gehitu-">Black-Arch linuxeko repositorioak gehitu 🖤</a></li>
+<li><a href="#erabiltzaile-interfaze-grafikoa-%EF%B8%8F">Erabiltzaile interfaze grafikoa 👱‍♂️</a></li>
+<li><a href="#"></a></li>
+</ul>
+</li>
+</ul>
+<p>Video Erreferentzia: <a href="https://www.youtube.com/watch?v=fshLf6u8B-w&amp;t=2737s">https://www.youtube.com/watch?v=fshLf6u8B-w&amp;t=2737s</a></p>
+<h1 id="ingurune-virtuala-ezarri--">Ingurune virtuala ezarri  📦</h1>
+<h2 id="deskargatu-isoa-">Deskargatu ISOa 📀</h2>
+<p>Deskargatu isoa arch linuxen webgune ofizialetik, eta beheko estekatik</p>
+<p><a href="https://archlinux.org/download/">Arch Linux Official website</a></p>
+<p><img src="images\Pasted%20image%2020231214083636.png" alt="Alt text"></p>
+<h2 id="vboxen-makina-sortu-️">VBoxen makina sortu 🖥️</h2>
+<p>Sortu makina berri bat beheko ezaugarriekin, <mark style="background: #FF5582A6;">2Gb Ram eta 20 Gb disko gogo</mark>r, prosezadore batekin.</p>
+<p><img src="images\Pasted%20image%2020231214083910.png" alt="Alt text"></p>
+<p><img src="images\Pasted%20image%2020231214083957.png" alt="Alt text"></p>
+<p><img src="images\Pasted%20image%2020231214084010.png" alt="Alt text"></p>
+<hr>
+<h1 id="partizioak-formatoa-eta-muntaia">Partizioak, formatoa eta muntaia</h1>
+<h2 id="partizioak-sortu-">Partizioak sortu 🍕</h2>
+<p>Lehenik eta behin, teklatua gaztelerazko konfigurazioan ezarriko dugu erosoago lan egin ahal izateko.</p>
+<pre><code class="language-bash">loadkeys es
+</code></pre>
+<p>Hurrengo agindua erabiliz ikusi dezakegu zein disko dauzkagun eta beren partizioak. Beherko irudian ikusten da momentuz 3 disko dauzkagula, eta gure diska gogorra <strong>sda</strong> izango da.</p>
+<pre><code class="language-bash">lsblk
+</code></pre>
+<p><img src="images\Pasted%20image%2020231214084607.png" alt="Alt text"></p>
+<hr>
+<p>Jarraitu baino lehen egizatatu interneta daukagula ping eginez.</p>
+<p><img src="images\Pasted%20image%2020231214084912.png" alt="Alt text"></p>
+<hr>
+<p>Cfdisk programa erabiliko dugu partizioak egiteko parametro bezala gure disko gogorraren helbidea emango diogu.</p>
+<pre><code class="language-bash">cfdisk /dev/sda
+</code></pre>
+<p>Lehengo pausoa izango da labela aukeratzea, msdos aukeratuko dugu.</p>
+<p><img src="images\Pasted%20image%2020231214085236.png" alt="Alt text"></p>
+<hr>
+<p>Bigarren pausoan,<mark style="background: #FFB8EBA6;"> hiru partizio egingo ditugu, bata booterako, bestea sistema eragilerako eta azkena swaperako</mark>. Huerrengo memoria ezarpenarekin. Adi swap partizioari mota aldatu behar zaiola.</p>
+<p><img src="images\Pasted%20image%2020231214085929.png" alt="Alt text"></p>
+<p>lsblk berriro erabiliz, gure diskaren partizioak ikusi beharko genituzke.</p>
+<p><img src="images\Pasted%20image%2020231214090148.png" alt="Alt text"></p>
+<hr>
+<h2 id="partizioak-formateatu-ℹ️">Partizioak formateatu ℹ️</h2>
+<p>Orain partizio bakoitzari dagokion formatua ezarriko diogu hurrengo komandoak erabiliz.</p>
+<ul>
+<li>Boot partizioa</li>
+</ul>
+<pre><code class="language-bash">mkfs.fat -F 32 /dev/sda1
+</code></pre>
+<ul>
+<li>Sistema eragilerako</li>
+</ul>
+<pre><code class="language-bash">mkfs.ext4 /dev/sda2
+</code></pre>
+<ul>
+<li>Swap partiziorako</li>
+</ul>
+<pre><code>mkswap /dev/sda3
+</code></pre>
+<p>eta swap aktibatzeko</p>
+<pre><code class="language-bash">swapon  /dev/sda3
+</code></pre>
+<hr>
+<h2 id="partizioak-montatu-">Partizioak montatu 🏇</h2>
+<p>Lehenik root partizioa montatuko dugu.<mark style="background: #FFB8EBA6;"> Beharrezkoa da hau lehen montatzea zere boot rooten azpian egongo da.</mark></p>
+<pre><code class="language-bash">mount /dev/sda2 /mnt
+</code></pre>
+<p>Boot partizioa /mnt/boot karpetan montatuko dugu, beti root montatu eta gero!</p>
+<pre><code class="language-bash"><span class="hljs-built_in">mkdir</span> /mnt/boot
+mount /dev/sda1 /mnt/boot
+</code></pre>
+<hr>
+<p>Packstrap erabiliz funtzezko pakete batzuk instalatuko ditugu, hauek gure linuxeko sistemaren fitzategi ezagun asko gehituko dituzte zeren momentuz /mnt hutsik dago.</p>
+<pre><code class="language-bash">pacstrap /mnt linux linux-firmware networkmanager grub wpa_supplicant base base-devel
+</code></pre>
+<ul>
+<li>Oharra: Deskarga nahiko handia denez, une egokia da hau bukatzean <mark style="background: #ABF7F7A6;">virtual boxen snapshot bat egitea</mark>, horrela zerbat txarto badoa puntu honetara vuelta genezake.</li>
+</ul>
+<hr>
+<h3 id="fstab-fitxategia-sortu">Fstab fitxategia sortu</h3>
+<p>Fstab fitxategia sistema eragileari esaten dio nola montatu behar diren partizioak. Horrela, sistema pizterakoan automatikoki montatuko dira eta aurreko pausoak  ez ditugu egin behar.</p>
+<pre><code class="language-bash">genfstab -U /mnt &gt; /mnt/etc/fstab
+</code></pre>
+<hr>
+<h2 id="sisteman-sartu-">Sisteman sartu 🏠</h2>
+<p>Hurrengo aginduarekin <em>/mnt</em> sartzen gara, gogoratu mnt- root montatuta dagoela, hau da, gure sistema eragilearen erroa /.</p>
+<pre><code class="language-bash">arch-chroot /mnt
+</code></pre>
+<hr>
+<h1 id="sistema-konfiguratzen-️">Sistema konfiguratzen ⚙️</h1>
+<h2 id="erabiltzaileak-">Erabiltzaileak 👥</h2>
+<h3 id="root-pasahitza-️">Root pasahitza 🗝️</h3>
+<p>Lehenik eta behin, root bezala gauzenez, passwd komandoa erabili pasahitz berria ezartzeko root-eri.</p>
+<pre><code class="language-bash">passwd
+</code></pre>
+<hr>
+<h3 id="erabiltzaile-arrunta-sortu-">Erabiltzaile arrunta sortu 🙍</h3>
+<p>Dakizuenez, ez da egokia lan orokorrak root bezala egitea arriskua haundiak baitauzka, beraz erabiltzaile berri bat sortuko dugu eta root baimenak emango dizkiogu behar izatekotan root bezala komandoak erabiltzeko.</p>
+<pre><code class="language-bash">useradd -m mikel
+passwd mikel
+</code></pre>
+<hr>
+<p>Orain, erabiltzailea <em>wheel</em> taldeari gehituko diogu, <em>sudo su</em> edo <em>sudo</em> egin ahal izateko lehen aipa bezala</p>
+<pre><code class="language-bash">usermod -aG wheel mikel
+</code></pre>
+<ul>
+<li>Ikusi erabiltzaile baten taldeak <code>groups mikel</code> erabiliz, bi talde agertu beharko lirateke, wheel eta mikel (defektuzko taldea)</li>
+</ul>
+<hr>
+<h3 id="sudoers-fitxategia-editatu"><strong>sudoers</strong> fitxategia editatu</h3>
+<p>Sudoers fitxategia, konfigurazio fitxategi bat da eta <em>/etc/sudoers</em> rutan dago kokatuta.</p>
+<p>Segurtasunaren kudeaketarako erabiltzen da adibidez, sudo erabiltzean pasahitza eskatu ala ez ezarri al da beste gauza batzuen artean.</p>
+<hr>
+<p>Orain, sudo paketea instalatuko dugu pacman erabiliz</p>
+<pre><code class="language-bash">pacman -S sudo
+</code></pre>
+<p>Baita fitxategia editatzeko editore batzuk instalatu beharko ditugu, vim eta nano instalatuko ditugu.</p>
+<pre><code class="language-bash">pacman -S vim nano
+</code></pre>
+<hr>
+<p>Zabaldu editatzeko sudoers fitxategia</p>
+<pre><code class="language-bash">nano /etc/sudoers
+</code></pre>
+<p>Kendu iruzkina <code>%wheel ALL=(ALL:ALL) ALL</code> lineari.</p>
+<p>-<mark style="background: #FF5582A6;"> NOPASSWD lineari komentarioa kentzekotan ez luke pasahitza eskatuko wheel taldekidei sude egitean baina hau ez da oso egokia seguratasunaren aldetik.</mark></p>
+<p><img src="images\Pasted%20image%2020231214130741.png" alt="Alt text"></p>
+<hr>
+<h2 id="hizkuntzak-">Hizkuntzak 💬</h2>
+<h3 id="programen-hizkuntzak">Programen hizkuntzak</h3>
+<p>Nano erabiliz zabaldu <em>/etc/locale.gen</em> fitxategia. Fitxategi hau, etc dauden fitxategi asko bezala konfiguraziorako da, hizkuntza asko izango ditu ezarrita barnean baina adi gehienak komentatua daudela.</p>
+<p><img src="images\Pasted%20image%2020231214133128.png" alt="Alt text"></p>
+<p>Gure lana gaztelerazkoari eta ingelesekoari iruzkina kentzea da.</p>
+<ol>
+<li>Bilatu <code>Cntr + W</code> erabiliz  <em>en_US</em> eta iruzkina kendu</li>
+<li>Bilatu <code>Cntr + W</code> erabiliz <em>es_ES</em> eta iruzkina kendu</li>
+<li>Gorde eta atera</li>
+</ol>
+<p>Azkenik, locale-gen programa erabiliko dugu ezarritako hizkuntzen hitzak sortzeko.</p>
+<pre><code class="language-bash">locale-gen
+</code></pre>
+<h3 id="teklatuaren-hizkuntza-kontsolan-️">Teklatuaren hizkuntza kontsolan ⌨️</h3>
+<p>Terminala zabaldu genuenean, lehenik egin dugun gauza gazteleraz jartzea izan zen. Hau egin behar ez izateko eta defektuz gazteleraz agertzeko sortu hurrengo fitxategia.</p>
+<pre><code class="language-bash">nano /etc/vconsole.conf
+</code></pre>
+<p>Idatzi  <code>KEYMAP=es</code> barnean eta gorde.</p>
+<hr>
+<h2 id="grub-instalatzen-️">Grub instalatzen ☣️</h2>
+<p>Grub, linuxeko boot loadera da, menu bat eskeintzen du sistema pizterakoan zenbait pizteko modu autatzeko.</p>
+<p>Dual boot ubuntu/windows instalatu genuenean honek zein sistema eragile nahi genuen hautatzeko aukera emoten zigun.</p>
+<pre><code class="language-bash">grub-install /dev/sda
+</code></pre>
+<p>Sortu gruberako konfigurazio fitxategia</p>
+<pre><code class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<hr>
+<h2 id="ordenagailuaren-izena-hostname-">Ordenagailuaren izena (hostname) ❔</h2>
+<p>Beti bezela, /etc-n sortuko dugu fitxategi bat hostname izenarekin eta gure ordenagailuaren izenarekin.</p>
+<pre><code class="language-bash"><span class="hljs-built_in">echo</span> mikel-pc &gt; /etc/hostname
+</code></pre>
+<hr>
+<h2 id="hosts-fitxategia">Hosts fitxategia</h2>
+<p>Fitxategi hau alias batxuk izango ditu, adibidez localhost -&gt; 127.0.0.1 bati egingo dio erreferentzia.</p>
+<pre><code>nano /etc/hosts
+</code></pre>
+<p>Hurrengo lerroak gehitu, adi mikel-pc jartzen duen tokia zuen hostname jarri behar duela.</p>
+<pre><code class="language-bash">127.0.0.1    localhost
+::1          localhost
+127.0.0.1    mikel-pc.localhost mikel-pc
+</code></pre>
+<h2 id="neofetch-instalatu-">Neofetch instalatu 😎</h2>
+<p>Instalatu neofetch programatxoa, hau sistemaren informazioa erakutziko digu. Frogatu <code>neofetch</code> erabiltzen.</p>
+<pre><code class="language-bash">pacman -S neofetch
+</code></pre>
+<p><img src="images\Pasted%20image%2020231214135552.png" alt="Alt text"></p>
+<h2 id="sistema-berrebiarazi-️">Sistema berrebiarazi ♻️</h2>
+<p>Puntu honetan, irten rootetik <code>exit</code> eginez eta <code>reboot</code> erabili live cd-ko kontextuan gaudenean era orain grub zabaltzen den eta sistema era egokian pizten den guk ezarritako konfigurazio guztiekin.</p>
+<ul>
+<li>Grub zabaltzen ez bada eta arch linuxek live cd-a zabaltzen bada, sakatu <code>F12</code> pizterakoan eta hautatu diska gogorra. Gruben menua agertu beharko litzateke.</li>
+</ul>
+<p><img src="images\Pasted%20image%2020231214140230.png" alt="Alt text"></p>
+<ul>
+<li>Oharra: <mark style="background: #ABF7F7A6;">Une egokia da hau bukatzean virtual boxen snapshot bat egitea, horrela zerbat txarto badoa puntu honetara vuelta genezake.</mark></li>
+</ul>
+<hr>
+<h1 id="sistema-konfiguratzen---2-️">Sistema Konfiguratzen - 2 ⚙️</h1>
+<h2 id="interneterako-serbitzuak-konfiguratu-">Interneterako serbitzuak konfiguratu 📶</h2>
+<p>Lehenik eta behin, <code>ping www.googl.es</code> egiten saiatzen bagara ikusiko dugu internetik ez daukagula.</p>
+<p>Hau gertatzen da sare kudeaketarako serbitzua piztuta ez dagoelako. Beraz bi gauza egingo ditugu:</p>
+<ol>
+<li>NetworkManager serbitzua piztu</li>
+<li>Hurrengaroako, serbitzua automatikoki pizteko ezarri</li>
+</ol>
+<pre><code class="language-bash">systemctl start NetworkManager.service 
+</code></pre>
+<pre><code class="language-bash">systemctl <span class="hljs-built_in">enable</span> NetworkManager
+</code></pre>
+<p>Horain, ping funtzionatu beharko luke, frogatu <code>ping www.googl.es</code>.</p>
+<h3 id="wifirako-portatil-baten-bagauz">Wifirako portatil baten bagauz</h3>
+<p>Pauso berdinak <em>wpa_supplicant</em> serbitzuarekin.</p>
+<pre><code class="language-bash">systemctl start wpa_supplicant.service 
+</code></pre>
+<pre><code class="language-bash">systemctl <span class="hljs-built_in">enable</span> wpa_supplicant
+</code></pre>
+<hr>
+<h2 id="aur-repositorioak-gehitzen-">Aur repositorioak gehitzen 🐊</h2>
+<p>Aur, komunitateak sortutako programa asko dituen repositorio bat da. Honi esker askoz programa gehiago deskargatzeko gai izango gara baina erabili ahal izateko konfiguratu beharko dugu.</p>
+<ol start="0">
+<li>Zure erabiltzaile bezala jarri EZ ROOT! aldatzeko -&gt; <code>su mikel</code></li>
+<li>Lehenik, git istalatu. Git, repositorioak kudeatzeko tresna bat da. Google drive-en antzelako zerbait baina koderako erabiltzen dena.</li>
+</ol>
+<pre><code class="language-bash">sudo pacman -S git
+</code></pre>
+<ol start="2">
+<li>Sortu <em>repos</em> karpeta zure erabiltzaile pertsonalaren profilean <em>/home/{zure-erabiltzaile-izen}/repos</em></li>
+</ol>
+<pre><code class="language-bash"><span class="hljs-built_in">mkdir</span> -p Desktop/mikel/repos
+</code></pre>
+<ol start="3">
+<li>Navigatu repos direktoriora <code>cd !$</code></li>
+</ol>
+<ul>
+<li>Oharra:  <code>!$</code> truko txiki bat da, aurreko aginduaren azken parametroari egiten dio erreferentzia. Kasu honetan <code>mkdir -p Desktop/mikel/repos</code> erabili ostean <code>!$</code> <code>Desktop/mikel/repos</code> balioko du beraz gauza berdina dira bi agindu hauek 😀
+<ul>
+<li><code>cd Desktop/mikel/repos = cd !$</code></li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>Klonatu hurrengo repositorioa, hau da deskargatzea bezala.</li>
+</ol>
+<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://aur.archlinux.org/paru-bin.git
+</code></pre>
+<p>Hau egin ostean, paru-bin izeneko karpeta bat sortuko da repos direktorioan. Sartu direktorioan eta idatzi:</p>
+<pre><code class="language-bash">makepkg -si
+</code></pre>
+<p>Eginda ! Aur paketeak eskuragarri izango ditugu horain 👏</p>
+<hr>
+<h2 id="black-arch-linuxeko-repositorioak-gehitu-">Black-Arch linuxeko repositorioak gehitu 🖤</h2>
+<p><em>repos</em> karpetan blackarch direktorioa sortu eta sartu barrura</p>
+<pre><code class="language-bash"><span class="hljs-built_in">mkdir</span> blackarch
+<span class="hljs-built_in">cd</span> blackarch
+</code></pre>
+<p>Curl agindua erabiliz hurrengo helbideko fitxategia deskaragatu:</p>
+<ul>
+<li>curl interneteko gauzak deskargatzeko balio du, helbide bat emonez. Chrome deskargatzen dugun modual esteka bati klikatuz, berdina. Webguneak era deskargatzen dira, ikusi froga bezala <code>curl wwww.google.es</code>  zer gertatzen den, google webgunea itzultzen duela erantzun moduan.</li>
+</ul>
+<pre><code class="language-bash">curl -O https://blackarch.org/strap.sh &gt; strap.sh
+</code></pre>
+<p><code>strap.sh</code> bash script bat da, exekuta dezakeguna, baina lehenengo exekuzio baimenak heman beharko dizikogu.</p>
+<pre><code class="language-bash"><span class="hljs-built_in">chmod</span> +x strap.sh
+</code></pre>
+<p>Exekutatu</p>
+<pre><code class="language-bash">./strap.sh
+</code></pre>
+<p>Prozesua bukatzen duenean, <code>pacman -Sy</code> agindua erabiltzen badugu, ikuskiko da nola blackarch repositorioak pacman-ren repositorio zerrendan agertuko direla.</p>
+<h2 id="erabiltzaile-interfaze-grafikoa-️">Erabiltzaile interfaze grafikoa 👱‍♂️</h2>
+<p>Intefaze grafiorako paketeak deskargatuko ditugu lehenik eta behi.</p>
+<p>⚠️ Adi deskarga nahiko pisutzuak izango direla.
+⚠️ Hasi baino lehen Snapshot bat egin makin birtualarena</p>
+<pre><code class="language-bash">pacman -S xorg xorg-server
+</code></pre>
+<pre><code class="language-bash">pacman -S gnome
+</code></pre>
+<p>Lehen egin genuen bezala, interfaze grafikoko serbitzuak piztu eta ahalbidetuko ditugu <code>systemctl start</code> eta <code>systemctl enable</code></p>
+<pre><code class="language-bash">systemctl start gdm.service
+</code></pre>
+<p>Hau egin eta gero interfazea zalbadu beharko litzateke.</p>
+<ol>
+<li>Logeatu</li>
+<li>zabaldu terminal bat, zabaltzen ez bada egin <code>Ctrl + Alt + F2</code> terminal birtual bat zabaltzeko.</li>
+</ol>
+<pre><code class="language-bash">systemctl <span class="hljs-built_in">enable</span> gdm.service
+</code></pre>
+<p>Izan daiteke interfaze grafikoa ondo ez ikustea oraindik. Saiatu huerrengo aginduaren bidez sistemaren paketeak eguneratzen eta berrebiarazi.</p>
+<pre><code class="language-bash">pacman -Syu
+reboot
+</code></pre>
+<h2 id=""></h2>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

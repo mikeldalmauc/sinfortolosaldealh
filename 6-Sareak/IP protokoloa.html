@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>IP protokoloa</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="ip-protokoloa">IP protokoloa</h1>
+<ul>
+<li><a href="#ip-protokoloa">IP protokoloa</a>
+<ul>
+<li><a href="#ip-helbideak">IP helbideak</a></li>
+<li><a href="#sare-motak">Sare motak</a></li>
+<li><a href="#routerra">Routerra</a></li>
+<li><a href="#ip-protokoloa-1">IP protokoloa</a></li>
+<li><a href="#gatewaya">Gatewaya</a></li>
+<li><a href="#bideratze-taula">Bideratze taula</a></li>
+</ul>
+</li>
+<li><a href="#adibidea">Adibidea</a></li>
+<li><a href="#ariketak">Ariketak</a>
+<ul>
+<li><a href="#1-ariketa">1. Ariketa</a></li>
+<li><a href="#2-ariketa">2. Ariketa</a></li>
+<li><a href="#3-ariketa">3. Ariketa</a></li>
+<li><a href="#4-ariketa">4. Ariketa</a></li>
+<li><a href="#5-ariketa">5. Ariketa</a></li>
+<li><a href="#6-ariketa">6. Ariketa</a></li>
+<li><a href="#7-ariketa">7. Ariketa</a></li>
+<li><a href="#8-ariketa">8. Ariketa</a></li>
+<li><a href="#9-ariketa">9. Ariketa</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ip-helbideak">IP helbideak</h2>
+<p>Hurrengo komandoak ip <em>inet</em> 172.17.0.2 erakusten du, eta Interneteko protokoloa erabiltzen duen sare batean ekipoa identifikatzen duen ip pribatua da.</p>
+<p><img src="irudiak\Pasted%20image%2020231211222029.png" alt="Alt text"></p>
+<h2 id="sare-motak">Sare motak</h2>
+<p>Hurrengo irudian, lau ordenagailu , switch bat eta router bat dituen sare bat ikusiko dugu. Lau ordenagailuek antzeko IPak dituzte, guztiek dute amankomunean <code>192.168.3</code>. Beraz, sarea <code>192.168.3.0/24</code> da.</p>
+<p>Sareko IDa <code>192.168.3.0</code> izango litzateke eta broacast helbidea <code>192.168.3.255</code>. Hau da, sareko maskaran zerora dauden bit guztia (ip-an alda daitezken bitan, kasu honetan azken zortziak, maskara 255.255.255.0 baita) zerora dauzkanean ID-a izango da eta batera daudenean, broadcast helbide. Beste guztiak, dakizuenez, host erabilgarriak izango dira.</p>
+<p><img src="image.png" alt="alt text"></p>
+<table>
+<thead>
+<tr>
+<th>Sare Helbidea</th>
+<th>Broadcast Helbidea</th>
+<th>Host baten helbidea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.3.0/24</td>
+<td>192.168.3.255</td>
+<td>192.168.3.77</td>
+</tr>
+</tbody>
+</table>
+<h2 id="routerra">Routerra</h2>
+<p>Orain ordenagailu berri bat gehituko dugu Interneten <code>beste aldean</code></p>
+<p><img src="image-1.png" alt="alt text"></p>
+<p>Ordenatu berri horrek <code>192.168.4.123</code> IPa du. Badakigu sarea C motakoa zela, beraz, sarearen helbidea <code>192.168.4.0/24</code> da. Routerrak <code>192.168.4.56</code> helbidea du.</p>
+<p>Baina router bakoitzak 2 IP dituela ikus dezakegu, hau da, bi sare desberdinetara konektatuta dagoelako eta sare bakoitzean IP desberdinak dituelako. Sare-interfazeak izeneko bi sare-txartel ere izan behar ditu.</p>
+<ul>
+<li><strong>A Routerra</strong> (ezkerrekoa)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>IP</strong></th>
+<th><strong>Mascara</strong></th>
+<th><strong>Interfaz de red</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.3.34</td>
+<td>255.255.255.0</td>
+<td>eth0</td>
+</tr>
+<tr>
+<td>3.239.54.197</td>
+<td>255.255.255.0</td>
+<td>eth1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>B Routerra</strong> (eskumakoa)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>IP</strong></th>
+<th><strong>Mascara</strong></th>
+<th><strong>Interfaz de red</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>67.45.67.3</td>
+<td>255.255.255.0</td>
+<td>eth0</td>
+</tr>
+<tr>
+<td>192.168.4.56</td>
+<td>255.255.255.0</td>
+<td>eth1</td>
+</tr>
+</tbody>
+</table>
+<p>Linuxen <code>ifconfig</code> komandoa erabiliz, ditugun sare-interfaze guztiak ikusi ahal izango ditugu. Hala ere, orain <code>enp2s0</code> deitzen zaie, <code>eth0</code> deitu beharrean. Izena zergatik aldatu den jakiteko, <a href="https://juncotic.com/eth0-enp0s3-nombres-interfaces-red-linux/">ikus hurrengo esteka</a>. Baita <a href="https://hardlimit.com/por-que-han-cambiado-el-nombre-de-las-interfaces-de-red/">Linuxeko sare-interfazeen izenak eta zergatik aldatu dute sareko interfazeen izena Linuxen</a></p>
+<p><img src="irudiak\Pasted%20image%2020231211221636.png" alt="Alt text"></p>
+<p>Gogora dezagun une batez Ethernet zertan ari zen. Ethernet Kable batekin zuzenean konektatuta dauden bi ordenagailu (edo Hosts ere deituak) komunikatzeko aukera ematen zuen. Gogoratu Switch batek ordenagailuak zuzenean konektatzen dituela (enchufe elektrikoen erregeleta bat bezala da)</p>
+<p>Orduan, ethernet bidez ezin da zuzenean komunikatu <code>192.168.3.123</code> host-a <code>192.168.4.123</code> host-arekin, fisikoki sare desberdinetan baitaude. Nola bidaltzen da informazioa orduan? Routerren bidez. Esan dezakegu router batek bi sare desberdin konektatzen dituela.</p>
+<p>Nola dakigu bi ordenagailu sare desberdinetan daudela? Zure sareko helbidea desberdina delako. Kalkulua egiteko, sare-helbidea eta sare-maskara erabili behar dira.</p>
+<h2 id="ip-protokoloa-1">IP protokoloa</h2>
+<p>IP protokoloa routerrek eta ordenagailuek duten softwarea besterik ez da, Interneteko ordenagailu batetik bestera informazioa bidaltzeko aukera ematen duena, zuzenean konektatuta egon gabe. Etherneten zerbait bidaltzen genuen bakoitzean Ethernet paketeen bidez egiten bazen, IP protokoloan <strong>Datagramak</strong> bidaltzen ditugu. <a href="http://es.wikipedia.org/wiki/Internet_Protocol">IP protokoloa</a></p>
+<p>Ikus dezagun informazioa duen datagrama bat bidaltzeko erabiltzen den algoritmoa.</p>
+<ol>
+<li>Gure IParen (jatorrizko IP) eta datuak bidali nahi dizkiogun IParen (helmugako IP) arabera, sare berean dauden egiaztatuko dugu.
+<ol>
+<li>Sare berean badaude, zuzenean bidaltzen dira</li>
+<li>Sare berean ez badaude, routerrera bidaltzen dira (Gateway edo puerta de enlace deritzona).</li>
+</ol>
+</li>
+<li>Routerrera iritsitakoan, begiratu datagramaren helmuga IPa.
+<ol>
+<li>IPa sare berean badago, zuzenean bidaliko da</li>
+<li>Helburuko IP sare berean <strong>EZ</strong> badago, begiratu bideratze-taulan zer routerretara bidali, datagrama birbidali eta 2. urratsera itzuliko gara</li>
+<li>Bideratze-taularen arabera datagrama emateko routerrik ez badago, datagrama hori galduko da</li>
+</ol>
+</li>
+</ol>
+<p><img src="image-2.png" alt="alt text"></p>
+<p>Irudia et azaldutako protokoloa jarraitzu, irudian sarea osatzen duten router guztiak erakusten dira.</p>
+<p>Ikus dezagun nola bidaltzen den datagrama bat <code>192.168.3.25</code> ordenagailutik <code>192.168.4.123</code> ordenagailura.</p>
+<ol>
+<li>Ordenagailuak ikusten du datuak beste sare bateko ordenagailu batera doazela, eta, beraz, Gatewayra bidaltzen du, hau da, A routerrera (192.168.3.34).</li>
+<li>A routerrak datagrama bere sareko ordenagailu batentzat ere ez dela egiaztatzen du, eta, bideratze-taularen arabera, D routerrera bidaltzen du (3.239.54.45)</li>
+<li>D routerrak datagrama bere sareko ordenagailu batentzat ere ez dela egiaztatzen du, eta, bideratze-taularen arabera, B routerrera bidaltzen du (67.45.67.3)</li>
+<li>B routerrak datagrama bere sareko ordenagailu batentzat dela egiaztatzen du, beraz, zuzenean 192.168.4.123 IPra bidaltzen du</li>
+</ol>
+<h2 id="gatewaya">Gatewaya</h2>
+<p>Pasabidea (Puerta de enlace edo Gateway ere esaten zaio) datagramak bidaltzeko defektuzko routerraren IPa baino ez da.</p>
+<p>Ikus dezagun orain ordenagailu batzuen lotura-atea</p>
+<table>
+<thead>
+<tr>
+<th><strong>IP Ordenador</strong></th>
+<th><strong>IP Puerta de enlace</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.3.215</td>
+<td>192.168.3.24</td>
+</tr>
+<tr>
+<td>7.8.9.1</td>
+<td>7.8.9.2</td>
+</tr>
+<tr>
+<td>192.168.4.123</td>
+<td>192.168.4.56</td>
+</tr>
+</tbody>
+</table>
+<p><em>❕ Adi nola, gateway Ipa beti ordenagailuaren sare berdinean dagoela.</em></p>
+<h2 id="bideratze-taula">Bideratze taula</h2>
+<p>Bideratze taula batek solik ezartzen du zein Routerrera bidali behar den ip bakoitza.</p>
+<ul>
+<li><strong>Router A</strong>-re bideratze taula</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Helmuga</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.3.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td>Sare berdineko helbideak 192.168.3.0/24</td>
+</tr>
+<tr>
+<td>3.239.54.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth1</td>
+<td>Sare berdineko helbideak 3.239.54.0/24</td>
+</tr>
+<tr>
+<td>51.13.45.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth2</td>
+<td>Sare berdineko helbideak 51.13.45.0/24</td>
+</tr>
+<tr>
+<td>109.56.45.0</td>
+<td>255.255.255.0</td>
+<td>3.239.54.45</td>
+<td>eth1</td>
+<td>eth1-tik D routerrera bidaltzen du 109.56.45.0/24 sarerako denean</td>
+</tr>
+<tr>
+<td>7.8.9.0</td>
+<td>255.255.255.0</td>
+<td>3.239.54.45</td>
+<td>eth1</td>
+<td>eth1-tik D routerrera bidaltzen du 7.8.9.0/24 sarerako denean</td>
+</tr>
+<tr>
+<td>67.45.67.0</td>
+<td>255.255.255.0</td>
+<td>3.239.54.45</td>
+<td>eth1</td>
+<td>eth1-tik D routerrera bidaltzen du 67.45.67.0/24 sarerako denean</td>
+</tr>
+<tr>
+<td>192.168.4.56</td>
+<td>255.255.255.0</td>
+<td>3.239.54.45</td>
+<td>eth1</td>
+<td>eth1-tik D routerrera bidaltzen du 192.168.4.56/24 sarerako denean</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>51.13.45.91</td>
+<td>eth2</td>
+<td>Nora bidali ez dakienena, eth2 interfazetik E routerrera bidaltzen defektuzkoa baita</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Router B</strong>-re bideratze taula</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Helmuga</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.4.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth1</td>
+<td>Bera sare berdineko helbideetara 192.168.4.0/24</td>
+</tr>
+<tr>
+<td>67.45.67.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td>Bera sare berdineko helbideetara 67.45.67.0/24</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>67.45.67.4</td>
+<td>eth0</td>
+<td>Nora bidali ez dakienena, eth0 interfazetik D routerrera bidaltzen defektuzkoa baita</td>
+</tr>
+</tbody>
+</table>
+<p>Zure linuxean proba dezakezu route `-n komandoarekin eta zure bideratze-taula ikusiko duzu. Ikusiko duzunez, routerrena baino sinpleagoa dela.</p>
+<p><img src="image-3.png" alt="alt text"></p>
+<p>Etxean ditugunetako router baten bideratze-taula ere ikus dezakegu:</p>
+<p><img src="image-4.png" alt="alt text"></p>
+<p>Adibide komplexuago bat horrelakoa izan daiteke:</p>
+<p><img src="image-5.png" alt="alt text"></p>
+<p>Azkenik, ikus dezagun Internet benetan nola ikusten den erakusten duen argazki bat <a href="https://logongas.es/lib/exe/fetch.php?cache=&amp;w=900&amp;h=900&amp;tok=ad8543&amp;media=clase:daw:si:3eval:internet_map_1024.jpg">klikatu hemen, hobeto ikusteko</a>:</p>
+<p><img src="image-6.png" alt="alt text"></p>
+<p><a href="https://www.dailymotion.com/video/x7zz6wq">Nola garatu den internet</a></p>
+<p><a href="https://magnet.xataka.com/un-mundo-fascinante/19-mapas-que-explican-la-geografia-de-internet">Interneten geografia azaltzen duten 19 mapa</a></p>
+<h1 id="adibidea">Adibidea</h1>
+<p><img src="image-7.png" alt="alt text"></p>
+<ul>
+<li>Bi ordenagailu eta routerren datuak</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Izena</th>
+<th>Ordenagailuaren IPa</th>
+<th>Maskara</th>
+<th>Interfazea</th>
+<th>Gateway IPa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ezkerreko ordenagailua</td>
+<td>192.168.3.14</td>
+<td>255.255.255.0</td>
+<td>eth0</td>
+<td>192.168.3.34</td>
+</tr>
+<tr>
+<td>Eskumanko orgenagailua</td>
+<td>192.168.4.123</td>
+<td>255.255.255.0</td>
+<td>eth0</td>
+<td>192.168.4.56</td>
+</tr>
+<tr>
+<td>Router A</td>
+<td>192.168.3.34</td>
+<td>255.255.255.0</td>
+<td>eth0</td>
+<td>56.34.12.1</td>
+</tr>
+<tr>
+<td></td>
+<td>192.168.10.2</td>
+<td>255.255.255.0</td>
+<td>eth1</td>
+<td>56.34.12.1</td>
+</tr>
+<tr>
+<td></td>
+<td>56.34.12.3</td>
+<td>255.255.255.0</td>
+<td>eth2</td>
+<td>56.34.12.1</td>
+</tr>
+<tr>
+<td>Router B</td>
+<td>192.168.10.1</td>
+<td>255.255.255.0</td>
+<td>eth0</td>
+<td>192.168.10.2</td>
+</tr>
+<tr>
+<td></td>
+<td>192.168.4.56</td>
+<td>255.255.255.0</td>
+<td>eth1</td>
+<td>192.168.10.2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ezkerreko ordenagailuaren bideratze taula</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Izena</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.3.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td>Bere sare berdineko helbideak 192.168.3.0/24</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>192.168.3.34</td>
+<td>eth0</td>
+<td>Ez dakienean nora bidali defktuzko routerrera bidaltzen du A</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Eskumanko ordenagailuaren bideratze taula</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Izena</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.4.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td>Bere sare berdineko helbideak 192.168.3.0/24</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>192.168.4.356</td>
+<td>eth0</td>
+<td>Ez dakienean nora bidali defktuzko routerrera bidaltzen du B</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>A</strong> routerraren bideratze taula</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Izena</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.3.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td>Bere sareko helbideak 192.168.3.0/24</td>
+</tr>
+<tr>
+<td>192.168.10.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth1</td>
+<td>Bere sareko helbideak 192.168.10.0/24</td>
+</tr>
+<tr>
+<td>56.34.12.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth2</td>
+<td>Bere sareko helbideak 56.34.12.0/24</td>
+</tr>
+<tr>
+<td>192.168.4.0</td>
+<td>255.255.255.0</td>
+<td>192.168.10.1</td>
+<td>eth1</td>
+<td>192.168.4.0/24 sarearen datuak B router bidez bidaltzen dira</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>56.34.12.1</td>
+<td>eth2</td>
+<td>Non bidali ez dakiten kasuan, C routerrera defektuz</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>B</strong> routerraren bideratze taula</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Izena</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.10.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td>Bere sareko helbideak 192.168.10.0/24</td>
+</tr>
+<tr>
+<td>192.168.4.0</td>
+<td>255.255.255.0</td>
+<td>0.0.0.0</td>
+<td>eth1</td>
+<td>Bere sareko helbideak 192.168.4.0/24</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>192.168.10.2</td>
+<td>eth0</td>
+<td>Non bidali ez dakiten kasuan, A routerrera defektuz</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ariketak">Ariketak</h1>
+<h2 id="1-ariketa">1. Ariketa</h2>
+<p>Etxeko helbidearen IPa, maskara eta IParen klasea (A, B edo C) adierazi:</p>
+<ul>
+<li>IP</li>
+<li>Maskara</li>
+<li>Klasea</li>
+</ul>
+<h2 id="2-ariketa">2. Ariketa</h2>
+<p>Adibideko Router A-ren ezkerrean 3 ordenagailu gehiago gehitu ezkero. Zehaztu zer IP izan daitezkeen.</p>
+<h2 id="3-ariketa">3. Ariketa</h2>
+<p>Bete hurrengo taula:</p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>Klasea (A, B, C edo loopback)</th>
+<th>Sarearen maskara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>134.5.34.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>127.213.56.45</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>214.56.123.87</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16.76.196.55</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-ariketa">4. Ariketa</h2>
+<p>Bete hurrengo taula:</p>
+<table>
+<thead>
+<tr>
+<th>IP eta CIDR</th>
+<th>Sarearen maskara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>134.5.34.5/4</td>
+<td></td>
+</tr>
+<tr>
+<td>127.213.56.45/7</td>
+<td></td>
+</tr>
+<tr>
+<td>214.56.123.87/8</td>
+<td></td>
+</tr>
+<tr>
+<td>16.76.196.55/24</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-ariketa">5. Ariketa</h2>
+<p>Bete hurrengo taula:</p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>Sarearen maskara</th>
+<th>CIDR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>134.5.34.5</td>
+<td>255.0.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>127.213.56.45</td>
+<td>255.0.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>214.56.123.87</td>
+<td>255.255.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>16.76.196.55</td>
+<td>255.255.255.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-ariketa">6. Ariketa</h2>
+<p>Bete hurrengo taula:</p>
+<table>
+<thead>
+<tr>
+<th>Sarearen Helbidea</th>
+<th>Broadcast Helbidea</th>
+<th>Host baten Helbidea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>137.56.21.4</td>
+</tr>
+<tr>
+<td></td>
+<td>210.5.234.255</td>
+<td></td>
+</tr>
+<tr>
+<td>8.0.0.0/8</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-ariketa">7. Ariketa</h2>
+<p>Bete hurrengo taula:</p>
+<table>
+<thead>
+<tr>
+<th>Sarearen Helbidea</th>
+<th>1º IP Helbidea</th>
+<th>Azken IP Helbidea</th>
+<th>Host kopuru Maximoa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34.67.45.0/24</td>
+<td>34.67.45.1</td>
+<td>34.67.45.254</td>
+<td>254</td>
+</tr>
+<tr>
+<td>123.65.87.0/24</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6.76.0.0/16</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>56.34.0.0/16</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>78.0.0.0/8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-ariketa">8. Ariketa</h2>
+<p>Hurrengo diagrama erabiliz, hurrengo taulak bete:</p>
+<p><img src="image-8.png" alt="alt text"></p>
+<table>
+<thead>
+<tr>
+<th>IP Ordenagailua</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>255.255.255.0</td>
+<td>192.168.3.34</td>
+</tr>
+<tr>
+<td>192.168.3.14</td>
+<td>255.255.255.0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Router A-ren bideratze taula. Betetzeko hainbat lerro daude</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Helburua</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>255.255.255.0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Router B-ren bideratze taula. Betetzeko hainbat lerro daude eta eskumako sareak kontuan hartu behar dira</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Helburua</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>255.255.255.0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Router C-ren bideratze taula. Betetzeko hainbat lerro daude eta sare guztiak kontuan hartu behar dira</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Helburua</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>255.255.255.0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-ariketa">9. Ariketa</h2>
+<p><a href="https://www.yworks.com/products/yed/download#download">Ed Graph</a> tresna erabiliz, hurrengo sare diagrama sortu:</p>
+<ol>
+<li>Gutxienez 10 ordenagailu, 3 router eta Interneta izan behar du.</li>
+<li>Azaldu:
+<ul>
+<li>Ordenagailuen eta Router-en IPak, maskarak eta gatewayak</li>
+<li>Ordenagailuen eta Router-en bideratze taulak</li>
+<li>Datagrama bat ordenagailu batetik bestera nola joango den adibide bat jarri</li>
+</ul>
+</li>
+</ol>
+
+            
+            
+        </body>
+        </html>

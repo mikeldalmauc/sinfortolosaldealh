@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Subnetting</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="subnetting">Subnetting</h1>
+<ul>
+<li><a href="#subnetting">Subnetting</a>
+<ul>
+<li><a href="#maskara">Maskara</a></li>
+</ul>
+</li>
+<li><a href="#cdir-eta-host-kopuruaren-kalkulua">CDIR eta Host kopuruaren kalkulua</a>
+<ul>
+<li><a href="#maskara-klaseak">Maskara klaseak</a></li>
+<li><a href="#ariketak">Ariketak</a></li>
+<li><a href="#kalkulo-aritmetikoa-network-id-eta-broadcast-addressa-kalkulatzeko">Kalkulo aritmetikoa Network ID eta Broadcast Addressa Kalkulatzeko</a>
+<ul>
+<li><a href="#and-eragiketa-ip-eta-maskararen-artean">AND eragiketa Ip eta maskararen artean</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="maskara">Maskara</h2>
+<p><code>ifconfig</code> Agindua erabiltzen badugu, gure sarearen maskara ikus dezakegu <code>netmask 255.255.0.0</code> nere kasuan.</p>
+<p>Atakante bezela, maskara honek, sarearen egitura ezagutzen lagunduko digu. Informazio hau erabilgarria izango zaigu analisi fasean, sarea nola eskaneatzeko adibidez.</p>
+<p><em>Subnetting : Sare haundi bat, zenbait sare txikitan banatzean datza</em>. <em>Hau kontuz eta planifikazioz egin behar da IPV4 helbideak ez desapobetzatzeko, gogoratu zein gutxi onartzen dituen protokoloak</em></p>
+<hr>
+<p>Sortuko dugu excel fitxategi bat maskararen ezaugarriak eta motak hobetu ulertzeko.</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1XHKRUXkgOZAOelCKutF83DzA1dnqxUMUTOmSTZSgDVo/edit?usp=sharing">Ikusi excela</a></p>
+<ol>
+<li>Lehenik, 8 posizioko zenbaki bitar ba irudikatuko dugu balioak jarriz, eta goian posizioaren pisua.</li>
+</ol>
+<p><img src="..\Images\Pasted%20image%2020231221124205.png" alt="Alt text"></p>
+<ol>
+<li>Hurrengo kalkulua sistema bitarretik hamartarrera pasatzeko balio digu, hau da posizioaren balioa 0/1 biderkatuz posizioaren pisuaz.</li>
+</ol>
+<p><img src="..\Images\Pasted%20image%2020231221124348.png" alt="Alt text"></p>
+<p><img src="..\Images\Pasted%20image%2020231221124403.png" alt="Alt text"></p>
+<ol>
+<li>Taulari formatoa ezarriz, eta taula hau lau aldiz errepikatuz, gure maskara irudika dezakegu:</li>
+</ol>
+<p><img src="..\Images\Pasted%20image%2020231221125101.png" alt="Alt text"></p>
+<hr>
+<h1 id="cdir-eta-host-kopuruaren-kalkulua">CDIR eta Host kopuruaren kalkulua</h1>
+<p><img src="..\Images\Pasted%20image%2020231221130840.png" alt="Alt text"></p>
+<ol>
+<li>
+<p>CIDR: Izendapen estandar bat da, gura maskarern 1 zenbakien kopuruaren araberakoa, kalkulatzeko
+<img src="..\Images\Pasted%20image%2020231221131002.png" alt="Alt text"></p>
+</li>
+<li>
+<p>Host kopurua, maskara bat aplikatuta, libre daduden helbide guztiak izango dira. Hauda da, zero kopurua kontatu eta 2^(zero kopurua)</p>
+</li>
+</ol>
+<p><img src="..\Images\Pasted%20image%2020231221131135.png" alt="Alt text"></p>
+<p><img src="..\Images\Pasted%20image%2020231221131152.png" alt="Alt text"></p>
+<hr>
+<h2 id="maskara-klaseak">Maskara klaseak</h2>
+<p>Sortu tab berri bat eta hurrengo taula eraiki:</p>
+<p><img src="..\Images\Pasted%20image%2020231221133115.png" alt="Alt text"></p>
+<p><img src="..\Images\Pasted%20image%2020231222093449.png" alt="Alt text"></p>
+<p><img src="..\Images\Pasted%20image%2020231222093428.png" alt="Alt text"></p>
+<hr>
+<h2 id="ariketak">Ariketak</h2>
+<p>Oharra: Eskuragarri dauden IP helbideen artean, lehen eta azkenengoa ez ditugu kontuan izango.</p>
+<ul>
+<li>Lehen IP helbidea, network Id izena du</li>
+<li>Azken IP helbidea broadcast address izena du</li>
+</ul>
+<p>kalkulatu hurrengo sare configuraziona zenbat ip izango diren eskura.</p>
+<ul>
+<li>192.168.0.1/26</li>
+<li>10.10.0.0/24</li>
+<li>10.10.1.15/23</li>
+<li>192.168.112.165/25</li>
+<li>192.168.1.0/23</li>
+<li>192.168.2.0/23</li>
+<li>192.168.3.0/23</li>
+<li>10.10.13.124/19</li>
+<li>10.10.38.12/19</li>
+<li>13.13.13.13/13</li>
+</ul>
+<hr>
+<p><a href="https://www.ipaddressguide.com/cidr">ip address-guide cidr calc</a></p>
+<p><img src="..\Images\Pasted%20image%2020231222094358.png" alt="Alt text"></p>
+<hr>
+<h2 id="kalkulo-aritmetikoa-network-id-eta-broadcast-addressa-kalkulatzeko">Kalkulo aritmetikoa Network ID eta Broadcast Addressa Kalkulatzeko</h2>
+<ul>
+<li>172.14.15.16/17</li>
+</ul>
+<pre><code class="language-bash">&gt; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;obase=2;172&quot;</span> | bc
+10101100
+&gt; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;obase=2;14&quot;</span> | bc
+1110
+&gt; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;obase=2;15&quot;</span> | bc
+1111
+&gt; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;obase=2;16&quot;</span> | bc
+10000
+</code></pre>
+<ul>
+<li>10101100.00001110.00001111.00010000 (172.14.15.16)</li>
+</ul>
+<pre><code class="language-bash">&gt; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ibase=2;10000000&quot;</span> | bc
+128
+</code></pre>
+<ul>
+<li>11111111.11111111.10000000.00000000 (255.255.128.0)</li>
+</ul>
+<h3 id="and-eragiketa-ip-eta-maskararen-artean">AND eragiketa Ip eta maskararen artean</h3>
+<ul>
+<li>10101100.00001110.00001111.00010000</li>
+<li>11111111.11111111.10000000.00000000</li>
+</ul>
+<hr>
+<ul>
+<li>10101100.00001110.00000000.00000000 [AND] (172.14.0.0 - Network ID)</li>
+<li>10101100.00001110.01111111.11111111 (172.14.127.255 - Broadcast Address)</li>
+</ul>
+<p>webgune hau kalkuloen azalpenak ematen ditu:
+<a href="https://jodies.de/ipcalc">Ip calc, blog jodies</a></p>
+
+            
+            
+        </body>
+        </html>

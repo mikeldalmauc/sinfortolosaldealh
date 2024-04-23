@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Webguneen segurtasuna aztertzen</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="webguneen-segurtasuna-aztertzen">Webguneen segurtasuna aztertzen</h1>
+<ul>
+<li><a href="#webguneen-segurtasuna-aztertzen">Webguneen segurtasuna aztertzen</a>
+<ul>
+<li><a href="#webgune-baten-teknologiak-identifikatzen">Webgune baten teknologiak identifikatzen</a></li>
+</ul>
+</li>
+<li><a href="#fuzzying-eta-webguneen-fitxategi-bilaketa">Fuzzying eta webguneen fitxategi bilaketa</a>
+<ul>
+<li><a href="#gobuster-instalatu">Gobuster instalatu</a></li>
+<li><a href="#go-instalatu">Go instalatu</a></li>
+<li><a href="#gobuster-erabili">Gobuster erabili</a>
+<ul>
+<li><a href="#deskargatu-seclist-usrshare-karpetan">Deskargatu seclist /usr/share karpetan</a></li>
+</ul>
+</li>
+<li><a href="#wfuzz-trensa-erabiltzen">WFUZZ trensa erabiltzen</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="webgune-baten-teknologiak-identifikatzen">Webgune baten teknologiak identifikatzen</h2>
+<p>Segurtasunaren ikuspegitik, funtsezkoa da web orri batean erabiltzen diren teknologiak eta tresnak ezagutzea. Teknologia horiek identifikatzeak aukera ematen die segurtasuneko adituei webgune baten arrisku potentzialak ebaluatzeko, urrakortasunak identifikatzeko eta informazio sentikorra eta datu kritikoak babesteko estrategia eraginkorrak diseinatzeko.</p>
+<p>Lineako hainbat tresna eta utilitate daude web orri batean erabiltzen diren teknologiak identifikatzeko. Tresna ezagunenetako batzuk Whatweb, Wappalyzer eta <a href="http://builtwith.com">builtwith.com</a> dira. Tresna horiek web-orria eskaneatzen dute, eta erabilitako teknologiei buruzko informazio zehatza ematen dute, hala nola programazio-lengoaiari, web-zerbitzariari eta edukia kudeatzeko sistemei buruzkoa, besteak beste.</p>
+<p>Whatweb tresna urrakortasunak aztertzeko erabilgarritasun bat da, web-orria eskaneatzen duena eta erabilitako teknologiei buruzko informazio zehatza ematen duena. Tresna hori erabil daiteke, halaber, web-orrian egon daitezkeen ahulguneak eta ahulguneak identifikatzeko.</p>
+<p>Wappalyzer, bestalde, web orrian erabiltzen diren teknologiak detektatu eta erakusten dituen nabigatzailearen luzapena da. Tresna hau bereziki erabilgarria da web-orri batean erabilitako teknologiak berehala identifikatu nahi dituzten segurtasuneko adituentzat, eskaneatze osoa egin behar izan gabe.</p>
+<p><a href="http://Builtwith.com">Builtwith.com</a> web-orri batean erabiltzen diren teknologiak identifikatzeko aukera ematen duen lineako tresna bat da. Tresna honek erabilitako teknologiei buruzko informazio zehatza ematen du, baita estatistika erabilgarriak ere, hala nola trafikoa eta webgunearen ospea.</p>
+<p>Ikusitako tresnak:</p>
+<ul>
+<li><a href="https://github.com/urbanadventurer/WhatWeb">Whatweb</a></li>
+<li><a href="https://addons.mozilla.org/es/firefox/addon/wappalyzer/">Wappalyzer</a></li>
+<li><a href="https://builtwith.com/">Builtwith</a></li>
+</ul>
+<h1 id="fuzzying-eta-webguneen-fitxategi-bilaketa">Fuzzying eta webguneen fitxategi bilaketa</h1>
+<hr>
+<p>Klase honetan, Wfuzz eta Gobuster tresnak erabiltzen ditugu Fuzzing aplikatzeko. Teknika hau web zerbitzari batean ezkutatuta dauden ibilbideak eta baliabideak aurkitzeko erabiltzen da, indar gordineko erasoen bidez. Asmo txarreko erasotzaileek zerbitzarira baimenik gabe sartzeko erabil ditzaketen ezkutuko baliabideak aurkitzea da helburua.</p>
+<p>Wfuzz edukia deskubritzeko tresna bat eta datuak injektatzeko tresna bat da. Funtsean, web aplikazioetako kalteberatasunak probatzeko prozesuak automatizatzeko erabiltzen da.</p>
+<p>Web aplikazio baten parametroetan eta direktorioetan indar gordineko erasoak egiteko aukera ematen du, dauden baliabideak identifikatzeko. Wfuzzen abantailetako bat da oso pertsonalizagarria dela eta hainbat proba-beharretara egokitu daitekeela. Wfuzzen desabantailetako batzuk bere komandoen sintaxia ulertzeko beharra dute, eta mantsoagoa izan daiteke edukia aurkitzeko beste tresna batzuekin alderatuta.</p>
+<p>Bestalde, Gobuster edukia aurkitzeko tresna bat da, web-aplikazio batean ezkutuko fitxategiak eta direktorioak bilatzeko ere erabiltzen dena. Wfuzz bezala, Gobuster indar gordineko erasoetan oinarritzen da ezkutuko fitxategi eta direktorioak aurkitzeko. Gobusterren abantaila nagusietako bat abiadura da, ezaguna baita edukia aurkitzeko tresna azkarrenetako bat delako. Erabilerraza ere bada eta sintaxia sinplea da. Hala ere, Gobusterren desabantaila bat da agian ez dela Wfuzz bezain pertsonalizagarria.</p>
+<p>Laburbilduz, Wfuzz eta Gobuster web-aplikazioetan kalteberatasun-probak egiteko tresna erabilgarriak dira, baina ikuspegian eta ezaugarrietan desberdintasunak dituzte. Bata edo bestea aukeratzea zure beharren eta lehentasun pertsonalen araberakoa izango da.</p>
+<p>Jarraian, tresna hauetarako esteka emango dizugu:</p>
+<ul>
+<li><a href="https://github.com/xmendez/wfuzz">Wfuzz</a></li>
+<li><a href="https://github.com/OJ/gobuster">Gobuster</a></li>
+</ul>
+<h2 id="gobuster-instalatu">Gobuster instalatu</h2>
+<ol>
+<li>
+<p>Klonatu repositorioa /opt karpetan <a href="https://github.com/OJ/gobuster">Gobuster</a>.</p>
+</li>
+<li>
+<p>Konpilatu proiektua, gobuster karpeta barruan</p>
+</li>
+</ol>
+<pre><code class="language-bash">go build .
+</code></pre>
+<h2 id="go-instalatu">Go instalatu</h2>
+<ol start="2">
+<li>Instalatu go lenguaia konpilatzailea
+<ol>
+<li>Deskargatu tarball <a href="https://go.dev/dl/go1.21.6.linux-amd64.tar.gz">https://go.dev/dl/go1.21.6.linux-amd64.tar.gz</a></li>
+</ol>
+</li>
+</ol>
+<pre><code class="language-bash">curl -OL https://golang.org/dl/go1.21.6.linux-amd64.tar.gz
+</code></pre>
+<ol start="3">
+<li>Deskonprimitu paketea</li>
+</ol>
+<pre><code class="language-bash">tar -C /usr/local -xvf go1.21.6.linux-amd64.tar.gz
+</code></pre>
+<ol start="4">
+<li>Go routa ezarri</li>
+</ol>
+<pre><code class="language-bash">nano ~/.profile
+</code></pre>
+<p>Gehitu linea hau fitxategira</p>
+<pre><code class="language-bash"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/local/go/bin
+</code></pre>
+<ol start="5">
+<li>Refresh profila</li>
+</ol>
+<pre><code class="language-bash"><span class="hljs-built_in">source</span> ~/.profile
+</code></pre>
+<ol start="6">
+<li>Ziurtatu bertsio <code>go version</code> idatziz</li>
+</ol>
+<h2 id="gobuster-erabili">Gobuster erabili</h2>
+<pre><code class="language-bash">.\gobuster <span class="hljs-built_in">dir</span> -u  [weguneare helbidea] -w [seclist ruta] -t 200
+</code></pre>
+<ul>
+<li><a href="https://tolosaldea.hezkuntza.net/">https://tolosaldea.hezkuntza.net/</a></li>
+<li>/usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt</li>
+</ul>
+<pre><code class="language-bash">.\gobuster <span class="hljs-built_in">dir</span> -u https://tolosaldea.hezkuntza.net/ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 200
+
+</code></pre>
+<p>Irteera gorde.</p>
+<pre><code class="language-bash"> ./gobuster <span class="hljs-built_in">dir</span> -u https://ikasgela.tolosaldealh.eus/ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 200 -b 403,404 --no-error &gt; /root/scan-output/analisisIkasgela.txt
+</code></pre>
+<pre><code class="language-bash">-b 403,404
+</code></pre>
+<h3 id="deskargatu-seclist-usrshare-karpetan">Deskargatu seclist /usr/share karpetan</h3>
+<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/danielmiessler/SecLists
+</code></pre>
+<h2 id="wfuzz-trensa-erabiltzen">WFUZZ trensa erabiltzen</h2>
+<p>Instalatu tresna</p>
+<pre><code class="language-bash">apt install wfuzz
+</code></pre>
+<p>Adibide agindu bat</p>
+<pre><code class="language-bash">wfuzz -c --hc=404,403 -t 200 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt https://miwifi.com/FUZZ/
+</code></pre>
+<p>Parametro batzuk:</p>
+<pre><code class="language-bash"><span class="hljs-comment"># Show line</span>
+--sl=216
+
+<span class="hljs-comment"># Hide line</span>
+--hl=216
+
+<span class="hljs-comment"># Bi paiload eribiliz bata, hitzekin rutarako eta beztea zerrenda bat fitxategi extensioekin</span>
+
+wfuzz -c --hc=404,403 -t 200 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,html-txt-php https://miwifi.com/FUZZ.FUZ2Z
+
+
+<span class="hljs-comment"># Rangoak erabiltzen adibidez produktu ideak identfikatzeko</span>
+
+wfuzz -c -t 200 -z range,1-20000 <span class="hljs-string">&#x27;https://www.mi.com/shop/buy/detail?product_id=FUZZ&#x27;</span>
+</code></pre>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
