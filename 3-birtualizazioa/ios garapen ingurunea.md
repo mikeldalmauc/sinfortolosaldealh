@@ -2,6 +2,7 @@
 
 - [IOS garapen ingurunea](#ios-garapen-ingurunea)
   - [Irudia deskargatu eta sistema eragilea birtualizatu](#irudia-deskargatu-eta-sistema-eragilea-birtualizatu)
+  - [Garapen Ingurunea VMWare erabiliz](#garapen-ingurunea-vmware-erabiliz)
   - [Garapen ingurunea prestatzea eta lehen aplikazioa sortzea](#garapen-ingurunea-prestatzea-eta-lehen-aplikazioa-sortzea)
 
 ## Irudia deskargatu eta sistema eragilea birtualizatu
@@ -15,6 +16,13 @@ Helburua, hurrengo gida edo besteren bat erabiliz, adibidez vmware erabiliz, son
 - [macos sonoma official](https://apps.apple.com/us/app/macos-sonoma/id6450717509)
 - [macos sonoma Google Drive](https://drive.google.com/file/d/1ssyiaXZWBQwdOChTB5b9ABvtwreSbPHk/view?usp=sharing)
 
+## Garapen Ingurunea VMWare erabiliz
+1. VMWare instalatu [VM ware instalatu](https://www.vmware.com/)
+
+2. Hurrengo tresna erabili, vmwareri aldaketa batzuk egiteko eta ios birtualizatzeko gai izateko.
+  3. Unlocker 3 is designed for VMware Workstation 11-15 and Player 7-15.
+
+https://github.com/paolo-projects/auto-unlocker
 
 ## Garapen ingurunea prestatzea eta lehen aplikazioa sortzea
 
