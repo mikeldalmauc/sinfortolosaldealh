@@ -34,7 +34,7 @@ Azterketako ingurunea `docker-compose.yml` fitxategi baten aurkituko duzue karpe
 
 1. Aztertu sarea nmap erabiliz, zehaztu ip-a, maskara eta CIDR-a, erakutsi nmap-en ireteera.
 
-2. Egin taula bat aurkituta host, portuak, protokoloak, portuen egoera eta serbitzuak azalduz.
+2. Egin taula bat aurkitutako host, portuak, protokoloak, portuen egoera eta serbitzuak azalduz.
 
 ## 2. Ariketa
 

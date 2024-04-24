@@ -10,6 +10,21 @@
 ## Nola ebaluatuko da
 
 
+| Kontzeptua          | Puntuak  |
+|-------------------- |-------- |
+| Ariketa 1.1         | 2     |
+| Ariketa 1.2         | 1     |
+| Ariketa 2.1         | 2     |
+| Ariketa 2.2         | 1     |
+| Ariketa 3.1         | 1     |
+| Ariketa 3.1         | 2     |
+| Zuzentazuna eta dokumentazioaren formatua*    | 1  | 
+
+**Kodea bash sintaxi highlightinarekin eta kopiatu ahal izan behar da.*
+**Izneburua, aurkibidea, etb*
+
+Azterketa ikasgelara igoko da.
+
 ## Ingurunea prestatu
 
 Azterketako ingurunea `docker-compose.yml` fitxategi baten aurkituko duzue karpeta honetan eta `.env` fitxategi bat izango duzue kontenedoreen sarea ezartzeko. Kokatu azterketako kontendore guztiak zuen kali linux makinaren sare berdinean azterketa ebazten hasteko 
