@@ -3,10 +3,10 @@
 - [IPv4 protokoloa](#ipv4-protokoloa)
   - [IP protokoloa](#ip-protokoloa)
     - [Adibideak](#adibideak)
-      - [1. kasua:](#1-kasua)
-      - [2. kasua:](#2-kasua)
-      - [3. kasua:](#3-kasua)
-      - [4. kasua:](#4-kasua)
+      - [1. kasua: Datagramak nahasiak iristen dira](#1-kasua-datagramak-nahasiak-iristen-dira)
+      - [2. kasua: Datagramak dal daitezke](#2-kasua-datagramak-dal-daitezke)
+      - [3. kasua: Datagramak bizkoiztu daitezke](#3-kasua-datagramak-bizkoiztu-daitezke)
+      - [4. kasua: Datagramak bukleetan sar daitezke](#4-kasua-datagramak-bukleetan-sar-daitezke)
   - [IPv4 protokoloaren ezaugarriak eta gabeziak](#ipv4-protokoloaren-ezaugarriak-eta-gabeziak)
     - [IP protokoloaren ezaugarriak](#ip-protokoloaren-ezaugarriak)
     - [IP protokoloaren akatsak](#ip-protokoloaren-akatsak)
@@ -70,21 +70,21 @@ Benetan ez zaigu interesatzen jakitea routerrak nola aukeratzen duen ibilbide on
 Jarrai dezagun Valentziako ordenagailu batetik Kataluniako beste ordenagailu batera mezu bat bidaltzearen adibidearekin. Mezu horrek 2 datagrama ditu, Datagrama A eta Datagrama B. deituko diegu eta gerta daitekeenaren zenbait kasu ikusiko ditugu.
 
 
-#### 1. kasua:
+#### 1. kasua: Datagramak nahasiak iristen dira
 
 - Gure ordenagailutik bi datagrama sortzen ditugu
 - Gure ordenagailuak **A Datagrama** *Valentziako* routerrera bidaltzen du
 - *Valentziako* routerrak *Kataluniarako* bideean trafiko handia dagoela ikusten du, beraz, *Zaragozako* routerrera bidaltzen du.
 - *Zaragozako* routerrak **A datagrama** jasotzen du, bere RAM memorian gordetzen du eta, denbora duenean, berriz bidaliko du
 - Gure ordenagailuak **B Datagrama** *Valentziako* routerrera bidaltzen du
-- *Valentziako* routerrak ikusten du jada ez dagoela pilaketarik Kataluniarako bidean, beraz, **B Datagrama** bidaltzen du zu####zenean *Kataluniako* routerrera.
+- *Valentziako* routerrak ikusten du jada ez dagoela pilaketarik Kataluniarako bidean, beraz, **B Datagrama** bidaltzen du zuzenean *Kataluniako* routerrera.
 - *Kataluniako* routerrak **B Datagrama** jasotzen du *Valentziatik* eta *Kataluniara* bidaltzen du helmuga ordenagailura
 - *Zaragozako* routerrak **A Datagrama** *Kataluniako* routerrera bidali du
 - *Kataluniako* routerrak **A Datagrama** jasotzen du *Zaragozatik* eta helmuga ordenagailura bidaltzen du
 - Zer gertatu da? Lehenengo **B Datagrama** heldu da eta gero **A Datagrama**. Laburbilduz: <span style="background-color:yellow">Datagramak nahasita irits daitezke.</span>
 
 
-#### 2. kasua:
+#### 2. kasua: Datagramak dal daitezke
 
 - Gure ordenagailutik bi datagrama sortzen ditugu
 - Gure ordenagailuak **A Datagrama** *Valentziako* routerrera bidaltzen du
@@ -97,7 +97,7 @@ Jarrai dezagun Valentziako ordenagailu batetik Kataluniako beste ordenagailu bat
 - *Zaragozako* routerra berriz hasi ondoren, ez du **A datagrama** bidaltzen, **A datagrama** RAMen biltegiratuta zegoelako eta berriz hastean galdu egin delako.
 - Zer gertatu da? *Zaragozako* routerrak A Datagrama galdu duela. Laburbilduz: <span style="background-color:yellow">Datagramak gal daitezke</span>
 
-#### 3. kasua:
+#### 3. kasua: Datagramak bizkoiztu daitezke
 
 - Gure ordenagailutik bi datagrama sortzen ditugu
 - Gure ordenagailuak **A Datagrama** Valentziako routerrera bidaltzen du
@@ -113,7 +113,7 @@ Jarrai dezagun Valentziako ordenagailu batetik Kataluniako beste ordenagailu bat
 - Zer gertatu da? Bada, *Zaragozako* routerrak bi aldiz bidali duela **A Datagrama**. Laburbilduz: <span style="background-color:yellow">Datagramak bikoiztuta irits daitezke.</span>
 
 
-#### 4. kasua:
+#### 4. kasua: Datagramak bukleetan sar daitezke
 
 - Gure ordenagailutik bi datagrama sortzen ditugu
 - Gure ordenagailuak **A Datagrama** *Valentziako* routerrera bidaltzen du
@@ -128,7 +128,7 @@ Jarrai dezagun Valentziako ordenagailu batetik Kataluniako beste ordenagailu bat
 ... eta hor begizta amaigabe batean sartzen gara...
 Begizta hautsi egiten da datagramak jauzi gehiegi egin dituenean. Jauzi gehiegi egin dituen datagrama bat ikusten duen routerra (hau da, router askotatik igaro dena) baztertu egiten du, eta ez du berriro bidaltzen.
 
-Zer gertatu da? Zaragozako routerrak gaizki bideratu duela Datagrama. Laburbilduz: Datagramak bukle batean sar daitezke, baina kasu horretan ezabatu egiten dira.
+Zer gertatu da? Zaragozako routerrak gaizki bideratu duela Datagrama. Laburbilduz:<span style="background-color:yellow"> Datagramak bukle batean sar daitezke, baina kasu horretan ezabatu egiten dira.</span>
 
 
 ## IPv4 protokoloaren ezaugarriak eta gabeziak
