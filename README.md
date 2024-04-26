@@ -65,10 +65,10 @@ Sistema Informatikoen repositorioa
       - [16 -3h- Sareak - Introdukzioa Sareetara](#16--3h--sareak---introdukzioa-sareetara)
       - [19 -2h- Sareak - IP protokoloa](#19--2h--sareak---ip-protokoloa)
       - [23 -3h- Sareak - IPv4](#23--3h--sareak---ipv4)
-      - [26 -3h- Sareak - TCP](#26--3h--sareak---tcp)
-      - [30 -2h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#30--2h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
+      - [26 -2h- Sareak - TCP](#26--2h--sareak---tcp)
+      - [30 -3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#30--3h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
     - [Maiatza](#maiatza)
-      - [3 -2h-](#3--2h-)
+      - [3 -2h- Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#3--2h--beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
       - [7 - 3h- Sareak -](#7---3h--sareak--)
       - [10 - 2h Erronka - Exekuzio fasea](#10---2h-erronka---exekuzio-fasea)
       - [14 - 3h Erronka - Exekuzio fasea](#14---3h-erronka---exekuzio-fasea)
@@ -330,26 +330,30 @@ Hurrengo pausoak jarraitu:
 - Ariketa
 
 #### 23 -3h- Sareak - IPv4
+- Errekuperaketa
+- IOs garapen ingurunea prestatu [Gida / erreferentziak](<3-birtualizazioa/ios garapen ingurunea.md>)
+
+#### 26 -2h- Sareak - TCP
 - Ipv4 protokoa azaldu klasean
 - Ariketak
 - Segurtasun azterketa aitorpena errekuperazioa
-#### 26 -3h- Sareak - TCP
+  
+#### 30 -3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
 - TCP protokola azaldu klasen
 - TCP protokoloa linuxen
 - Ariketak 
-  
-#### 30 -2h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
-- Protokoloen azalpenak
-- Ariketak
 
 ### Maiatza 
 
-#### 3 -2h- 
+#### 3 -2h- Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
+- TCP protokola azaldu klasen
+- TCP protokoloa linuxen
+- Ariketak 
+
+#### 7 - 3h- Sareak - 
 - Wifi sareen azalpenak
 - Hacking wifi erakuspena
 - Ariketak
-
-#### 7 - 3h- Sareak - 
 
 #### 10 - 2h Erronka - Exekuzio fasea
 #### 14 - 3h Erronka - Exekuzio fasea
