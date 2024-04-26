@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>IPv4 protokoloa</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 0.8em;
+  border-radius: 0.2em;
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="ipv4-protokoloa">IPv4 protokoloa</h1>
+<ul>
+<li><a href="#ipv4-protokoloa">IPv4 protokoloa</a>
+<ul>
+<li><a href="#ip-protokoloa">IP protokoloa</a>
+<ul>
+<li><a href="#adibideak">Adibideak</a>
+<ul>
+<li><a href="#1-kasua-datagramak-nahasiak-iristen-dira">1. kasua: Datagramak nahasiak iristen dira</a></li>
+<li><a href="#2-kasua-datagramak-dal-daitezke">2. kasua: Datagramak dal daitezke</a></li>
+<li><a href="#3-kasua-datagramak-bizkoiztu-daitezke">3. kasua: Datagramak bizkoiztu daitezke</a></li>
+<li><a href="#4-kasua-datagramak-bukleetan-sar-daitezke">4. kasua: Datagramak bukleetan sar daitezke</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ipv4-protokoloaren-ezaugarriak-eta-gabeziak">IPv4 protokoloaren ezaugarriak eta gabeziak</a>
+<ul>
+<li><a href="#ip-protokoloaren-ezaugarriak">IP protokoloaren ezaugarriak</a></li>
+<li><a href="#ip-protokoloaren-akatsak">IP protokoloaren akatsak</a></li>
+</ul>
+</li>
+<li><a href="#ipv4-datagrama-formatua">IPv4 datagrama formatua</a></li>
+</ul>
+</li>
+<li><a href="#beste-protokolo-batzuk">Beste protokolo batzuk</a>
+<ul>
+<li><a href="#arp">ARP</a>
+<ul>
+<li><a href="#ikus-dezagun-arpk-nola-funtzionatzen-duen">Ikus dezagun ARPk nola funtzionatzen duen</a></li>
+<li><a href="#ip-neighbour">ip neighbour</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#icmp">ICMP</a>
+<ul>
+<li><a href="#ping">ping</a></li>
+</ul>
+</li>
+<li><a href="#beste-agindu-batzuk">Beste agindu batzuk</a>
+<ul>
+<li><a href="#mtr">mtr</a></li>
+<li><a href="#ip-addr">ip addr</a></li>
+<li><a href="#ip-link">ip link</a></li>
+<li><a href="#ethtool">ethtool</a></li>
+<li><a href="#route">route</a></li>
+</ul>
+</li>
+<li><a href="#ariketak">Ariketak</a>
+<ul>
+<li><a href="#ariketa-1">Ariketa 1</a></li>
+<li><a href="#ariketa-2">Ariketa 2</a></li>
+<li><a href="#ariketa-3">Ariketa 3</a></li>
+<li><a href="#ariketa-4">Ariketa 4</a></li>
+<li><a href="#ariketa-5">Ariketa 5</a></li>
+<li><a href="#ariketa-6">Ariketa 6</a></li>
+<li><a href="#ariketa-7">Ariketa 7</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ip-protokoloa">IP protokoloa</h2>
+<p>Imajinatu Internet hasiberri bat Espainian. Router bakoitza autonomia-erkidego bakoitzeko Espainiako unibertsitate batean dago, eta gela bakarra dago router horri konektatuta. Routerren arteko lotura horrela geratuko litzateke.</p>
+<p><img src="image-9.png" alt="alt text"></p>
+<p>Erreparatu munduari konektatzeko irteera bat dagoela Bartzelonako routerretik Parisera (urdinez margotuta).</p>
+<table>
+<thead>
+<tr>
+<th>Jatorria</th>
+<th>Helmuga</th>
+<th>Jauziak</th>
+<th>Jauzi kopurua</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Valencia</td>
+<td>Castilla-Leon</td>
+<td>Valencia, Madrid, Castilla-Leon</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Castilla-Leon</td>
+<td>Valencia, Aragón, País Vasco, Castilla-Leon</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>País Vasco</td>
+<td>Valencia, Madrid, País Vasco</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>País Vasco</td>
+<td>Valencia, Aragón, País Vasco</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Aragón</td>
+<td>Valencia, Aragón</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Aragón</td>
+<td>Valencia, Cataluña, Aragón</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Cataluña</td>
+<td>Valencia, Aragón, Cataluña</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Cataluña</td>
+<td>Valencia, Cataluña</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Cataluña</td>
+<td>Valencia, Madrid, Euskadi, Aragón, Cataluña</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Murcia</td>
+<td>Valencia, Murcia</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Murcia</td>
+<td>Valencia, Madrid, Sevilla, Murcia</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Valencia</td>
+<td>Murcia</td>
+<td>Valencia, Cataluña, Aragón, Euskadi, Castilla-Leon, Madrid, Sevilla, Murcia</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><span style="background-color:yellow">Jauziak = routerrak</span> , nondik igarotzen den, jatorritik helmuga iristeko.</p>
+<p>Ikus dezakegunez, bide asko daude jatorrizko routerretik helmugako routerrera iristeko. Zein aukeratzen duzu routerra? Hainbat estrategia daude:</p>
+<ul>
+<li>Aukeratu jauzi gutxien dituen bidea.</li>
+<li>Aukeratu banda-zabalera onena duen ibilbidea. Agian, Kataluniara iristeko hobe da Aragoitik barrena egitea, banda-zabalera hobea baitago Valentzia eta Aragoi artean eta Aragoi eta Katalunia artean, Valentzia eta Katalunia artean zuzenean baino.</li>
+<li>Banda-zabalera, atzerapena, karga, fidagarritasuna: aukera bakoitzaren ezaugarri gehiago nahastea, ibilbiderik onena aukeratzeko.</li>
+</ul>
+<p>Benetan ez zaigu interesatzen jakitea routerrak nola aukeratzen duen ibilbide onena. Garrantzitsuena da <span style="background-color:yellow">datagrama bakoitzerako</span> routerrak ibilbide onena zein den aukeratzen duela, baina <span style="background-color:yellow">hurrengo datagramarekin beste ibilbide bat aukera dezakeela, nahiz eta helmuga berera joan</span>.</p>
+<h3 id="adibideak">Adibideak</h3>
+<p>Jarrai dezagun Valentziako ordenagailu batetik Kataluniako beste ordenagailu batera mezu bat bidaltzearen adibidearekin. Mezu horrek 2 datagrama ditu, Datagrama A eta Datagrama B. deituko diegu eta gerta daitekeenaren zenbait kasu ikusiko ditugu.</p>
+<h4 id="1-kasua-datagramak-nahasiak-iristen-dira">1. kasua: Datagramak nahasiak iristen dira</h4>
+<ul>
+<li>Gure ordenagailutik bi datagrama sortzen ditugu</li>
+<li>Gure ordenagailuak <strong>A Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak <em>Kataluniarako</em> bideean trafiko handia dagoela ikusten du, beraz, <em>Zaragozako</em> routerrera bidaltzen du.</li>
+<li><em>Zaragozako</em> routerrak <strong>A datagrama</strong> jasotzen du, bere RAM memorian gordetzen du eta, denbora duenean, berriz bidaliko du</li>
+<li>Gure ordenagailuak <strong>B Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak ikusten du jada ez dagoela pilaketarik Kataluniarako bidean, beraz, <strong>B Datagrama</strong> bidaltzen du zuzenean <em>Kataluniako</em> routerrera.</li>
+<li><em>Kataluniako</em> routerrak <strong>B Datagrama</strong> jasotzen du <em>Valentziatik</em> eta <em>Kataluniara</em> bidaltzen du helmuga ordenagailura</li>
+<li><em>Zaragozako</em> routerrak <strong>A Datagrama</strong> <em>Kataluniako</em> routerrera bidali du</li>
+<li><em>Kataluniako</em> routerrak <strong>A Datagrama</strong> jasotzen du <em>Zaragozatik</em> eta helmuga ordenagailura bidaltzen du</li>
+<li>Zer gertatu da? Lehenengo <strong>B Datagrama</strong> heldu da eta gero <strong>A Datagrama</strong>. Laburbilduz: <span style="background-color:yellow">Datagramak nahasita irits daitezke.</span></li>
+</ul>
+<h4 id="2-kasua-datagramak-dal-daitezke">2. kasua: Datagramak dal daitezke</h4>
+<ul>
+<li>Gure ordenagailutik bi datagrama sortzen ditugu</li>
+<li>Gure ordenagailuak <strong>A Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak <em>Kataluniarako</em> bide zuzenean trafiko handia dagoela ikusten du, beraz, <em>Zaragozako</em> bidaltzen du.</li>
+<li><em>Zaragozako</em> routerrak <strong>A datagrama</strong> jasotzen du, bere RAMean gordetzen du eta, denbora duenean, berriz bidaliko du</li>
+<li>Gure ordenagailuak <strong>B Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak ikusten du jada ez dagoela pilaketarik <em>Kataluniarako</em> bidean, beraz, Datagrama B bidaltzen du zuzenean <em>Kataluniako</em> routerrera.</li>
+<li><em>Kataluniako</em> routerrak <strong>B Datagrama</strong> jasotzen du <em>Valentziatik</em> eta <em>Kataluniara</em> bidaltzen du ordenagailura</li>
+<li>Txartel-bideratzaileak, <strong>B Datagrama</strong> <em>Kataluniara</em> birbidali aurretik, akats bat du eta berriz hasten da.</li>
+<li><em>Zaragozako</em> routerra berriz hasi ondoren, ez du <strong>A datagrama</strong> bidaltzen, <strong>A datagrama</strong> RAMen biltegiratuta zegoelako eta berriz hastean galdu egin delako.</li>
+<li>Zer gertatu da? <em>Zaragozako</em> routerrak A Datagrama galdu duela. Laburbilduz: <span style="background-color:yellow">Datagramak gal daitezke</span></li>
+</ul>
+<h4 id="3-kasua-datagramak-bizkoiztu-daitezke">3. kasua: Datagramak bizkoiztu daitezke</h4>
+<ul>
+<li>Gure ordenagailutik bi datagrama sortzen ditugu</li>
+<li>Gure ordenagailuak <strong>A Datagrama</strong> Valentziako routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak <em>Kataluniarako</em> bide zuzenean trafiko handia dagoela ikusten du, beraz, Zarbonatik bidaltzen du.</li>
+<li>Zarbonako routerrak <strong>A Datagrama</strong> jasotzen du, bere Disko gogorrean gordetzen du eta denbora duenean berriz bidaliko du</li>
+<li>Gure ordenagailuak <strong>B Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak ikusten du jada ez dagoela pilaketarik <em>Kataluniarako</em> bidean, beraz, <strong>B Datagrama</strong> bidaltzen du zuzenean <em>Kataluniako</em> routerrera.</li>
+<li><em>Kataluniako</em> routerrak <strong>B Datagrama</strong> jasotzen du <em>Valentziatik</em> eta Kataluniara bidaltzen du ordenagailura</li>
+<li>Txartelezko routerrak <strong>B Datagrama</strong> bidaltzen du <em>Kataluniara</em>, baina bere disko gogorretik ezabatu aurretik, akats bat du eta berriz hasten da.</li>
+<li><em>Kataluniako</em> routerrak <strong>A Datagrama</strong> jasotzen du <em>Zaragozatik</em> eta <em>Kataluniara</em> bidaltzen du ordenagailura</li>
+<li><em>Zaragozatik</em> routerra berriz hasitakoan, berriro bidaltzen du <strong>B Datagrama</strong>, oraindik bere disko gogorrean gordeta baitzegoen.</li>
+<li><em>Kataluniako</em> routerrak <strong>A Datagrama</strong> jasotzen du <em>Zaragozatik</em> eta <em>Kataluniara</em> bidaltzen du ordenagailura</li>
+<li>Zer gertatu da? Bada, <em>Zaragozako</em> routerrak bi aldiz bidali duela <strong>A Datagrama</strong>. Laburbilduz: <span style="background-color:yellow">Datagramak bikoiztuta irits daitezke.</span></li>
+</ul>
+<h4 id="4-kasua-datagramak-bukleetan-sar-daitezke">4. kasua: Datagramak bukleetan sar daitezke</h4>
+<ul>
+<li>Gure ordenagailutik bi datagrama sortzen ditugu</li>
+<li>Gure ordenagailuak <strong>A Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak <em>Kataluniarako</em> bide zuzenean trafiko handia dagoela ikusten du, beraz, <em>Zaragozatik</em> bidaltzen du.</li>
+<li><em>Zaragozatik</em> routerrak <strong>A Datagrama</strong> jasotzen du, bere Disko gogorrean gordetzen du eta denbora duenean berriz bidaliko du</li>
+<li>Gure ordenagailuak <strong>B Datagrama</strong> <em>Valentziako</em> routerrera bidaltzen du</li>
+<li><em>Valentziako</em> routerrak ikusten du jada ez dagoela pilaketarik <em>Kataluniarako</em> bidean, beraz, <strong>B Datagrama</strong> bidaltzen du zuzenean Kataluniako routerrera.</li>
+<li><em>Kataluniako</em> routerrak <strong>B Datagrama</strong> jasotzen du <em>Valentziatik</em> eta <em>Kataluniara</em> bidaltzen du ordenagailura
+<em>Zaragozako</em> routerrak uste du <em>Kataluniarekiko</em> sarea erorita dagoela, eta <strong>B Datagrama</strong> bidaltzen du <em>Euskadiko</em> routerrera.
+<em>Euskadiko</em> routerrak <strong>A Datagrama</strong> saria jaso zuen <em>Zaragozatik</em> eta <em>Madrilgo</em> routerrera bidali zuen
+<em>Madrilgo</em> routerrak <strong>A Datagrama</strong> saria jaso du <em>Euskal Herritik</em> eta <em>Zaragozako</em> routerrera bidali du
+... eta hor begizta amaigabe batean sartzen gara...
+Begizta hautsi egiten da datagramak jauzi gehiegi egin dituenean. Jauzi gehiegi egin dituen datagrama bat ikusten duen routerra (hau da, router askotatik igaro dena) baztertu egiten du, eta ez du berriro bidaltzen.</li>
+</ul>
+<p>Zer gertatu da? Zaragozako routerrak gaizki bideratu duela Datagrama. Laburbilduz:<span style="background-color:yellow"> Datagramak bukle batean sar daitezke, baina kasu horretan ezabatu egiten dira.</span></p>
+<h2 id="ipv4-protokoloaren-ezaugarriak-eta-gabeziak">IPv4 protokoloaren ezaugarriak eta gabeziak</h2>
+<p>Azkenean, azalpen asko eman ondoren, laburbildu dezagun zertarako balio duen IP protokoloa.</p>
+<h3 id="ip-protokoloaren-ezaugarriak">IP protokoloaren ezaugarriak</h3>
+<ul>
+<li><strong>Helbideratze unibertsala</strong>: IP helbideari esker, ordenagailu guztiak identifika ditzakegu eta, horrela, informazioa banan-banan bidali ahal izango dugu.</li>
+<li><strong>Bideratzea</strong>: Bideratzaile eta bideratze-taulei esker, ordenagailu batetik bestera irits gaitezke, Internet oso erosoa izan arren.</li>
+</ul>
+<h3 id="ip-protokoloaren-akatsak">IP protokoloaren akatsak</h3>
+<ul>
+<li>Datagramak nahasita irits daitezke</li>
+<li>Datagramak gal daitezke</li>
+<li>Datagramak bikoiztuta irits daitezke</li>
+<li>Ez da zehazten zein programatara doan informazioa. Hori xehetasun handiagoz ikusiko dugu TCPa ikustean, baina orain kontuan hartu behar da.</li>
+</ul>
+<h2 id="ipv4-datagrama-formatua">IPv4 datagrama formatua</h2>
+<p>Ethernet trama baten formatua ikusi genuen bezala, orain IPv4 datagrama baten formatua ikusiko dugu.</p>
+<p><img src="image-10.png" alt="alt text"></p>
+<p>Hona hemen interesatzen zaizkigun eremuak:</p>
+<ul>
+<li><strong>Jatorrizko IP helbidea</strong> eta <strong>helmugako IP helbidea</strong>: Bi datu interesgarrienak dira. Ikus dezakegunez, bakoitzak 32 bit okupatzen dituzte, eta hemen dago Interneteko IP kopuruaren muga. Muga hori aldatu nahi badugu, munduko router guztiak aldatu behar dira, tamaina berri bat onar dezaten, eta horixe egiten ari dira IPv6-rekin.</li>
+<li><strong>Datuak</strong>: Benetan bidali nahi ditugun datuak dira.</li>
+<li><strong>TTL</strong>. Datagrama batek egin ditzakeen jauzien kopurua da. Hasierako balioa 64koa izatea gomendatzen da. Datagrama bat Host batera iristen den bakoitzean (ordenagailua edo routerra), beherapen-balio hori eguneratzen da 1ean. Host batera 0 balioa duen datagrama bat iristen denean, ez da berriro bidaltzen, nahiz eta harentzat bada onartzen duen.</li>
+<li><strong>Checksum</strong>: CRCa dute transmisio-errorerik egon ez dela egiaztatzeko.</li>
+<li><strong>Burualdearen luzera</strong>: Burualdeak hartzen duen denbora. 32 biteko multiploetan neurtzen da. Hau da, 1eko balioak adieraziko luke 32 bit okupatzen dituela, 2ko balioak 64 bit okupatzen dituela, etab.</li>
+<li><strong>Guztizko luzera</strong>: datagrama osoa okupatzen duenean, goiburua eta datuak batuz. Bytetan neurtzen da. Hau da, 1eko balioak 8 bit (1 byte) okupatzen dituela adieraziko luke, 2ko balioak 16 bit (2 byte) okupatzen dituela adieraziko luke, etab.</li>
+<li><strong>Protokoloa</strong>: Adierazi datagrama TPC edo UDP protokolorako den.</li>
+</ul>
+<h1 id="beste-protokolo-batzuk">Beste protokolo batzuk</h1>
+<p>Orain Linuxen aginduak ikusiko ditugu. Linuxi buruz zerbait badakizue edo dokumentazioa Interneten ikusten baduzue, erraza da gauza bera egiteko beste agindu batzuk ematea. Urte askotan erabili izan diren zaharrak dira.</p>
+<p>Hauek dira agindu &quot;zaharretako&quot; batzuk:</p>
+<ul>
+<li>arp</li>
+<li>ifconfig</li>
+<li>netstat</li>
+<li>route</li>
+<li>traceroute</li>
+</ul>
+<h2 id="arp">ARP</h2>
+<p>Ordu arte ikusi dugu nola bidaltzen diren datagramak routerren bidez, ethernet erabiliz komunikazio fisikorako. Hau da, dena Ethernet bidez bidaltzen da Hosts artean.</p>
+<p><em>OHARRA: Beti hitz egingo dugu Etherneti buruz, baina benetan sareko edozein teknologia da, hala nola Wifi, 3G, etab.</em></p>
+<p>Komunikazio honetan, jatorrizko ordenagailuak badaki bere IPa, helmugako IPa eta bere gateway-aren IPa, baina nola daki gateway-aren MAC helbidea? Hau da, ordenagailu bat beste ordenagailu batekin edo gatewayarekin zuzenean komunikatzen den guztietan. Nola dakizu zein den horien guztien MAC helbidea? Izan ere, IP protokolo egon arren, fisikoki dena Etherneten bidez bidaltzen da eta, beraz, MAC helbidea behar da.</p>
+<p>MAC helbidea jakiteko, IPa soilik jakinda, ARP protokoloa erabiltzen da (ingelesezko Address Resolution Protocol). Ordenagailu bakoitzak tabula bat du Ip helbideekin eta MAC helbidearekin. Taula hori betetzeko ARP protokoloa erabiltzen da, IParen arabera MACa jakiteko.</p>
+<h3 id="ikus-dezagun-arpk-nola-funtzionatzen-duen">Ikus dezagun ARPk nola funtzionatzen duen</h3>
+<p>A ordenagailuak B ordenagailura datagrama bat bidali behar duenean:</p>
+<ol>
+<li>Begiratu ea B ordenagailuaren MACa ARP taulan dagoen, egotekotan aurkitu dugu MACa.</li>
+<li>Taulan ez badago, A ordenagailuak Ethernet trama bat bidaliko du broadcast 1 helbidera (MAC = FF: FF: FF: FF: FF: FF). Trama horretako datuek ARP protokoloaren formatuari jarraituko diote, eta B ordenagailuaren IPa barne hartuko dute.</li>
+<li>B ordenagailuak Ethernet trama horri erantzungo dio A ordenagailuari, bere MACa bidaliz.</li>
+<li>A ordenagailuak MAC gehituko du bere ARP taulan.</li>
+</ol>
+<p>Ohartarazi behar da aldi oro MACak ezabatzen direla, ordenagailuak sare-txartela aldatzen badu.</p>
+<p>Informazio gehiago:</p>
+<ul>
+<li><a href="https://www.ionos.es/digitalguide/servidores/know-how/arp-resolucion-de-direcciones-en-la-red/">¿Qué es el ARP (Address Resolution Protocol)?</a></li>
+<li><a href="https://openwebinars.net/academia/aprende/tcp-ip/3648/">OpenWebinars. ARP</a></li>
+</ul>
+<h3 id="ip-neighbour">ip neighbour</h3>
+<p><code>ip neighbour</code> gure Linuxeko ARP taula ikusteko aukera ematen du.</p>
+<p><img src="image-11.png" alt="alt text"></p>
+<h1 id="icmp">ICMP</h1>
+<p>ICMP protokolo &quot;arraro&quot; samarra da. IP protokoloaren gainean erabiltzen da, baina IP sareko erroreen eta informazioaren berri emateko baino ez da. Adibidez, router bati datagrama bat iristen bazaio eta ez badaki nondik bidali, ICMP mezu bat bidaliko du jatorrizko ordenagailura, helmuga iristezina dela esanez. Eta horrela routerrek jakin dezakete bide hori ez duela balio.</p>
+<p>Baina erabiltzaile gisa, ICMP protokoloa ez da erabilgarria, helmugako ordenagailu bateraino sare osoak ondo funtzionatzen duen jakiteko aukera ematen baitu. Hau da, <span style="background-color:yellow">konektatu nahi dugun ordenagailuraino Internetek funtzionatzen duen</span>.</p>
+<p><a href="https://logongas.es/doku.php?id=clase:daw:si:3eval:tema16">https://logongas.es/doku.php?id=clase:daw:si:3eval:tema16</a></p>
+<h2 id="ping">ping</h2>
+<p><code>ping</code> sareak ordenagailu jakin bateraino funtzionatzen duen jakiteko erabiltzen den agindua da. <a href="https://en.wikipedia.org/wiki/Ping_(networking_utility)">ping</a></p>
+<p>Ping egiten duena IPan adierazi dugun ordenagailura ICMP mezuak bidaltzea da. Beraz, router guztiak pasatu behar ditu. ICMP mezua helmugako ordenagailura iristen denean, ICMP mezuarekin erantzuten digu. Gure ordenagailura helmugako ordenagailuaren ICMP mezuak iristen badira, etherneten sare fisiko osoak eta IP protokoloa duten routerrek funtzionatzen dutela esan nahi du.</p>
+<p><img src="image-12.png" alt="alt text"></p>
+<h1 id="beste-agindu-batzuk">Beste agindu batzuk</h1>
+<h2 id="mtr">mtr</h2>
+<p><code>mtr</code> datagrama batek ordenagailu jakin bateraino igarotzen dituen router guztiak adierazten dizkigun agindua da.</p>
+<p><code>mtr</code> argumentua ordenagailuaren IPa da,<code>-n</code> aukera serabilize, routerren IPak haien izenen ordez erakutsiko dira.</p>
+<p><img src="image-13.png" alt="alt text"></p>
+<p><img src="image-14.png" alt="alt text"></p>
+<h2 id="ip-addr">ip addr</h2>
+<p><code>ip addr</code> IPak gehitzeaz gain dauden sare-txartelei buruzko informazioa lortzen du.</p>
+<p><img src="image-15.png" alt="alt text"></p>
+<ul>
+<li>Hiru sare-txartel daude: &quot;lo&quot; eta &quot;enp2s0f2&quot; eta &quot;wlp3s0&quot;.</li>
+<li>Euren Ipak <code>inet</code> ikus daitezke</li>
+<li>&quot;Lo&quot; txartela LOOPBACK deitzen duguna dela, eta, beraz, ez dela benetako txartela, gure ordenagailura 127.0.0.1 zenbakiarekin sartzeko modua baizik.</li>
+<li>Hirurak gaituta daudela, &quot;UP&quot; jartzen duelako ikusten da.</li>
+<li>Bere MAC helbideak. &quot;enp2s0f2&quot; ren kasuan, 38:d5:47:91:fe:0a</li>
+</ul>
+<p>ip addr sare-txartel bati IPak gehitzeko aukera ere ematen du.</p>
+<p>Orain arte ikusi dugu sare-txartel batek IP bakarra duela, baina ez dago arazorik sare-txartel berak IP bat baino gehiago izateko. Zein da erabilgarritasuna? Bada, elkarren artean ikusten ez diren sare independenteak sortzea.</p>
+<p>Sarerari IP berri bat gehitzeako wlp3s0 sare-txartelari. (/28 CIDR duenez, bakarrik lau bit dauzkagu ip-ak esleitzeko, hau da, 2⁴-2 = 14 host)</p>
+<pre><code class="language-bash">sudo ip addr add 172.20.10.11/28 dev wlp3s0
+</code></pre>
+<p><img src="image-16.png" alt="alt text"></p>
+<p>Ipa ezabatzeko hurrengoa erabiliko genuke</p>
+<pre><code class="language-bash">sudo ip addr del 172.20.10.11/28 dev wlp3s0
+</code></pre>
+<h2 id="ip-link">ip link</h2>
+<p><code>ip link</code> Sare-txartel bat gaitzeko edo desgaitzeko aukera ematen du.</p>
+<p>Adibide honek sareko txartela desgaitzen du enp2s0</p>
+<pre><code class="language-bash">sudo ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> wlps30 down
+</code></pre>
+<p>Sarea gaitzeko:</p>
+<pre><code class="language-bash">sudo ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> wlps30 up
+</code></pre>
+<h2 id="ethtool">ethtool</h2>
+<p><code>ethtool</code> sareko txartelak konfiguratzeko aukera ematen duen agindua da, baina erabilgarriena sareko txartelen abiadura jakitea da.</p>
+<p>ethtoolen argumentua sare-txartel baten izena da.</p>
+<p><img src="image-17.png" alt="alt text"></p>
+<h2 id="route">route</h2>
+<p>route bideratze-taula ikusteko aukera ematen du. -n parametroa gehitzen da, IPak ikus daitezen.</p>
+<p><img src="image-18.png" alt="alt text"></p>
+<h1 id="ariketak">Ariketak</h1>
+<h2 id="ariketa-1">Ariketa 1</h2>
+<p>Egin Espainiakoaren antzeko mapa bat bere routerrekin, baina Europa mailan. Gutxienez 8 router jarri beharko dituzu, eta batzuetan 2 konexio baino gehiago egon beharko dira beste router batzuekin. Mapak herrialde bakoitzera Internet nola iristen den erakusten duen adibide bat izan beharko du. Egiten duzun mapak koherentea izan beharko du Espainian dagoenarekin. Hau da, Espainia Parisetik konektatzen da Internetera.</p>
+<p>Bete taula hau herrialde batetik bestera iristeko 2 adibiderekin, eta adibide bakoitzerako bi ibilbide desberdin egon behar dira (jauziak).</p>
+<table>
+<thead>
+<tr>
+<th>Router jatorrizko herrialdea</th>
+<th>Router helmuga herrialdea</th>
+<th>Jauziak</th>
+<th>Jauzi kopurua</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>herrialde 1</td>
+<td>herrialde 2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>herrialde 1</td>
+<td>herrialde 2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>herrialde 3</td>
+<td>herrialde 4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>herrialde 3</td>
+<td>herrialde 4</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Zure maparen arabera, asma ezazu Datagramak nahasita irits daitezkeen kasu bat Zure maparen arabera, asma ezazu Datagrama bat gal litekeen kasu bat</p>
+<h2 id="ariketa-2">Ariketa 2</h2>
+<p>Erantzun IP datagrama baten formatuari buruzko galdera hauei:</p>
+<ul>
+<li>&quot;longitud cabecera&quot; eremuaren tamainaren arabera. Zein izango litzateke IP goiburuaren gehieneko tamaina teorikoa?</li>
+<li>Zure ustez, zertarako da erabilgarria &quot;relleno&quot; eremua?</li>
+<li>Zein da datagrama batek izan dezakeen gehienezko tamaina?</li>
+<li>Zenbat datu bidal daitezke gehienez IP datagrama batean?</li>
+<li>Zein da IP datagrama batek eman lezakeen jauzien muga teorikoa?</li>
+<li>Helmuga guztietara iritsi gaitezke 3ko TTL batekin? Ezin badugu, nora ezin gara iritsi?</li>
+<li>Zure ustez, zenbat routerretatik pasa daiteke gehienez Datagrama bat Interneten?</li>
+<li><a href="http://es.wikipedia.org/wiki/IPv6#Cabecera_fija">IPv6 goiburua</a> ikusita, nola deitzen zaio IPv6ko TTL eremuari?</li>
+</ul>
+<h2 id="ariketa-3">Ariketa 3</h2>
+<p>Dockerreko kali linux makina erabiliz:</p>
+<ul>
+<li>Ikertu sare-txartelen izena lotutako IP eta MAC txartelekin batera</li>
+<li>Jakin sare-txartel bakoitzak zein abiaduratan funtziona dezakeen eta sare-txartel bakoitza zein abiaduratan ari den benetan funtzionatzen.</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Kali Linuxeko IPra, eta egiaztatu erantzuten duela.</li>
+<li>Sareko txartela desaktibatzen du</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Linuxeko IPra, eta egiaztatu jada ez duela erantzuten.</li>
+<li>Aktibatu sare-txartela</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Linuxeko IPra, eta egiaztatu orain erantzuten duela.</li>
+</ul>
+<h2 id="ariketa-4">Ariketa 4</h2>
+<p>Dockerreko kali linux makina erabiliz:</p>
+<ul>
+<li>Bilatu zure mugikorraren IP helbidea zure mugikorraren app-en batekin. Zure aplikazio-dendan &quot;net utilities&quot; hitza bila dezakezu</li>
+<li>Erakutsi ARP taula eta egiaztatu ez dagoela zure mugikorraren IPa</li>
+<li>Egin ping bat zure mugikorrera</li>
+<li>Erakutsi ARP taula eta egiaztatu orain zure mugikorraren IPa badago</li>
+</ul>
+<h2 id="ariketa-5">Ariketa 5</h2>
+<p>Dockerreko kali linux makina erabiliz:</p>
+<ul>
+<li>Gehitu IP berri bat zure sare-txartelari</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Kali Linuxeko IP berrira, eta egiaztatu erantzuten duela.</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Linuxeko antzinako IPra, eta egiaztatu hark ere erantzuten duela.</li>
+<li>Ezabatu beste IP bat zure sare-txarteletik</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Linuxeko IP berrira, eta egiaztatu jada ez duela erantzuten.</li>
+<li>Egin ping bat zure benetako ordenagailutik zure Linuxeko antzinako IPra, eta egiaztatu erantzuten jarraitzen duela.</li>
+</ul>
+<h2 id="ariketa-6">Ariketa 6</h2>
+<p>Zure ordenagailutik 8.8.8.8 ipraraino datagramak bidali behar badituzu,</p>
+<ul>
+<li>Zenbat jauzi (pasatzen den router kopurua) egiten dira 8.8.8.8 IPra iritsi arte?</li>
+<li>Zein da datagramak igarotzen duen lehen routerraren IPa?</li>
+<li>Zein da datagramak igarotzen duen azken routerraren IPa?</li>
+</ul>
+<h2 id="ariketa-7">Ariketa 7</h2>
+<p>Erantzun galdera hauei:</p>
+<ul>
+<li>Irudikatu gure institutuko sarearen administratzailea zarela, eta, beraz, institutuko switch eta routerrak kudeatzen dituzula. Internet ez badabil. Nola jakin dezakezu oso erraz nondik gertatu den akatsa?</li>
+<li>Ping agindua soilik erabiliz, azaldu nola jakin zenezakee zein routerretatik pasa den datagrama bat.</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
