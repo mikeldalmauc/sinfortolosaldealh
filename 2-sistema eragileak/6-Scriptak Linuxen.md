@@ -24,6 +24,7 @@
   - [Ariketa 4 - Kalkulagailua](#ariketa-4---kalkulagailua)
   - [Ariketa 5 - Baimenak](#ariketa-5---baimenak)
   - [Ariketa 6 - Fitxategiak](#ariketa-6---fitxategiak)
+  - [Ariketa 7 - Menua](#ariketa-7---menua)
 
 
 Linuxeko script-ak zeregin espezifikoak egiteko modu sekuentzialean exekutatzen diren komandoen edo jarraibideen sekuentziak dira. Script horiek Bash (Bourne Again Shell) bezalako lengoaietan idatzita daude, Linuxen banaketa gehienetan defektuzko shell-a BASH da.
@@ -273,5 +274,17 @@ Aldagai bezela fitxategi baten izena jaso behar da eta konprobatu behar da eta z
 
 ## Ariketa 6 - Fitxategiak
 Aldagai bezala fitxategi batzuen izena jaso eta bakoitzarentzak konprobatu existitzen den fitxategiak diren eta horrela bada, erakutsi fitxategiaren edukia pantailan. 
+
+## Ariketa 7 - Menua
+Sortu programa bat erabiltzaileari hurrengo aukerak eskeiniko dizkiona, 6 garren aukera hautatu harte behin eta berriro, terminala garbitu eta menua erakutsi.
+
+  1.  Karpeta tamaina ikusi
+  2.  Fitxategiak listatu
+  3.  Fitxategi bat sortu
+  4.  Karpeta sortu
+  5.  Karpeta eta fitxategiak ezabatu
+  6.  Irten
+  
+
 
 
