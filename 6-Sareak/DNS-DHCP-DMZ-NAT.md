@@ -4,6 +4,7 @@
   - [DNS](#dns)
   - [DHCP](#dhcp)
   - [DMZ](#dmz)
+  - [NAT](#nat)
 
 
 ## DNS
@@ -182,3 +183,62 @@ Garrantzitsuena da orain bi suebaki daudela:
 
 - **Kanpoko suebakia**: Web zerbitzari publikorako diren 80 eta 443 atakarako sarrera bidezko konexioak soilik baimentzen ditu.
 - **Barneko suebakia**: Ez du sartzen uzten.
+
+Hau da, barruko suebakiak ez du kanpoko konexiorik baimentzen. Beraz, kanpotik hackeatu dezakete, ez enpresako ordenagailuetara, ezta web zerbitzari pribatura ere. Baina guztiak sare berean daudenez, inolako arazorik gabe komunika daitezke beren artean. Bestalde, kanpoko suebakiak web zerbitzari publikorako konexioak bakarrik ahalbidetzen ditu. Hori dela eta, web zerbitzari publikoa hackeatu egin daiteke, baina hori gertatuko balitz, ez lituzke arriskuan jarriko ez web zerbitzari pribatua ez enpresako ordenagailuak. Bestalde, enpresako ordenagailuetatik beti sar daiteke zerbitzari publikoan (eta, jakina, baita Interneten ere), barneko suebakiak irteerako konexioak ahalbidetzen baititu.
+
+Beraz, DMZ sare bat baino ez da, non zerbitzari bat edo gehiago dauden, non suebakiak Internetetik sartzeko konexioak ahalbidetzen dituen, baina hackeatuz gero enpresako gainerako ordenagailuak arriskuan jartzen ez dituena. Izan ere, azken horiek beste suebaki batekin babestuta daude.
+
+## NAT
+
+
+NAT sortzen da, zeren eta $2^{32}$ IP helbideak ez dira nahikoa munduko Host guztientzat. Beraz, "trikimailu" bat egin zuten IP baino Internetera konektatutako Hosts gehiago izateko. Hau da, gaur egun 4.294.967.296 Hosts baino gehiago daude Interneten.
+
+
+Hori guztia azaltzeko, gure etxea erabiliko dugu adibide gisa. Internet kontratatzen dugunean, operadoreak IP bakarra esleitzen dio gure etxeari. Duela 20 urte hori ez zen arazo bat, ez baitzegoen Interneteko mugikorrik, ez kontsolak Internetera harremanetan jartzen zirenik, etab. Beraz, ordenagailu bakar batek behar zuen Interneterako sarbidea. Garai hartan, gure telekomunikazio-operadoreak esleitzen zigun IP hori zen gure ordenagailuak zuena, eta ez zegoen router bat, ez baitzuen zentzurik, gure etxean ordenagailu bakarra baitzegoen.
+
+Baina denbora pasa zen eta gure etxean Host bat baino gehiago edukitzen hasi ginen Internetera konektatuta, baina IP eskasia zela eta, gure telekomunikazio operadoreak IP bakarra ematen zigun. IP hori da orain IP Publikoa deitzen duguna. IP "normala eta arrunta" dela esan dezakegu.
+
+Baina, orduan, IPek gure etxeko gainerako aparatuak zituzten? Kasu horretan, eraldaketa hau egin zen:
+
+Gure operadoreak router bat ematen zigun, orain Host batzuk genituelako eta erroterrak datagramak Hosts bakoitzera bideratu behar zituelako.
+
+IP publikoa Interneterako bideratzailearen sare-interfazeari esleitzen zaio.
+
+Gure Hosts bakoitzak IP pribatu bat zuen.
+Routerrak IP pribatu bat ere badu
+
+Zer esan nahi du IP pribatu batek? Interneten nabigatu ezin duen IP bat da, ez baita bakarra. Edonor da zure etxea gure IP bera izan dezake. Hauek dira IP pribatuak:
+
+- 10.0.0.0tik 10.255.255.255era
+- 172.16.0.0tik 172.31.255.255era
+- 192.168.0.0-192.168.255.255
+
+Normalean, gure etxean 192.168.1.0/24 motako sarea izaten dugu. Horrek esan nahi du, adibidez, 192.168.1.100 IPa milaka eta milaka pertsonak izan dezaketela etxeko ordenagailuetan. Beraz, routerren batek IP hori duen datagrama bat bidaliko balu, gainerako routerrek ez lukete jakingo milaka eta milaka etxeetatik zeini bidali beharko litzaiokeen; beraz, datagrama horiek baztertu egiten dira beti.
+
+Baina, nola nabigatu dezakegu Interneten egunero, IP pribatu bat izanda ere? Ba NATi esker. NAT routerretan jarri zuten trikimailu bat da, IP pribatu bat duen Host batek Interneten nabigatu ahal izateko.
+
+Adibide batekin azalduko dugu: Host A-k konexio bat hasten du Host B-ren zerbitzariarekin routerretik pasatuz.
+
+Hurrengo irudietan, Host A-tik Host B-ra eta gero alderantziz bidaltzen diren segmentuak ikusiko ditugu.
+
+![alt text](image-31.png)
+
+Datuak Host A-ra bidaltzean, ikus dezakegu Host A-k bidaltzen duen TCP segmentua "normala" dela TCP segmentuan espero genituzkeen IP eta atakekin, baina routerrak Host B-ra bidaltzen duen TCP segmentua ikusten badugu, jatorrizko IPa aldatu egin dela ikusten dugu, routerraren IP publikoa da eta ataka ere ez da bera. Zergatik gertatu da hori? Argi zegoen 192.168.100eko IP pribatua ezin zela routerretik atera, beraz, beste IP bat jarri behar zen eta posible zen bakarra routerraren IP publikoa da. Ikusten dugu, halaber, portua aldatu egiten dela; izan ere, aipatu dugun bezala, jatorrizko portua ez da garrantzitsua.
+
+![alt text](image-32.png)
+
+
+Ikus dezagun orain erantzuna Host B-tik Host B-k bidaltzen duen TCP segmentua, Host B-k dakienerako itxarongo genukeena da. Hau da, B host-ak uste du erantzuna Routerraren IP publikorako dela, nahiz eta benetan Host A-rako joan.
+
+Baina orain dator interesgarria dena, TCP segmentua routerrera iristen zaionean, helmugako IP routerraren beraren IP publikoa izan arren, berak badaki ez dela berarentzat segmentu hori, baizik eta Host A. Beraz, TCP segmentua Host A-ra birbidaltzen duenean, routerrak IP destinoa aldatzen du Host A-rena izan dadin.
+
+Hau da, NAT duen router batek honako hau egiten du 8. IPekin):
+
+- Irteera-segmentuetan: Jarri jatorrizko IP gisa routerraren IP publikoa, routerrera ordenagailu baten jatorri pribatuko IP batekin iristen baitzaizkio.
+- Sarrera-segmentuetan: Helmugako IP gisa komunikatu nahi genuen ordenagailuarena jarri, routerrera routerraren IP publikoarekin iristen baitzaizkio
+  
+Aldaketak ez dirudite oso zailak, baina arazoa sarrerako segmentuetan dago. Nola daki routerrak zein ordenagailutara doan segmentu hori, IP destinoa routerraren publikoa bada? Hau da arazoaren gakoa. Azaldu dezagun berriro arazoa. Host B-k itzulerako datuak bidaltzen dituenean, xede-⚯ ip routerraren IP publikoa da. Nola daki routerrak ez doala routerrera? Eta nola dakizu zure barne-sareko ordenagailu guztietatik zeinetara doan segmentu hori?
+
+Erantzuna erraza da, badakizu, lehenengo Host B-ra segmentu bat bidali zuelako, Host A.tik zetorrena. Beraz, datuak itzultzen direnean, badaki Host A.rentzat dela. Beraz, hori da garrantzitsuena. Host A-k konexioa hasi behar du, horrela routerrak jakingo baitu noiz iristen diren Host A.ak egiten dituen datuak. Eskaera hasten duenaren informazio hori, ondoren, helmugako ostatutik datuak bidaltzen direnean, Hostek barne-saretik entregatzera, "NAT taula" deritzonean gordetzen da.
+
+Baina horrek arazo bat sortzen digu. Zer gertatzen da kanpoko norbaitek gure barne-sareko zerbitzari batera konektatu nahi badu? Hau da, orain konexioa Host B-tik Host A-ra hasten bada. Ba, besterik ezean, ezin du! Eta hori ona da, ez baikenuen nahi Interneteko edozein puntu desegitea norbait gure zerbitzarietara konektatu ahal izateko. Beraz, NAT izatean, zeharka suebaki bat sortu dugu. Ikus dezagun adibide bat, zeharka suebakia delako.
