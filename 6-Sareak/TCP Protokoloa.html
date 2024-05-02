@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>TCP Protokoloa</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+@font-face { font-family: Hack; src: url('../src/Hack/HackNerdFont-Regular.ttf'); } 
+@font-face { font-family: Hack Italic; src: url('../src/Hack/HackNerdFont-Italic.ttf'); font-style: italic; }
+@font-face { font-family: Hack Bold; src: url('../src/Hack/HackNerdFont-Bold.ttf'); font-weight: bold; }
+@font-face { font-family: Hack Bold Italic; src: url('../src/Hack/HackNerdFont-BoldItalic.ttf'); font-weight: bold; font-style: italic; }@font-face { font-family: Hack; src: url('../src/Hack/HackNerdFont-Regular.ttf'); } 
+
+body {
+  font-family: Hack, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  page-break-after: always
+}
+.note {
+  padding: 0.8em;
+  border-radius: 0.3em;
+  background-color: rgb(166, 233, 166);
+  box-shadow: 1px 1px 3px 1px rgb(164, 164, 164);
+}
+.warning {
+  background-color: rgb(243, 208, 195);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 0.8em;
+  border-radius: 0.2em;
+}
+
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="tcp-protokoloa">TCP Protokoloa</h1>
+<ul>
+<li><a href="#tcp-protokoloa">TCP Protokoloa</a>
+<ul>
+<li><a href="#garraio-protokoloa">Garraio Protokoloa</a></li>
+<li><a href="#portua">Portua</a></li>
+<li><a href="#bezero-zerbitzaria">Bezero-zerbitzaria</a></li>
+<li><a href="#tcp-protokoloa-1">TCP Protokoloa</a></li>
+<li><a href="#udp-protokoloa">UDP protokoloa</a></li>
+</ul>
+</li>
+<li><a href="#ariketak">Ariketak</a>
+<ul>
+<li><a href="#ariketa-1">Ariketa 1</a></li>
+<li><a href="#ariketa-2">Ariketa 2</a></li>
+<li><a href="#ariketa-3">Ariketa 3</a></li>
+<li><a href="#ariketa-4">Ariketa 4</a></li>
+<li><a href="#ariketa-5">Ariketa 5</a></li>
+<li><a href="#ariketa-6">Ariketa 6</a></li>
+<li><a href="#ariketa-7">Ariketa 7</a></li>
+<li><a href="#ariketa-8">Ariketa 8</a></li>
+<li><a href="#ariketa-9">Ariketa 9</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="garraio-protokoloa">Garraio Protokoloa</h2>
+<p>Orain arte ikusitakoaren laburpena egingo dugu, eta, horrela, TCP protokoloa non egokitzen den ikusiko dugu.</p>
+<ul>
+<li>Zuzenean konektatuta dauden ordenagailuetarako, Ethernet bidez konekta gaitezke. Ordenagailuen helbide gisa MAC-a erabiliz.</li>
+<li>Ordenagailuak ez badaude zuzenean konektatuta, routerrak eta IP protokoloa behar ditugu. Ordenagailuen helbide gisa IP erailiz.
+<ul>
+<li>IP protokoloak hainbat arazo ditu:
+<ul>
+<li>Datuak nahasita irits daitezke</li>
+<li>Datuak gal daitezke</li>
+<li>Datuak bikoiztuta irits daitezke</li>
+<li>Ez da zehazten helmugako ordenagailuaren zein prozesutara doazen datuak.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IP protokoloarekin batera, IP protokoloari &quot;laguntzen&quot; dioten ARP eta ICMP protokoloak daude.</li>
+</ul>
+<p>Zertarako balio du, orduan, TCP protokoloak? Jakina, IP protokoloak dituen arazoak konpontzeko. Beraz, hauek izango dira TCPren abantailak:</p>
+<ul>
+<li>Datuak ordenatuta iristen dira</li>
+<li>Datuak ez dira inoiz galtzen</li>
+<li>Datuak ez dira inoiz bikoiztuta iristen</li>
+<li>Datuak zein prozesutara bideratuko diren zehaztu daiteke.</li>
+</ul>
+<p>TCP protokoloarekin batera, UDP izeneko beste bat dago, TCPren antzekoa. Bien artean garrantzitsuena TCP da. Eta TCPrako baliagarriak diren gauza asko UDPrako ere baliagarriak dira.</p>
+<p><img src="image-19.png" alt="alt text"></p>
+<p>Goiko diagraman, ezagutzen ditugun protokolo guztiak eta horiek erabiltzen dituzten programak ikus ditzakegu. Ikus daitekeenez, TCPk eta UDPk, IPn protokoloa erabiliz lan egiten dute.</p>
+<h2 id="portua">Portua</h2>
+<p>Orain arte, ordenagailu batetik bestera komunikatzeko, datuen zati bat, jatorrizko ordenagailuaren IPa eta xede-ordenagailuaren IPa baino ez genituen behar. Baina horrekin ez da nahikoa. Pentsa dezagun gure mugikorrean. Mugikorrera datuak iristen zaizkigunean, zein aplikaziora doaz? Whatsapparako dira? Postarako? Web-nabigatzailerako? eta abar, eta abar. Beraz, datuak nora iristen diren ere zehaztu behar da, zer aplikaziorako diren jakiteko. Hori PUERTO izeneko zenbaki berri batekin egiten da. Zenbaki horrek adierazten du gure ordenagailuaren zein aplikaziotan entregatu behar diren datuak. Baita, portuaz gain, TCP edo UDP bidez doazen ere adierazi behar da. Beraz, konexioa ezartzeko, honako hau behar dugu:</p>
+<ul>
+<li>Erabili beharreko protokoloa: TCP edo UDP</li>
+<li>IP Jatorria eta Jatorrizko Portua</li>
+<li>Helmugako IP eta helmugako portua</li>
+</ul>
+<p>Hori jakinda, ikus dezagun taula bat aplikazio batzuk erabiltzen dituzten portuen zenbakiekin:</p>
+<table>
+<thead>
+<tr>
+<th>Aplikazioa</th>
+<th>Portua</th>
+<th>Protokoloa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH</td>
+<td>22</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>Serbitzari Web</td>
+<td>80</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>Serbitzari Web</td>
+<td>443</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>3306</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>VoIP</td>
+<td>5060</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>VoIP</td>
+<td>5060</td>
+<td>UDP</td>
+</tr>
+<tr>
+<td>VoIP</td>
+<td>5004</td>
+<td>UDP</td>
+</tr>
+<tr>
+<td>IPTV</td>
+<td>12000</td>
+<td>UDP</td>
+</tr>
+<tr>
+<td>Minecraft</td>
+<td>25565</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>BitTorrent</td>
+<td>6881</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>BitTorrent</td>
+<td>6969</td>
+<td>TCP</td>
+</tr>
+</tbody>
+</table>
+<p>Portu &quot;ofizialen&quot; taula osoa, &quot;portu aski ezagunak&quot; deitzen da, eta <a href="http://es.wikipedia.org/wiki/Anexo:N%C3%BAmeros_de_puerto">Wikipedian ikus dezakezu.</a></p>
+<p class="note warning">⚠️<em>Portuaren kontzeptua da garatzaile batek ikasi behar duen gauzarik garrantzitsuenetako bat. Izan ere, sareko aplikazio bat programatzean, guk erabakitzen dugu zein portu erabiltzen duen gure aplikazioa.</em>
+<em>Gainera, askok entzun duzuen bezala, askotan portuak ireki behar izaten dira.</em></p>
+<p>Ondo, baina ez da ahaztu momentuz sareei buruzko kontatutako guztia, <strong>ordenagailu batean dagoen prozesu batetik</strong> <strong>beste prozesu batera</strong> datuak bidaltzera bideratuta dagoela.</p>
+<p>Adibidez:</p>
+<ul>
+<li>Web nabigatzaile batetik (Firefox bezala) Web zerbitzari batera (Apache bezala) eta alderantziz.</li>
+<li>SSH bezero batetik (putty gisa) SSH zerbitzari batera</li>
+<li>Posta-bezero batetik posta-zerbitzari batera.</li>
+<li>Minecraft bezero batetik Minecraf zerbitzari batera.</li>
+</ul>
+<p>Bada, prozesu batek sistema eragileari esan behar dio protokolo batera, portu batera eta IP batera &quot;konektatzen&quot; dela (jakina, ekipoaren beraren IPetara mugatuta). Eta datuak bidaltzen edo jasotzen dituzunean, portu eta protokolo hori erabiliko duzu. Eta, gero, prozesuak datuak bidaliko ditu helmugako portu eta IPa dituen orgenagilu batera (helmugako protokoloa, jakina, jatorrikoaren berdina izango da).</p>
+<pre><code>                TCP
+(IP, Portua) ----------&gt; (IP, Portua)
+
+
+                UDP
+(IP, Portua) ----------&gt; (IP, Portua)
+</code></pre>
+<ul>
+<li>Garrantzitsua da nabarmentzea prozesu bakar bat (gauzatzen ari den programa bat) konekta daitekeela portu eta protokolo batera. Adibidez:
+<ul>
+<li>Javan programa bat egiten badugu eta TCP bidez 3306 portura konektatzen badugu, gero ezingo dugu MYSQL instalatu, MYSQL-k 3306 portua erabiltzen baitu TCP bidez.</li>
+<li>Baina Javan programa bat egiten badugu eta UDP bidez 3306 portura konektatzen badugu, gero MYSQL instalatu ahal izango dugu, MYSQLk 3306 portua erabiltzen baitu TCP bidez.</li>
+</ul>
+</li>
+<li>Baina prozesu bat bi portu konektatzea baimentzen da. Adibidez:
+<ul>
+<li>Javaren Web zerbitzaria, Tomcat izenekoa, 8080 portuan konektatuta dago nabigatzaileen eskaerak jasotzeko</li>
+<li>Baina 8005 portuan ere konektatuta dago zerbitzaria berrabiarazten duten eskaerak jasotzeko</li>
+</ul>
+</li>
+</ul>
+<p class="note warning">⚠️<em>Posible da Mysql eta aplikazio gehienen defektuzko portua aldatzea, baina ez da gomendagarria.</em></p>
+<h2 id="bezero-zerbitzaria">Bezero-zerbitzaria</h2>
+<p>Ikus dezagun orain xehetasun bat. Ziurtzat jotzen dugu edozein ordenagailu konekta daitekeela beste edozein ordenagailurekin. Baina benetan ez da horrela.</p>
+<ul>
+<li>Ethernet eta IP mailan, edozein ordenagailurekin konekta zaitezke, sistema eragileak berak jasotzen baititu datuak.</li>
+<li>TCP mailan, helmugako ordenagailuan konektatu nahi duzun portuan prozesu bat konektatutako badago baino ezin zara konektatu.
+Ikus dezagun berriro lehen adibidea:</li>
+</ul>
+<p>Ikus dezagun adibide bat:</p>
+<p><img src="image-21.png" alt="alt text"></p>
+<p>Demagun 192.168.3.14 Host-a 192.168.4.123 Host-arekin konektatu nahi dela. Orain badakigu lehenik eta behin garraio-protokoloa aukeratu behar dela:</p>
+<ul>
+<li>TCP</li>
+<li>UDP</li>
+</ul>
+<p>Demagun TCP protokoloarekin konektatu nahi dugula.</p>
+<p>Orain, helburuko ordenagailuaren portua aukeratu behar dugu (192.168.4.123):</p>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>.....</li>
+<li>655355</li>
+</ul>
+<p>Demagun 3306 portura konektatu nahi dugula.</p>
+<p>Galdera da, Prozesu bat dago 192.168.4.123 Hosteko 3306 portuan konektatuta? Hau da, beste ordenagailu batera konektatzeko prozesu batek portu horretara konektatuta egon behar du nahitaez, bestela sistema eragileak ez bailuke jakingo zer prozesutara bidali datuak. Izan ere, datuak ez ditugu ordenagailutik ordenagailura bidaltzen, programatik programara baizik. Pentsatu Whatsappean....</p>
+<p>Baina bada besterik ere. 3306 portura konektatuta dagoen prozesu hori <strong>ENTZUTEN</strong> ari dela edo prozesu hori <strong>ZERBITZARI</strong> bat dela esaten da.</p>
+<p class="note warning">&#128161; <em>Garrantzitsua da azpimarratzea ez garela ari bezero-ordenagailuez eta zerbitzari-ordenagailuez. Izan ere, ordenagailu berak bezero-lanak eta zerbitzari-lanak egiten dituzten prozesuak izan ditzake. Beraz, egokiena bezero-prozesuei eta zerbitzari-prozesuei buruz hitz egitea da. Hala ere, lengoaia gehiegi erabiltzen dugu eta ordenagailu bat zerbitzaria dela esan ohi dugu, baldin eta garrantzitsuena prozesu zerbitzariak izatea bada, nahiz eta inoiz prozesu bezero bat izan. Bezero eta zerbitzari gisa ere egin dezake, aldi berean, nahiz eta, jakina, ataka desberdinetan.</em></p>
+<p>Itzuli gaitez eskema honetara:</p>
+<pre><code>                TCP
+(IP, Portua) ----------&gt; (IP, Portua)
+</code></pre>
+<p>Orain, datu hauek dauzkagu:</p>
+<pre><code>                UDP
+(192.168.3.14, Portua) ----------&gt; (192.168.4.123, 3306)
+</code></pre>
+<p>Baina oraindik jatorrizko portua jakitea falta zaigu. Bada, jatorrizko portua, ez genuen guk erabaki. Sistema eragileak bezeroarena egin nahi dugunean nahi duen portua esleitzen digu. Pentsa genezake 3306a eduki behar dugula, edo beti berdina izan behar dela, baina pixka bat pentsatzen badugu, berdin dio bezeroak zer ataka duen. Zerbitzariak beti erantzungo digu jatorri-atakari, beraz, berdin dio.</p>
+<p>Beraz, jatorrizko ataka gisa suposatuko dugu sistema eragileak 45345 ataka zenbakia esleitzen digula. Orain, azkenik, badugu TCP konexiorako informazio guztia.</p>
+<pre><code>                UDP
+(192.168.3.14, 45345) ----------&gt; (192.168.4.123, 3306)
+</code></pre>
+<p>Azkenik, esan behar da bezeroa zerbitzarira konektatzen hasten den arren, zerbitzaria beti dagoela bezeroren batek konektatu zain. Konexioa ezarri ondoren, bezeroak eta zerbitzariak datuak bidal ditzakete.</p>
+<h2 id="tcp-protokoloa-1">TCP Protokoloa</h2>
+<p>Azkenik, TCP protokoloa azalduko dugu. Oso modu errazean ikusiko dugu, oso protokolo konplexua baita.</p>
+<p>Lehenik eta behin, adierazi behar da <span style="background-color:yellow"><strong>Ethernetek</strong> bidaltzen duenari <strong>Trama</strong></span>  deitzen zaiola, <span style="background-color:yellow"><strong>IPk</strong> bidaltzen duenari <strong>Datagrama</strong></span> , <span style="background-color:yellow"><strong>TCPk</strong> bidaltzen duenari <strong>Segmentu</strong></span> deitzen zaiola.</p>
+<p>Orain, gogora dezagun zer egin behar duen TCP protokoloak:</p>
+<ul>
+<li>Datuak zein prozesutara bideratuko diren zehaztu daiteke</li>
+<li>Datuak ordenatuta iristen dira: Datuak zenbakituz konpontzen da</li>
+<li>Datuak ez dira inoiz galtzen: Datuak zenbakituz konpontzen da</li>
+<li>Datuak ez dira inoiz bikoiztuta iristen: Datuak zenbakituz konpontzen da</li>
+</ul>
+<p>Datuak zein prozesutara bideratuko diren zehazteko, ikusi dugu portuaren kontzeptuak konpontzen duela, prozesu bat ate batera konektatzen baita.</p>
+<p>Orain ikus dezagun nola konpontzen dituen gainerako arazoak: TCPn ezartzen den konexio bakoitzean (Gogoratu konexio bat jatorrizko IPren, jatorrizko portua, helmugako IPren, helmugako portuaren arteko lotura dela), bidaltzen dituen segmentuak zenbakituko dira. Horrela, baten bat iristen ez bada, errepikatuta iristen bada edo beste ordena batean iristen bada, TCPk jakingo du.</p>
+<table>
+<thead>
+<tr>
+<th>Segmentuen iritsiera</th>
+<th>Hautemandako arazoa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1, 2, 3, 4, 5</td>
+<td>Bat ere ez. Dena ondo iritsi da.</td>
+</tr>
+<tr>
+<td>1, 2, 4, 5</td>
+<td>Galdu egin da 3. segmentua</td>
+</tr>
+<tr>
+<td>1, 2, 3, 4, 4, 5</td>
+<td>4. segmentua bikoiztuta iritsi da</td>
+</tr>
+<tr>
+<td>1, 2, 4, 3, 5</td>
+<td>3. eta 4. segmentuak desordenatuta iritsi dira</td>
+</tr>
+<tr>
+<td>3, 1, 4, 4, 5</td>
+<td>4. segmentua bikoiztuta iritsi da, 2. segmentua galdu egin da, 3. eta 1.  segmentuak ordenatik kanpo iritsi dira</td>
+</tr>
+</tbody>
+</table>
+<p>Arazorik izanez gero, TCPk honela konpontzen ditu:</p>
+<ul>
+<li><strong>Segmentu bikoiztua:</strong> TCPk bikoiztuta iritsi den segmentua deskargatzen du</li>
+<li><strong>Segmentu desordenatuak:</strong> TCPk ordena berregiten du, sekuentzia-zenbakia baitu.</li>
+<li><strong>Segmentu galdua:</strong> TCPk Host jatorriari adierazten dio iritsi ez den segmentua berriz bidaltzeko.</li>
+</ul>
+<p>Informazioa gehiago</p>
+<ul>
+<li><a href="http://es.wikipedia.org/wiki/Transmission_Control_Protocol">Wikipedia, TCP </a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">Wikipedia, TCP Ingelesez</a></li>
+<li><a href="http://es.wikipedia.org/wiki/Segmento_TCP">TCP segmentua</a></li>
+</ul>
+<p>Irudi honetan ikus dezakegu nola TCPk bere goiburua gehitzen duen IP datuen gainean. Hau da, burualde bat dago segmentuetarako.</p>
+<p><img src="image-22.png" alt="alt text"></p>
+<p>Hau da:</p>
+<ul>
+<li>Datu batzuk ditugu.</li>
+<li>TCP goiburu bat erantsiko dugu, eta segmentua bidaliko dugu goiburuarekin (jatorrizko eta helmugako portuarekin) eta datuak IP protokolora.</li>
+<li>IP protokoloak bere goiburua gehitzen du, jatorriko eta helmugako IParekin, datagrama bat sortuz eta Ethernetera bidaliz</li>
+<li>Azkenik, Ethernetek bere goiburua gehitzen du MACekin (jatorria eta helmuga), eta azkenik trama bidaltzen du kable fisikotik.</li>
+</ul>
+<p>Ikus dezagun orain segmentuaren goiburuaren formatua</p>
+<p><img src="image-23.png" alt="alt text"></p>
+<p>Hona hemen interesatzen zaizkigun eremuak:</p>
+<ul>
+<li><strong>Jatorrizko portua:</strong> datuak bidaltzeko erabiltzen den portua.</li>
+<li><strong>Helmugako portua</strong>: Datuak zein portutara bidaltzen diren</li>
+<li><strong>Sekuentzia-zenbakia:</strong> Erroreak detektatzeko aukera ematen duen segmentuaren sekuentzia-zenbakia.</li>
+<li><strong>Hartu-agiriaren zenbakia:</strong> ACK zenbakia ere deitzen da. Beste Host-ari jasotzeko zain gauden segmentu kopurua esaten diona da, eta horrela, zein galdu den jakingo dugu.</li>
+<li><strong>Goiburuaren luzera:</strong> 32 biteko hitzetan zehazten da. Hau da, 1ek esan nahi du goiburuak 32 bit hartzen dituela, 2k esan nahi du goiburuak 64 bit hartzen dituela, etab.</li>
+<li><strong>Egiaztapenaren batura:</strong> Segmentu osoaren CRCa da (goiburua eta datuak)</li>
+<li><strong>SYNC eta ACK:</strong> Bi bit horiek TCP konexioa ezartzeko eta ixteko erabiltzen dira. Esan dugunez, datuak bidaltzeko beharrezkoa da aldez aurretik konexio bat ezartzea. Eta datuak bidali berri direnean, itxi konexioa. Hurrengo irudian, konexioa ezartzeko bidaltzen diren TCP segmentuak ageri dira (antzera egiten da konexioa ixteko).</li>
+</ul>
+<p><img src="image-24.png" alt="alt text"></p>
+<p>Datuak bidali aurretik, segmentu batzuk bidali behar dira konexioa ezartzeko. SYNC eta/edo ACK bitak aktibatuta dituzten hasierako segmentu horiek gabe, zerbitzariak ez ditu onartuko datu-segmentuak.</p>
+<p class="note">&#128161; <em>TCPrekin amaitzeko, esan dezakegu TCP duten protokolo askoren ondoren lortu dugula datuak prozesu batetik bestera modu fidagarrian bidaltzea, informazioa galdu edo aldatu gabe.</em></p>
+<h2 id="udp-protokoloa">UDP protokoloa</h2>
+<p>UDP protokoloa TCP protokoloaren oso antzekoa da, beraz, TCPtik azaldu ditugun gauza gehienek UDPrako balio dute. Orduan, zertan bereizten dira?</p>
+<p>UDPk arazo hauek konpontzen ez dituenean:</p>
+<ul>
+<li>Ez du ebazten datuak ordenarik gabe iristen badira</li>
+<li>Ez du ebazten datuak galtzen badira</li>
+<li>Ez du ebazten datuak bikoiztuta iristen badira.</li>
+</ul>
+<p>Eta UDPn ez da beharrezkoa konexioa ezartzea/ixtea, hau da, datuak zuzenean bidaltzen dira.</p>
+<p>Dena den, datuak zein prozesutara bideratuta dauden zehaztu ahal izango da. Hau da, portuaren kontzeptua UDPn erabiltzen da.</p>
+<p>Informazioa gehiago</p>
+<ul>
+<li><a href="http://es.wikipedia.org/wiki/User_Datagram_Protocol">Wikipedia, UDP </a></li>
+</ul>
+<p>Orduan, UDPk zertarako balio du IP protokoloaren arazoak konpontzen ez badira?. Beno, esan bezala, badago bat konpontzen dena eta portuari esker datuak zein prozesutara doazen zehaztu ahal izatea.</p>
+<p>Ikus dezagun orain UDP goiburua</p>
+<p><img src="image-25.png" alt="alt text"></p>
+<p>Ikus dezakegunez, oso sinplea da eta ez du azalpen gehiagorik behar.</p>
+<p>Baina aspalditik pentsatu behar duzuna da zertarako balio duen UDPk? Gaizki badabil!!!! Erantzuna oso sinplea da, TCP protokolo oso ona da, baina inplementatzeko oso konplexua da, gainera, gauzak bidaltzean oso motela da. UDP, berriz, oso erraza da programatzeko eta bidalketa oso azkarra da. Beraz, fidagarritasuna galtzen baduzu ere, hobekuntzak ditu azkartasunean.</p>
+<p class="note">&#128161; <em>UDPren azkartasunaren arrazoietako bat da ez duela konexioa ezarri eta itxi behar, beraz, transmisio laburretan denbora asko aurrezten da</em></p>
+<p>Bai, baina azkarrago bada ere, ez duzu inoiz daturik galdu nahi. Beraz, zertarako izan daiteke erabilgarria UDP?</p>
+<table>
+<thead>
+<tr>
+<th>Aplikazioa</th>
+<th>Abantailak</th>
+<th>Desabantailak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bidali tenperatura mendi batetik gora dagoen sentsore batetik</td>
+<td>Datu gutxiago gastatzen ditu eta prozesadore sinpleagoa behar du</td>
+<td>Ez da ezer gertatzen noizbait tenperaturaren bat galtzen bada edo desordenatuta iristen bada edo bi aldiz iristen bada</td>
+</tr>
+<tr>
+<td>Internet bidezko telefonia</td>
+<td>Banda-zabalera txikiagoa erabiltzen du</td>
+<td>Ez da ezer gertatzen batzuetan gaizki entzuten bada, aurretik zerbait entzuten bada edo ahotsa galtzen bada</td>
+</tr>
+<tr>
+<td>Bideo-deia Internet bidez</td>
+<td>Banda-zabalera txikiagoa erabiltzen du</td>
+<td>Ez da ezer gertatzen batzuetan gaizki ikusten bada edo aurreko zerbait ikusten bada edo irudiren bat galtzen bada</td>
+</tr>
+</tbody>
+</table>
+<p>Ikusten dugunez, aplikazio horietan noizbehinkako akatsen bat izanez gero, ez dago arazorik. Gainera, esan behar da, oro har, sareek ez dutela hainbeste huts egiten, beraz, arazo horiek gutxitan gertatuko dira. Baina berriro diot: fidagarritasuna behar badugu, beti erabili beharko da TCP.</p>
+<h1 id="ariketak">Ariketak</h1>
+<h2 id="ariketa-1">Ariketa 1</h2>
+<ol>
+<li>IP bidez komunikatzen diren 4 programa informatiko bilatu eta erabiltzen duen garraio-protokoloa eta zerbitzariaren portua adierazi. Horietako batek, gutxienez, UDP erabili beharko du, eta ezin dituzu errepikatu apunteetan erabili ditudan adibideak.</li>
+<li>Gure Linuxetik SSH bidez 8.8.8.8 IPra konektatzen bagara, zein izango dira konexioarako &quot;datuak&quot;? Hau da, portuak eta IPak</li>
+<li>Ordenagailutik ordenagailurako berehalako mezularitzako aplikazio bat badugu (Whatsapp edo Telegram, adibidez), baina ordenagailu zentraletik pasatu gabe. Instalatzen dugun programak bezeroarena edo zerbitzariarena egiten du?</li>
+<li>Berehalako mezularitzako aplikazio bat badugu, eta haren komunikazioak zerbitzari zentral batetik igarotzen badira. Instalatzen dugun programak bezeroarena edo zerbitzariarena egiten du?</li>
+</ol>
+<h2 id="ariketa-2">Ariketa 2</h2>
+<p>1024 datu byte bidaltzen baditugu TCP bidez</p>
+<ul>
+<li>zenbat byte bidaltzen dira gutxienez benetan TCP segmentuan?</li>
+<li>zenbat byte bidaltzen dira gutxienez benetan IP datagraman?</li>
+<li>zenbat byte bidaltzen dira gutxienez benetan Ethernet traman?</li>
+</ul>
+<h2 id="ariketa-3">Ariketa 3</h2>
+<p>1024 datu-byte bidaltzen baditugu UDP bidez</p>
+<ul>
+<li>zenbat byte bidaltzen dira gutxienez benetan UDP segmentuan?</li>
+<li>zenbat byte bidaltzen dira gutxienez benetan IP datagraman?</li>
+<li>zenbat byte bidaltzen dira gutxienez benetan Ethernet traman?</li>
+</ul>
+<h2 id="ariketa-4">Ariketa 4</h2>
+<p>Honako galdera hauei erantzuteko, muga teorikoez hitz egiten dugu beti, eta muga horiek ez daude mugatuta RAM memoria, CPU eta abarrekin.</p>
+<ul>
+<li>Host batek zenbat portu ditu gehienez TCP bidez?</li>
+<li>Zenbat portu ditu, gehienez, Host batek UDPrako?</li>
+<li>Zerbitzari batek bere TCP portu guztiak erabiltzen baditu, zerbait bidal dezake UDP bidez?</li>
+<li>Ezar dezakegu 2 SSH konexio prozesutik Host helmuga berera? Erantzuna baiezkoa bada, adierazi nola ez den okertzen informazio bakoitza itzultzean zein Host prozesutara doan.</li>
+</ul>
+<h2 id="ariketa-5">Ariketa 5</h2>
+<ul>
+<li>Prozesu bat 34567 portua TCP bidez erabiltzen ari bada, beste prozesu bat konekta al daiteke TCP portu berera?</li>
+<li>Prozesu bat 34567 portua erabiltzen ari bada TCP bidez, beste prozesu bat konekta al daiteke UDP portu berera?</li>
+<li>Prozesu bat 34567 portua erabiltzen ari bada UDP bidez, beste prozesu bat konekta al daiteke TCP portu berera?</li>
+<li>Prozesu bat 34567 portua erabiltzen ari bada UDP bidez, beste prozesu bat konekta daiteke UDP portu berera?</li>
+</ul>
+<h2 id="ariketa-6">Ariketa 6</h2>
+<ul>
+<li>Prozesu bat 34567 portua TCP bidez erabiltzen ari bada, prozesu bera konekta al daiteke TCP bitartez 12345 portura?</li>
+<li>Prozesu bat 34567 portua erabiltzen ari bada TCP bidez, prozesu bera konekta al daiteke UDP bitartez 12345 portura?</li>
+<li>Prozesu bat 34567 portua erabiltzen ari bada UDP bidez, prozesu bera konekta al daiteke TCP bitartez 12345 portura?</li>
+<li>Prozesu bat 34567 ataka erabiltzen ari bada UDP bidez, prozesu bera konekta daiteke UDP bitartez 12345 portura?</li>
+</ul>
+<h2 id="ariketa-7">Ariketa 7</h2>
+<ul>
+<li>MySQL-ra konektatzen bazara, bezeroarena egiten duen programa nola deitzen den eta zerbitzariarena egiten duen programa nola deitzen den adierazi.</li>
+<li>Web zerbitzari batera konektatzen bazara, bezeroarena egiten duen programa nola deitzen den eta zerbitzariarena egiten duen programa nola deitzen den adierazi.</li>
+<li>SSH bidez Linux-era konektatzen bazara, adierazi nola deitzen zaion bezeroarena egiten duen programari eta nola deitzen zaion zerbitzariarena egiten duen programari.</li>
+</ul>
+<h2 id="ariketa-8">Ariketa 8</h2>
+<ul>
+<li>MySQL bezero bat erabiliz, adierazi nola zehaztu dezakezun MySQL zerbitzaria entzuten ari den IPa eta ataka.</li>
+<li>Web nabigatzaile bat erabiliz, adierazi nola zehaztu dezakezun web zerbitzaria entzuten ari den IPa eta ataka.</li>
+<li>Putty erabiliz, adierazi nola zehaztu dezakezun IPa eta SSH zerbitzaria entzuten ari den ataka.</li>
+</ul>
+<h2 id="ariketa-9">Ariketa 9</h2>
+<ul>
+<li>
+<p>Egin formula bat, TCP bidez bidali beharreko byte kopuruaren arabera, kalkulatu Ethernetek bidaltzen dituen datuen gutxieneko gainkargaren ehunekoa, konexioa kapsulatzen duten protokolo guztiak kontuan izanda. Adibidez, 10 datu-byte bidali nahi baditugu eta Etherneten bidez 13 datu bidaltzen badira, %30 gainkarga izango litzateke.</p>
+</li>
+<li>
+<p>Egin formula bat, UDPk bidali beharreko byte kopurua kontuan hartuta, kalkulatu Ethernetek bidaltzen dituen datuen gutxieneko gainkargaren ehunekoa, konexioa kapsulatzen duten protokolo guztiak direla eta. Adibidez, 10 datu-byte bidali nahi baditugu eta Etherneten bidez 12 datu bidaltzen badira, %20 gainkarga izango litzateke.</p>
+</li>
+<li>
+<p>Egin grafiko bat sortu dituzun 2 formulak ikusteko (TCP eta UDPrako).</p>
+<ul>
+<li>X ardatzean, bidali beharreko datuen tamaina ikusiko da.</li>
+<li>Y ardatzean gainkargaren ehunekoa % izango du.</li>
+</ul>
+</li>
+<li>
+<p>Gainkargaren % bakarrik kontuan hartuta, zein kasutan izango litzateke hobe TCP erabiltzea eta zein kasutan izango litzateke hobea UDP erabiltzea?</p>
+</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

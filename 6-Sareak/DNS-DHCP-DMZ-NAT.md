@@ -3,6 +3,7 @@
 - [DNS, DHCP, DMZ, NAT eta Firewallak](#dns-dhcp-dmz-nat-eta-firewallak)
   - [DNS](#dns)
   - [DHCP](#dhcp)
+  - [DMZ](#dmz)
 
 
 ## DNS
@@ -111,6 +112,73 @@ Eta xbox izena erabil genezake. Teknika horren alde txarra da "/ etc/hosts" fitx
 
 ## DHCP
 
+Internet bidez komunikatu ahal izateko, informazio hau behar dugula ikusi dugu:
+
+- Gure ordenagailuaren IPa
+- Sareko maskara
+- Lotura-atea
+- DNS zerbitzarien IPak
+
+Jakina, hori guztia eskuz jartzea bideraezina da, beraz, sistema eragilea hastean informazio hori guztia lortzea ahalbidetzen duen DHCP protokoloa sortzen da. Horretarako, DHCP zerbitzari bat egon behar da gure sarean. Gure etxean zerbitzari hori gure routerraren barruan dago. DHCP protokoloak Etherneten gainean funtzionatzen du, eta ez IPn, TCPn edo UDPn, hori baita, hain zuzen ere, konfiguratu nahi duguna.
+
 Zergatik da garrantzitsua DHCP zerbitzaria? Gure etxeko routerrean sartu eta konfigurazioa alda dezakegulako.
 
-Hurrengo pantailan router baten barne-sareko IParen konfigurazioa ikusten da:
+Hurrengo irudian router baten barne-sareko IParen konfigurazioa ikusten da:
+
+![alt text](image-26.png)
+
+LANen konfigurazioak routerraren barne-sarea nolakoa izango den adierazten du, eta datu horiek DHCP zerbitzariak eman dezakeen IPen tartea mugatuko dute.
+
+- IP Address: Routerrak barne-sarean izango duen IPa da
+- Subnet Mask: Barneko sareko maskara da
+
+![alt text](image-27.png)
+
+
+Hona hemen DHCP zerbitzariak itzuliko dituen datuen balioak
+
+- **Start IP Adress eta End IP Address**: IPen tarte bat da. Routerrak soilik IPak esleituko dizkie tarte horretan dauden IPen DHCP bidezko hostei. Hau da, DHCP bidez ezin da sareko edozein IP eduki, baizik eta tartean sartutakoren bat bakarrik. Jakina, LAN konfiguratzean definitu zen sarearen barruan egon behar du tarteak.
+- **Default Gateway**: Lotura-atea DHCP bidez eskatzen duten Hostek izango duten lotura-atea da. Normalena routerraren beraren IParekin bat etortzea da.
+- **Primary DNS**: Hostek erabiliko duten DNS zerbitzariaren IPa
+- **Secondary DNS**: Hostek erabiliko duten DNS zerbitzariaren IPa, DNSren zerbitzari primarioa erorita badago.
+
+DHCP zerbitzari bat Host berari beti IP bera ematen saiatuko da (badaki Hosts bera dela bere MAC helbideagatik), baina ez du horretarako betebeharrik. Horregatik esaten da DHCP bidezko hostek IP dinamiko bat dutela, edozein unetan alda baitaiteke. Bestalde, Host batean IPa eskuz ezartzen badugu, IP estatiko bat duela esaten da, ez baita aldatuko, erabiltzaileak aldatzen ez badu.
+
+Router baten hurrengo irudian, DHCP zerbitzariak MAC bakoitzari eman dizkion IPak eta MACak dituen taula ikusten da. Horrela, MAC berari IP bera ematen saia daiteke ordenagailuak IP bat abiarazi eta eskatzen duen hurrengoan.
+
+![alt text](image-28.png)
+
+Azkenik, zirkuluaren koadratura dugu, hau da, DHCP duen IP finko bat eduki ahal izatea. Nola egiten da? Ba oso erraza da, IP erreserbatuko dugu esanez IP hori MAC jakin bati bakarrik emango diogula. Router baten hurrengo irudian ikus dezakegu IP 192.168.1.110 beti MAC 38-2C-4A-E7-D7-BBri emango zaiola.
+
+![alt text](image-29.png)
+
+DHCPk nola funtzionatzen duen ikusi ondoren, zer erabilgarritasun du hori guztia aldatzeko? Hainbat erabilera daude.
+
+- **IP estatikoak eskuz**. IP estatiko bat duen gailuren bat izan nahi badugu gure sarean. Adibidez, XBox delakoak ezin du DHCP zerbitzariaren barrutiaren barruan dagoen IPrik erabili, eta, beraz, zer maila duen jakin behar da. Horrek esan nahi du, halaber, DHCP zerbitzariaren barrutiak ez duela dena erabiltzen hemen sarearen mailan. Eta konfiguratuta dagoen moduari erreparatzen badiogu, lehenengo IPa 192.168.1.100 urtean hasten da, eta azkena 192.168.1.199 urtean. Oker pentsatuz gero, lehenengoa zergatik ez zen 192.168.1.2 5) eta azkena zergatik ez zen 192.168.1.2546). Hau da, normalean sareko tarteren bat libre uzten da IP estatikoetarako. Baina, jakina, aukerakoa da.
+- **IP estatikoak DHCP bidez**: IP estatiko bat izateko esan dugun bezala, baina eskuz idatzi beharrean DHCP zerbitzarian gorde dezakegu MAC horretarako.
+- **DNS pribatutasuna**: DNS protokoloa ikustean esan genuen "espiatzen" gaituztela ebazten ditugun domeinu-izenak jakinda. Beraz, interesgarria da erabiltzen ditugun DNS zerbitzariak aldatu ahal izatea.
+- **DNS abiadura**: Nabigatzen ari garenez, domino izenak ebazten ari gara etengabe. Horregatik, batzuetan, DNS zerbitzariak aldatu nahi izaten ditugu, eta gero eta arinagoak diren beste zerbitzari batzuk jarri.
+
+
+## DMZ
+
+Suebakiekin jarraituko dugu, baina orain ikusiko dugu zein kasutan nahi dugun Internetetik gure zerbitzariren batera konektatzea. Kasurik ohikoena da gure enpresan web-zerbitzari bat eduki nahi izatea. Gure web zerbitzarira konexioak baimentzearen arazoa da hackeatua izateko aukera dagoela. Eta behin Web zerbitzarian sartuta, hortik gure sareko gainerako ordenagailuetara sar daitezke. Hori saihesteko, sarea eremu desmilitarizatua edo DMZ sortuz antolatzen da.
+
+DMZ azaltzeko, ikus ditzagun gure enpresan ditugun ordenagailuak:
+
+
+| Zerbitzaria | Erabilera | Sarbidea nondik |
+| --- | --- | --- |
+| Web zerbitzari publikoa | Gure enpresaren informazio publikoa ostatatuta dagoen zerbitzaria da. Edozein webguneren ohiko webgunea da. | Internet | 
+| Web zerbitzari pribatua | Gure enpresaren informazio pribatua dagoen zerbitzaria da. Gure enpresako Barne Saileko bezero, salmenta, erosketa, kontabilitate eta abar guztiak biltzen dituen webgunea da. | Enpresaren barnetik | 
+| Enpresaren beraren ordenagailuak | Langileek erabiltzen dituzten ordenagailuak dira | Enpresaren barnetik | 
+
+
+Nola antolatzen dugu sarea aurreko taulan jarri duguna bete dadin? Izan ere, hurrengo irudian dena nola geratzen den ikusten da:
+
+![alt text](image-30.png)
+
+Garrantzitsuena da orain bi suebaki daudela:
+
+- **Kanpoko suebakia**: Web zerbitzari publikorako diren 80 eta 443 atakarako sarrera bidezko konexioak soilik baimentzen ditu.
+- **Barneko suebakia**: Ez du sartzen uzten.
