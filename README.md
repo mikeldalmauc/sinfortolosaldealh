@@ -64,12 +64,12 @@ Sistema Informatikoen repositorioa
       - [12 -2h- Sprint 1 - Demo](#12--2h--sprint-1---demo)
       - [16 -3h- Sareak - Introdukzioa Sareetara](#16--3h--sareak---introdukzioa-sareetara)
       - [19 -2h- Sareak - IP protokoloa](#19--2h--sareak---ip-protokoloa)
-      - [23 -3h- Sareak - IPv4](#23--3h--sareak---ipv4)
-      - [26 -2h- Sareak - TCP](#26--2h--sareak---tcp)
-      - [30 -3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#30--3h--sareak---beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
+      - [23 -3h- Sareak - Segurtasun azterketa recu + IOS ingurunea prestatu](#23--3h--sareak---segurtasun-azterketa-recu--ios-ingurunea-prestatu)
+      - [26 -2h- Sareak - IPv4](#26--2h--sareak---ipv4)
+      - [30 -3h- Sareak - TCP](#30--3h--sareak---tcp)
     - [Maiatza](#maiatza)
       - [3 -2h- Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT](#3--2h--beste-protokolo-batzuk-dns-dhcp-firewallak-dmz-nat)
-      - [7 - 3h- Sareak -](#7---3h--sareak--)
+      - [7 - 3h- Sareak froga - Azken eguna](#7---3h--sareak-froga---azken-eguna)
       - [10 - 2h Erronka - Exekuzio fasea](#10---2h-erronka---exekuzio-fasea)
       - [14 - 3h Erronka - Exekuzio fasea](#14---3h-erronka---exekuzio-fasea)
       - [17 - 2h Erronka - Exekuzio fasea](#17---2h-erronka---exekuzio-fasea)
@@ -329,16 +329,15 @@ Hurrengo pausoak jarraitu:
 - Ip protokoalren azalpenak
 - Ariketa
 
-#### 23 -3h- Sareak - IPv4
-- Errekuperaketa
+#### 23 -3h- Sareak - Segurtasun azterketa recu + IOS ingurunea prestatu
+- Segurtasun azterketa aitorpena errekuperazioa
 - IOs garapen ingurunea prestatu [Gida / erreferentziak](<3-birtualizazioa/ios garapen ingurunea.md>)
 
-#### 26 -2h- Sareak - TCP
+#### 26 -2h- Sareak - IPv4
 - Ipv4 protokoa azaldu klasean
 - Ariketak
-- Segurtasun azterketa aitorpena errekuperazioa
   
-#### 30 -3h- Sareak - Beste protokolo batzuk, DNS, DHCP, Firewallak, DMZ, NAT
+#### 30 -3h- Sareak - TCP
 - TCP protokola azaldu klasen
 - TCP protokoloa linuxen
 - Ariketak 
@@ -350,10 +349,8 @@ Hurrengo pausoak jarraitu:
 - TCP protokoloa linuxen
 - Ariketak 
 
-#### 7 - 3h- Sareak - 
-- Wifi sareen azalpenak
-- Hacking wifi erakuspena
-- Ariketak
+#### 7 - 3h- Sareak froga - Azken eguna
+- Azterketa sareak
 
 #### 10 - 2h Erronka - Exekuzio fasea
 #### 14 - 3h Erronka - Exekuzio fasea

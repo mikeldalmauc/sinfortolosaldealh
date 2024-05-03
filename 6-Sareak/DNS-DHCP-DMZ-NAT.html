@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>DNS&comma; DHCP&comma; DMZ&comma; NAT eta Firewallak</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+
+body {
+  font-family: Hack, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  page-break-after: always
+}
+.note {
+  padding: 0.8em;
+  border-radius: 0.3em;
+  background-color: rgb(166, 233, 166);
+  box-shadow: 1px 1px 3px 1px rgb(164, 164, 164);
+}
+.warning {
+  background-color: rgb(243, 208, 195);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 0.8em;
+  border-radius: 0.2em;
+}
+
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="dns-dhcp-dmz-nat-eta-firewallak">DNS, DHCP, DMZ, NAT eta Firewallak</h1>
+<ul>
+<li><a href="#dns-dhcp-dmz-nat-eta-firewallak">DNS, DHCP, DMZ, NAT eta Firewallak</a>
+<ul>
+<li><a href="#dns">DNS</a></li>
+<li><a href="#dhcp">DHCP</a></li>
+<li><a href="#dmz">DMZ</a></li>
+<li><a href="#nat">NAT</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="dns">DNS</h2>
+<p>Ordu arte beti egiten ditugu probak IPak erabiliz, baina IP bat ez da oso erosoa gizaki batek gogoratzeko. Horregatik, Host baten domeinu-izena sortzen da, gizaki batentzako gogoratze-izen sinple bat besterik ez dena. Eta domeinu-izen bat IP bati lotzen diona.</p>
+<p>Domeinuen adibide batzuk:</p>
+<ul>
+<li><a href="http://www.google.es">www.google.es</a></li>
+<li><a href="http://tolosaldea.hezkuntza.net/">tolosaldea.hezkuntza.net/</a></li>
+</ul>
+<p>Domeinu-izen batek IP bakarra izan dezake; izan ere, bat baino gehiago balitu, ez genuke jakingo zer erabili, baina IP berak hainbat domeinu izan ditzake. Hau da, Host berak domeinu-izen bat baino gehiago izan ditzake. Hori normala da, ordenagailu berean domeinu desberdinetako orriak jartzen baitira kostu ekonomikoak aurrezteko.</p>
+<p>Horren ondorioz, DNS zerbitzari <em>&quot;prozesuak&quot;</em> sortu ziren. DNS zerbitzari bat domeinu-izena bidaltzen diogun zerbitzari bat da, eta bere IPa itzultzen digu.</p>
+<p>Informazio gehiago:</p>
+<ul>
+<li><a href="https://es.wikipedia.org/wiki/Sistema_de_nombres_de_dominio">DNS</a></li>
+<li><a href="https://www.xatakamovil.com/conectividad/como-funciona-internet-dns">Como funciona internet dns</a></li>
+</ul>
+<p>DNS protokoloa oso erraza da, UDP bidez bidaltzen da gure DNS zerbitzariaren 53 portura domeinu-izen bat eta IPa itzultzen digu. Ez gara sartuko DNS protokoloaren formatuan. Xehetasun bat da, lehenik eta behin, gure DNS zerbitzariaren IP jakin behar dugu. Beraz, eskuz ezarri behar da, lotura-atearekin egiten genuen bezala.</p>
+<p>Linux erabiltzen ari den DNS zerbitzariak jakiteko, <code>systemd-resolve --status</code>:</p>
+<pre><code class="language-bash">Global
+          DNSSEC NTA: 10.in-addr.arpa
+                      16.172.in-addr.arpa
+                      168.192.in-addr.arpa
+                      17.172.in-addr.arpa
+                      18.172.in-addr.arpa
+                      19.172.in-addr.arpa
+                      20.172.in-addr.arpa
+                      21.172.in-addr.arpa
+                      22.172.in-addr.arpa
+                      23.172.in-addr.arpa
+                      24.172.in-addr.arpa
+                      25.172.in-addr.arpa
+                      26.172.in-addr.arpa
+                      27.172.in-addr.arpa
+                      28.172.in-addr.arpa
+                      29.172.in-addr.arpa
+                      30.172.in-addr.arpa
+                      31.172.in-addr.arpa
+                      corp
+                      d.f.ip6.arpa
+                      home
+                      internal
+                      intranet
+                      lan
+                      <span class="hljs-built_in">local</span>
+                      private
+                      <span class="hljs-built_in">test</span>
+ 
+Link 3 (docker0)
+      Current Scopes: none
+       LLMNR setting: <span class="hljs-built_in">yes</span>
+MulticastDNS setting: no
+      DNSSEC setting: no
+    DNSSEC supported: no
+ 
+Link 2 (enp2s0)
+      Current Scopes: DNS
+       LLMNR setting: <span class="hljs-built_in">yes</span>
+MulticastDNS setting: no
+      DNSSEC setting: no
+    DNSSEC supported: no
+         DNS Servers: 8.8.8.8
+                      8.8.4.4
+          DNS Domain: ~.
+</code></pre>
+<p>Ikusten dugu azken lerroetan &quot;DNS Servers&quot; agertzen dela, eta ikusten dugu bi DNS daudela, zeinen IPak &quot;8.8.8.8&quot; eta &quot;8.8.4.4&quot; diren.</p>
+<p>Ez dugu ikusiko nola ezarri DNS zerbitzariak Ubuntun, baina ikuspenen bat behar baduzue, gogoratu <strong>netplan</strong> izeneko tresna bat erabiltzen dela.</p>
+<p>Guretzat DNS eskaera bat &quot;dig&quot; agindua domeinu izenarekin erabiltzen da.</p>
+<pre><code class="language-bash">logongas@beren:~$ dig www.fpmislata.com +short
+87.98.231.18
+</code></pre>
+<p>Pentsa dezakegu &quot;dig&quot; agindua ez dela oso erabilgarria, baina batzuetan sare-arazoak izaten dira, eta DNSek funtzionatzen duten jakiteko, agindu hori erabil dezakegu.</p>
+<p>Batzuetan, gure ordenagailuan DNS zerbitzari bat izatea interesatzen zaigu, adibidez, gure XBoxeko IPra konektatzen bagara, edo SmartTVra, etab. Horrela, IP bidez sartu beharrean, izenaren bidez sar gaitezke. DNS zerbitzari oso bat muntatzea, konplexua ez bada ere, irakasgaiaren helburutik haratago dago. Baina IP bat domeinu-izen batekin lotzeko oso modu erraza dago. **&quot;/etc/hosts&quot; **izeneko fitxategi bat IParekin eta domeinu-izenarekin betetzea besterik ez da.</p>
+<pre><code class="language-bash">logongas@beren:~$ <span class="hljs-built_in">cat</span> /etc/hosts
+127.0.0.1   localhost
+192.168.1.110   beren
+ 
+<span class="hljs-comment"># The following lines are desirable for IPv6 capable hosts</span>
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre>
+<p>Hor ikusten denez, &quot;127.0.0.1&quot; erabili beharrean, domino &quot;localhost&quot; izena erabil daiteke, baita &quot;beren&quot; domino izena ere, 192.168.1.106 IPari lotua.</p>
+<p>Beraz, gure XBox-ak 192.168.1.67 IP badu, adibidez, &quot;/etc/hosts&quot; fitxategiari honako hau gehitu beharko litzaioke:</p>
+<pre><code class="language-bash">192.168.1.67 xbox
+</code></pre>
+<p>Eta xbox izena erabil genezake. Teknika horren alde txarra da &quot;/ etc/hosts&quot; fitxategia aldatu dugun ordenagailutik bakarrik funtzionatzen duela; beraz, mugikor batetik ezingo genuke &quot;xbox&quot; izena erabili. Beraz, ez da zoragarria, baina arazoren batetik ateratzeko, balio dezake.</p>
+<h2 id="dhcp">DHCP</h2>
+<p>Internet bidez komunikatu ahal izateko, informazio hau behar dugula ikusi dugu:</p>
+<ul>
+<li>Gure ordenagailuaren IPa</li>
+<li>Sareko maskara</li>
+<li>Lotura-atea</li>
+<li>DNS zerbitzarien IPak</li>
+</ul>
+<p>Jakina, hori guztia eskuz jartzea bideraezina da, beraz, sistema eragilea hastean informazio hori guztia lortzea ahalbidetzen duen DHCP protokoloa sortzen da. Horretarako, DHCP zerbitzari bat egon behar da gure sarean. Gure etxean zerbitzari hori gure routerraren barruan dago. DHCP protokoloak Etherneten gainean funtzionatzen du, eta ez IPn, TCPn edo UDPn, hori baita, hain zuzen ere, konfiguratu nahi duguna.</p>
+<p>Zergatik da garrantzitsua DHCP zerbitzaria? Gure etxeko routerrean sartu eta konfigurazioa alda dezakegulako.</p>
+<p>Hurrengo irudian router baten barne-sareko IParen konfigurazioa ikusten da:</p>
+<p><img src="image-26.png" alt="alt text"></p>
+<p>LANen konfigurazioak routerraren barne-sarea nolakoa izango den adierazten du, eta datu horiek DHCP zerbitzariak eman dezakeen IPen tartea mugatuko dute.</p>
+<ul>
+<li>IP Address: Routerrak barne-sarean izango duen IPa da</li>
+<li>Subnet Mask: Barneko sareko maskara da</li>
+</ul>
+<p><img src="image-27.png" alt="alt text"></p>
+<p>Hona hemen DHCP zerbitzariak itzuliko dituen datuen balioak</p>
+<ul>
+<li><strong>Start IP Adress eta End IP Address</strong>: IPen tarte bat da. Routerrak soilik IPak esleituko dizkie tarte horretan dauden IPen DHCP bidezko hostei. Hau da, DHCP bidez ezin da sareko edozein IP eduki, baizik eta tartean sartutakoren bat bakarrik. Jakina, LAN konfiguratzean definitu zen sarearen barruan egon behar du tarteak.</li>
+<li><strong>Default Gateway</strong>: Lotura-atea DHCP bidez eskatzen duten Hostek izango duten lotura-atea da. Normalena routerraren beraren IParekin bat etortzea da.</li>
+<li><strong>Primary DNS</strong>: Hostek erabiliko duten DNS zerbitzariaren IPa</li>
+<li><strong>Secondary DNS</strong>: Hostek erabiliko duten DNS zerbitzariaren IPa, DNSren zerbitzari primarioa erorita badago.</li>
+</ul>
+<p>DHCP zerbitzari bat Host berari beti IP bera ematen saiatuko da (badaki Hosts bera dela bere MAC helbideagatik), baina ez du horretarako betebeharrik. Horregatik esaten da DHCP bidezko hostek IP dinamiko bat dutela, edozein unetan alda baitaiteke. Bestalde, Host batean IPa eskuz ezartzen badugu, IP estatiko bat duela esaten da, ez baita aldatuko, erabiltzaileak aldatzen ez badu.</p>
+<p>Router baten hurrengo irudian, DHCP zerbitzariak MAC bakoitzari eman dizkion IPak eta MACak dituen taula ikusten da. Horrela, MAC berari IP bera ematen saia daiteke ordenagailuak IP bat abiarazi eta eskatzen duen hurrengoan.</p>
+<p><img src="image-28.png" alt="alt text"></p>
+<p>Azkenik, zirkuluaren koadratura dugu, hau da, DHCP duen IP finko bat eduki ahal izatea. Nola egiten da? Ba oso erraza da, IP erreserbatuko dugu esanez IP hori MAC jakin bati bakarrik emango diogula. Router baten hurrengo irudian ikus dezakegu IP 192.168.1.110 beti MAC 38-2C-4A-E7-D7-BBri emango zaiola.</p>
+<p><img src="image-29.png" alt="alt text"></p>
+<p>DHCPk nola funtzionatzen duen ikusi ondoren, zer erabilgarritasun du hori guztia aldatzeko? Hainbat erabilera daude.</p>
+<ul>
+<li><strong>IP estatikoak eskuz</strong>. IP estatiko bat duen gailuren bat izan nahi badugu gure sarean. Adibidez, XBox delakoak ezin du DHCP zerbitzariaren barrutiaren barruan dagoen IPrik erabili, eta, beraz, zer maila duen jakin behar da. Horrek esan nahi du, halaber, DHCP zerbitzariaren barrutiak ez duela dena erabiltzen hemen sarearen mailan. Eta konfiguratuta dagoen moduari erreparatzen badiogu, lehenengo IPa 192.168.1.100 urtean hasten da, eta azkena 192.168.1.199 urtean. Oker pentsatuz gero, lehenengoa zergatik ez zen 192.168.1.2 5) eta azkena zergatik ez zen 192.168.1.2546). Hau da, normalean sareko tarteren bat libre uzten da IP estatikoetarako. Baina, jakina, aukerakoa da.</li>
+<li><strong>IP estatikoak DHCP bidez</strong>: IP estatiko bat izateko esan dugun bezala, baina eskuz idatzi beharrean DHCP zerbitzarian gorde dezakegu MAC horretarako.</li>
+<li><strong>DNS pribatutasuna</strong>: DNS protokoloa ikustean esan genuen &quot;espiatzen&quot; gaituztela ebazten ditugun domeinu-izenak jakinda. Beraz, interesgarria da erabiltzen ditugun DNS zerbitzariak aldatu ahal izatea.</li>
+<li><strong>DNS abiadura</strong>: Nabigatzen ari garenez, domino izenak ebazten ari gara etengabe. Horregatik, batzuetan, DNS zerbitzariak aldatu nahi izaten ditugu, eta gero eta arinagoak diren beste zerbitzari batzuk jarri.</li>
+</ul>
+<h2 id="dmz">DMZ</h2>
+<p>Suebakiekin jarraituko dugu, baina orain ikusiko dugu zein kasutan nahi dugun Internetetik gure zerbitzariren batera konektatzea. Kasurik ohikoena da gure enpresan web-zerbitzari bat eduki nahi izatea. Gure web zerbitzarira konexioak baimentzearen arazoa da hackeatua izateko aukera dagoela. Eta behin Web zerbitzarian sartuta, hortik gure sareko gainerako ordenagailuetara sar daitezke. Hori saihesteko, sarea eremu desmilitarizatua edo DMZ sortuz antolatzen da.</p>
+<p>DMZ azaltzeko, ikus ditzagun gure enpresan ditugun ordenagailuak:</p>
+<table>
+<thead>
+<tr>
+<th>Zerbitzaria</th>
+<th>Erabilera</th>
+<th>Sarbidea nondik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web zerbitzari publikoa</td>
+<td>Gure enpresaren informazio publikoa ostatatuta dagoen zerbitzaria da. Edozein webguneren ohiko webgunea da.</td>
+<td>Internet</td>
+</tr>
+<tr>
+<td>Web zerbitzari pribatua</td>
+<td>Gure enpresaren informazio pribatua dagoen zerbitzaria da. Gure enpresako Barne Saileko bezero, salmenta, erosketa, kontabilitate eta abar guztiak biltzen dituen webgunea da.</td>
+<td>Enpresaren barnetik</td>
+</tr>
+<tr>
+<td>Enpresaren beraren ordenagailuak</td>
+<td>Langileek erabiltzen dituzten ordenagailuak dira</td>
+<td>Enpresaren barnetik</td>
+</tr>
+</tbody>
+</table>
+<p>Nola antolatzen dugu sarea aurreko taulan jarri duguna bete dadin? Izan ere, hurrengo irudian dena nola geratzen den ikusten da:</p>
+<p><img src="image-30.png" alt="alt text"></p>
+<p>Garrantzitsuena da orain bi suebaki daudela:</p>
+<ul>
+<li><strong>Kanpoko suebakia</strong>: Web zerbitzari publikorako diren 80 eta 443 atakarako sarrera bidezko konexioak soilik baimentzen ditu.</li>
+<li><strong>Barneko suebakia</strong>: Ez du sartzen uzten.</li>
+</ul>
+<p>Hau da, barruko suebakiak ez du kanpoko konexiorik baimentzen. Beraz, kanpotik hackeatu dezakete, ez enpresako ordenagailuetara, ezta web zerbitzari pribatura ere. Baina guztiak sare berean daudenez, inolako arazorik gabe komunika daitezke beren artean. Bestalde, kanpoko suebakiak web zerbitzari publikorako konexioak bakarrik ahalbidetzen ditu. Hori dela eta, web zerbitzari publikoa hackeatu egin daiteke, baina hori gertatuko balitz, ez lituzke arriskuan jarriko ez web zerbitzari pribatua ez enpresako ordenagailuak. Bestalde, enpresako ordenagailuetatik beti sar daiteke zerbitzari publikoan (eta, jakina, baita Interneten ere), barneko suebakiak irteerako konexioak ahalbidetzen baititu.</p>
+<p>Beraz, DMZ sare bat baino ez da, non zerbitzari bat edo gehiago dauden, non suebakiak Internetetik sartzeko konexioak ahalbidetzen dituen, baina hackeatuz gero enpresako gainerako ordenagailuak arriskuan jartzen ez dituena. Izan ere, azken horiek beste suebaki batekin babestuta daude.</p>
+<h2 id="nat">NAT</h2>
+<p>NAT sortzen da, zeren eta <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup></mrow><annotation encoding="application/x-tex">2^{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span></span></span></span></span></span></span></span></span> IP helbideak ez dira nahikoa munduko Host guztientzat. Beraz, &quot;trikimailu&quot; bat egin zuten IP baino Internetera konektatutako Hosts gehiago izateko. Hau da, gaur egun 4.294.967.296 Hosts baino gehiago daude Interneten.</p>
+<p>Hori guztia azaltzeko, gure etxea erabiliko dugu adibide gisa. Internet kontratatzen dugunean, operadoreak IP bakarra esleitzen dio gure etxeari. Duela 20 urte hori ez zen arazo bat, ez baitzegoen Interneteko mugikorrik, ez kontsolak Internetera harremanetan jartzen zirenik, etab. Beraz, ordenagailu bakar batek behar zuen Interneterako sarbidea. Garai hartan, gure telekomunikazio-operadoreak esleitzen zigun IP hori zen gure ordenagailuak zuena, eta ez zegoen router bat, ez baitzuen zentzurik, gure etxean ordenagailu bakarra baitzegoen.</p>
+<p>Baina denbora pasa zen eta gure etxean Host bat baino gehiago edukitzen hasi ginen Internetera konektatuta, baina IP eskasia zela eta, gure telekomunikazio operadoreak IP bakarra ematen zigun. IP hori da orain IP Publikoa deitzen duguna. IP &quot;normala eta arrunta&quot; dela esan dezakegu.</p>
+<p>Baina, orduan, IPek gure etxeko gainerako aparatuak zituzten? Kasu horretan, eraldaketa hau egin zen:</p>
+<p>Gure operadoreak router bat ematen zigun, orain Host batzuk genituelako eta erroterrak datagramak Hosts bakoitzera bideratu behar zituelako.</p>
+<p>IP publikoa Interneterako bideratzailearen sare-interfazeari esleitzen zaio.</p>
+<p>Gure Hosts bakoitzak IP pribatu bat zuen.
+Routerrak IP pribatu bat ere badu</p>
+<p>Zer esan nahi du IP pribatu batek? Interneten nabigatu ezin duen IP bat da, ez baita bakarra. Edonor da zure etxea gure IP bera izan dezake. Hauek dira IP pribatuak:</p>
+<ul>
+<li>10.0.0.0tik 10.255.255.255era</li>
+<li>172.16.0.0tik 172.31.255.255era</li>
+<li>192.168.0.0-192.168.255.255</li>
+</ul>
+<p>Normalean, gure etxean 192.168.1.0/24 motako sarea izaten dugu. Horrek esan nahi du, adibidez, 192.168.1.100 IPa milaka eta milaka pertsonak izan dezaketela etxeko ordenagailuetan. Beraz, routerren batek IP hori duen datagrama bat bidaliko balu, gainerako routerrek ez lukete jakingo milaka eta milaka etxeetatik zeini bidali beharko litzaiokeen; beraz, datagrama horiek baztertu egiten dira beti.</p>
+<p>Baina, nola nabigatu dezakegu Interneten egunero, IP pribatu bat izanda ere? Ba NATi esker. NAT routerretan jarri zuten trikimailu bat da, IP pribatu bat duen Host batek Interneten nabigatu ahal izateko.</p>
+<p>Adibide batekin azalduko dugu: Host A-k konexio bat hasten du Host B-ren zerbitzariarekin routerretik pasatuz.</p>
+<p>Hurrengo irudietan, Host A-tik Host B-ra eta gero alderantziz bidaltzen diren segmentuak ikusiko ditugu.</p>
+<p><img src="image-31.png" alt="alt text"></p>
+<p>Datuak Host A-ra bidaltzean, ikus dezakegu Host A-k bidaltzen duen TCP segmentua &quot;normala&quot; dela TCP segmentuan espero genituzkeen IP eta atakekin, baina routerrak Host B-ra bidaltzen duen TCP segmentua ikusten badugu, jatorrizko IPa aldatu egin dela ikusten dugu, routerraren IP publikoa da eta ataka ere ez da bera. Zergatik gertatu da hori? Argi zegoen 192.168.100eko IP pribatua ezin zela routerretik atera, beraz, beste IP bat jarri behar zen eta posible zen bakarra routerraren IP publikoa da. Ikusten dugu, halaber, portua aldatu egiten dela; izan ere, aipatu dugun bezala, jatorrizko portua ez da garrantzitsua.</p>
+<p><img src="image-32.png" alt="alt text"></p>
+<p>Ikus dezagun orain erantzuna Host B-tik Host B-k bidaltzen duen TCP segmentua, Host B-k dakienerako itxarongo genukeena da. Hau da, B host-ak uste du erantzuna Routerraren IP publikorako dela, nahiz eta benetan Host A-rako joan.</p>
+<p>Baina orain dator interesgarria dena, TCP segmentua routerrera iristen zaionean, helmugako IP routerraren beraren IP publikoa izan arren, berak badaki ez dela berarentzat segmentu hori, baizik eta Host A. Beraz, TCP segmentua Host A-ra birbidaltzen duenean, routerrak IP destinoa aldatzen du Host A-rena izan dadin.</p>
+<p>Hau da, NAT duen router batek honako hau egiten du 8. IPekin):</p>
+<ul>
+<li>Irteera-segmentuetan: Jarri jatorrizko IP gisa routerraren IP publikoa, routerrera ordenagailu baten jatorri pribatuko IP batekin iristen baitzaizkio.</li>
+<li>Sarrera-segmentuetan: Helmugako IP gisa komunikatu nahi genuen ordenagailuarena jarri, routerrera routerraren IP publikoarekin iristen baitzaizkio</li>
+</ul>
+<p>Aldaketak ez dirudite oso zailak, baina arazoa sarrerako segmentuetan dago. Nola daki routerrak zein ordenagailutara doan segmentu hori, IP destinoa routerraren publikoa bada? Hau da arazoaren gakoa. Azaldu dezagun berriro arazoa. Host B-k itzulerako datuak bidaltzen dituenean, xede-ip routerraren IP publikoa da. Nola daki routerrak ez doala routerrera? Eta nola dakizu zure barne-sareko ordenagailu guztietatik zeinetara doan segmentu hori?</p>
+<p>Erantzuna erraza da, badakizu, lehenengo Host B-ra segmentu bat bidali zuelako, Host A.tik zetorrena. Beraz, datuak itzultzen direnean, badaki Host A.rentzat dela. Beraz, hori da garrantzitsuena. Host A-k konexioa hasi behar du, horrela routerrak jakingo baitu noiz iristen diren Host A.ak egiten dituen datuak. Eskaera hasten duenaren informazio hori, ondoren, helmugako ostatutik datuak bidaltzen direnean, Hostek barne-saretik entregatzera, &quot;NAT taula&quot; deritzonean gordetzen da.</p>
+<p>Baina horrek arazo bat sortzen digu. Zer gertatzen da kanpoko norbaitek gure barne-sareko zerbitzari batera konektatu nahi badu? Hau da, orain konexioa Host B-tik Host A-ra hasten bada. Ba, besterik ezean, ezin du! Eta hori ona da, ez baikenuen nahi Interneteko edozein puntu desegitea norbait gure zerbitzarietara konektatu ahal izateko. Beraz, NAT izatean, zeharka suebaki bat sortu dugu.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
