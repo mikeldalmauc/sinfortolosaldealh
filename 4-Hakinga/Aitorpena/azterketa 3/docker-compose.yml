@@ -38,8 +38,11 @@ services:
     image: mikeldalmauc/m15:1.0
     networks:
       - lab-network
-  
+
+  kali:
+    image: mikeldalmauc/kali-si
+    networks:
+      - lab-network
+
 networks:
   lab-network:
-    external: true
-    name: $network
