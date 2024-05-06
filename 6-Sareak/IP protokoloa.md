@@ -23,7 +23,7 @@
 
 Hurrengo komandoak ip *inet* 172.17.0.2 erakusten du, eta Interneteko protokoloa erabiltzen duen sare batean ekipoa identifikatzen duen ip pribatua da.
 
-![Alt text](<irudiak/Pasted image 20231211222029.png>)
+![Alt text](<Irudiak/Pasted image 20231211222029.png>)
 
 ## Sare motak
 
@@ -63,7 +63,7 @@ Baina router bakoitzak 2 IP dituela ikus dezakegu, hau da, bi sare desberdinetar
 
 Linuxen `ifconfig` komandoa erabiliz, ditugun sare-interfaze guztiak ikusi ahal izango ditugu. Hala ere, orain `enp2s0` deitzen zaie, `eth0` deitu beharrean. Izena zergatik aldatu den jakiteko, [ikus hurrengo esteka](https://juncotic.com/eth0-enp0s3-nombres-interfaces-red-linux/). Baita [Linuxeko sare-interfazeen izenak eta zergatik aldatu dute sareko interfazeen izena Linuxen](https://hardlimit.com/por-que-han-cambiado-el-nombre-de-las-interfaces-de-red/)
 
-![Alt text](<irudiak/Pasted image 20231211221636.png>)
+![Alt text](<Irudiak/Pasted image 20231211221636.png>)
 
 Gogora dezagun une batez Ethernet zertan ari zen. Ethernet Kable batekin zuzenean konektatuta dauden bi ordenagailu (edo Hosts ere deituak) komunikatzeko aukera ematen zuen. Gogoratu Switch batek ordenagailuak zuzenean konektatzen dituela (enchufe elektrikoen erregeleta bat bezala da)
 
