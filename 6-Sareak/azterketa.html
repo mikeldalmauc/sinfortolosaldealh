@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Azterketa Sareak</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+
+
+@font-face { font-family: Hack; src: url('../src/Hack/HackNerdFont-Regular.ttf'); } 
+@font-face { font-family: Hack Italic; src: url('../src/Hack/HackNerdFont-Italic.ttf'); font-style: italic; }
+@font-face { font-family: Hack Bold; src: url('../src/Hack/HackNerdFont-Bold.ttf'); font-weight: bold; }
+@font-face { font-family: Hack Bold Italic; src: url('../src/Hack/HackNerdFont-BoldItalic.ttf'); font-weight: bold; font-style: italic; }@font-face { font-family: Hack; src: url('../src/Hack/HackNerdFont-Regular.ttf'); } 
+.imag{
+  max-width: 150px;
+}
+.imag2 {
+  max-width: 650px;
+
+}
+body {
+  font-family: Hack, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  page-break-after: always
+}
+.note {
+  padding: 0.8em;
+  border-radius: 0.3em;
+  background-color: rgb(166, 233, 166);
+  box-shadow: 1px 1px 3px 1px rgb(164, 164, 164);
+}
+.warning {
+  background-color: rgb(243, 208, 195);
+}
+.language-bash{
+  background-color: rgb(233, 233, 233);
+  padding: 0.8em;
+  border-radius: 0.2em;
+}
+code{
+  background-color: rgb(233, 233, 233);
+  padding: 0.2em;
+  border-radius: 0.1em;
+}
+
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p></p>
+<h1 id="azterketa-sareak"><img class="imag" src="../2-sistema%20eragileak/image-27.png" alt="alt text"> Azterketa Sareak</h1>
+<ul>
+<li>Data: Asteartea, 2024ko Maiatzak 7</li>
+<li>Izen Abizenak:</li>
+<li>Nota:</li>
+</ul>
+<hr>
+<h4 id="1-zein-da-25524800-maskara-duen-azpizare-baten-cidr-zenbakia-1-033">1. Zein da <code>255.248.0.0</code> maskara duen azpizare baten CIDR zenbakia? <em>(+1/-0.33)</em></h4>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">/</mi><mn>11</mn></mrow><annotation encoding="application/x-tex">/11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/11</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">/</mi><mn>12</mn></mrow><annotation encoding="application/x-tex">/12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/12</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">/</mi><mn>13</mn></mrow><annotation encoding="application/x-tex">/13</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/13</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">/</mi><mn>14</mn></mrow><annotation encoding="application/x-tex">/14</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/14</span></span></span></span></li>
+</ol>
+<hr>
+<h4 id="2-zenbat-hosterako-ip-daude-eskuragarri-25524800-maskara-duen-azpizare-baten-1-033">2. Zenbat hosterako ip daude eskuragarri <code>255.248.0.0</code> maskara duen azpizare baten? <em>(+1/-0.33)</em></h4>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>18</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{18}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">18</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>19</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{19}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">19</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>20</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{20}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>21</mn></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2^{21}-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">21</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></li>
+</ol>
+<hr>
+<h4 id="3-zein-da-1010381219-sarearen-maskara-1-033">3. Zein da <code>10.10.38.12/19</code> sarearen maskara? <em>(+1/-0.33)</em></h4>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>255.255.192.0</mn></mrow><annotation encoding="application/x-tex">255.255.192.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">255.255.192.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>255.255.224.0</mn></mrow><annotation encoding="application/x-tex">255.255.224.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">255.255.224.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>255.255.240.0</mn></mrow><annotation encoding="application/x-tex">255.255.240.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">255.255.240.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>255.255.248.0</mn></mrow><annotation encoding="application/x-tex">255.255.248.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">255.255.248.0</span></span></span></span></li>
+</ol>
+<hr>
+<h4 id="4-zein-da-1010381219-sarearen-id-a-1-033">4. Zein da <code>10.10.38.12/19</code> sarearen ID-a? <em>(+1/-0.33)</em></h4>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.0.0</mn></mrow><annotation encoding="application/x-tex">10.10.0.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.0.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.16.0</mn></mrow><annotation encoding="application/x-tex">10.10.16.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.16.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.32.0</mn></mrow><annotation encoding="application/x-tex">10.10.32.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.32.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.64.0</mn></mrow><annotation encoding="application/x-tex">10.10.64.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.64.0</span></span></span></span></li>
+</ol>
+<hr>
+<h4 id="5-zein-da-1010381219-sarearen-broadcast-helbidea-1-033">5. Zein da <code>10.10.38.12/19</code> sarearen Broadcast helbidea? <em>(+1/-0.33)</em></h4>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.255.0</mn></mrow><annotation encoding="application/x-tex">10.10.255.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.255.0</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.32.255</mn></mrow><annotation encoding="application/x-tex">10.10.32.255</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.32.255</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.63.255</mn></mrow><annotation encoding="application/x-tex">10.10.63.255</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.63.255</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.10.128.0</mn></mrow><annotation encoding="application/x-tex">10.10.128.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10.10.128.0</span></span></span></span></li>
+</ol>
+<hr>
+<h4 style="page-break-before: always" id="6-ezarri-osi-geruzaren-izen-bakoitza-dagokion-tokian-hurrengo-irudian-7x03-01">6. Ezarri osi geruzaren izen bakoitza dagokion tokian hurrengo irudian: <em>7x(+0.3/-0.1)</em></h4>
+<p><img src="image-33.png" alt="Osi geruzak"></p>
+<p><code>Saio-geruza</code> <code>Aplikazio-geruza</code> <code>Garraio-geruza</code> <code>Sare-geruza</code> <code>Aurkezpen-geruza </code> <code>Geruza fisikoa</code> <code>Datuen lotura-geruza</code></p>
+<hr>
+<h4 id="7-nola-deitzen-zaie-ip-protokoloaren-informazio-unitateie-1-033">7. Nola deitzen zaie IP protokoloaren informazio unitateie: <em>(+1/-0.33)</em></h4>
+<ol>
+<li>Datagrama</li>
+<li>Trama</li>
+<li>Segmentua</li>
+<li>Paketea</li>
+</ol>
+<hr>
+<h4 id="8-nola-deitzen-zaie-etherneteko-informazio-unitateei-1-033">8. Nola deitzen zaie Etherneteko informazio unitateei: <em>(+1/-0.33)</em></h4>
+<ol>
+<li>Datagrama</li>
+<li>Trama</li>
+<li>Segmentua</li>
+<li>Paketea</li>
+</ol>
+<hr>
+<h4 id="9-nola-deitzen-zaie-tcp-protokoloaren-informazio-unitateei-1-033">9. Nola deitzen zaie TCP protokoloaren informazio unitateei: <em>(+1/-0.33)</em></h4>
+<ol>
+<li>Datagrama</li>
+<li>Trama</li>
+<li>Segmentua</li>
+<li>Paketea</li>
+</ol>
+<hr>
+<h4 style="page-break-before: always" id="10-ip-protokoloan-zer-da-gateway-a-azaldu-esaldi-baten-1">10. IP protokoloan, zer da Gateway-a? Azaldu esaldi baten. <em>(+1)</em></h4>
+<ul>
+<li></li>
+</ul>
+<hr>
+<h4 id="11-hurrengo-irudiko-sarea-izanda-zehaztu-13x02">11. Hurrengo irudiko sarea izanda zehaztu: <em>13x(+0.2)</em></h4>
+<p><img class="imag2" src="image-7.png" alt="alt text"></p>
+<p>Ezkerreko ordenagailuaren bideratze taula:</p>
+<table>
+<thead>
+<tr>
+<th>IP helmuga</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><pre>        </pre></td>
+<td><pre>        </pre></td>
+<td>0.0.0.0</td>
+<td>eth0</td>
+<td><pre>                             </pre></td>
+</tr>
+<tr>
+<td><pre>        </pre></td>
+<td><pre>        </pre></td>
+<td>192.168.3.34</td>
+<td>eth0</td>
+<td><pre>                             </pre></td>
+</tr>
+</tbody>
+</table>
+<p>Eskumako ordenagailuaren bideratze taula:</p>
+<table>
+<thead>
+<tr>
+<th>IP helmuga</th>
+<th>Maskara</th>
+<th>Gatewaya</th>
+<th>Interfazea</th>
+<th>Azalpena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.4.0</td>
+<td><pre>        </pre></td>
+<td><pre>        </pre></td>
+<td>eth0</td>
+<td><pre>                             </pre></td>
+</tr>
+<tr>
+<td><pre>        </pre></td>
+<td><pre>        </pre></td>
+<td></td>
+<td>eth0</td>
+<td><pre>                             </pre></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 style="page-break-before: always" id="12-zeintzuk-dira-ipv4-protokoloaren-arazo-nagusiak-izendatu-nola-konpontzen-ditu-ipv4-protokoloak-arazo-hauek-2">12. Zeintzuk dira IPv4 protokoloaren arazo nagusiak? Izendatu. Nola konpontzen ditu IPv4 protokoloak arazo hauek? <em>(+2)</em></h4>
+<pre>
+
+
+
+
+
+
+
+
+
+</pre>
+<h4 id="13-osi-ereduaren-zein-geruzatan-jarduten-du-arp-protokoloak-1-033">13. OSI ereduaren zein geruzatan jarduten du ARP protokoloak? <em>(+1/-0.33)</em></h4>
+<ol>
+<li>Datuen lotura-geruza</li>
+<li>Geruza fisikoa</li>
+<li>Garraio-geruza</li>
+<li>Aurkezpen-geruza</li>
+</ol>
+<h4 id="14-arp-protokoloaren-helburua-1-033">14. ARP protokoloaren helburua: <em>(+1/-0.33)</em></h4>
+<ol>
+<li>IP helbidea jakinda, MAC helbidea aurkitzea.</li>
+<li>MAC helbidea jakinda, IP helbidea aurkitzea.</li>
+<li>IP helbidea jakinda, konexioa ezartzea.</li>
+<li>MAC helbidea jakinda, konexioa ezartzea.</li>
+</ol>
+<h4 id="15-lotu-hurrengo-zerbitzuak-erabiltzen-dituzten-portu-arruntenekin-4x025-01">15. Lotu hurrengo zerbitzuak erabiltzen dituzten portu arruntenekin: <em>4x(+0.25/-0.1)</em></h4>
+<table>
+<thead>
+<tr>
+<th>Zerbitzua</th>
+<th>Portua</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH</td>
+<td></td>
+</tr>
+<tr>
+<td>Web Zerbitzaria</td>
+<td></td>
+</tr>
+<tr>
+<td>MySql</td>
+<td></td>
+</tr>
+<tr>
+<td>VoIP</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>80</code> <code>22</code> <code>3306</code> <code>5060</code></p>
+<h4 id="16-zein-protokolo-erabiltzen-du-ping-aginduak-1-033">16. Zein protokolo erabiltzen du <code>ping</code> aginduak? <em>(+1/-0.33)</em></h4>
+<ol>
+<li>ARP</li>
+<li>TCP</li>
+<li>UDP</li>
+<li>ICMP</li>
+</ol>
+<h4 style="page-break-before: always" id="17-hurrengo-aginduaren-irteera-ikusita-erantzun-galderei">17. Hurrengo aginduaren irteera ikusita, erantzun galderei:</h4>
+<pre><code class="language-bash">❯ ip addr
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    <span class="hljs-built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: enp2s0f2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    <span class="hljs-built_in">link</span>/ether 38:d5:47:9a:fe:0a brd ff:ff:ff:ff:ff:ff
+    inet 10.23.25.37/22 brd 10.23.27.255 scope global dynamic noprefixroute enp2s0f2
+       valid_lft 32681sec preferred_lft 32681sec
+    inet6 fe80::6014:e9ff:615f:50eb/64 scope <span class="hljs-built_in">link</span> noprefixroute 
+       valid_lft forever preferred_lft forever
+3: wlp3s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    <span class="hljs-built_in">link</span>/ether 5e:9e:58:30:60:d5 brd ff:ff:ff:ff:ff:ff permaddr 94:e9:79:10:61:5f
+</code></pre>
+<ol>
+<li>Zer dira 1, 2 eta 3 zenbakiekin izendatutakoak? <em>(+0.5)</em></li>
+</ol>
+<pre>
+</pre>
+<ol>
+<li>Zertarako erabiltzen da <code>lo</code>? <em>(+0.5)</em></li>
+</ol>
+<pre>
+
+
+
+</pre>
+<ol start="3">
+<li>Zein da <code>enp2s0f2</code> eta <code>wlp3s0</code>ren arteko desberdintasuna? <em>(+0.5)</em></li>
+</ol>
+<pre>
+</pre>
+<ol start="3">
+<li>Azaldu zer gertatuko den hurrengo agindua erabiliz? <em>(+0.5)</em></li>
+</ol>
+<p><code>sudo ip addr add 10.23.25.129/22 dev enp2s0f2</code></p>
+<pre>
+
+</pre>
+<ol start="4">
+<li>Azaldu zer gertatuko den aurreko kasuan hurrengo agindua erabiliz? Interneta izango dugu? <em>(+0.5)</em></li>
+</ol>
+<p><code>sudo ip link set wlps30 down</code></p>
+<pre>
+
+
+</pre>
+<h4 style="page-break-before: always " id="18-azaldu-tcp-eta-udp-ren-arteko-desberdintasun-eta-antzekotasunak-zertarako-erabiliko-zenuke-tcp-eta-udp-eman-adibide-pare-bat-bakoitzerako-eta-arrazoitu-3">18. Azaldu TCP eta UDP-ren arteko desberdintasun eta antzekotasunak. Zertarako erabiliko zenuke TCP? Eta UDP? Eman adibide pare bat bakoitzerako eta arrazoitu. <em>(+3)</em></h4>
+<pre>        
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

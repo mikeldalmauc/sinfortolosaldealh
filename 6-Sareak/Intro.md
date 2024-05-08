@@ -168,7 +168,7 @@ Adierazi Interneteko sare hauetarako gehieneko abiadurak:
 - xDSL
 - DOCSIS
 - FTTH
-- 
+
 ### 6. Ariketa
 Internet bidez, bilatu ordenagailura konekta ditzakezun txartelak, konektatu ahal izateko:
 
