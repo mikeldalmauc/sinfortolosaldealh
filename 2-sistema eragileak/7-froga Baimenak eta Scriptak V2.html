@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Azterketa Baimenak eta Scriptak</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+
+@font-face { font-family: Hack; src: url('../src/Hack/HackNerdFont-Regular.ttf'); } 
+@font-face { font-family: Hack Italic; src: url('../src/Hack/HackNerdFont-Italic.ttf'); font-style: italic; }
+@font-face { font-family: Hack Bold; src: url('../src/Hack/HackNerdFont-Bold.ttf'); font-weight: bold; }
+@font-face { font-family: Hack Bold Italic; src: url('../src/Hack/HackNerdFont-BoldItalic.ttf'); font-weight: bold; font-style: italic; }@font-face { font-family: Hack; src: url('../src/Hack/HackNerdFont-Regular.ttf'); } 
+.imag{
+  max-width: 150px;
+}
+body {
+  font-family: Hack, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  page-break-after: always
+}
+.note {
+  padding: 0.8em;
+  border-radius: 0.3em;
+  background-color: rgb(166, 233, 166);
+  box-shadow: 1px 1px 3px 1px rgb(164, 164, 164);
+}
+.warning {
+  background-color: rgb(243, 208, 195);
+}
+.language-bash{
+  background-color: lightgray;
+  padding: 0.8em;
+  border-radius: 0.2em;
+}
+code{
+  background-color: rgb(233, 233, 233);
+  padding: 0.2em;
+  border-radius: 0.1em;
+}
+
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+</head>
+<body class="vscode-body vscode-light">
+<h1 id="azterketa-baimenak-eta-scriptak"><img class="imag" src="image-27.png" alt="alt text"> Azterketa Baimenak eta Scriptak</h1>
+<ul>
+<li>Izen Abizenak:</li>
+<li>Nota:</li>
+</ul>
+<h4 id="1-linuxen-baimen-mota-bat-modu-oktalean-adierazi-nahi-denean-zenbakiak-nola-interpretatzen-dira-1---033">1. Linuxen baimen mota bat modu oktalean adierazi nahi denean, zenbakiak nola interpretatzen dira? (+1 / -0,33)</h4>
+<pre><code>a) 4 = read, 2 = write, 1 = execute
+b) 2 = read, 4 = write, 1 = execute
+c) 2 = read, 1 = write, 4 = execute
+d) 1 = read, 2 = write, 4 = execute
+</code></pre>
+<hr>
+<h4 id="2-nola-gehitu-exekuzio-baimena-jabearentzat-baimenak-modu-sinbolikoan-1---033">2. Nola gehitu exekuzio baimena jabearentzat baimenak modu sinbolikoan? (+1 / -0,33)</h4>
+<pre><code>a) chmod u+x file.txt
+b) chmod x+u file.txt
+c) chmod +u+x file.txt
+d) chmod u+x+ file.txt
+</code></pre>
+<hr>
+<h4 id="3-nola-gehitu-sticky-bita-fitxategi-edo-karpeta-bati-modu-oktalean-1---033">3. Nola gehitu sticky bita fitxategi edo karpeta bati modu oktalean? (+1 / -0,33)</h4>
+<pre><code>a) chmod +t file.txt
+b) chmod 1755 file.txt
+c) chmod u+s file.txt
+d) chmod +s file.txt
+</code></pre>
+<hr>
+<h4 id="4-demagun-hurrengo-fitxategiak">4. Demagun hurrengo fitxategiak:</h4>
+<p><img src="image-26.png" alt="alt text"></p>
+<h5 id="1-exekuta-dezake-mikel-erabiltzaileak-ariketa1sh-scripta-05--05">1. Exekuta dezake mikel erabiltzaileak <a href="http://ariketa1.sh">ariketa1.sh</a> scripta? (+0.5/ -0,5)</h5>
+<h5 id="2-exekuta-dezake-root-erabiltzaieleak-ariketa2sh-scripta-05--05">2. Exekuta dezake root erabiltzaieleak <a href="http://ariketa2.sh">ariketa2.sh</a> scripta? (+0.5/ -0,5)</h5>
+<h5 id="3-zein-da-ariketa1sh-fitxategiaren-taldea-eta-ownerra-05--05">3. Zein da <a href="http://ariketa1.sh">ariketa1.sh</a> fitxategiaren taldea eta ownerra? (+0.5/ -0,5)</h5>
+<hr>
+<h4 id="5-sticky-bitari-buruz-zein-da-egia-1---033">5. Sticky bitari buruz, zein da egia? (+1 / -0,33)</h4>
+<pre><code>a) Jabeak soilik aldatu edo ezabatu dezake fitxategia
+b) Taldeko erabiltzaileek soilik aldatu dezakete fitxategia
+c) Root-ek soilik aldatu edo ezabatu dezake fitxategia
+d) Guztiak aldatu edo ezabatu dezakete fitxategia
+</code></pre>
+<hr>
+<h4 id="6-zertarako-erabiltzen-da-suid-baimena-1---033">6. Zertarako erabiltzen da SUID baimena? (+1 / -0,33)</h4>
+<pre><code>a) Erabiltzaile guztiek fitxategiaren exekuzio baimenak izango dituzte
+b) Erabiltzaile guztiek fitxategiaren idazketa baimenak izango dituzte
+c) Sortzaileak soilik fitxategiaren exekuzio baimenak izango ditu
+d) Fitxategia, sortzailearen baimenekin exekutatuko da
+</code></pre>
+<hr>
+<h4 id="7-zer-adierazten-du--c-ezaugarriak-fitxategiari-ematen-dion-1---033">7. Zer adierazten du <code>-c</code> ezaugarriak fitxategiari ematen dion? (+1 / -0,33)</h4>
+<pre><code>a) Fitxategia konprimituta gordetzen da
+b) Fitxategia ezabatzean, zeroekin berridatzi egiten da
+c) Fitxategia ezabatzean, okupatzen zen memoria ezabatzen da
+d) Fitxategiari datuak bakarrik gehitu ahal zaizkio, aurretin zegoen edukia aldatu gabe
+</code></pre>
+<hr>
+<h4 id="8-zer-adierazten-du--u-ezaugarriak-fitxategiari-ematen-dion-1---033">8. Zer adierazten du <code>-u</code> ezaugarriak fitxategiari ematen dion? (+1 / -0,33)</h4>
+<pre><code>a) Fitxategia konprimituta gordetzen da
+b) Fitxategia ezabatzean, zeroekin berridatzi egiten da
+c) Fitxategia ezabatzean, datuak berreskura daitezke gero
+d) Fitxategiari datuak bakarrik gehitu ahal zaizkio, aurretin zegoen edukia aldatu gabe
+</code></pre>
+<hr>
+<h4 id="9--zer-adierazten-du--a-ezaugarriak-fitxategiari-ematen-dion-1---033">9.  Zer adierazten du <code>-a</code> ezaugarriak fitxategiari ematen dion? (+1 / -0,33)</h4>
+<pre><code>a) Fitxategia konprimituta gordetzen da
+b) Fitxategia ezabatzean, zeroekin berridatzi egiten da
+c) Fitxategia ezabatzean, okupatzen zen memoria ezabatzen da
+d) Fitxategiari datuak bakarrik gehitu ahal zaizkio, aurretin zegoen edukia aldatu gabe
+</code></pre>
+<hr>
+<h4 id="10--nola-ezartzen-da-aldagai-baten-balioa-erabiltzaileak-sartzen-dituen-datoekin-1---033">10.  Nola ezartzen da aldagai baten balioa erabiltzaileak sartzen dituen datoekin? (+1 / -0,33)</h4>
+<pre><code>a) read ALDAGAIA
+b) echo \$ALDAGAIA
+c) read &quot;ALDAGAIA&quot;
+d) read $ALDAGAIA
+</code></pre>
+<hr>
+<h4 id="11-zein-da-aldagaiare-erabilera-zuzena-1---033">11. Zein da aldagaiare erabilera zuzena? (+1 / -0,33)</h4>
+<pre><code>a) echo &quot;nire ALDAGAIA&quot;
+b) echo &quot;nire -ALDAGAIA&quot;
+c) echo &quot;nire $ALDAGAIA&quot;
+d) echo &quot;nire #ALDAGAIA&quot;
+</code></pre>
+<hr>
+<h4 id="12--hurrengo-scripta-paramssh-izena-du">12.  Hurrengo scripta, <a href="http://params.sh">params.sh</a> izena du.</h4>
+<pre><code class="language-bash"><span class="hljs-meta">#!/bin/bash</span>
+
+<span class="hljs-keyword">for</span> param <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+<span class="hljs-keyword">do</span>    
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$param</span>&quot;</span> == <span class="hljs-string">&quot;-r&quot;</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;recursive selected&quot;</span>
+    <span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$param</span>&quot;</span>  == <span class="hljs-string">&quot;-l&quot;</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;list selected&quot;</span>
+    <span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$param</span>&quot;</span>  == <span class="hljs-string">&quot;-a&quot;</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;all selected&quot;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;unknown param&quot;</span>
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span>
+</code></pre>
+<h5 id="a-nola-exekutatu-beharko-zenuke-hurrengo-irteera-lortzeko-1">a) Nola exekutatu beharko zenuke hurrengo irteera lortzeko? (+1)</h5>
+<pre><code class="language-bash">list selected
+unknown param
+</code></pre>
+<h5 id="b-nola-exekutatu-beharko-zenuke-hurrengo-irteera-lortzeko-1">b) Nola exekutatu beharko zenuke hurrengo irteera lortzeko? (+1)</h5>
+<pre><code class="language-bash">recursive selected
+unknown param
+list selected
+all selected
+</code></pre>
+<h4 id="13--hurrengo-scripta-izanda">13.  Hurrengo scripta izanda:</h4>
+<pre><code class="language-bash"><span class="hljs-meta">#!/bin/bash</span>
+
+<span class="hljs-built_in">read</span> -r ALDAGAIA
+
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$ALDAGAIA</span>&quot;</span> -lt 5 ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;tximista&quot;</span>
+<span class="hljs-keyword">else</span> 
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$ALDAGAIA</span>&quot;</span> -eq 7 ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;trumoia&quot;</span>
+    <span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$ALDAGAIA</span>&quot;</span> -gt 6 ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;lainoa&quot;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;eguzkia&quot;</span>
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">fi</span>
+</code></pre>
+<h5 id="a-zer-idatzi-beharko-luke-erabiltzailea-terminalean-lainoa-ikusteko-05">a. Zer idatzi beharko luke erabiltzailea terminalean <code>lainoa</code> ikusteko? (+0.5)</h5>
+<h5 id="b-zer-idatzi-beharko-luke-erabiltzailea-terminalean-tximista-ikusteko-05">b. Zer idatzi beharko luke erabiltzailea terminalean <code>tximista</code> ikusteko? (+0.5)</h5>
+<h5 id="c-zer-idatzi-beharko-luke-erabiltzailea-terminalean-lainoa-ikusteko--05">c. Zer idatzi beharko luke erabiltzailea terminalean <code>lainoa</code> ikusteko?  (+0.5)</h5>
+<h5 id="c-zer-idatzi-beharko-luke-erabiltzailea-terminalean-eguzkia-ikusteko--05">c. Zer idatzi beharko luke erabiltzailea terminalean <code>eguzkia</code> ikusteko?  (+0.5)</h5>
+<hr>
+<h4 id="14-hurrengo-scripta-izanda">14. Hurrengo scripta izanda:</h4>
+<pre><code class="language-bash"><span class="hljs-meta">#!/bin/bash</span>
+
+ALDAGAIA=2
+
+<span class="hljs-keyword">while</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$ALDAGAIA</span>&quot;</span> -lt 7 ] ; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;aldagaiairen balioa: <span class="hljs-variable">$ALDAGAIA</span>&quot;</span>
+    ALDAGAIA = ALDAGAIA + 1
+<span class="hljs-keyword">done</span>
+</code></pre>
+<h5 id="a-zein-izango-da-scriptaren-irteera-15">a. Zein izango da scriptaren irteera? (+1.5)</h5>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

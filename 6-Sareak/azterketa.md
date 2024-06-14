@@ -8,39 +8,39 @@
 - Nota: 
 --- 
 
-#### 1. Zein da `255.248.0.0` maskara duen azpizare baten CIDR zenbakia? *(+1/-0.33)*
-1. $/11$
-2. $/12$
-3. $/13$
-4. $/14$
+#### 1. Zein da `255.255.224.0` maskara duen azpizare baten CIDR zenbakia? *(+1/-0.33)*
+1. $/19$
+2. $/20$
+3. $/21$
+4. $/22$
 
 --- 
-#### 2. Zenbat hosterako ip daude eskuragarri `255.248.0.0` maskara duen azpizare baten? *(+1/-0.33)*
-1. $2^{18}-2$
-2. $2^{19}-2$
-3. $2^{20}-2$
-4. $2^{21}-2$
+#### 2. Zenbat hosterako ip daude eskuragarri `255.255.224.0` maskara duen azpizare baten? *(+1/-0.33)*
+1. $2^{13}-2$
+2. $2^{12}-2$
+3. $2^{11}-2$
+4. $2^{10}-2$
 --- 
 
-#### 3. Zein da `10.10.38.12/19` sarearen maskara? *(+1/-0.33)*
-1. $255.255.192.0$
-2. $255.255.224.0$
-3. $255.255.240.0$
-4. $255.255.248.0$
+#### 3. Zein da `10.10.1.15/23` sarearen maskara? *(+1/-0.33)*
+1. $255.255.224.0$
+2. $255.255.240.0$
+3. $255.255.248.0$
+4. $255.255.254.0$
 --- 
 
-#### 4. Zein da `10.10.38.12/19` sarearen ID-a? *(+1/-0.33)*
+#### 4. Zein da `10.10.1.15/23` sarearen ID-a? *(+1/-0.33)*
 1. $10.10.0.0$
-2. $10.10.16.0$
-3. $10.10.32.0$
-4. $10.10.64.0$
+2. $10.10.0.1$
+3. $10.10.1.0$
+4. $10.10.1.128$
 --- 
 
-#### 5. Zein da `10.10.38.12/19` sarearen Broadcast helbidea? *(+1/-0.33)*
-1. $10.10.255.0$
-2. $10.10.32.255$
+#### 5. Zein da `10.10.1.15/23` sarearen Broadcast helbidea? *(+1/-0.33)*
+1. $10.10.8.255$
+2. $10.10.1.255$
 3. $10.10.63.255$
-4. $10.10.128.0$
+4. $10.10.1.128$
 --- 
 
 #### 6. Ezarri osi geruzaren izen bakoitza dagokion tokian hurrengo irudian: *7x(+0.3/-0.1)*
@@ -76,24 +76,7 @@
 
 - 
 --- 
-
-#### 11. Hurrengo irudiko sarea izanda zehaztu: *13x(+0.2)*
-
-![alt text](image-7.png)
-
-Ezkerreko ordenagailuaren bideratze taula:
-| IP helmuga                | Maskara         | Gatewaya         | Interfazea | Azalpena |
-|---------------------|----------------|-----------------|-----------|----------------------|
-| <pre>        </pre>   | <pre>        </pre>   |  0.0.0.0 | eth0 |   <pre>                             </pre>   |
-| <pre>        </pre>  | <pre>        </pre>  |  192.168.3.34	 |  eth0 |  <pre>                             </pre>  |
-
-Eskumako ordenagailuaren bideratze taula:
-| IP helmuga              | Maskara         | Gatewaya         | Interfazea | Azalpena |
-|---------------------|----------------|-----------------|-----------|----------------------|
-| 192.168.4.0	  | <pre>        </pre>   | <pre>        </pre> | eth0 |   <pre>                             </pre>   |
-| <pre>        </pre>  | <pre>        </pre>  |  	 |  eth0 |  <pre>                             </pre>  |
-
---- 
+ 
 
 #### 12. Zeintzuk dira IPv4 protokoloaren arazo nagusiak? Izendatu. Nola konpontzen ditu IPv4 protokoloak arazo hauek? *(+2)*
 <pre>
