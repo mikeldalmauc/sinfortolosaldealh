@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+
+  m2:
+    image: mikeldalmauc/m2:1.3
+    networks:
+      - lab-network
+  m7:
+    image: mikeldalmauc/m7:1.0
+    networks:
+      - lab-network
+  m13:
+    image: mikeldalmauc/m13:1.0
+    networks:
+      - lab-network
+  m8:
+    image: mikeldalmauc/m8:1.0
+    networks:
+      - lab-network
+  m10:
+    image: mikeldalmauc/m10:1.0
+    networks:
+      - lab-network
+  m11:
+    image: mikeldalmauc/m11:1.0
+    networks:
+      - lab-network
+  m12:
+    image: mikeldalmauc/m12:1.0
+    networks:
+      - lab-network
+  m14:
+    image: mikeldalmauc/m14:1.0
+    networks:
+      - lab-network
+  m15:
+    image: mikeldalmauc/m15:1.0
+    networks:
+      - lab-network
+
+  kali:
+    image: mikeldalmauc/kali-si
+    networks:
+      - lab-network
+
+networks:
+  lab-network:
