@@ -193,7 +193,7 @@ public enum Msg {
 ---
 # El programa - Main
 
-El programa main es donde las tres piezas se juntan, en este caso sobre un programa runnable de swing. 
+El programa main es donde las tres piezas se juntan. 
 
 1. Se genera el primer modelo
 2. Se genera la primera vista a partir del primer modelo.
